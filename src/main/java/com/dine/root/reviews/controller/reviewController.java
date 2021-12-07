@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class reviewController {
 	@RequestMapping("reviews")
 	public String reviews() {
-		return "detail_view/food_reviews";
+		return "food/food_reviews";
 	}
 	@RequestMapping("upload_rest_Review")
 	public void upload(MultipartHttpServletRequest m) {
