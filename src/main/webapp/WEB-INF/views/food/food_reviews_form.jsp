@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>[음식 이름] | 리뷰 쓰기 - DiningLab</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	// 글자수 제한
 	$(document).ready(function() {
@@ -107,7 +106,7 @@
 			<div>[음식] , 드셔보셨나요, 평가해 주세요</div>
 			<input type="hidden" name="rate" id="rate" value="5" />
 			<input type="hidden" name="memId" value="김떙땡" />
-			<input type="hidden" name="foodId" value="1" />
+			<input type="hidden" name="foodName" value="김치" />
 					<!-- 별점  -->
 			<div class="review_rating">
 				<div id="rate_comment">환상적인 맛이에요!</div>
