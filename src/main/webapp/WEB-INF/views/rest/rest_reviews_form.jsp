@@ -112,13 +112,15 @@ margin: auto;
 	}
 </script>
 </head>
-<!--  가져올 정보 :  음식점 이름, 사용자  -->
-<!--  내보낼 정보 id : rate , review_write, 사용자 id, 파일:btnAtt -->
+<!--  가져올 정보 : mem_id , rest_id  -->
+<!--  내보낼 정보 : mem_id(memId), rest_id, rest_rate(rate), review(content), rev_pic(restImgs) -->
 <body>
 <div class="bodyWrap">
 	<form action="upload_rest_Review" method="post" enctype="multipart/form-data" onsubmit="return contentNull_alert();">
 		<div>[음식점] 에 대한 솔직한 리뷰를 써주세요</div>
 		<input type="hidden" name="rate" id="rate" value="5" />
+		<input type="hidden" name="memId" value="김떙땡" />
+		<input type="hidden" name="restId" value="1" />
 		<textarea name="content" id="content" rows="20" cols="50"
 			placeholder="땡땡땡 님 , 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
 		<div style="color: #aaa;" id="content_cnt">(0 / 최대 1,000자)</div>
@@ -183,32 +185,26 @@ document.addEventListener('DOMContentLoaded', function(){
 		<div id='image_preview'>
 			<div id='att_zone'
 				data-placeholder='파일을 첨부 하려면 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
-				<input style='display: none;' type='file' id='btnAtt'
-					multiple='multiple' onchange="setThumbnail(event);" /> <img
+				<input style='display: none;' type='file' id='restImgs' name="restImgs"
+					multiple='multiple' /> <img
 					style="width: 100px; height: 100px;"
 					src='resources/detail_img/test.png' border='0'
-					onclick='document.all.btnAtt.click();'>
+					onclick='document.all.restImgs.click();'>
 			</div>
+			<div id="img_cnt">( 0 / 3 )</div>
+			<!--  파일 업로드 수정할 예정 -->
+			<div id="d_file"></div>
 		</div>
 		<script>
-	function setThumbnail(event) {
-		var reader = new FileReader();
-		reader.onload = function(event) {
-			var img = document.createElement("img");
-			img.setAttribute("src", event.target.result);
-			document.querySelector("span#image_container").appendChild(img);
-		};
-		reader.readAsDataURL(event.target.files[0]);
-	}
  	// 해당 숫자를 수정하여 전체 업로드 갯수를 정함
   	var totalCount = 3;
    	// 파일 현재 필드 숫자 totalCount 랑 비교
   	var fileCount = 0;
 ( /* att_zone : 이미지들이 들어갈 위치 id, btn : file tag id */
-  imageView = function imageView(att_zone, btn){
+  imageView = function imageView(att_zone, restImgs){
 
     var attZone = document.getElementById(att_zone);
-    var btnAtt = document.getElementById(btn)
+    var restImgs = document.getElementById(restImgs)
     var sel_files = [];
     
     // 이미지와 체크 박스를 감싸고 있는 div 속성
@@ -220,17 +216,22 @@ document.addEventListener('DOMContentLoaded', function(){
     var chk_style = 'width:30px;height:30px;position:absolute;font-size:24px;'
                   + 'right:0px;bottom:0px;z-index:999;background-color:rgba(255,255,255,0.1);color:#f00';
 
-    btnAtt.onchange = function(e){
+    restImgs.onchange = function(e){
       var files = e.target.files;
       var fileArr = Array.prototype.slice.call(files)
       // 파일 개수 확인 및 제한
+      
       if(fileCount + fileArr.length > totalCount){
      	 alert('파일은 최대 '+totalCount+'개까지 업로드 할 수 있습니다.');
      	 return;
       }else{
      	 fileCount = fileCount + fileArr.length;
+     	 
       }
-      console.log(fileCount)
+      
+      $('#img_cnt').html("( "+fileCount +" / "+totalCount+" ) ");
+      console.log(sel_files)
+      
       for(f of fileArr){
         imageLoader(f);
       }
@@ -240,12 +241,13 @@ document.addEventListener('DOMContentLoaded', function(){
     attZone.addEventListener('dragenter', function(e){
       e.preventDefault();
       e.stopPropagation();
+      $('#img_cnt').html("( "+fileCount +" / "+totalCount+" ) ");
     }, false)
     
     attZone.addEventListener('dragover', function(e){
       e.preventDefault();
       e.stopPropagation();
-      
+      $('#img_cnt').html("( "+fileCount +" / "+totalCount+" ) ");
     }, false)
   
     attZone.addEventListener('drop', function(e){
@@ -261,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }else{
      	 fileCount = fileCount + files.length;
       }
+      $('#img_cnt').html("( "+fileCount +" / "+totalCount+" ) ");
       for(f of files){
         imageLoader(f);
       }
@@ -293,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.setAttribute('style', chk_style);
       btn.onclick = function(ev){
     	fileCount -= 1; 
+    	 $('#img_cnt').html("( "+fileCount +" / "+totalCount+" ) ");
         var ele = ev.srcElement;
         var delFile = ele.getAttribute('delFile');
         for(var i=0 ;i<sel_files.length; i++){
@@ -306,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function(){
           var file = sel_files[f];
           dt.items.add(file);
         }
-        btnAtt.files = dt.files;
+        restImgs.files = dt.files;
         var p = ele.parentNode;
         attZone.removeChild(p)
       }
@@ -315,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function(){
       return div
     }
   }
-)('att_zone', 'btnAtt')
+)('att_zone', 'restImgs')
 </script>
 		<div>
 			<input type="button" value="취소" onclick="location.herf='view'">
