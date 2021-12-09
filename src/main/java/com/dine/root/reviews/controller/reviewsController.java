@@ -61,4 +61,8 @@ public class reviewsController {
 		rs.foodReviewsUploadProcess(multipartFile,request);
 		return "{ \\\"result\\\":\\\"OK\\\" }";
 	}
+	@RequestMapping("food")
+	public String food() {
+		return "/food/food_detail";
+	}
 }
