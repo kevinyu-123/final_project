@@ -93,7 +93,7 @@
                 <div class="col-md-12">
                     <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                         <div class="title">
-                            <h3>Featured <span>Works</span></h3>
+                            <h3>Dining <span>Lab</span></h3>
                         </div>
                         <div id="owl-example" class="owl-carousel">
                             <div>

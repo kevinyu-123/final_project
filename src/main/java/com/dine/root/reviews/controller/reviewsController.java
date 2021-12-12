@@ -65,4 +65,8 @@ public class reviewsController {
 	public String food() {
 		return "/food/food_detail";
 	}
+	@RequestMapping("f")
+	public String f() {
+		return "/food/food";
+	}
 }
