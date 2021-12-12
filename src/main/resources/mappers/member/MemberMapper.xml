@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dine.root.member.mapper.MemMapper">
+
+	<resultMap type="com.dine.root.member.dto.MemDTO" id="member">
+		<!-- property = dto에 저장된 변수이름  column은 db table 의 컬럼명 -->
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="pwd" column="pwd"/>
+		<result property="liked_rest" column="liked_rest"/>
+		<result property="session_id" column="session_id"/>
+		<result property="session_date" column="session_date"/>
+		<result property="email" column="email"/>
+		<result property="email_auth" column="email_auth"/>
+		<result property="kakaologin" column="kakaologin"/>
+		<result property="naverlogin" column="naverlogin"/>
+	</resultMap>
+	
+	<select id="kakaoChk" resultType="Map">
+		SELECT email,kakaologin FROM member WHERE email = #{email}
+	</select>
+	
+	<update id="setKakaoConnection">
+		UPDATE member SET  kakaologin = #{id} WHERE email = #{email}
+	</update>
+	
+	<select id="userKakaoLoginPro" resultType="Map">
+		SELECT email FROM member WHERE email = #{email} AND kakaologin = #{id}
+	</select>	
+		
+	<insert id="memKakaoRegister">
+		INSERT INTO member (id,name,pwd,email,email_auth,kakaologin) VALUES(#{id},#{name},#{pwd},#{email},#{email_auth},#{kakaologin})
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	</mapper>
