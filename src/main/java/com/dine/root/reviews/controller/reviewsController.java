@@ -69,4 +69,6 @@ public class reviewsController {
 	public String f() {
 		return "/food/food";
 	}
+	
+	
 }
