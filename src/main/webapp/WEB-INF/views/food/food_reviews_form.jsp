@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <head>
 <meta charset="UTF-8">
 <title>[음식 이름] | 리뷰 쓰기 - DiningLab</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script type="text/javascript">
 	// 글자수 제한
 	$(document).ready(function() {
@@ -15,6 +17,7 @@
 			if ($(this).val().length > 1000) {
 				$(this).val($(this).val().substring(0, 1000));
 				$('#content_cnt').html("(1,000 / 1,000)");
+				$('#content_cnt').focus()
 			}
 		});
 	});
@@ -61,6 +64,63 @@
 		}
 </script>
 <style>
+body{
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    display: block;
+}
+#wrap{
+	width: 30%;
+	margin: auto;
+	padding-top: 50px;
+}
+p {
+text-align: center;
+font-size: 25px;
+}
+.food-reviews-title p span {
+	color: red;
+	font-size: 30px;
+}
+#rate_comment {
+	text-align: center;
+	font-size: 30px;
+}
+
+#content {
+	padding: 25px ;
+	width: 90%;
+	overflow:auto;
+	resize:none;
+	overflow:hidden;
+	font-size: 17px;
+	border: 0.1px thin gray;
+	border-radius: 50px ; 
+	text-align: center;
+	margin: 0px 10px;
+}
+#content_cnt{
+width: 100%;
+text-align: right;
+}
+#image_preview{
+width: 100%;
+display: flex;
+}
+#image_preview img{
+padding: 10px 10px;
+}
+.form-btn{
+width: 100%;;
+padding-bottom: 30px;
+text-align: center;
+
+}
+.form-btn input{
+width: 150px;
+margin: auto;
+}
 <!--별 이미지 구현 --> /* 레이아웃 외곽 너비 400px 제한*/ 
 .reviewform textarea {
 	width: 100%;
@@ -68,6 +128,10 @@
 	box-sizing: border-box;
 }
 
+.rating{
+width: 380px;
+margin: auto;
+}
 .rating .rate_radio {
 	position: relative;
 	display: inline-block;
@@ -84,13 +148,12 @@
 .rating .rate_radio+label {
 	position: relative;
 	display: inline-block;
-	margin-left: -4px;
 	z-index: 10;
-	width: 30px;
-	height: 30px;
+	width: 70px;
+	height: 70px;
 	background-image: url('resources/detail_img/starrate.png');
 	background-repeat: no-repeat;
-	background-size: 30px 30px;
+	background-size: 70px 70px;
 	cursor: pointer;
 	background-color: #f0f0f0;
 }
@@ -103,13 +166,13 @@
 <body>
 	<div id="wrap">
 		<form action="upload_food_review" method="post" enctype="multipart/form-data" onsubmit="return contentNull_alert();">
-			<div>[음식] , 드셔보셨나요, 평가해 주세요</div>
+			<div class="food-reviews-title"><p><span>[음식]</span> , 드셔보셨나요, 평가해 주세요</p></div>
 			<input type="hidden" name="rate" id="rate" value="5" />
 			<input type="hidden" name="memId" value="김떙땡" />
 			<input type="hidden" name="foodName" value="김치" />
 					<!-- 별점  -->
 			<div class="review_rating">
-				<div id="rate_comment">환상적인 맛이에요!</div>
+			<hr>
 				<div class="rating">
 					<!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
 					<input type="checkbox" name="rating" id="rating1" value="1"
@@ -122,7 +185,9 @@
 						class="rate_radio" title="4점" checked="checked"> <label for="rating4"></label>
 					<input type="checkbox" name="rating" id="rating5" value="5"
 						class="rate_radio" title="5점" checked="checked"> <label for="rating5"></label>
+						<p id="rate_comment">환상적인 맛이에요!</p>
 				</div>
+				<br>
 			</div>
 			<script type="text/javascript">
 			//별점 마킹 모듈 프로토타입으로 생성
@@ -162,14 +227,29 @@
 			    })
 			});
 			</script>
-			<textarea name="content" id="content" rows="20" cols="20"
+			<textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)"
 			placeholder="땡땡땡 님 , 음식에 대한 리뷰를 작성해주세요 ! "></textarea>
 			<div style="color: #aaa;" id="content_cnt">(0 / 최대 1,000자)</div>
-			<div> 음식 사진을 등록해 보세요~</div>
+			<br>
+			<p> 음식 사진을 등록해 보세요~</p>
 			<div id='image_preview'>
-				<img style="width: 50px; height: 50px;"
-					src='resources/detail_img/test.png' border='0' id="btn-upload">
+				<table>
+				<tr><td>
+				<img style="width: 100px; height: 100px;"
+					src='resources/detail_img/plus-icon.png' border='0' id="btn-upload"></td>
+				<tr><td>
+				<p style="color: #aaa; width: 100px; margin: auto; font-size: 16px;" id="imgcnt" >(0 / 최대 3장)</p>
+				</td></tr>
+				</table>
 				<input id="input_file" multiple="multiple" type="file" style="display:none;">
+				
+				<!-- textarea scroll -->
+				<script>
+				function resize(obj) {
+				    obj.style.height = '1px';
+				    obj.style.height = (12 + obj.scrollHeight) + 'px';
+				}
+				</script>
 				<!-- 파일 업로드 스크립트 -->
 				<script>
 				$(document).ready(function()
@@ -203,21 +283,25 @@
 				    // 파일 배열 담기
 				    var filesArr = Array.prototype.slice.call(files);
 				    
+				    
 				    // 파일 개수 확인 및 제한
 				    if (fileCount + filesArr.length > totalCount) {
 				      alert('파일은 최대 '+totalCount+'개까지 업로드 할 수 있습니다.');
 				      return;
 				    } else {
-				    	 fileCount = fileCount + filesArr.length;
+				    	fileCount = fileCount + filesArr.length;
+						var cnt = document.getElementById('imgcnt')
+						cnt.innerText =  "("+fileCount+" / 3장)"
 				    }
 				    
 				    // 각각의 파일 배열담기 및 기타
+				    var imgcnt = 0;
 				    filesArr.forEach(function (f) {
 				      var reader = new FileReader();
 				      reader.onload = function (e) {
 				        content_files.push(f);
 				        let img = document.createElement('img')
-				        img.setAttribute('style','width:50px;height:50px;z-index:none');
+				        img.setAttribute('style','width:100px;height:100px;z-index:none');
 				        img.setAttribute('onclick',"fileDelete(" + fileNum + ")");
 				        img.setAttribute('id',fileNum);
 				        img.src = e.target.result;
@@ -227,7 +311,10 @@
 				      };
 				      reader.readAsDataURL(f);
 				    });
-				    console.log(content_files);
+				   
+				    
+
+
 				    //초기화 한다.
 				    $("#input_file").val("");
 				  }
@@ -237,14 +324,17 @@
 				    content_files[fileNum].is_delete = true;
 					$("#"+fileNum).remove();
 					fileCount --;
+					var cnt = document.getElementById('imgcnt')
+					cnt.innerText =  "("+fileCount+" / 3장)"
 				    console.log(content_files);
 				}
 				</script>
-				<div>
-					<input type="button" value="취소" onclick="location.herf='view'">
-					<input type="submit" value="리뷰 올리기">
-				</div>
 			</div>
+			<br>
+				<div class="form-btn">
+					<input type="button" class="btn btn-secondary btn-lg" value="취소" onclick="location.herf='view'">
+					<input type="submit"  class="btn btn-primary btn-lg" value="리뷰 올리기">
+				</div>
 		</form>
 	</div>
 </body>
