@@ -36,8 +36,7 @@ span {
 }
 
 #buttons table {
-	width: 800px;
-	margin-left: 300px;
+	margin-left: 430px;
 }
 
 button {
@@ -105,8 +104,8 @@ button:hover {
 		</header>
 		<div id="bigbox">
 			<div id="profile">
-				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
-				<span><b>user_name</b></span>
+				<img src="${contextPath}/resources/img/imgMain/user.png"><br>
+				<span><b>${session_user}</b></span>
 			</div>
 			<div>
 				<div>

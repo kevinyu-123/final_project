@@ -21,11 +21,11 @@
 	margin: 0;
 	display: flex;
 	bottom: 0;
-	
+
 }
 
 #box1 ul {
-	margin-left: 500px; list-style : none;
+	margin-left: 620px; list-style : none;
 	display: flex;
 	list-style: none;
 }
@@ -58,23 +58,23 @@
 	<div id="footer" style="z-index: 10000;">
 		<div id="box1" style="width: 80%;">
 			<ul>
-				<li><a href="#">About us</a>&nbsp;&nbsp;|</li>
-				<li><a href="#">Site map</a>&nbsp;&nbsp;|</li>
-				<li><a href="#">News</a>&nbsp;&nbsp;|</li>
-				<li><a href="#">Event</a></li>
+				<li><a href="aboutus">About us</a>&nbsp;&nbsp;|</li>
+				<li><a href="sitemap">Site map</a>&nbsp;&nbsp;|</li>
+				<li><a href="news">News</a>&nbsp;&nbsp;|</li>
+				<li><a href="event">Event</a></li>
 			</ul>
 		</div>
 		<div id="box2"
 			style="width: 20%;">
 
 			<ul>
-				<li><a href="#"><img
+				<li><a href="https://www.facebook.com/"><img
 						src="${contextPath }/resources/img/imgMain/facebook.png"></a></li>
-				<li><a href="#"><img
+				<li><a href="https://www.instagram.com/?hl=ko"><img
 						src="${contextPath }/resources/img/imgMain/instagram.png"></a></li>
-				<li><a href="#"><img
+				<li><a href="https://twitter.com/i/flow/login"><img
 						src="${contextPath }/resources/img/imgMain/twitter.png"></a></li>
-				<li><a href="#"><img
+				<li><a href="https://github.com/"><img
 						src="${contextPath }/resources/img/imgMain/github.png"></a></li>
 			</ul>
 

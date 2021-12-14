@@ -122,34 +122,34 @@ color:white;
 			<div class="sidebar-content rounded-rect flex-center">
 				<table >
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=korea"><img src="${contextPath}/resources/img/map/korea1.png">대한민국</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=korea"><img id="icon" src="${contextPath}/resources/img/map/korea1.png">대한민국</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/singapore1.png">싱가폴</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=singapore"><img id="icon" src="${contextPath}/resources/img/map/singapore1.png">싱가폴</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=taiwan"><img id="icon" src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/mongolia1.png">몽골</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=mongol"><img id="icon" src="${contextPath}/resources/img/map/mongolia1.png">몽골</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/japan.png">일본</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=japan"><img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=philippine"><img id="icon" src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=vietnam"><img id="icon" src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=laos"><img id="icon" src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=hongkong"><img id="icon" src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
 					</tr>
 					<tr>
-						<th><a href="#"><img src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=thailand"><img id="icon" src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
 					</tr>
 				</table>
 				<div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">&larr;</div>
@@ -163,7 +163,7 @@ color:white;
 	style:
 	'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
 	center: [123.6317591588421, 34.00034238853249],
-	zoom: 4.3
+	zoom: 4.1
 });
 	
 	map.on('load', function () {
@@ -182,18 +182,18 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-'<strong>대한민국</strong><p>한국음식라 불리는 우리 민족 고유의 음식은, 그 음식을 중심으로 전개되는 식생활 관습과 더불어 지리적·역사적 환경에 가정 적합하도록 우리 조상들이 창안·발전시켜 온 민족적 지혜의 총화라 할 수 있습니다. <a href="${contextPath}/map/country_info">더보기..</a></p>'
+'<strong>대한민국</strong><p>한국음식라 불리는 우리 민족 고유의 음식은, 그 음식을 중심으로 전개되는 식생활 관습과 더불어 지리적·역사적 환경에 가정 적합하도록 우리 조상들이 창안·발전시켜 온 민족적 지혜의 총화라 할 수 있습니다. <a href="${contextPath}/map/country_info#korea">더보기..</a></p>'
 },
 'geometry': {
 'type': 'Point',
-'coordinates': [126.99458210021248, 37.57451366764808]
+'coordinates': [127.8975774639818, 37.016895039288855]
 }
 },
 {
 'type': 'Feature',
 'properties': {
 'description':
-'<strong>일본</strong><p>일본은 쌀을 중심으로 보리·밀·좁쌀·수수·콩 등의 곡물을 중심으로 하여, 야채·어패류·새나 짐승의 고기 등을 부식으로 하는데, 이 점에 있어서는 한국과 비슷하다. <a href="${contextPath}/map/country_info">더보기..</a></p>'
+'<strong>일본</strong><p>일본은 쌀을 중심으로 보리·밀·좁쌀·수수·콩 등의 곡물을 중심으로 하여, 야채·어패류·새나 짐승의 고기 등을 부식으로 하는데, 이 점에 있어서는 한국과 비슷하다. <a href="${contextPath}/map/country_info#japan">더보기..</a></p>'
 },
 'geometry': {
 'type': 'Point',
@@ -204,7 +204,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>대만</strong><p>대만 음식의 특징은 토속 요리(일본 통치 전)에서 기름을 많이 사용하는 다른 지역의 중국 요리와 달리 비교적 담백하며, 소박하고, 섬세한 맛을 내는 요리가 많고 소금기도 중국 본토에 비해 적은점을 들 수 있다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>대만</strong><p>대만 음식의 특징은 토속 요리(일본 통치 전)에서 기름을 많이 사용하는 다른 지역의 중국 요리와 달리 비교적 담백하며, 소박하고, 섬세한 맛을 내는 요리가 많고 소금기도 중국 본토에 비해 적은점을 들 수 있다.<a href="${contextPath}/map/country_info#taiwan">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -215,7 +215,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>홍콩</strong><p>홍콩 사람들은 밥 먹을 때 일반적으로 젓가락을 사용하지만 포크와 나이프 또한 즐겨 사용한다. 아침 식사 시 홍콩식 쌀죽이나 딤섬을 먹으며, 서양식으로 소세지, 튀긴 달걀, 토스트를 먹는 것도 보편적이다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>홍콩</strong><p>홍콩 사람들은 밥 먹을 때 일반적으로 젓가락을 사용하지만 포크와 나이프 또한 즐겨 사용한다. 아침 식사 시 홍콩식 쌀죽이나 딤섬을 먹으며, 서양식으로 소세지, 튀긴 달걀, 토스트를 먹는 것도 보편적이다.<a href="${contextPath}/map/country_info#hongkong">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -226,7 +226,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>몽골</strong><p>몽골 음식의 특징 몽골의 전통 요리는 대체적으로 낙농 제품과 고기류로 구성된다. 몽골 유목민들은 말, 소, 야크, 낙타, 양, 염소, 산양, 당나귀, 영양, 젖소 등 기르던 동물로 생계를 꾸려왔기 때문이다. 고기는 수프나 고기 만두로 쓰이고 겨울에는 말려서 먹는다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>몽골</strong><p>몽골 음식의 특징 몽골의 전통 요리는 대체적으로 낙농 제품과 고기류로 구성된다. 몽골 유목민들은 말, 소, 야크, 낙타, 양, 염소, 산양, 당나귀, 영양, 젖소 등 기르던 동물로 생계를 꾸려왔기 때문이다. 고기는 수프나 고기 만두로 쓰이고 겨울에는 말려서 먹는다.<a href="${contextPath}/map/country_info#mongol">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -237,7 +237,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>태국</strong><p>태국 음식맛의 특징은 음식에 따라 다르지만 대체로 고소하고 맵고 신맛이 나는 편이다. 거기에 다양한 향신료가 첨가됨으로 독특한 향미가 난다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>태국</strong><p>태국 음식맛의 특징은 음식에 따라 다르지만 대체로 고소하고 맵고 신맛이 나는 편이다. 거기에 다양한 향신료가 첨가됨으로 독특한 향미가 난다.<a href="${contextPath}/map/country_info#thailand">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -248,7 +248,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>베트남</strong><p>베트남 요리는 중국의 지배로 인해 중국 요리와 비슷한 점이 많지만, 중국 요리처럼 기름기가 많지 않고, 가까운 태국 요리와는 향채를 사용한다는 점에서 비슷하지만, 맵지 않다는 독특한 특징을 가지고 있다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>베트남</strong><p>베트남 요리는 중국의 지배로 인해 중국 요리와 비슷한 점이 많지만, 중국 요리처럼 기름기가 많지 않고, 가까운 태국 요리와는 향채를 사용한다는 점에서 비슷하지만, 맵지 않다는 독특한 특징을 가지고 있다.<a href="${contextPath}/map/country_info#vietnam">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -259,7 +259,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>라오스</strong><p>라오스의 가장 대표적인 음식으로는 랍이 있다. 이 요리는 향신료와 육류 혹은 생선을 조린 것으로서 푸른색 채소와 허브를 한데 모아서 요리하기도 한다. 다른 특색있는 요리로는 땀 막훙이 있는데 풋파파야 샐러드이다. 라오스 요리는 많은 지역차가 존재한다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>라오스</strong><p>라오스의 가장 대표적인 음식으로는 랍이 있다. 이 요리는 향신료와 육류 혹은 생선을 조린 것으로서 푸른색 채소와 허브를 한데 모아서 요리하기도 한다. 다른 특색있는 요리로는 땀 막훙이 있는데 풋파파야 샐러드이다. 라오스 요리는 많은 지역차가 존재한다.<a href="${contextPath}/map/country_info#laos">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',
@@ -270,7 +270,7 @@ color:white;
 	'type': 'Feature',
 	'properties': {
 	'description':
-		'<strong>필리핀</strong><p>공통적으로 필리핀 음식은 야채보다도 육류를 이용한 음식이 주를 이루며 그중 생선요리와 닭요리가 대부분을 차지한다. 필리핀의 음식은 한국과 같이 쌀이 주식을 이루고 있으며, "가타"라 불리는 코코넛 우유를 음식의 주 재료로 사용한다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+		'<strong>필리핀</strong><p>공통적으로 필리핀 음식은 야채보다도 육류를 이용한 음식이 주를 이루며 그중 생선요리와 닭요리가 대부분을 차지한다. 필리핀의 음식은 한국과 같이 쌀이 주식을 이루고 있으며, "가타"라 불리는 코코넛 우유를 음식의 주 재료로 사용한다.<a href="${contextPath}/map/country_info#Philippine">더보기..</a></p>'
 		},
 	'geometry': {
 	'type': 'Point',
@@ -281,7 +281,7 @@ color:white;
 'type': 'Feature',
 'properties': {
 'description':
-	'<strong>싱가포르</strong><p>싱가포르는 중국계 화교들이 번성시킨 국가답게 중국계 음식도 맛볼 수 있으며 중국의 남쪽 음식에 영향을 많이 받았다. 중국의 남방 음식은 달짝지근 하면서 쌀국수, 담백한 볶음, 민물고기 요리가 대표적이다.<a href="${contextPath}/map/country_info">더보기..</a></p>'
+	'<strong>싱가포르</strong><p>싱가포르는 중국계 화교들이 번성시킨 국가답게 중국계 음식도 맛볼 수 있으며 중국의 남쪽 음식에 영향을 많이 받았다. 중국의 남방 음식은 달짝지근 하면서 쌀국수, 담백한 볶음, 민물고기 요리가 대표적이다.<a href="${contextPath}/map/country_info#singapore">더보기..</a></p>'
 	},
 'geometry': {
 'type': 'Point',

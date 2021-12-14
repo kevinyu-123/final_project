@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,29 +17,23 @@
 
 <title>DiningLab</title>
 <style>
-
 #wrap {
 	position: relative;
 	padding: 50px;
 	display: flex;
-	
 }
-
 
 span {
 	font-size: 30px;
 	font-family: 'Cinzel', serif;
 	margin: auto;
-	
-	
 }
-
 
 #header_a {
 	display: inlineS-block;
 	max-width: 25%;
 	position: absolute;
-	top:55px;
+	top: 55px;
 	right: 50px;
 }
 
@@ -47,7 +42,6 @@ span {
 	max-width: 25%;
 	height: 100%;
 	align-content: space-between;
-
 }
 
 img {
@@ -63,7 +57,6 @@ img {
 	font-size: 16px;
 	border: none;
 	cursor: pointer;
-	
 }
 
 .dropdown {
@@ -91,29 +84,34 @@ img {
 	display: block;
 }
 
+.a:hover {
+	background-color: rgba(223, 209, 204);
+}
 </style>
 
 </head>
 
 <body>
 	<div id="wrap">
-			<span>DININGLAB</span>
+		<span><a href="${contextPath }/main"
+			style="text-decoration: none">DININGLAB</a></span>
 		<div id="loginWrap">
+
 			<c:choose>
 				<c:when test="${session_user == null }">
-					<a id="header_a" href="${contextPath}/mem/login">
-					<img src="${contextPath}/resources/img/imgMain/loginIcon.png">
+					<a id="header_a" href="${contextPath }/login"> <img
+						src="${contextPath}/resources/img/imgMain/loginIcon.png">
 					</a>
 				</c:when>
 				<c:otherwise>
 					<!-- 로그인 되어있을 시-->
 					<div class="dropdown">
 						<button class="dropbtn">
-							<img src="${contextPath}/resources/img/imgMain/loginIcon.png">
+							<img src="${contextPath}/resources/img/imgMain/home.png">
 						</button>
 						<div class="dropdown-content">
-							<a id="footer_a" href="#">MYPAGE</a> <a href="#"> MY LIKES</a> <a href="#">SIGN
-								OUT</a>
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a> <a class="a" href="${contextPath }/mylikes">
+								MY LIKES</a> <a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 					</div>
 				</c:otherwise>

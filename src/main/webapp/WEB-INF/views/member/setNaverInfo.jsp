@@ -27,8 +27,9 @@
 			name : name,
 			email : email
 		}
+
 		$.ajax({
-			url : "auth", 
+			url : "auth",
 			type : "post",
 			dataType : "json",
 			data : JSON.stringify(form),
@@ -36,19 +37,18 @@
 			success : function(msg) {
 				console.log(msg)
 				if (msg == true) {
-					console.log("sent");
 					alert("이메일 인증코드를 발송하였습니다.")
 				}
 			},
 			error : function() {
-				 console.log("error");
 				alert('이메일 인증코드발송에 실패하였습니다.')
 			}
 		})
 	}
 
 	function checkCode() {
-		var emailCode = $("#emailCode").val()
+		var emailCode = $("#email_auth").val()
+
 		$.ajax({
 			url : "checkVal/" + emailCode,
 			type : "post",
@@ -56,7 +56,7 @@
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				if (data == 1) {
-					$("#authCheck").html("인증되었습니다.")	
+					$("#authCheck").html("인증되었습니다.")
 				}
 			},
 			error : function() {
@@ -66,17 +66,21 @@
 	}
 	
 </script>
+
 <style>
 * {
 	font-family: 'Outfit', sans-serif;
 	margin: auto;
 }
+
 #LoginWrap {
 	padding: 30px;
 }
+
 h1 {
 	font-family: 'Outfit', sans-serif;
 }
+
 input, button {
 	width: 100%;
 	padding: 12px 20px;
@@ -88,12 +92,15 @@ input, button {
 	transition: 0.2s;
 	outline: none;
 }
+
 input:focus {
 	border: 3px solid #555;
 }
+
 #authChk {
 	color: red;
 }
+
 .email_chk {
 	color: #6A82FB;
 	display: none;
@@ -105,19 +112,21 @@ input:focus {
 <body>
 <div class="w3-container w3-center w3-animate-opacity">
 
-	<form name="userRegisterForm" id="userRegisterForm" method="POST" action="memKakaoRegitser">
-   <input type="hidden"  id="email" name="email" value="${email}"/>
-      <input type="hidden"  id="pwd" name="pwd"  value="${password}">
-      <input type="hidden"  id="id" name="id" value="${password}">
-      <input type="hidden" id="name" name="name" value="${name}">
-      <input type="hidden" id="kakaologin" name="kakaologin" value="${password}">
-      
+	<form name="userRegisterForm" id="userRegisterForm" method="POST" action="naverRegister">
+		<input type="hidden" id="email" name="email" value="${email}" /> 
+		<input type="hidden" id="nickname" name="name" value="${nickname}" /> 
+		<input type="hidden" id="pwd" name="pwd" value="${id}">
+		<input type="hidden" id="id" name="id" value="${id }">
+		<input type="hidden" id="naverlogin" name="naverlogin" value="${id}">
+		
 		<div id="LoginWrap">
 			<h1>Sign up</h1>
 		<table>
+			<thead>
 				<tr>
 					<th colspan="3">신규 가입 추가 정보 설정</th>
 				</tr>
+			</thead>
 			<tbody>
 				<tr>
 					<td class="text">이메일 인증하기</td>
@@ -129,7 +138,7 @@ input:focus {
 					<td><input type="button" value="인증코드보내기" onclick="auth()"></td>
 				</tr>
 				<tr>
-					<td><input type="text"id="emailCode" name="email_auth"
+					<td><input type="text"id="email_auth" name="email_auth"
 						placeholder="코드 입력"></td>
 				</tr>
 				<tr>

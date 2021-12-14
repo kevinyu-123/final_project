@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 
 <html>
@@ -18,7 +19,7 @@
 	position: relative;
 	justify-content: center;
 }
-#tabbox{
+.tabbox{
 display:flex;
 margin: 0;
     padding: 0;
@@ -28,7 +29,7 @@ margin: 0;
 }
 .container img {
 	width: 100%;
-		height: 500px;
+		height: 600px;
 	opacity: 70%;
 }
 
@@ -63,17 +64,15 @@ list-style: none;
 
 #slide{
 width:100%;
-height:500px;
+height:600px;
 overflow:hidden;
 }
-
- #slide ul{
+#slide ul{
  width:calc(100% * 4);
  display:flex;
  animation:slide 20s infinite;
  } /* slide를 8초동안 진행하며 무한반복 함 */
- 
- #slide li{
+#slide li{
  list-style:none;
  width:calc(100% / 4);
  height:300px;
@@ -91,9 +90,9 @@ overflow:hidden;
       100% {margin-left:0;}
     }
     
-    .ulbox{ 
+    .ulbox{
     margin:0;
-    padding:0;  
+    padding:0;
     }
   </style>
 
@@ -104,33 +103,40 @@ overflow:hidden;
 
 <body>
 	<div class="w3-animate-opacity">
-		<c:import url="../default/header.jsp" />
+<header>
+			<c:import url="../default/header.jsp" />
+		</header>
+		
 
-		<div id="tabbox">
+		<div class="tabbox">
 			<div style="width:50%;">
 					<div class="container">
 
 						<div id="slide">
 							<ul class="ulbox">
-								<li><img src="${contextPath}/resources/img/imgMain/1.png"></li>
-								<li><img src="${contextPath}/resources/img/imgMain/2.png"></li>
-								<li><img src="${contextPath}/resources/img/imgMain/3.png"></li>
-								<li><img src="${contextPath}/resources/img/imgMain/4.png"></li> 
+								<li><img src="${contextPath}/resources/img/imgMain/sam.png"></li>
+								<li><img src="${contextPath}/resources/img/imgMain/no.png"></li>
+								<li><img src="${contextPath}/resources/img/imgMain/dum.png"></li>
+								<li><img src="${contextPath}/resources/img/imgMain/go.png"></li>
+								
 							</ul>
 						</div>
-						<button class="btn" onclick="">CATEGORY_SEARCH</button>
+
+						<button class="btn" onclick="">CATEGORY SEARCH</button>
 					</div>
 					</div>
 
 				<div style="width:50%;">
 					<div class="container">
-						<img src="${contextPath}/resources/img/imgMain/map.jpg">
-						<button class="btn" onclick="location.href='${contextPath}/map/mapmain'">MAP_SEARCH</button>
+						<img src="${contextPath}/resources/img/imgMain/map.png">
+						<button class="btn" onclick="location.href='${contextPath}/map/mapmain'">MAP SEARCH</button>
 					</div>
 				
 		</div>
 </div>
-		<c:import url="../default/footer.jsp" />
+			<footer>
+			<c:import url="../default/footer.jsp" />
+		</footer>
 	</div>
 </body>
 </html>

@@ -1,13 +1,13 @@
-package com.dine.root.member.mapper;
+package com.dine.root.member.service;
 
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.dine.root.member.dto.MemDTO;
 
-@Mapper
-public interface MemMapper {
+public interface MemService {
 	
 	public MemDTO kakaoChk(MemDTO dto);
 	
@@ -15,11 +15,15 @@ public interface MemMapper {
 	
 	public MemDTO userKakaoLoginPro(MemDTO dto);
 	
+	public boolean auth(Map<String, String>map,HttpServletRequest request);
+	
+	public int checkVal(String authVal,HttpSession session);
+	
 	public int memKakaoRegister(MemDTO dto);
 	
 	public MemDTO getUserSessionId(String sessionId);
 	
-	public void keepLogin(Map<String, Object> map);
+	public void keepLogin(String session_id, java.sql.Date session_date, String id);
 	
 	public int register(MemDTO dto);
 
@@ -31,8 +35,9 @@ public interface MemMapper {
 	
 	public Map<String, Object> userNaverLoginPro(Map<String, Object> apiJson);
 	
-	public int userNaverRegisterPro(MemDTO dto);
+	public Integer userNaverRegisterPro(MemDTO dto);
 	
 	public int idCheck(String id);
+
 
 }

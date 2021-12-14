@@ -18,7 +18,11 @@
 		<result property="naverlogin" column="naverlogin"/>
 	</resultMap>
 	
-	<select id="kakaoChk" resultType="Map">
+	<insert id="register">
+		INSERT into member (id,pwd,name,email,email_auth) VALUES(#{id},#{pwd},#{name},#{email},#{email_auth})
+	</insert>
+	
+	<select id="kakaoChk" resultMap="member">
 		SELECT email,kakaologin FROM member WHERE email = #{email}
 	</select>
 	
@@ -26,17 +30,46 @@
 		UPDATE member SET  kakaologin = #{id} WHERE email = #{email}
 	</update>
 	
-	<select id="userKakaoLoginPro" resultType="Map">
-		SELECT email FROM member WHERE email = #{email} AND kakaologin = #{id}
+	<select id="userKakaoLoginPro" resultMap="member">
+		SELECT email,id,name FROM member WHERE email = #{email} AND kakaologin = #{id}
 	</select>	
 		
 	<insert id="memKakaoRegister">
 		INSERT INTO member (id,name,pwd,email,email_auth,kakaologin) VALUES(#{id},#{name},#{pwd},#{email},#{email_auth},#{kakaologin})
 	</insert>
 	
+	<select id="getUserSessionId" resultMap="member">
+		SELECT * FROM member WHERE session_id = #{id}
+	</select>
 	
+	<update id="keepLogin">
+		UPDATE member SET session_id = #{session_id}, session_date = #{session_date} WHERE id = #{id}
+	</update>
 	
+	<select id="loginChk" resultMap="member">
+		SELECT * FROM member WHERE id = #{id}
+	</select>
 	
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT count(id) FROM member WHERE id= #{id}
+	</select>
+	
+	<select id="naverConnectionCheck" resultType="Map">
+		SELECT EMAIL,NAVERLOGIN FROM MEMBER WHERE EMAIL = #{email}
+	</select>
+
+	<update id="setNaverConnection">
+		UPDATE member SET NAVERLOGIN = #{id} WHERE EMAIL = #{email}
+	</update>
+
+	<select id="userNaverLoginPro" resultType="Map">
+		select name from member where email = #{email} and naverlogin=#{id}
+	</select>
+
+	<insert id="userNaverRegisterPro">
+		insert into member(id,pwd,name,email,email_auth,naverlogin)
+		values(#{id}, #{pwd}, #{name}, #{email}, #{email_auth}, #{naverlogin} )
+	</insert>
 	
 	
 	

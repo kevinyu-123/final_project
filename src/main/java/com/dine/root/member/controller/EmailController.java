@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dine.root.member.service.MemberService;
+import com.dine.root.member.service.MemService;
 
 @RestController
 public class EmailController {
 	@Autowired
-	MemberService service;
+	MemService service;
 	
-	@PostMapping(value="mem/auth", produces="application/json; charset=utf-8")
+	@PostMapping(value="/auth", produces="application/json; charset=utf-8")
 	public boolean auth(@RequestBody Map<String , String> map,HttpServletRequest request) {
 		System.out.println();
 		boolean msg = service.auth(map,request);
@@ -26,9 +26,9 @@ public class EmailController {
 
 	}
 	
-	@PostMapping(value="mem/email_auth/{email_val}",produces="application/json; charset=utf-8")
-	public int auth_chk(@PathVariable String email_val, HttpSession session ) {
-		int result = service.checkVal(email_val,session);
+	@PostMapping(value="/checkVal/{emailCode}",produces="application/json; charset=utf-8")
+	public int checkVal(@PathVariable String emailCode, HttpSession session ) {
+		int result = service.checkVal(emailCode,session);
 		return result;
 	}
 	

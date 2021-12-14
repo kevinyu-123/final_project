@@ -1,5 +1,7 @@
 package com.dine.root.member.service;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -11,31 +13,36 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.mapper.MemMapper;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class MemServiceImpl implements MemService {
 	@Autowired
 	MemMapper mapper;
+	
 	@Autowired
 	JavaMailSender mailSender;
 	
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+	
 	@Override
-	public Map<String, Object> kakaoChk(Map<String, Object>paramMap) {
-		return mapper.kakaoChk(paramMap); 
+	public MemDTO kakaoChk(MemDTO dto) {
+		return mapper.kakaoChk(dto); 
 		}
 
 	@Override
-	public Map<String, Object> setKakaoConnection(Map<String, Object> paramMap) {
-		return mapper.setKakaoConnection(paramMap);
+	public MemDTO setKakaoConnection(MemDTO dto) {
+		return mapper.setKakaoConnection(dto);
 	}
 
 	@Override
-	public Map<String, Object> userKakaoLoginPro(Map<String, Object> paramMap) {
-		return mapper.userKakaoLoginPro(paramMap);
+	public MemDTO userKakaoLoginPro(MemDTO dto) {
+		return mapper.userKakaoLoginPro(dto);
 	}
 	
 	private int sendMail(String to, String subject, String body) {
@@ -114,7 +121,80 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 	
+	@Override
+	public MemDTO getUserSessionId(String sessionId) {	
+		return mapper.getUserSessionId(sessionId);
+	}
 	
+	@Override
+	public void keepLogin(String session_id, Date session_date, String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("session_id", session_id);
+		map.put("session_date", session_date);
+		map.put("id", id);
+		mapper.keepLogin(map);
+	}
+	
+	@Override
+	public int register(MemDTO dto) {
 
+		String securePwd = encoder.encode(dto.getPwd());
+		dto.setPwd(securePwd);
+		int result = 0;
+		try {
+			result = mapper.register(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@Override
+	public MemDTO loginChk(MemDTO dto) {
+		return mapper.loginChk(dto);
+	}
+	/* 네이버 회원가입 */
+	@Override
+	public Integer userNaverRegisterPro(MemDTO dto) {
+		String securePwd = encoder.encode(dto.getPwd());
+		dto.setPwd(securePwd);
+		Integer result = 0;
+		try {
+			result = mapper.userNaverRegisterPro(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	/* 네이버 로그인관련 메소드 */
+	@Override
+	public Map<String, Object> naverConnectionCheck(Map<String, Object> apiJson) {
+		return mapper.naverConnectionCheck(apiJson);
+	}
 
+	@Override
+	public Map<String, Object> setNaverConnection(Map<String, Object> apiJson) {
+		return mapper.setNaverConnection(apiJson);
+	}
+	
+	@Override
+	public Map<String, Object> userNaverLoginPro(Map<String, Object> apiJson) {
+		return mapper.userNaverLoginPro(apiJson);
+	}
+	
+	@Override
+	public int idCheck(String id) {
+		 int cnt = mapper.idCheck(id);
+	        return cnt;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
