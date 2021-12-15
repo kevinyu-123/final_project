@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,12 +24,14 @@ import com.dine.root.reviews.service.reviewsService;
 public class reviewsController {
 	@Autowired reviewsService rs;
 	@RequestMapping("rest_reviews_form")
-	public String restReviews() {
-		return "rest/rest_reviews_form";
+	public String restReviews(Model model) {
+		model.addAttribute("att","rest");
+		return "food/reviews_form";
 	}
 	@RequestMapping("food_reviews_form")
-	public String foodReviews() {
-		return "food/food_reviews_form";
+	public String Reviews(Model model) {
+		model.addAttribute("att","food");
+		return "food/reviews_form";
 	}
 	@RequestMapping("upload_rest_Review")
 	public void upload(MultipartHttpServletRequest m, HttpServletResponse res) throws IOException {
@@ -49,8 +52,8 @@ public class reviewsController {
 		}
 	}
 	@ResponseBody
-	@RequestMapping(value = "/file-upload", method = RequestMethod.POST)
-	public String fileUpload(
+	@RequestMapping(value = "file-upload", method = RequestMethod.POST)
+	public String foodFileUpload(
 			@RequestParam("article_file") List<MultipartFile> multipartFile
 			, HttpServletRequest request) {
 		for(MultipartFile file : multipartFile) {
@@ -58,9 +61,18 @@ public class reviewsController {
 		}
 		System.out.println("정보 1 : "+request.getParameter("rate"));
 		System.out.println("정보 2 : "+request.getParameter("content"));
-		rs.foodReviewsUploadProcess(multipartFile,request);
+		String att = request.getParameter("att");
+		if(att.equals("food")) {
+			rs.foodReviewsUploadProcess(multipartFile,request);
+		}else if(att.equals("rest")) {
+			rs.foodReviewsUploadProcess(multipartFile,request);
+		}else {
+			return "{ \\\"result\\\":\\\"NO\\\" }";
+		}
+		
 		return "{ \\\"result\\\":\\\"OK\\\" }";
 	}
+
 	@RequestMapping("food")
 	public String food() {
 		return "/food/food_detail";
@@ -68,5 +80,9 @@ public class reviewsController {
 	@RequestMapping("f")
 	public String f() {
 		return "/food/food";
+	}
+	@RequestMapping("r")
+	public String r() {
+		return "/rest/rest_detail";
 	}
 }
