@@ -1,10 +1,13 @@
 package com.dine.root.member.service;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.dine.root.boardFree.dto.BoardDTO;
+import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.member.dto.MemDTO;
 
 public interface MemService {
@@ -38,6 +41,12 @@ public interface MemService {
 	public Integer userNaverRegisterPro(MemDTO dto);
 	
 	public int idCheck(String id);
+	
+	public int emailCheck(String email);
+	
+	public ArrayList<BoardDTO> getBoardInfo(String writer);
+	
+	public ArrayList<ReplyDTO> getReplyInfo(String writer);
 
 
 }

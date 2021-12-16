@@ -81,6 +81,12 @@
 	display: none;
 }
 
+.email_already {
+	font-family: 'Gothic A1', sans-serif;
+	color: #6A82FB;
+	display: none;
+}
+
 .email_chk {
 	font-family: 'Gothic A1', sans-serif;
 	color: #6A82FB;
@@ -188,6 +194,7 @@
 				if (data == 1) {
 					$("#authCheck").html("인증되었습니다.")
 					$('#authCheck').css("color", " #6A82FB");
+					$("#reg_submit").prop("disabled",false);
 				} else {
 					alert('다시 진행해주세요.')
 				}
@@ -200,7 +207,6 @@
 
 	function idCheck() {
 		var id = $('#id').val();
-
 		$.ajax({
 			url : 'idCheck',
 			type : 'post',
@@ -208,12 +214,39 @@
 				id : id
 			},
 			success : function(cnt) {
-				if (cnt != 1) { //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+				if (cnt != 1) { 
 					$('.id_ok').css("display", "inline-block");
 					$('.id_already').css("display", "none");
-				} else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+				}
+				else { 
 					$('.id_already').css("display", "inline-block");
 					$('.id_ok').css("display", "none");
+				}
+			},
+			
+			error : function() {
+				alert("에러입니다");
+			}
+		});
+	};
+	function emailCheck() {
+		var email = $('#email').val();
+
+		$.ajax({
+			url : 'emailCheck',
+			type : 'post',
+			data : {
+				email : email
+			},
+			success : function(cnt) {
+				if (cnt != 1) { 
+					$('.email_ok').css("display", "inline-block");
+					$("#auth_button").prop("disabled",false);
+					$('.email_already').css("display", "none");
+				} else { 
+					$('.email_already').css("display", "inline-block");
+					$("#auth_button").prop("disabled",true);
+					$('.email_ok').css("display", "none");
 				}
 			},
 			error : function() {
@@ -254,34 +287,42 @@
 			<form id="fo" action="register" method="post">
 				<table>
 					<tr>
-						<td><input type="text" id="id" name="id" placeholder="id"
-							oninput="idCheck()"><br> <span class="id_ok">사용
-								가능한 아이디입니다.</span> <span class="id_already">이미 존재하는 아이디입니다.</span></td>
+						<td>
+						<input type="text" id="id" name="id" placeholder="ID"
+							oninput="idCheck()"><br> 
+							<span class="id_ok">사용 가능한 아이디입니다.</span> 
+							<span class="id_already">이미 존재하는 아이디입니다.</span>
+						</td>
 					</tr>
 					<tr>
 						<td><input type="password" id="pwd " name="pwd"
-							placeholder="password"></td>
+							placeholder="Password"></td>
 					</tr>
 
 					<tr>
 						<td><input type="text" name="name" id="name"
-							placeholder="name"></td>
+							placeholder="Name"></td>
 
 					</tr>
 					<tr>
-						<td><input type="text" name="email" id="email"
-							placeholder="e-mail"><br> <span class="email_chk">이메일
-								형식이 올바르지 않습니다.</span></td>
+						<td>
+						<input type="text" name="email" id="email"
+							placeholder="e-mail" oninput="emailCheck()"><br> 
+							<span class="email_chk">이메일 형식이 올바르지 않습니다.</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span class="email_already">이미 존재하는 이메일 입니다.</span></td>
 					</tr>
 
 					<tr>
-						<td><input type="button" value="인증코드보내기" onclick="auth()"
-							class="btn"></td>
+						<td><input type="button" id="auth_button" value="인증코드보내기" onclick="auth()"
+							class="btn" disabled="disabled" ></td>
 					</tr>
 
 					<tr>
 						<td><input type="text" name="email_auth" id="emailCode"
-							placeholder="코드 입력"></td>
+							placeholder="Enter code"></td>
 					</tr>
 					<tr>
 						<td><input type="button" value="인증하기" onclick="checkCode()"
@@ -291,7 +332,7 @@
 
 					<tr>
 						<td><input type="button" id="reg_submit" onclick="register()"
-							value="가입" class="btn"></td>
+							value="가입" class="btn" disabled="disabled"></td>
 
 					</tr>
 				</table>

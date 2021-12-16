@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,8 @@
 
 
 #bigbox{
-height:100%;}
+height:100%;
+}
 
 #profile {
 	text-align: center;
@@ -90,24 +92,19 @@ span {
 				</span>
 			</div>
 			<div id="profile">
-				<img src="${contextPath }/resources/img/imgMain/user.png"><br> <span><b>user_name</b></span>
+				<img src="${contextPath }/resources/img/imgMain/user.png"><br> <span><b>${session_user }</b></span>
 			</div>
 			<div>
 				<div>
 					<ul id="navdiv">
-						<li><a href="mypage"><strong style="font-size: 25px;">My
-									Page</strong></a></li>
-
-						<li><a href="mylikes"><b>> My Likes</b></a></li>
+						<li><a href="mypage"><strong style="font-size: 25px;">My Page</strong></a></li>
+						<li><a href="mylikes"><b>> My Likes </b></a></li>
 						<li><a href="myboard">My Board</a></li>
 						<li><a href="myreply">My Reply</a></li>
-						<li></li>
 						<li><a href="newprofile">Account Settings</a></li>
-
 					</ul>
 
 				</div>
-
 
 				<div id="flex">
 

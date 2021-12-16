@@ -137,7 +137,7 @@ a:hover {
 				have ID?</span> <a href="${contextPath}/register_form"
 				style="font-family: 'Outfit', sans-serif;">Sign Up</a>
 
-			<form action="/mem/loginChk" method="post">
+			<form action="/loginChk" method="post">
 
 				<table>
 

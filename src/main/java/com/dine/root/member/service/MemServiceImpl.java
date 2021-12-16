@@ -1,6 +1,7 @@
 package com.dine.root.member.service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -16,6 +17,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.dine.root.boardFree.dto.BoardDTO;
+import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.mapper.MemMapper;
 
@@ -189,8 +192,23 @@ public class MemServiceImpl implements MemService {
 	        return cnt;
 	}
 	
-	
-	
+	@Override
+	public int emailCheck(String email) {
+		int cnt = mapper.emailCheck(email);
+		return cnt;
+	}
+
+	@Override
+	public ArrayList<BoardDTO> getBoardInfo(String writer) {
+		return mapper.getBoardInfo(writer);
+	}
+
+	@Override
+	public ArrayList<ReplyDTO> getReplyInfo(String writer) {	
+		return mapper.getReplyInfo(writer);
+	}
+
+
 	
 	
 	

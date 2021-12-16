@@ -10,4 +10,12 @@ public class MainController {
 	public String mainPage() {
 		return "main/mainPage";
 	}
+	
+	@GetMapping("aboutus")
+	public String aboutUs() {
+		return"default/aboutus";
+	}
+	
+	
+	
 }

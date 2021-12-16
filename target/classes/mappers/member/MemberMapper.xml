@@ -71,8 +71,9 @@
 		values(#{id}, #{pwd}, #{name}, #{email}, #{email_auth}, #{naverlogin} )
 	</insert>
 	
-	
-	
+	<select id="emailCheck" parameterType="String" resultType="int">
+      SELECT count(email) FROM member WHERE email= #{email}
+   </select>
 	
 	
 	

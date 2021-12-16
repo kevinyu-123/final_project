@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Add custom icons with Markers</title>
+<title>음식점 찾기</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js"></script>
 <link href="https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css" rel="stylesheet" />
@@ -35,7 +35,7 @@ body {
 	 color: red;
 	 }
 	.mapboxgl-popup {
-	max-width: 400px;
+	max-width: 10px;
 	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	}
 	.rounded-rect {
@@ -124,7 +124,7 @@ color:black;
 }
 table a:hover{
 text-decoration: none;
-color:red;
+color:white;
 }
 
 .right.collapsed {
@@ -214,7 +214,7 @@ color:red;
 					new maplibregl.Marker(el)
 					.setLngLat(marker.geometry.coordinates)
 					.setPopup(new maplibregl.Popup()
-					.setText("상호 명: "+ json[i].name+ "/ 부가내용 : "+json[i].sub_ex+"/ 주소 :"+json[i].addr))
+					.setText("상호 명: "+ json[i].name +" 부가 내용 : "+json[i].sub_ex+" / 주소 :"+json[i].addr))
 					.addTo(map);
 				});
 			}

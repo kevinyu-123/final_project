@@ -35,8 +35,17 @@ span {
 	font-size: 30px;
 }
 
+#buttons {
+	
+	margin-top: 50px;
+	margin-left: 540px;
+	
+
+}
+
 #buttons table {
-	margin-left: 430px;
+
+	
 }
 
 button {
@@ -56,7 +65,7 @@ button:hover {
 		rgba(0, 0, 0, 0.19);
 }
 
-.likes, .board, .reply {
+.likes, .board, .reply, .account {
 	font-size: 25px;
 	width: 300px;
 	height: 200px;
@@ -90,7 +99,7 @@ button:hover {
 }
 
 #bigbox {
-	height: 600px;
+	height: 650px;
 }
 </style>
 
@@ -104,18 +113,19 @@ button:hover {
 		</header>
 		<div id="bigbox">
 			<div id="profile">
-				<img src="${contextPath}/resources/img/imgMain/user.png"><br>
-				<span><b>${session_user}</b></span>
+				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
+				<span><b>${session_user }</b></span>
 			</div>
-			<div>
-				<div>
-					<ul id="navdiv">
+
+			<div id="divv">
+				<div id="navdiv">
+					<ul>
 						<li><a href="mypage"><strong style="font-size: 25px;">My
 									Page</strong></a></li>
 
-						<li><a href="mylikes">My Likes</a></li>
-						<li><a href="myboard">My Board</a></li>
-						<li><a href="myreply">My Reply</a></li>
+						<li><a href="${contextPath}/mylikes">My Likes</a></li>
+						<li><a href="${contextPath}/myboard">My Board</a></li>
+						<li><a href="${contextPath}/myreply">My Reply</a></li>
 						<li></li>
 						<li><a href="newprofile">Account Settings</a></li>
 
@@ -138,10 +148,18 @@ button:hover {
 									board
 								</button>
 							</td>
+						</tr>
+						<tr>
 							<td>
 								<button class="reply" onclick="location.href='myreply'">
 									<img src="${contextPath }/resources/img/imgMain/review.png"><br>My
 									reply
+								</button>
+							</td>
+							<td>
+								<button class="account" onclick="location.href='newprofile'">
+									<img src="${contextPath }/resources/img/imgMain/account.png"><br>Account
+									Settings
 								</button>
 							</td>
 						</tr>
