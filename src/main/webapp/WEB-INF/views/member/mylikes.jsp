@@ -79,131 +79,104 @@ span {
 	font-size: 40px;
 	padding: 15px;
 }
+#bigbox {
+	height: 650px;
+	display: flex;
+	overflow: auto;
+}
+#left_box{
+	width: 20%;
+}
+#mid_box {
+	width: 80%;
+	padding-top: 10px;
+	
+}
+#re_left{
+	width: 50%;
+	background-color:#FFF7F7;
+	border-radius:20%;
+	position: relative;
+	height: 310px;
+	margin-top: 30px;
+	z-index: 1;
+}
+#re_right{
+	width: 50%;
+	position: absolute;
+	z-index: 50;
+	top: -15px;
+	
+	}
+#r{
+	width: 350px;
+	height: 350px;
+	margin-top: 20px;
+	margin-left: 50px;	
+	border-radius: 65%;
+	opacity: 0.9;
+}
+#r:hover {
+	opacity: 1;
+}
 </style>
 </head>
 <body>
-	<div class="w3-animate-opacity">
+		<div class="w3-animate-opacity">
 		<header>
 			<c:import url="../default/header.jsp" />
 		</header>
-		<div id="bigbox">
-			<div class="w3-center w3-animate-top" style="margin-bottom: 20px;">
-				<span class="pagetitle"> <b>My Likes</b>
-				</span>
-			</div>
-			<div id="profile">
-				<img src="${contextPath }/resources/img/imgMain/user.png"><br> <span><b>${session_user }</b></span>
-			</div>
-			<div>
-				<div>
-					<ul id="navdiv">
+			<div id="div">
+				<div id="navdiv">
+					<ul>
 						<li><a href="mypage"><strong style="font-size: 25px;">My Page</strong></a></li>
-						<li><a href="mylikes"><b>> My Likes </b></a></li>
-						<li><a href="myboard">My Board</a></li>
-						<li><a href="myreply">My Reply</a></li>
-						<li><a href="newprofile">Account Settings</a></li>
+						<li><a href="${contextPath}/mylikes">My Likes</a></li>
+						<li><a href="${contextPath}/myboard">My Board</a></li>
+						<li><a href="${contextPath}/myreply">> My Reply</a></li>
+						<li><a href="${contextPath}/newprofile">Account Settings</a></li>
 					</ul>
-
 				</div>
-
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
-					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
+				<div id="bigbox">
+				<div id="left_box"></div>
+				<div id="mid_box">
+					<div class=" w3-animate-left" style="margin-bottom: 20px;">
+						<span class="pagetitle"> <b>MY LIKES</b>
+						</span>
 					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
+				<div id="review_box" style="height: 400px; width: 90%; display: flex; position: relative;">
+				<div id ="left" style="width: 50%; ">
+				<div id="re_left">haha</div>
+				<div id="re_right">
+					<img id="r" src="${contextPath}/resources/img/imgMain/sam.png">
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
-					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
-					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
+				<div id="right" style="width: 50%;">
+					<div id="re_left"">haha</div>
+					<div id="re_right">
+						<img id="r" src="${contextPath}/resources/img/imgMain/no.png">
+					</div>	
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
-					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-				<div id="flex">
-
-					<div class="img_box">
-						<img src="${contextPath }/resources/img/imgMain/8.png"
-							style="width: 320px; height: 270px; margin-left: 16px; margin-right: 15px; padding: 10px;">
-					</div>
-
-					<div class="right_box" style="padding: 10px;">
-						<div class="좋아요한음식점">음식점</div>
-						<div class="나라">대한민국</div>
-						<div>음식 의 간단한 설명 ~~</div>
-					</div>
-
+				<div id="review_box" style="height: 400px; width: 90%; display: flex;position: relative;">
+				<div id ="left" style="width: 50%; ">
+				<div id="re_left">haha</div>
+				<div id="re_right">
+					<img id="r" src="${contextPath}/resources/img/imgMain/1.png">
 				</div>
-				<div id=" " style="padding: 30px;"></div>
-
+				</div>
+				<div id="right" style="width: 50%;">
+					<div id="re_left"">haha</div>
+					<div id="re_right">
+						<img id="r" src="${contextPath}/resources/img/imgMain/2.png">
+					</div>	
+				</div>
+				</div>
+				</div>			
 			</div>
-		</div>
-	</div>
-	
-	<footer>
-		<c:import url="../default/footer.jsp" />
-	</footer>
-	
+		<footer>
+			<c:import url="../default/footer.jsp" />
+		</footer>
+</div>
 </body>
 </html>

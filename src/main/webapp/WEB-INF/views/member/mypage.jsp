@@ -6,19 +6,23 @@
 <html>
 <head>
 
+
+<meta charset="UTF-8">
+<title>mypage</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
-<meta charset="UTF-8">
-<title>mypage</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 * {
-	font-family: 'Outfit', sans-serif;
+	
 }
 
 #profile {
+	font-family: 'Gothic A1', sans-serif;
 	text-align: center;
 	padding: 20px;
 	margin: auto;
@@ -36,16 +40,13 @@ span {
 }
 
 #buttons {
-	
 	margin-top: 50px;
 	margin-left: 540px;
-	
-
 }
 
-#buttons table {
-
-	
+#buttons img {
+	width: 30px;
+	height: 30px;
 }
 
 button {
@@ -72,6 +73,7 @@ button:hover {
 }
 
 #navdiv {
+	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
@@ -105,16 +107,16 @@ button:hover {
 
 </head>
 
+<header>
+	<c:import url="../default/header.jsp" />
+</header>
 <body>
 
 	<div class="w3-animate-opacity">
-		<header>
-			<c:import url="../default/header.jsp" />
-		</header>
 		<div id="bigbox">
 			<div id="profile">
-				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
-				<span><b>${session_user }</b></span>
+				<img src="${contextPath}/resources/img/imgMain/user.png"><br>
+				<span><b>${session_user}</b></span>
 			</div>
 
 			<div id="divv">
@@ -123,9 +125,9 @@ button:hover {
 						<li><a href="mypage"><strong style="font-size: 25px;">My
 									Page</strong></a></li>
 
-						<li><a href="${contextPath}/mylikes">My Likes</a></li>
-						<li><a href="${contextPath}/myboard">My Board</a></li>
-						<li><a href="${contextPath}/myreply">My Reply</a></li>
+						<li><a href="mylikes">My Likes</a></li>
+						<li><a href="myboard">My Board</a></li>
+						<li><a href="myreply">My Reply</a></li>
 						<li></li>
 						<li><a href="newprofile">Account Settings</a></li>
 
@@ -152,14 +154,14 @@ button:hover {
 						<tr>
 							<td>
 								<button class="reply" onclick="location.href='myreply'">
-									<img src="${contextPath }/resources/img/imgMain/review.png"><br>My
-									reply
+									<img src="${contextPath }/resources/img/imgMain/review.png"><br>
+									My reply
 								</button>
 							</td>
 							<td>
 								<button class="account" onclick="location.href='newprofile'">
-									<img src="${contextPath }/resources/img/imgMain/account.png"><br>Account
-									Settings
+									<img src="${contextPath }/resources/img/imgMain/account.png"><br>
+									Account Settings
 								</button>
 							</td>
 						</tr>

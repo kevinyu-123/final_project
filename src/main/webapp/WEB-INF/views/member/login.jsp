@@ -129,7 +129,7 @@ a:hover {
 <body>
 
 
-	<div id="LoginWrap">
+	<div id="LoginWrap" style="margin-top: 50px;">
 
 		<div class="w3-container w3-animate-opacity">
 			<h1>Log In</h1>

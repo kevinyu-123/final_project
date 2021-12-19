@@ -18,6 +18,7 @@
 	width: 100%;
 	position: relative;
 	justify-content: center;
+
 }
 .tabbox{
 display:flex;
@@ -25,11 +26,11 @@ margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
-  
+
 }
 .container img {
 	width: 100%;
-		height: 600px;
+	height: 680px;
 	opacity: 70%;
 }
 
@@ -64,7 +65,7 @@ list-style: none;
 
 #slide{
 width:100%;
-height:600px;
+height:680px;
 overflow:hidden;
 }
 #slide ul{
@@ -125,7 +126,6 @@ overflow:hidden;
 						<button class="btn" onclick="">CATEGORY SEARCH</button>
 					</div>
 					</div>
-
 				<div style="width:50%;">
 					<div class="container">
 						<img src="${contextPath}/resources/img/imgMain/map.png">

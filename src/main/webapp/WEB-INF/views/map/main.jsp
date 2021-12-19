@@ -122,16 +122,16 @@ color:white;
 			<div class="sidebar-content rounded-rect flex-center">
 				<table >
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=korea"><img id="icon" src="${contextPath}/resources/img/map/korea1.png">대한민국</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=korea"><img id="icon" src="${contextPath}/resources/img/map/korea.png">대한민국</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=singapore"><img id="icon" src="${contextPath}/resources/img/map/singapore1.png">싱가폴</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=singapore"><img id="icon" src="${contextPath}/resources/img/map/singapore.png">싱가폴</a></th>
 					</tr>
 					<tr>
 						<th><a href="${contextPath}/map/restaurant_info?nation=taiwan"><img id="icon" src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=mongol"><img id="icon" src="${contextPath}/resources/img/map/mongolia1.png">몽골</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=mongol"><img id="icon" src="${contextPath}/resources/img/map/mongolia.png">몽골</a></th>
 					</tr>
 					<tr>
 						<th><a href="${contextPath}/map/restaurant_info?nation=japan"><img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>

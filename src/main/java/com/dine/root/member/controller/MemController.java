@@ -146,7 +146,7 @@ public class MemController implements MemberSession {
 			idCookie.setMaxAge(60 * 60 * 24 * 90);
 			idCookie.setPath("/");
 			response.addCookie(idCookie);
-
+			
 			session.setAttribute(LOGIN_ID, check.getName());
 			return "/main/mainPage";
 			// 자동 로그인만 설정
@@ -220,6 +220,11 @@ public class MemController implements MemberSession {
 		list = service.getReplyInfo(writer);
 		model.addAttribute("replyInfo",list);
 		return "member/myreply";
+	}
+	
+	@GetMapping("newprofile")
+	public String account() {
+		return "member/newprofile";
 	}
 	
 }
