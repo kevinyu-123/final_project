@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -50,7 +53,7 @@
 }
 
 .carousel-inner .item {
-	height: 503px;
+	height: 480px;
 }
 
 .radius_border {
@@ -136,6 +139,9 @@
 .custom_zoomcontrol span:first-child {
 	border-bottom: 1px solid #bfbfbf;
 }
+.u-text-5{
+font-size: 20px;
+}
 </style>
 </head>
 <body class="u-body">
@@ -149,33 +155,27 @@
 				<div class="container">
 					<div id="myCarousel" class="carousel slide" data-ride="carousel">
 						<!-- Indicators -->
+						<c:set var ="cnt" value="${fn:length(restPic) }"/>
+
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							<li data-target="#myCarousel" data-slide-to="1"></li>
-							<li data-target="#myCarousel" data-slide-to="2"></li>
-							<li data-target="#myCarousel" data-slide-to="3"></li>
+							<c:forEach var="num" begin="1" end="${cnt-1 }">
+								<li data-target="#myCarousel" data-slide-to="${num }"></li>
+							</c:forEach>
 						</ol>
 
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner"
 							style="max-height: 600px; margin-top: 50px;">
 							<div class="item active">
-								<img src="resources/detail_img/food2.jpg"
+								<img src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }"
 									style="width: 100%; height: 600px;">
 							</div>
-							<div class="item">
-								<img src="resources/detail_img/food3.jpg"
-									style="width: 100%; height: 600px;">
-							</div>
-
-							<div class="item">
-								<img src="resources/detail_img/food4.jpg"
-									style="width: 100%; height: 600px;">
-							</div>
-							<div class="item">
-								<img src="resources/detail_img/Gui img.jpg"
-									style="width: 100%; height: 600px;">
-							</div>
+							<c:forEach var="num" begin="1" end="${cnt-1 }">
+								<div class="item">
+									<img src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[num] }" style="width: 100%; height: 600px;">
+								</div>
+							</c:forEach>
 						</div>
 						<!-- Left and right controls -->
 						<a class="left carousel-control" href="#myCarousel"
@@ -197,16 +197,15 @@
 						<div
 							class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
 							<div class="u-container-layout u-container-layout-1">
-								<h1 class="u-text u-text-default u-text-1">돈사돈 신설동점</h1>
+								<h1 class="u-text u-text-default u-text-1">${restDTO.name }</h1>
 								<img
 									class="u-image u-image-default u-preserve-proportions u-image-1"
 									src="resources/rest_detail/bootstrap/images/commonImg/star.png"
 									alt="" data-image-width="512" data-image-height="512">
 								<p
-									class="u-text u-text-default u-text-palette-5-dark-1 u-text-2">4.8
-									/ 5.0</p>
+									class="u-text u-text-default u-text-palette-5-dark-1 u-text-2">${restDTO.rateAvr } / 5.0</p>
 								<p
-									class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">돼지고기구이</p>
+									class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">${restDTO.subEx }</p>
 								<div
 									class="u-border-2 u-border-palette-5-base u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-line-1"></div>
 								<div
@@ -222,16 +221,16 @@
 												id="path929"
 												style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
 												transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)"></path>
-</g></svg><img></span>&nbsp; 서울 동대문구 한빛로 11 신설동 67-1 1층
+</g></svg><img></span>&nbsp; ${restDTO.addr }
 								</p>
-								<a href="https://nicepage.best"
+								<p
 									class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-text-body-color u-btn-1"><span
 									class="u-icon u-icon-2"><svg class="u-svg-content"
 											viewBox="0 0 405.333 405.333" x="0px" y="0px"
 											style="width: 1em; height: 1em;">
 											<path
 												d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span>&nbsp;
-									02-6326-8989 </a> <a href="https://nicepage.best"
+									${restDTO.tel } </p> <p 
 									class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-text-body-color u-btn-2"><span
 									class="u-icon u-text-black u-icon-3"><svg
 											class="u-svg-content" viewBox="0 0 32 32"
@@ -240,9 +239,8 @@
 											<path
 												d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm1,29.95V26H15v3.95A14,14,0,0,1,2.05,17H6V15H2.05A14,14,0,0,1,15,2.05V6h2V2.05A14,14,0,0,1,29.95,15H26v2h3.95A14,14,0,0,1,17,29.95Z"></path>
 											<path d="M17,9H15v7a1,1,0,0,0,.29.71l5,5,1.41-1.41L17,15.59Z"></path>
-</g></svg><img></span>&nbsp; 17:00 - 22:00 </a>
-								<p class="u-text u-text-5">그외 추가로 넣어야 할 공간</p>
-								<p>sdafsadfsa</p>
+</g></svg><img></span>&nbsp;영업시간 :  ${restDTO.hours } </p>
+								<p class="u-text u-text-5">"${restDTO.mainEx }"</p>
 							</div>
 						</div>
 						<div
@@ -258,8 +256,8 @@
 											.getElementById('map'), // 지도를 표시할 div 
 									mapOption = {
 										center : new kakao.maps.LatLng(
-												37.5770057135264,
-												127.02454050475377), // 지도의 중심좌표
+												${restDTO.lat},
+												${restDTO.lng}), // 지도의 중심좌표
 										level : 3
 									// 지도의 확대 레벨
 									};
@@ -269,8 +267,8 @@
 
 									// 마커가 표시될 위치입니다 
 									var markerPosition = new kakao.maps.LatLng(
-											37.5770057135264,
-											127.02454050475377);
+											${restDTO.lat},
+											${restDTO.lng});
 
 									// 마커를 생성합니다
 									var marker = new kakao.maps.Marker({
@@ -357,8 +355,6 @@
 					</div>
 				</div>
 			</div>
-			<a href="https://nicepage.me"
-				class="u-border-active-black u-border-hover-black u-btn u-button-style u-btn-1">more</a>
 			<div
 				class="u-border-2 u-border-palette-5-base u-expanded-width u-hidden-md u-hidden-xs u-line u-line-horizontal u-line-2"></div>
 		</div>

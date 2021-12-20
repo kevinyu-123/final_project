@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import com.dine.root.reviews.service.reviewsService;
 
 @Controller
 public class reviewsController {
+	@Qualifier("reviewsService")
 	@Autowired reviewsService rs;
 	@RequestMapping("rest_reviews_form")
 	public String restReviews(Model model) {
@@ -80,9 +82,5 @@ public class reviewsController {
 	@RequestMapping("f")
 	public String f() {
 		return "/food/food";
-	}
-	@RequestMapping("r")
-	public String r() {
-		return "/rest/rest_detail";
 	}
 }
