@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800)
+	;
+
+figure.snip1132 {
+	font-family: 'Raleway', Arial, sans-serif;
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+	min-width: 220px;
+	max-width: 310px;
+	max-height: 220px;
+	width: 100%;
+	background: #000000;
+	color: #ffffff;
+	text-align: center;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+	border-radius:30px;
+}
+
+figure.snip1132 * {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.45s ease-in-out;
+	transition: all 0.45s ease-in-out;
+}
+
+figure.snip1132 img {
+	opacity: 0.9;
+	border-radius: 30px;
+	max-width: 100%;
+	position: relative;
+	opacity: 1;
+}
+
+figure.snip1132 figcaption {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	border: 1px solid white;
+	border-width: 0 1px;
+}
+
+figure.snip1132 .heading {
+	overflow: hidden;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+figure.snip1132 .caption {
+	overflow: hidden;
+	-webkit-transform: translateY(50%);
+	transform: translateY(50%);
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+figure.snip1132 h3, figure.snip1132 p {
+	display: table;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	text-align: center;
+	width: auto;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+figure.snip1132 h3 span, figure.snip1132 p span {
+	font-weight: 800;
+}
+
+figure.snip1132 h3:before, figure.snip1132 p:before, figure.snip1132 h3:after,
+	figure.snip1132 p:after {
+	position: absolute;
+	display: block;
+	width: 1000%;
+	height: 1px;
+	content: '';
+	background: white;
+}
+
+figure.snip1132 h3:before, figure.snip1132 p:before {
+	left: -1000%;
+}
+
+figure.snip1132 h3:after, figure.snip1132 p:after {
+	right: -1000%;
+}
+
+figure.snip1132 h3:before, figure.snip1132 h3:after {
+	top: 50%;
+}
+
+figure.snip1132 p {
+	font-size: 0.8em;
+	font-weight: 500;
+}
+
+figure.snip1132 p:before, figure.snip1132 p:after {
+	bottom: 50%;
+}
+
+figure.snip1132 a {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+figure.snip1132:hover img, figure.snip1132.hover img {
+	opacity: 0.35;
+	-webkit-transform: scale(1.15);
+	transform: scale(1.15);
+
+}

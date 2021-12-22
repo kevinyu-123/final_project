@@ -1,8 +1,11 @@
 package com.dine.root.member.mapper;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -39,19 +42,30 @@ public interface MemMapper {
 	public int userNaverRegisterPro(MemDTO dto);
 
 	public int idCheck(String id);
-
 	public int emailCheck(String email);
+	public int nameCheck(String name);
 
 	public List<MemDTO> findId(String email);
-
 	public int findIdChk(String email);
 	
+	public List<MemDTO> findPwd(String email);
+	public int findPwdChk(String email);
 	
-	public int findPwd(String pwd,String email,String id);
-
-	public int findPwdChk(MemDTO dto);
-
 	public ArrayList<BoardDTO> getBoardInfo(String writer);
-
 	public ArrayList<ReplyDTO> getReplyInfo(String writer);
+	
+	public int updatePassword(MemDTO dto);
+
+	public int updateName(@Param("name") String name, @Param("session_id") String session_id);
+
+	public int updatePwd(@Param("pwd") String pwd, @Param("session_id") String session_id);
+
+	public int deleteMember(@Param("pwd") String pwd, @Param("session_id") String session_id);
+
+
+
+
+
+	
+
 }

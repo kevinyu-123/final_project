@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <meta charset="UTF-8">
 <title>mypage</title>
 
@@ -17,9 +15,7 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-* {
-	
-}
+
 
 #profile {
 	font-family: 'Gothic A1', sans-serif;

@@ -14,78 +14,16 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<style>
-#wrap {
-	position: relative;
-
-	display: flex;
-}
-
-#wrap span {
-	font-family: 'Cinzel', serif;
-	font-size: 30px;
-margin:auto;
-}
-
-#wrap img {
-	width: 30px;
-	height: 30px;
-}
-
-#wrap .dropbtn {
-	right: 20%;
-	background-color: white;
-	color: white;
-	padding: 16px;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-}
-
-#wrap .dropdown {
-	display: inline-block;
-}
-
-#wrap .dropdown-content {
-	font-family: 'Montserrat', sans-serif;
-	z-index: -1;
-	display: none;
-	position: absolute;
-	background-color: white;
-	min-width: 120px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-#wrap .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-#wrap .dropdown:hover .dropdown-content {
-	display: block;
-}
-
-#wrap .a:hover {
-	background-color: rgba(223, 209, 204);
-}
-#loginWrap{
-margin-top: 17px;
-margin-right:10px;
-
-}
-</style>
 
 </head>
-
 <body>
 	<div id="wrap">
-		<div>
-			<img src="${contextPath }/resources/img/imgMain/h2.gif"
-				style="width: 100px; height: 100px;">
+		<div style="margin-left: 40px;">
+			<a href="${contextPath}/map/mapmain"><img
+				src="${contextPath }/resources/img/imgMain/h2.gif"
+				style="width: 100px; height: 100px;"></a>
 		</div>
 
 		<span><a href="${contextPath }/main"
@@ -97,8 +35,8 @@ margin-right:10px;
 					<div class="dropdown">
 						<a class="dropbtn" href="${contextPath }/naverlogin"> <img
 							src="${contextPath}/resources/img/imgMain/account.png"
-							style="margin-top:12px;">
-							
+							style="margin-top: 15px;">
+
 						</a>
 
 					</div>
@@ -106,9 +44,9 @@ margin-right:10px;
 				<c:otherwise>
 					<!-- 로그인 되어있을 시-->
 					<div class="dropdown">
-						<button class="dropbtn">
-							<img src="${contextPath}/resources/img/imgMain/home.png">
-						</button>
+						<a class="dropbtn" href="${contextPath }/mypage">
+							<img src="${contextPath}/resources/img/imgMain/home.png"style="margin-top: 15px;">
+						</a>
 						<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> <a
 								class="a" href="${contextPath }/mylikes">MY LIKES</a> <a

@@ -29,11 +29,11 @@ public class MainController implements MemberSession {
 	}
 	@GetMapping("event")
 	public String event() {
-		return "default/event";
+		return "boardEvent/eventPage";
 	}
 	@GetMapping("news")
 	public String news() {
-		return "default/news";
+		return "boardNotice/newsPage";
 	}
 
 

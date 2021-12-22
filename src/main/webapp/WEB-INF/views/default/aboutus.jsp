@@ -1,153 +1,78 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 
 <!DOCTYPE html>
-<html>
+<html style="font-size: 16px;">
 <head>
-<meta charset="UTF-8">
-<title>About us</title>
-<style>
-#main {
-	height: 600px;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="keywords"
+	content="Simple Way&nbsp;To StartEating Healthier, Eating Fruit Can Help You Lose Weight, Making sushiis an art, Healthy Greek Yogurt Recipes for Any Meal, New Waysto Enjoy Yogurt, Eating Fruit Can Help You Lose Weight, Healthiest Fruits
+On The Planet">
+<meta name="description" content="">
+<meta name="page_type" content="np-template-header-footer-from-plugin">
+<title>Home</title>
+<link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
+	media="screen">
+<link rel="stylesheet" href="${contextPath }/resources/css/Home.css"
+	media="screen">
+<script class="u-script" type="text/javascript"
+	src="${contextPath }/resources/js/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript"
+	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 4.2.6, nicepage.com">
+<link id="u-theme-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
-#sub_top {
-	padding: 20px;
-	margin-left: 200px;
-}
 
-#body {
-	display: flex;
-}
-
-#left_body {
-	z-index: 999;
-	width: 40%;
-}
-
-#right_body {
-	width: 60%;
-	background-image: url("");
-}
-
-#label {
-	margin-top: 50px;
-	padding: 10px;
-	font-family: 'Gothic A1', sans-serif;
-	text-align: center;
-}
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
- 
-</head>
-<body>
-
-	<div class="w3-animate-opacity">
-
-		<header>
-			<c:import url="../default/header.jsp" />
-		</header>
-		<div id="main">
-
-			<!-- 	<div id="sub_top">
-	<div class="w3-container  w3-animate-left">
-				<span style="font-family:'Readex Pro', sans-serif;">ABOUT US</span>
-			</div>
-			</div>
-		 -->
-			<div id="body">
-
-				<div id="left_body">
-
-					<div class="w3-content w3-section">
-						<img class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/2.png"
-							style="width: 100%; height: 450px;"> <img
-							class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/5.png"
-							style="width: 100%; height: 450px;"> <img
-							class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/3.png"
-							style="width: 100%; height: 450px;"> <img
-							class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/4.png"
-							style="width: 100%; height: 450px;"> <img
-							class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/1.png"
-							style="width: 100%; height: 450px;"> <img
-							class="mySlides w3-animate-fading"
-							src="${contextPath}/resources/img/imgMain/6.png"
-							style="width: 100%; height: 450px;">
-					</div>
-
-				</div>
-
-				<div id="right_body">
-					<div id="label">
-						<div class="w3-container  w3-animate-left ">
-							<label style="font-size: 25pt;">안녕하세요, DiningLab 입니다.</label><br>
-						</div>
-						<p>
-						<div class="w3-container  w3-animate-right"
-							style="font-size: 12pt;">
-							DiningLab은 세계 각지의 대표 음식을 소개하고, <br> 한국에서 다양한 나라의 현지음식을 경험해볼
-							수 있도록 <br> 믿을만한 맛집을 소개하고 추천하는 서비스를 제공하고 있습니다.<br>
-
-							<p>
-								쉽게 접해보지 못했던 메뉴들부터 숨은맛집들까지! <br> 지금 바로 경험해보세요 :)
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<footer>
-			<c:import url="../default/footer.jsp" />
-		</footer>
-	</div>
-
-</body>
-<script>
-	var myIndex = 0;
-	carousel();
-
-	function carousel() {
-		var i;
-		var x = document.getElementsByClassName("mySlides");
-		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";
-		}
-		myIndex++;
-		if (myIndex > x.length) {
-			myIndex = 1
-		}
-		x[myIndex - 1].style.display = "block";
-		setTimeout(carousel, 7000);
-	}
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "" }
 </script>
 
+<meta name="theme-color" content="#f2d8bb">
+<meta property="og:title" content="Home">
+<meta property="og:type" content="website">
+</head>
+<body class="u-body">
+	<header>
+		<c:import url="../default/header.jsp"></c:import>
+	</header>
+	<section class="u-clearfix u-image u-section-1" id="sec-567e">
+		<div class="u-clearfix u-sheet u-sheet-1">
+			<div class="u-shape u-shape-rectangle u-white u-shape-1"></div>
+			<img
+				src="${contextPath }/resources/img/imgMain/5b5bf4cfd3f2a2f1d3731f657b0d6e93.jpeg"
+				alt="" class="u-image u-image-default u-image-1"
+				data-image-width="1600" data-image-height="880">
+			<p class="u-text u-text-body-alt-color u-text-1">
+				DiningLab<span style="font-size: 12.5rem;"> <span
+					style="font-weight: 400;"></span>
+				</span>
+			</p>
+			<div class="u-container-style u-group u-group-1">
+				<div class="u-container-layout u-container-layout-1">
+					<div
+						class="u-opacity u-opacity-45 u-shape u-shape-rectangle u-white u-shape-2"></div>
+					<h2 class="u-text u-text-2">ABOUT US</h2>
+					<p class="u-text u-text-palette-1-dark-2 u-text-3">
+						안녕하세요, DiningLab 입니다.<br> <br>DiningLab은 세계 각지의 대표 음식을
+						소개하고,<br>한국에서 다양한 나라의 현지음식을 경험해볼 수 있도록<br>믿을만한 맛집을 소개하고
+						추천하는 서비스를 제공하고 있습니다. 쉽게 접해보지 못했던 메뉴들부터 숨은맛집들까지!<br>지금 바로
+						경험해보세요 :)
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="u-backlink u-clearfix">
+		<footer>
+			<c:import url="../default/footer.jsp"></c:import>
+		</footer>
+	</section>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

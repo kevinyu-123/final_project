@@ -17,10 +17,6 @@
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&family=Playfair+Display+SC&display=swap"
 	rel="stylesheet">
 <style>
-* {
-	
-}
-
 span {
 	text-align: center;
 	margin: auto;
@@ -129,6 +125,11 @@ h2 {
 h2 {
 	text-align: center;
 }
+.pagetitle {
+	font-size: 30px;
+	padding: 15px;
+}
+
 </style>
 <script type="text/javascript">
 	
@@ -160,39 +161,41 @@ h2 {
 		<div id="bigbox">
 			<div id="left_box"></div>
 			<div id="mid_box">
-
-				<h6>총 ${fn:length(replyInfo)} 개의 댓글이 조회되었습니다.</h6>
-				<table border="1">
-					<tr>
-						<th>제목</th>
-						<th>댓글 내용</th>
-						<th>작성일</th>
-						<th>조회</th>
-					</tr>
-					<c:choose>
-						<c:when test="${fn:length(replyInfo) != 0}">
-							<tr>
-								<td>${replyInfo.comment_no }</td>
-								<td><a href="#">${replyInfo.content}</a></td>
-								<td>${replyInfo.reg_time}</td>
-								<td>${replyInfo.views}</td>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<tr>
-								<td colspan="4" align="center">조회된 댓글이 없습니다.</td>
-							</tr>
-						</c:otherwise>
-					</c:choose>
-				</table>
+				<div class=" w3-animate-left" style="margin-bottom: 20px;">
+					<span class="pagetitle"> <b>MY REPLY</b>
+					</span>
+					</div>
+					<h6>총 ${fn:length(replyInfo)} 개의 댓글이 조회되었습니다.</h6>
+					<table border="1">
+						<tr>
+							<th>제목</th>
+							<th>댓글 내용</th>
+							<th>작성일</th>
+							<th>조회</th>
+						</tr>
+						<c:choose>
+							<c:when test="${fn:length(replyInfo) != 0}">
+								<tr>
+									<td>${replyInfo.comment_no }</td>
+									<td><a href="#">${replyInfo.content}</a></td>
+									<td>${replyInfo.reg_time}</td>
+									<td>${replyInfo.views}</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td colspan="4" align="center">조회된 댓글이 없습니다.</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
+					</table>
+				</div>
+				<div id="right_box"></div>
 			</div>
-			<div id="right_box"></div>
+
+			<footer>
+				<c:import url="../default/footer.jsp" />
+			</footer>
 		</div>
-
-		<footer>
-			<c:import url="../default/footer.jsp" />
-		</footer>
-	</div>
-
 </body>
 </html>

@@ -11,7 +11,6 @@
 <title>DiningLab</title>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <style>
 .container {
 	width: 100%;
@@ -93,6 +92,7 @@ ul, li {
 	margin: 0;
 	padding: 0;
 }
+
 </style>
 
 
@@ -128,13 +128,15 @@ ul, li {
 			<div style="width: 50%;">
 				<div class="container">
 					<img src="${contextPath}/resources/img/imgMain/map.png">
-					<button class="btn" onclick="">MAP_SEARCH</button>
+					<button class="btn" onclick="location.href='${contextPath}/map/mapmain'">MAP_SEARCH</button>
 				</div>
 
 			</div>
 		</div>
 		<footer>
+
 			<c:import url="../default/footer.jsp" />
+
 		</footer>
 	</div>
 </body>

@@ -34,5 +34,6 @@ public class EmailController {
 		int result = service.checkVal(emailCode, session);
 		return result;
 	}
-
+	
+	
 }

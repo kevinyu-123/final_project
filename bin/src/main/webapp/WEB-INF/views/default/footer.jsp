@@ -4,18 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>findPwd</title>
-<style>
-
-
-</style>
-<script>
-
-
-
-</script>
+<title>Insert title here</title>
 </head>
 <body>
-비번 재설정 ~₩
+
 </body>
 </html>

@@ -38,7 +38,11 @@ public class HomeController {
 	}
 	@GetMapping("test")
 	public String test() {
-		return "test";
+		return "member/test";
+	}
+	@GetMapping("test2")
+	public String test2() {
+		return "member/test2";
 	}
 
 }

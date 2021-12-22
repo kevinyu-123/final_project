@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dine.root.member.mapper.MemMapper">
+
+	<resultMap type="com.dine.root.member.dto.MemDTO" id="member">
+		<!-- property = dto에 저장된 변수이름 column은 db table 의 컬럼명 -->
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="pwd" column="pwd" />
+		<result property="liked_rest" column="liked_rest" />
+		<result property="session_id" column="session_id" />
+		<result property="session_date" column="session_date" />
+		<result property="email" column="email" />
+		<result property="email_auth" column="email_auth" />
+		<result property="kakaologin" column="kakaologin" />
+		<result property="naverlogin" column="naverlogin" />
+	</resultMap>
+
+	<insert id="register">
+		INSERT into member (id,pwd,name,email,email_auth)
+		VALUES(#{id},#{pwd},#{name},#{email},#{email_auth})
+	</insert>
+
+	<select id="kakaoChk" resultMap="member">
+		SELECT email,kakaologin FROM
+		member WHERE email = #{email}
+	</select>
+
+	<update id="setKakaoConnection">
+		UPDATE member SET kakaologin = #{id} WHERE email =
+		#{email}
+	</update>
+
+	<select id="userKakaoLoginPro" resultMap="member">
+		SELECT email,id,name
+		FROM member WHERE email = #{email} AND kakaologin =
+		#{id}
+	</select>
+
+	<insert id="memKakaoRegister">
+		INSERT INTO member
+		(id,name,pwd,email,email_auth,kakaologin)
+		VALUES(#{id},#{name},#{pwd},#{email},#{email_auth},#{kakaologin})
+	</insert>
+
+	<select id="getUserSessionId" resultMap="member">
+		SELECT * FROM member
+		WHERE session_id = #{id}
+	</select>
+
+	<update id="keepLogin">
+		UPDATE member SET session_id = #{session_id},
+		session_date = #{session_date}
+		WHERE id = #{id}
+	</update>
+
+	<select id="loginChk" resultMap="member">
+		SELECT * FROM member WHERE id =
+		#{id}
+	</select>
+
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT
+		count(id) FROM member WHERE id= #{id}
+	</select>
+
+	<select id="emailCheck" parameterType="String" resultType="int">
+		SELECT count(email) FROM member WHERE email= #{email}
+	</select>
+	<select id="nameCheck" parameterType="String" resultType="int">
+		SELECT
+		count(name) FROM member WHERE name= #{name}
+	</select>
+
+	<select id="naverConnectionCheck" resultType="Map">
+		SELECT
+		EMAIL,NAVERLOGIN FROM MEMBER WHERE EMAIL = #{email}
+	</select>
+
+	<update id="setNaverConnection">
+		UPDATE member SET NAVERLOGIN = #{id} WHERE EMAIL =
+		#{email}
+	</update>
+
+	<select id="userNaverLoginPro" resultType="Map">
+		select name from
+		member where email = #{email} and naverlogin=#{id}
+	</select>
+
+	<insert id="userNaverRegisterPro">
+		insert into
+		member(id,pwd,name,email,email_auth,naverlogin)
+		values(#{id}, #{pwd},
+		#{name}, #{email}, #{email_auth}, #{naverlogin} )
+	</insert>
+	<select id="findId" resultMap="member">
+		SELECT * FROM member WHERE email =
+		#{email}
+	</select>
+	<select id="findIdChk" resultType="int">
+		SELECT count(*) FROM member
+		WHERE email = #{email}
+	</select>
+
+
+	<select id="findPwd" resultMap="member">
+		select * from member where email
+		= #{email}
+	</select>
+
+	<select id="findPwdChk" resultType="int">
+		select count(*) from member
+		where email = #{email}
+	</select>
+
+	<select id="getEmail_auth" resultMap="member">
+		SELECT email_auth FROM
+		member WHERE id = #{id} and email=#{email}
+	</select>
+
+	<update id="updatePassword">
+		UPDATE member SET pwd=#{pwd},email_auth=#{email_auth}
+		where id=#{id}
+	</update>
+
+	<update id="updateName">
+		UPDATE member SET name=#{name} where name=
+		#{session_id}
+	</update>
+	<update id="updatePwd">
+		UPDATE member SET pwd=#{pwd} where name=
+		#{session_id}
+	</update>
+
+	<delete id="deleteMember">
+		delete from member where name=#{session_id}
+	</delete>
+
+</mapper>

@@ -16,83 +16,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet" href="${contextPath }/resources/css/register.css">
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<style>
-* {
-	margin: auto;
-}
-
-#LoginWrap {
-	padding: 30px;
-}
-
-#LoginWrap h1 {
-	font-family: 'Outfit', sans-serif;
-}
-
-#LoginWrap input {
-	font-family: 'Outfit', sans-serif;
-	padding: 12px 20px;
-	margin: 8px 0;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	border-radius: 20px;
-	-webkit-transition: 0.1s;
-	transition: 0.2s;
-	outline: none;
-}
-
-#LoginWrap .btn {
-	font-family: 'Gothic A1', sans-serif;
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	border-radius: 20px;
-	-webkit-transition: 0.1s;
-	transition: 0.2s;
-	outline: none;
-}
-
-#LoginWrap input:focus {
-	border: 2px solid #555;
-}
-
-#LoginWrap a:hover {
-	font-weight: bold;
-}
-
-#authChk {
-	font-family: 'Gothic A1', sans-serif;
-}
-
-.id_ok {
-	font-family: 'Gothic A1', sans-serif;
-	color: black;
-	display: none;
-}
-
-.id_already {
-	font-family: 'Gothic A1', sans-serif;
-	color: #6A82FB;
-	display: none;
-}
-
-.email_already {
-	font-family: 'Gothic A1', sans-serif;
-	color: #6A82FB;
-	display: none;
-}
-
-.email_chk {
-	font-family: 'Gothic A1', sans-serif;
-	color: #6A82FB;
-	display: none;
-}
-</style>
 
 <script>
 	function register() {
@@ -269,6 +196,30 @@
 		return false;
 
 	}
+	function nameCheck(){
+		var name= $('#name').val();
+		
+		$.ajax({
+			url : 'nameCheck',
+			type : 'post',
+			data : {name:name},
+			success : function(cnt) {
+				if (cnt != 1) {
+					$('.name_ok').css("display", "inline-block");
+					$('.name_already').css("display", "none");
+				} else {
+					$('.name_already').css("display", "inline-block");
+					$('.name_ok').css("display", "none");
+				}
+			},
+
+			error : function() {
+				alert("에러입니다");
+			}
+		})
+	}
+		
+	
 </script>
 
 </head>
@@ -279,7 +230,7 @@
 
 			<h1>Sign up</h1>
 			<span style="font-family: 'Outfit', sans-serif;">Already a
-				member?<a href="${contextPath}/memlogin"
+				member?<a href="${contextPath}/naverlogin"
 				style="font-family: 'Outfit', sans-serif;">Log In</a><br>
 			</span>
 
@@ -287,8 +238,10 @@
 				<table>
 					<tr>
 						<td><input type="text" id="id" name="id" placeholder="ID"
-							oninput="idCheck()"><br> <span class="id_ok">사용
-								가능한 아이디입니다.</span> <span class="id_already">이미 존재하는 아이디입니다.</span></td>
+							oninput="idCheck()"><br> 
+							<span class="id_ok">사용
+								가능한 아이디입니다.</span> 
+								<span class="id_already">이미 존재하는 아이디입니다.</span></td>
 					</tr>
 					<tr>
 						<td><input type="password" id="pwd " name="pwd"
@@ -297,7 +250,9 @@
 
 					<tr>
 						<td><input type="text" name="name" id="name"
-							placeholder="Name"></td>
+							placeholder="Name" oninput="nameCheck()"><br>
+							<span class="name_ok">사용 가능한 닉네임입니다.</span> 
+							<span class="name_already">이미 존재하는 닉네임 입니다.</span></td>
 
 					</tr>
 					<tr>

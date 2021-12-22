@@ -1,0 +1,32 @@
+.screen__header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 20px;
+}
+
+.screen__header-column {
+  width: 33%;
+}
+.screen__header-column:first-child {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.screen__header-column:first-child i {
+  margin-right: 10px;
+}
+
+.screen__header-column:nth-child(2) {
+  text-align: center;
+  font-size: 24px;
+}
+.screen__header-column:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.screen__header-column:last-child i {
+  margin-left: 10px;
+}

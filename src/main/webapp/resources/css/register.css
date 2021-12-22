@@ -1,0 +1,85 @@
+@charset "UTF-8";
+* {
+	margin: auto;
+}
+
+#LoginWrap {
+	padding: 30px;
+}
+
+#LoginWrap h1 {
+	font-family: 'Outfit', sans-serif;
+}
+
+#LoginWrap input {
+	font-family: 'Outfit', sans-serif;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+}
+
+#LoginWrap .btn {
+	font-family: 'Gothic A1', sans-serif;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+}
+
+#LoginWrap input:focus {
+	border: 2px solid #555;
+}
+
+#LoginWrap a:hover {
+	font-weight: bold;
+}
+
+#authChk {
+	font-family: 'Gothic A1', sans-serif;
+}
+
+.id_ok {
+	font-family: 'Gothic A1', sans-serif;
+	color: black;
+	display: none;
+}
+
+.id_already {
+	font-family: 'Gothic A1', sans-serif;
+	color: #6A82FB;
+	display: none;
+}
+
+.email_already {
+	font-family: 'Gothic A1', sans-serif;
+	color: #6A82FB;
+	display: none;
+}
+
+.email_chk {
+	font-family: 'Gothic A1', sans-serif;
+	color: #6A82FB;
+	display: none;
+}
+
+.name_ok {
+	font-family: 'Gothic A1', sans-serif;
+	color: black;
+	display: none;
+}
+
+.name_already {
+	font-family: 'Gothic A1', sans-serif;
+	color: #6A82FB;
+	display: none;
+}
