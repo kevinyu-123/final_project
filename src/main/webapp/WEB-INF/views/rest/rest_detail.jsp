@@ -32,6 +32,7 @@
 	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="val2.css" media="screen">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
@@ -326,7 +327,7 @@ font-size: 20px;
 							<h2 class="u-text u-text-grey-70 u-text-2">흑돼지 3인세트 (800g)</h2>
 							<p class="u-text u-text-grey-50 u-text-3">메뉴설명1</p>
 							<img
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/56df4d594b6cfe89c3cab7a6f6be1b07.jpeg"
+								src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${restPic[num] }"
 								alt=""
 								class="u-expanded-width u-image u-image-default u-image-1">
 						</div>

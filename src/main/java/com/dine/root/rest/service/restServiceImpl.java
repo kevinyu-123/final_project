@@ -1,11 +1,14 @@
 package com.dine.root.rest.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.dine.root.rest.dao.restDAO;
+import com.dine.root.rest.dto.menuDTO;
 import com.dine.root.rest.dto.restDTO;
 
 @Service
@@ -14,9 +17,8 @@ public class restServiceImpl implements restService{
 	@Autowired restDAO dao;
 
 	@Override
-	public int infoRest(Model m, int id) {
+	public void infoRest(Model m, int id) {
 		// TODO Auto-generated method stub
-		int check = 0;
 		try {
 			restDTO dto = dao.infoRest(id);
 			System.out.println(dto);
@@ -34,14 +36,23 @@ public class restServiceImpl implements restService{
 				System.out.println(dto.getId());
 				
 				m.addAttribute("restPic",picArray);
-				check = 1;
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			check = 0;
 		}
 		
-		
-		return check;
+	}
+
+	@Override
+	public void infoMenu(Model m, int id) {
+		// TODO Auto-generated method stub
+		try {
+			ArrayList<menuDTO> menuDTO = dao.infoMenu(id);
+			m.addAttribute("menuDTO",menuDTO);
+			System.out.println(menuDTO.get(0).getPic());
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 }

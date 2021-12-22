@@ -19,7 +19,18 @@
 		<result property="lng" column="LNG"/>
 		<result property="restPic" column="rest_pic"/>
 	</resultMap>
+	<resultMap id="menu" type="com.dine.root.rest.dto.menuDTO">
+		<id property="id" column="id"/>
+		<result property="restId" column="REST_ID"/>
+		<result property="name" column="NAME"/>
+		<result property="pic" column="PIC"/>
+		<result property="ex" column="EX"/>
+		<result property="price" column="PRICE"/>
+	</resultMap>
 	<select id="infoRest" resultMap="rest">
 		select * from restaurant where id=#{id}
+	</select>
+	<select id="infoMenu" resultMap="menu">
+		select * from menu where rest_Id=#{id}
 	</select>
 </mapper>

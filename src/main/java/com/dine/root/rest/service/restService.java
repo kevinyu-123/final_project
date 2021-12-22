@@ -6,5 +6,6 @@ import com.dine.root.rest.dto.restDTO;
 
 public interface restService {
 	// restID -> getDTO
-	public int infoRest(Model m,int id);
+	public void infoRest(Model m,int id);
+	public void infoMenu(Model m,int id);
 }
