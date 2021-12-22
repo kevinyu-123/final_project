@@ -109,6 +109,34 @@ margin: auto;
 			content.focus();
 			return false;
 		}
+		var form = $("form")[0];
+		console.log(form)
+	 	var formData = new FormData(form);
+		console.log(formData)
+			for (var x = 0; x < sel_files.length; x++) {
+				// 삭제 안한것만 담아 준다. 
+				formData.append("article_file", sel_files[x]);
+			}
+		$.ajax({
+	 	      type: "POST",
+	 	      dataType:"json",
+	 	   	  enctype: "multipart/form-data",
+	 	      url: "rest-file-upload",
+	     	  data : formData,
+	     	  processData: false,
+	 	      contentType: false,
+	 	      success: function (data) {
+	 	    	if(JSON.parse(data)['result'] == "OK"){
+	 	    		alert("파일업로드 성공");
+				} else
+					alert("1서버내 오류로 처리가 지연되고있습니다. 잠시 후 다시 시도해주세요");
+	 	      },
+	 	      error: function (xhr, status, error) {
+	 	    	alert("2서버오류로 지연되고있습니다. 잠시 후 다시 시도해주시기 바랍니다.");
+	 	     return false;
+	 	      }
+	 	    });
+	 	    return false;
 	}
 </script>
 </head>
@@ -185,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		<div id='image_preview'>
 			<div id='att_zone'
 				data-placeholder='파일을 첨부 하려면 버튼을 클릭하거나 파일을 드래그앤드롭 하세요'>
-				<input style='display: none;' type='file' id='restImgs' name="restImgs"
+				<input style='display: none;' type='file' id='restImgs'
 					multiple='multiple' /> <img
 					style="width: 100px; height: 100px;"
 					src='resources/detail_img/test.png' border='0'
