@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title><c:if test="${att eq 'food'}"> [음식 이름] | 리뷰 쓰기 - DiningLab</c:if>
-<c:if test="${att eq 'rest'}"> [음식점 이름] | 리뷰 쓰기 - DiningLab</c:if>
+<c:if test="${att eq 'rest'}"> ${restDTO.name } | 리뷰 쓰기 - DiningLab</c:if>
 </title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -53,13 +53,20 @@
 	     	  processData: false,
 	 	      contentType: false,
 	 	      success: function (data) {
-	 	    	if(JSON.parse(data)['result'] == "OK"){
-	 	    		alert("파일업로드 성공");
-				} else
-					alert("1서버내 오류로 처리가 지연되고있습니다. 잠시 후 다시 시도해주세요");
+	 	    	  if(data.result == "OK"){
+	 	    		  alert("리뷰 작성 완료")
+	 	    		  location.href="/root/v";
+	 	    	  }else
+	 	    		  alert("리뷰가 작성되지 않았습니다.");
+	 	    	  console.log(data);
+	 	    	//if(JSON.parse(data)['result'] == "OK"){
+	 	    	//	alert("파일업로드 성공");
+			//	} else
+				//	alert("1서버내 오류로 처리가 지연되고있습니다. 잠시 후 다시 시도해주세요");
 	 	      },
-	 	      error: function (xhr, status, error) {
-	 	    	alert("2서버오류로 지연되고있습니다. 잠시 후 다시 시도해주시기 바랍니다.");
+	 	      error: function (request, status, error) {
+	 	    	alert("status : " + request.status + ", message : " + request.responseText + ", error : " + error);
+	 	    	
 	 	     return false;
 	 	      }
 	 	    });
@@ -171,7 +178,7 @@ margin: auto;
 		<form action="upload_food_review" method="post" enctype="multipart/form-data" onsubmit="return contentNull_alert();">
 			<div class="food-reviews-title">
 			<c:if test="${att eq 'food'}"><p><span>[음식]</span> , 드셔보셨나요, 평가해 주세요</p></c:if>
-			<c:if test="${att eq 'rest'}"><p><span>[음식점]</span> 에 대한 솔직한 리뷰를 써주세요</p></c:if>			
+			<c:if test="${att eq 'rest'}"><p><span>${restDTO.name }</span> 에 대한 솔직한 리뷰를 써주세요</p></c:if>			
 			</div>
 			<!-- hidden form name 에 들어갈 것들 -->
 			<c:if test="${att eq 'food'}">
@@ -185,8 +192,8 @@ margin: auto;
 				<input type="hidden" name="att" value="rest" />
 				
 				<input type="hidden" name="rate" id="rate" value="5" />
-				<input type="hidden" name="memId" value="김떙땡" />
-				<input type="hidden" name="restId" value="1" />
+				<input type="hidden" name="memId" value="${memId }" />
+				<input type="hidden" name="restId" value="${restDTO.id }" />
 			</c:if>
 
 					<!-- 별점  -->
@@ -248,14 +255,14 @@ margin: auto;
 
 			</script>
 			<c:if test="${att eq 'food'}"><textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)"
-			placeholder="땡땡땡 님 , 음식에 대한 리뷰를 작성해주세요 ! "></textarea></c:if>
+			placeholder="${memId } 님 , 음식에 대한 리뷰를 작성해주세요 ! "></textarea></c:if>
 			<c:if test="${att eq 'rest'}"><textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)"
-			placeholder="땡땡땡 님 , 음식점을 방문하시고 느낀 소감을 작성해주세요 !"></textarea></c:if>	
+			placeholder="${memId } 님 , ${restDTO.name } 을 방문하시고 느낀 소감을 작성해주세요 !"></textarea></c:if>	
 			
 			<div style="color: #aaa;" id="content_cnt">(0 / 최대 1,000자)</div>
 			<br>
 			<c:if test="${att eq 'food'}"><p>마음에 드는 음식 사진을 등록해 주세요</p></c:if>
-			<c:if test="${att eq 'rest'}"><p>음식점에 방문하시고 찍은 사진을 등록해 주세요</p></c:if>				
+			<c:if test="${att eq 'rest'}"><p>${restDTO.name } 에 방문하시고 찍은 사진을 등록해 주세요</p></c:if>				
 			
 			<div id='image_preview'>
 				<table>

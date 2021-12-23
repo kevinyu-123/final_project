@@ -43,12 +43,15 @@
     <meta property="og:title" content="val2">
     <meta property="og:type" content="website">
 <style type="text/css">
+
 .container{
-width: 100%;
+width: 110%;
 height: 100%;
+position: absolute;
+left: -15px;
 }
 .carousel-inner img{
-width: 798px;
+width: 870px;
 max-height: 504px;
 }
 
@@ -135,10 +138,15 @@ max-height: 504px;
 .custom_zoomcontrol span:first-child {
 	border-bottom: 1px solid #bfbfbf;
 }
-.u-text-5{
+.u-layout-wrap-2 .u-text-4{
 font-size: 20px;
+width: 400px;
 }
 
+.u-text-10 button{
+margin-left: 20px;
+width: 200px;
+}
 </style>   
   </head>
   <body class="u-body">
@@ -238,18 +246,18 @@ font-size: 20px;
                   <p class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">${restDTO.subEx }</p>
                   <div class="u-border-2 u-border-palette-5-base u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xs u-line u-line-horizontal u-line-1"></div>
                   <div class="u-border-2 u-border-palette-5-base u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xs u-line u-line-horizontal u-line-2"></div>
-                  <p class="u-text u-text-4">${restDTO.mainEx }</p>
+                  <p class="u-text u-text-4">"${restDTO.mainEx }"</p>
                   <p class="u-text u-text-5"><span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 8.4666665 8.4666669" style="width: 1em; height: 1em;"><defs id="defs2"></defs><g id="layer1" transform="translate(0,-288.53332)"><path d="m 15.996094,0.99609375 c -6.0632836,0 -10.9980445,4.93673065 -10.9980471,11.00000025 -3.8e-6,10.668737 10.3789061,18.779297 10.3789061,18.779297 0.364612,0.290384 0.881482,0.290384 1.246094,0 0,0 10.380882,-8.11056 10.380859,-18.779297 C 27.003893,5.9328244 22.059377,0.99609375 15.996094,0.99609375 Z m 0,6.00195315 c 2.749573,0 5.00585,2.2484784 5.005859,4.9980471 C 21.001971,14.7457 18.745685,17 15.996094,17 c -2.749591,0 -4.998064,-2.2543 -4.998047,-5.003906 9e-6,-2.7495687 2.248474,-4.9980471 4.998047,-4.9980471 z" id="path929" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:currentColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)"></path>
 </g></svg><img></span>&nbsp; ${restDTO.addr }
                   </p>
-                  <p class="u-text u-text-6"><span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 0 405.333 405.333" x="0px" y="0px"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span> &nbsp; 02-6326-8989
+                  <p class="u-text u-text-6"><span class="u-icon u-icon-2"><svg class="u-svg-content" viewBox="0 0 405.333 405.333" x="0px" y="0px"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span> &nbsp; 전화번호 : ${restDTO.tel }
                   </p>
                   <p class="u-text u-text-7"><span class="u-icon u-text-black u-icon-3"><svg class="u-svg-content" viewBox="0 0 32 32"><g id="_34-Time"><path d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm1,29.95V26H15v3.95A14,14,0,0,1,2.05,17H6V15H2.05A14,14,0,0,1,15,2.05V6h2V2.05A14,14,0,0,1,29.95,15H26v2h3.95A14,14,0,0,1,17,29.95Z"></path><path d="M17,9H15v7a1,1,0,0,0,.29.71l5,5,1.41-1.41L17,15.59Z"></path>
-</g></svg><img></span> &nbsp; ${restDTO.tel }
+</g></svg><img></span> &nbsp; 영업시간 : ${restDTO.hours }
                   </p>
                   <p class="u-text u-text-8">추가할 정보1</p>
                   <p class="u-text u-text-9">추가할 정보2</p>
-                  <p class="u-text u-text-10">추가할 정보3</p>
+                  <div class="u-text u-text-10"><button type="button" class="btn btn-primary" id="rest_reviews" onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">리뷰쓰기</button><button type="button" class="btn btn-primary" id="">찜하기</button></div>
                 </div>
               </div>
               <div class="u-container-style u-image u-layout-cell u-size-30 u-image-7" data-image-width="750" data-image-height="1000">

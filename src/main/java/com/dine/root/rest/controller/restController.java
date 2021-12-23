@@ -5,23 +5,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dine.root.rest.service.restService;
 import com.dine.root.rest.service.restServiceImpl;
 
 @Controller
 public class restController {
+	
 	@Qualifier("restServiceImpl")
 	@Autowired restServiceImpl rs;
 	
-	@RequestMapping("r")
-	public String restDetail(Model m) {
-		int id = 22;
-		rs.infoRest(m,id);
-		rs.infoMenu(m,id);
-		return "/rest/rest_detail";
-	}
 	@RequestMapping("v")
 	public String restDetail2(Model m) {
-		int id = 22;
+		int id = 41;
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
 		return "/rest/val2";
