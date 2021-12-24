@@ -44,11 +44,14 @@
     <meta property="og:type" content="website">
 <style type="text/css">
 .container{
-width: 100%;
+width: 900px;
+position: absolute;
+left: -15px;
 height: 100%;
 }
+
 .carousel-inner img{
-width: 798px;
+width: 880px;
 max-height: 504px;
 }
 
@@ -195,7 +198,7 @@ font-size: 20px;
                   <div class="u-size-30">
                     <div class="u-layout-row">
                       <div class="u-container-style u-image u-layout-cell u-size-30 u-image-2" data-image-width="750" data-image-height="1000"
-                      style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');"
+                      style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');"
                       >
                         <div class="u-container-layout u-container-layout-2">
                         	
@@ -255,7 +258,7 @@ font-size: 20px;
               <div class="u-container-style u-image u-layout-cell u-size-30 u-image-7" data-image-width="750" data-image-height="1000">
                 <div class="u-container-layout u-container-layout-7">
                 <div class="map_wrap">
-									<div id="map" style="width: 570px; height: 550px;"></div>
+									<div id="map" style="width: 560px; height: 550px;"></div>
 								</div>
 								<script type="text/javascript"
 									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b98926a604353b43e636cb141e9ef77"></script>
