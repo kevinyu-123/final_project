@@ -8,83 +8,39 @@
 <head>
 <meta charset="UTF-8">
 <title>DiningLab</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
+<link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
+	media="screen">
+<link rel="stylesheet" href="${contextPath } /resources/css/Home1.css"
+	media="screen">
+<script class="u-script" type="text/javascript"
+	src="${contextPath } /resources/js/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript"
+	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 4.2.6, nicepage.com">
+<link id="u-theme-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<style>
-#wrap {
-	position: relative;
-	display: flex;
-}
-
-#wrap span {
-	font-family: 'Cinzel', serif;
-	font-size: 30px;
-	margin:auto;
-}
-
-#wrap img {
-	width: 30px;
-	height: 30px;
-}
-
-#wrap .dropbtn {
-	right: 20%;
-	background-color: white;
-	color: white;
-	padding: 16px;
-	font-size: 16px;
-	border: none;
-	cursor: pointer;
-}
-
-#wrap .dropdown {
-	display: inline-block;
-}
-
-#wrap .dropdown-content {
-	font-family: 'Montserrat', sans-serif;
-	z-index: -1;
-	display: none;
-	position: absolute;
-	background-color: white;
-	min-width: 120px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
-
-#wrap .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-#wrap .dropdown:hover .dropdown-content {
-	display: block;
-}
-
-#wrap .a:hover {
-	background-color: rgba(223, 209, 204);
-}
-#loginWrap{
-margin-top: 17px;
-margin-right:60px;
-
-}
-</style>
-
 </head>
+<style>
 
+</style>
 <body>
 	<div id="wrap">
 		<div style="margin-left: 40px;">
-			<img src="${contextPath }/resources/img/imgMain/h2.gif"
-				style="width: 100px; height: 100px;">
+			<a href="${contextPath}/map/mapmain"><img
+				src="${contextPath }/resources/img/imgMain/h2.gif"
+				style="width: 100px; height: 100px;"></a>
 		</div>
 
 		<span><a href="${contextPath }/main"
@@ -96,8 +52,8 @@ margin-right:60px;
 					<div class="dropdown">
 						<a class="dropbtn" href="${contextPath }/naverlogin"> <img
 							src="${contextPath}/resources/img/imgMain/account.png"
-							style="margin-top:15px;">
-							
+							style="margin-top: 15px;">
+
 						</a>
 
 					</div>
@@ -105,9 +61,9 @@ margin-right:60px;
 				<c:otherwise>
 					<!-- 로그인 되어있을 시-->
 					<div class="dropdown">
-						<button class="dropbtn">
-							<img src="${contextPath}/resources/img/imgMain/home.png">
-						</button>
+						<a class="dropbtn" href="${contextPath }/mypage">
+							<img src="${contextPath}/resources/img/imgMain/home.png"style="margin-top: 15px;">
+						</a>
 						<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> <a
 								class="a" href="${contextPath }/mylikes">MY LIKES</a> <a

@@ -5,21 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <meta charset="UTF-8">
 <title>mypage</title>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
+ 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-* {
-	
-}
+
 
 #profile {
 	font-family: 'Gothic A1', sans-serif;
@@ -115,21 +111,21 @@ button:hover {
 	<div class="w3-animate-opacity">
 		<div id="bigbox">
 			<div id="profile">
-				<img src="${contextPath}/resources/img/imgMain/user.png"><br>
-				<span><b>${session_user}</b></span>
+				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
+				<span><b>${session_user }</b></span>
 			</div>
 
 			<div id="divv">
 				<div id="navdiv">
 					<ul>
-						<li><a href="mypage"><strong style="font-size: 25px;">My
-									Page</strong></a></li>
+						<li><a href="mypage"><strong style="font-size: 25px;">
+						MY PAGE</strong></a></li>
 
-						<li><a href="mylikes">My Likes</a></li>
-						<li><a href="myboard">My Board</a></li>
-						<li><a href="myreply">My Reply</a></li>
+						<li><a href="mylikes">MY LIKES</a></li>
+						<li><a href="myboard">MY BOARD</a></li>
+						<li><a href="myreply">MY REPLY</a></li>
 						<li></li>
-						<li><a href="newprofile">Account Settings</a></li>
+						<li><a href="newprofile">ACCOUNT SETTINGS</a></li>
 
 					</ul>
 
@@ -140,14 +136,12 @@ button:hover {
 						<tr>
 							<td>
 								<button class="likes" onclick="location.href='mylikes'">
-									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>My
-									likes
+									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>MY LIKES
 								</button>
 							</td>
 							<td>
 								<button class="board" onclick="location.href='myboard'">
-									<img src="${contextPath }/resources/img/imgMain/write.png"><br>My
-									board
+									<img src="${contextPath }/resources/img/imgMain/write.png"><br>MY BOARD
 								</button>
 							</td>
 						</tr>
@@ -155,13 +149,13 @@ button:hover {
 							<td>
 								<button class="reply" onclick="location.href='myreply'">
 									<img src="${contextPath }/resources/img/imgMain/review.png"><br>
-									My reply
+									MY REPLY
 								</button>
 							</td>
 							<td>
 								<button class="account" onclick="location.href='newprofile'">
 									<img src="${contextPath }/resources/img/imgMain/account.png"><br>
-									Account Settings
+									ACCOUNT SETTINGS
 								</button>
 							</td>
 						</tr>

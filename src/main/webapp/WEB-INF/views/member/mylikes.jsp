@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -12,16 +13,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet" href="${contextPath }/resources/css/mylikes.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-* {
-	font-family: 'Outfit', sans-serif;
-}
-
-
-#bigbox{
-height:100%;
+#bigbox {
+	height: 100%;
 }
 
 #profile {
@@ -42,6 +41,7 @@ span {
 }
 
 #navdiv {
+	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
@@ -65,7 +65,7 @@ span {
 }
 
 #navdiv li:hover {
-	background-color: rgba(223, 209, 204);
+	
 }
 
 #flex {
@@ -76,107 +76,128 @@ span {
 }
 
 .pagetitle {
-	font-size: 40px;
+	font-size: 30px;
 	padding: 15px;
 }
+
 #bigbox {
 	height: 650px;
-	display: flex;
 	overflow: auto;
+	display: flex;
 }
-#left_box{
+
+#left_box {
 	width: 20%;
 }
+
 #mid_box {
 	width: 80%;
 	padding-top: 10px;
-	
 }
-#re_left{
-	width: 50%;
-	background-color:#FFF7F7;
-	border-radius:20%;
-	position: relative;
-	height: 310px;
-	margin-top: 30px;
-	z-index: 1;
+
+#review_box {
+	display: inline-block;
+	height: 100%;
 }
-#re_right{
-	width: 50%;
-	position: absolute;
-	z-index: 50;
-	top: -15px;
-	
-	}
-#r{
-	width: 350px;
-	height: 350px;
-	margin-top: 20px;
-	margin-left: 50px;	
-	border-radius: 65%;
-	opacity: 0.9;
-}
-#r:hover {
-	opacity: 1;
+
+#like {
+	display: inline-block;
 }
 </style>
+<script type="text/javascript">
+	/* Demo purposes only */
+	$(".hover").mouseleave(function() {
+		$(this).removeClass("hover");
+	});
+</script>
+
 </head>
 <body>
-		<div class="w3-animate-opacity">
+	<div class="w3-animate-opacity">
 		<header>
 			<c:import url="../default/header.jsp" />
 		</header>
-			<div id="div">
-				<div id="navdiv">
-					<ul>
-						<li><a href="mypage"><strong style="font-size: 25px;">My Page</strong></a></li>
-						<li><a href="${contextPath}/mylikes">My Likes</a></li>
-						<li><a href="${contextPath}/myboard">My Board</a></li>
-						<li><a href="${contextPath}/myreply">> My Reply</a></li>
-						<li><a href="${contextPath}/newprofile">Account Settings</a></li>
-					</ul>
-				</div>
-				</div>
-				<div id="bigbox">
-				<div id="left_box"></div>
-				<div id="mid_box">
-					<div class=" w3-animate-left" style="margin-bottom: 20px;">
-						<span class="pagetitle"> <b>MY LIKES</b>
-						</span>
-					</div>
-				<div id="review_box" style="height: 400px; width: 90%; display: flex; position: relative;">
-				<div id ="left" style="width: 50%; ">
-				<div id="re_left">haha</div>
-				<div id="re_right">
-					<img id="r" src="${contextPath}/resources/img/imgMain/sam.png">
-				</div>
-				</div>
-				<div id="right" style="width: 50%;">
-					<div id="re_left"">haha</div>
-					<div id="re_right">
-						<img id="r" src="${contextPath}/resources/img/imgMain/no.png">
-					</div>	
-				</div>
-				</div>
-				<div id="review_box" style="height: 400px; width: 90%; display: flex;position: relative;">
-				<div id ="left" style="width: 50%; ">
-				<div id="re_left">haha</div>
-				<div id="re_right">
-					<img id="r" src="${contextPath}/resources/img/imgMain/1.png">
-				</div>
-				</div>
-				<div id="right" style="width: 50%;">
-					<div id="re_left"">haha</div>
-					<div id="re_right">
-						<img id="r" src="${contextPath}/resources/img/imgMain/2.png">
-					</div>	
-				</div>
-				</div>
-				</div>			
+		<div id="div">
+			<div id="navdiv">
+				<ul>
+					<li><a href="mypage"><strong style="font-size: 25px;">
+								MY PAGE</strong></a></li>
+
+					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="myboard">MY BOARD</a></li>
+					<li><a href="myreply">MY REPLY</a></li>
+					<li></li>
+					<li><a href="newprofile">ACCOUNT SETTINGS</a></li>
+
+				</ul>
+
+
 			</div>
+		</div>
+		<div id="bigbox">
+			<div id="left_box"></div>
+			<div id="mid_box">
+				<div class=" w3-animate-left" style="margin-bottom: 20px;">
+					<span class="pagetitle"> <b>MY LIKES</b>
+					</span>
+				</div>
+
+				<div id="review_box" style="width: 90%; position: relative;">
+					<c:forEach var="likes" items="${likes }">
+
+						<div id="like">
+							<!-- div시작 ...  -->
+							<figure class="snip1132">
+								<img src="${contextPath}/resources/img/imgMain/sam.png"
+									alt="sample22" />
+								<figcaption>
+									<div class="heading">
+
+										<span>${likes.restName }</span>
+										<!-- 레스토랑이름 -->
+
+									</div>
+									<div class="caption">
+										<p>${likes.restMenu }</p>
+										<!--메뉴이름 -->
+									</div>
+								</figcaption>
+								<a href="#"> </a>
+								<!-- 해당레스토랑페이지 -->
+							</figure>
+						</div>
+					</c:forEach>
+					<div id="like">
+						<!-- div시작 ...  -->
+						<figure class="snip1132">
+							<img src="${contextPath}/resources/img/imgMain/sam.png"
+								alt="sample22" />
+							<figcaption>
+								<div class="heading">
+
+									<span> restaurant name</span>
+									<!-- 레스토랑이름 -->
+
+								</div>
+								<div class="caption">
+									<p>food name</p>
+									<!--메뉴이름 -->
+								</div>
+							</figcaption>
+							<a href="#"> </a>
+							<!-- 해당레스토랑페이지 -->
+						</figure>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+
 		<footer>
 			<c:import url="../default/footer.jsp" />
 		</footer>
-</div>
+	</div>
 </body>
 </html>
