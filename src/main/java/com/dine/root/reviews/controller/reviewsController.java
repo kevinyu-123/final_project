@@ -57,7 +57,14 @@ public class reviewsController {
 		System.out.println("정보 2 : "+request.getParameter("content"));
 		String att = request.getParameter("att");
 		System.out.println("att : "+att);
-		check = rs.reviewsUploadProcess(multipartFile,request);
+		System.out.println("멀티파트파일" + multipartFile);
+		
+		
+		if(multipartFile.size() == 0) {
+			check = rs.reviewsUploadNonFile(request);
+		}else {
+			check = rs.reviewsUploadProcess(multipartFile,request);
+		}
 		if(check == 1) {
 			msg.put("result","OK");
 			//return "{ \\\"result\\\":\\\'OK\\\' }";

@@ -22,17 +22,15 @@
 	<select id="infoRest" resultMap="rest">
 		select * from restaurant where id=#{id}
 	</select>
-	<insert id="insertReview">
-	insert into
-	<if test="restId != null">
-		rest_review values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{Imgs},#{restId},#{revDate})
-	</if>
-	<if test="foodName != null">
-		food_review values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{Imgs},#{revDate})
-	</if>
+	<insert id="insertRestReview">
+	insert into rest_review values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{Imgs},#{restId},#{revDate})
 	</insert>
-	<update id="updateRestRate">
-	update restaurant set rate_all = rate_all + #{rate}, rate_cnt = rate_cnt + 1 where id = #{restId}
+	<insert id="insertFoodReview">
+	insert into food_review values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{Imgs},#{revDate})
+	</insert>
+
+	<update id="updateRestRate" >
+	update restaurant set rate_all=rate_all+#{rate},rate_cnt=rate_cnt+1 where id=#{restId}
 	</update>
 	<update id="updateRestRateAvr">
 	update restaurant set rate_avr = rate_all / rate_cnt where id = #{restId}

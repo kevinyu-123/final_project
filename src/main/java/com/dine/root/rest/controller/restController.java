@@ -13,13 +13,17 @@ import com.dine.root.rest.service.restServiceImpl;
 public class restController {
 	
 	@Qualifier("restServiceImpl")
-	@Autowired restServiceImpl rs;
+	@Autowired restService rs;
 	
 	@RequestMapping("v")
 	public String restDetail2(Model m) {
 		int id = 41;
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
+		rs.infoReviews(m,id);
+		
 		return "/rest/val2";
+		
+		
 	}
 }

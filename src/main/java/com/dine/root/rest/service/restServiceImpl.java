@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import com.dine.root.rest.dao.restDAO;
 import com.dine.root.rest.dto.menuDTO;
 import com.dine.root.rest.dto.restDTO;
+import com.dine.root.reviews.dto.reviewsDTO;
 
 @Service
 public class restServiceImpl implements restService{
@@ -34,7 +35,12 @@ public class restServiceImpl implements restService{
 				System.out.println(dto.getHours());
 				System.out.println(dto.getId());
 				
+				
+				double avr = Math.round(dto.getRateAvr()*100)/100.0;
+				System.out.println(avr);
+						
 				m.addAttribute("restPic",picArray);
+				m.addAttribute("avr",avr);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -51,6 +57,39 @@ public class restServiceImpl implements restService{
 			System.out.println(menuDTO.get(0).getPic());
 		}catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void infoReviews(Model m, int id) {
+		// TODO Auto-generated method stub
+		try {
+			ArrayList<reviewsDTO> reviewsDTO = new ArrayList<reviewsDTO>();
+			reviewsDTO = dao.infoReviews(id);
+			for(reviewsDTO d : reviewsDTO) {
+				System.out.println("1"+d.getFoodName());
+				System.out.println("2"+d.getImgs());
+				System.out.println("3"+d.getMemId());
+				System.out.println("4"+d.getRate());
+				System.out.println("5"+d.getRestId());
+				System.out.println("6"+d.getReview());
+				System.out.println("7"+d.getRevDate());
+
+			}
+			System.out.println("reviewsDTO.size()" + reviewsDTO.size());
+			System.out.println("reviewsDTO" + reviewsDTO);
+			
+			if(reviewsDTO.size() != 0) {
+				m.addAttribute("reviewsDTO", reviewsDTO);
+				m.addAttribute("restId", id);
+				m.addAttribute("reviews_size", reviewsDTO.size());
+			}else {
+				m.addAttribute("reviewsDTO", "non");
+				m.addAttribute("reviews_size", 0);
+			}
+
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

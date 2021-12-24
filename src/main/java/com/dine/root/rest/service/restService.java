@@ -8,4 +8,6 @@ public interface restService {
 	// restID -> getDTO
 	public void infoRest(Model m,int id);
 	public void infoMenu(Model m,int id);
+	public void infoReviews(Model m,int id);
+	
 }
