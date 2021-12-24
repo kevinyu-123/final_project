@@ -13,9 +13,8 @@ import com.dine.root.rest.dto.restDTO;
 
 @Service
 public class restServiceImpl implements restService{
-	@Qualifier("restDAO")
+	
 	@Autowired restDAO dao;
-
 	@Override
 	public void infoRest(Model m, int id) {
 		// TODO Auto-generated method stub

@@ -36,7 +36,7 @@ public class restDTO {
 	private int rateCnt;
 
 	// 평균평점 
-	private int rateAvr;
+	private double rateAvr;
 	// 국가
 	private String nation;
 	// 위도경도인듯
@@ -157,11 +157,11 @@ public class restDTO {
 		this.rateCnt = rateCnt;
 	}
 
-	public int getRateAvr() {
+	public double getRateAvr() {
 		return rateAvr;
 	}
 
-	public void setRateAvr(int rateAvr) {
+	public void setRateAvr(double rateAvr) {
 		this.rateAvr = rateAvr;
 	}
 
