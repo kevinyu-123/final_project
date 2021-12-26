@@ -57,7 +57,7 @@
 	 	    		  alert("리뷰 작성 완료")
 	 	    		  location.href="/root/v";
 	 	    	  }else
-	 	    		  alert("리뷰가 작성되지 않았습니다.");
+	 	    		  alert("오류임");
 	 	    	  console.log(data);
 	 	    	//if(JSON.parse(data)['result'] == "OK"){
 	 	    	//	alert("파일업로드 성공");
@@ -187,10 +187,12 @@ margin: auto;
 				<input type="hidden" name="rate" id="rate" value="5" />
 				<input type="hidden" name="memId" value="김떙땡" />
 				<input type="hidden" name="foodName" value="김치" />
+				<input type="hidden" name="restId" value="0" />
+				
 			</c:if>
 			<c:if test="${att eq 'rest'}">
 				<input type="hidden" name="att" value="rest" />
-				
+				<input type="hidden" name="foodName" value="non" />
 				<input type="hidden" name="rate" id="rate" value="5" />
 				<input type="hidden" name="memId" value="${memId }" />
 				<input type="hidden" name="restId" value="${restDTO.id }" />
@@ -364,7 +366,7 @@ margin: auto;
 			</div>
 			<br>
 				<div class="form-btn">
-					<input type="button" class="btn btn-secondary btn-lg" value="취소" onclick="location.herf='view'">
+					<input type="button" class="btn btn-secondary btn-lg" value="취소" onclick="location.href='v'">
 					<input type="submit"  class="btn btn-primary btn-lg" value="리뷰 올리기">
 				</div>
 		</form>
