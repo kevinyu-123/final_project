@@ -13,15 +13,15 @@ public class BoardDTO {
    private Date reg_time;
    private int views;
    private String board_category;
+   private String img_url;
    
-
    public int getBoard_no() {
-	return board_no;
-}
-public void setBoard_no(int board_no) {
-	this.board_no = board_no;
-}
-public int getOrigin_no() {
+      return board_no;
+   }
+   public void setBoard_no(int board_no) {
+      this.board_no = board_no;
+   }
+   public int getOrigin_no() {
       return origin_no;
    }
    public void setOrigin_no(int origin_no) {
@@ -75,4 +75,11 @@ public int getOrigin_no() {
    public void setBoard_category(String board_category) {
       this.board_category = board_category;
    }
+   public String getImg_url() {
+      return img_url;
+   }
+   public void setImg_url(String img_url) {
+      this.img_url = img_url;
+   }
+   
 }
