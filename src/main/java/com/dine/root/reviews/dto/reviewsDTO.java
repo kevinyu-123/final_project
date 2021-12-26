@@ -8,7 +8,7 @@ public class reviewsDTO {
 	private String foodName;
 	private int rate;
 	private String review;
-	private String Imgs;
+	private String imgs;
 	private Date revDate;
 	
 	public int getRestId() {
@@ -42,10 +42,10 @@ public class reviewsDTO {
 		this.review = review;
 	}
 	public String getImgs() {
-		return Imgs;
+		return imgs;
 	}
 	public void setImgs(String imgs) {
-		Imgs = imgs;
+		this.imgs = imgs;
 	}
 	public Date getRevDate() {
 		return revDate;

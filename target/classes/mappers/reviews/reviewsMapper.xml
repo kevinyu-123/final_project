@@ -23,10 +23,10 @@
 		select * from restaurant where id=#{id}
 	</select>
 	<insert id="insertRestReview">
-	insert into rest_review values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{Imgs},#{restId},#{revDate})
+	insert into rest_review values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{imgs},#{restId},#{revDate})
 	</insert>
 	<insert id="insertFoodReview">
-	insert into food_review values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{Imgs},#{revDate})
+	insert into food_review values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{imgs},#{revDate})
 	</insert>
 
 	<update id="updateRestRate" >

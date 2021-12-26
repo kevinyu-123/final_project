@@ -154,6 +154,12 @@
 	margin-left: 20px;
 	width: 200px;
 }
+.u-text-10 button p{
+	margin: auto;
+}
+.u-container-style{
+margin-top: 10px;
+}
 </style>
 </head>
 <body class="u-body">
@@ -307,8 +313,61 @@
 								<p class="u-text u-text-9">추가할 정보2</p>
 								<div class="u-text u-text-10">
 									<button type="button" class="btn btn-primary" id="rest_reviews"
-										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">리뷰쓰기</button>
-									<button type="button" class="btn btn-primary" id="">찜하기</button>
+										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'"><p>리뷰쓰기</p></button>
+									<button type="button" class="btn btn-primary" id="fav_button" onclick="fav('aa')"><p id="rest_fav">찜하기</p></button>
+									<script type="text/javascript">
+									var restFav = document.getElementById('rest_fav');
+									console.log(restFav)
+									
+									function fav(memId){
+										var sendData = {"memId":memId};
+										if(rest_fav.value=="찜하기"){
+											$.ajax({
+										 	      type: "POST",
+										 	      dataType:"json",
+										 	      url: "liked_click",
+										     	  processData: false,
+										 	      contentType: false,
+										 	      data: sendData,
+										 	      success: function (data) {
+										 	    	  if(data.result == "ok"){
+										 	    		  alert("좋아요 클릭 완료!")
+										 	    		  rest_fav.innerText="찜 취소하기"
+										 	    	  }else
+										 	    		  alert("오류임");
+										 	    	  console.log(data);
+										 	      },
+										 	      error: function (request, status, error) {
+										 	    	alert("문제가 생겼습니다.");
+										 	     return false;
+										 	      }
+										 	    });
+										
+										}else{
+											$.ajax({
+										 	      type: "POST",
+										 	      dataType:"json",
+										 	      url: "dliked_click",
+										     	  processData: false,
+										 	      contentType: false,
+										 	      data: sendData,
+										 	      success: function (data) {
+										 	    	  if(data.result == "no"){
+										 	    		  alert("찜 취소 완료!")
+										 	    		  rest_fav.innerText="찜하기"
+										 	    	  }else
+										 	    		  alert("오류임");
+										 	    	  console.log(data);
+										 	      },
+										 	      error: function (request, status, error) {
+										 	    	alert("문제가 생겼습니다.");
+										 	     return false;
+										 	      }
+										 	    });
+										
+										}
+									}
+									</script>
 								</div>
 							</div>
 						</div>
@@ -365,8 +424,8 @@
 					class="u-svg-link" preserveAspectRatio="xMidYMin slice"
 					viewBox="0 0 512.00003 512.00003">
 					<use xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="#svg-4855"></use></svg>
-				<svg xmlns="http://www.w3.org/2000/svg"
+						xlink:href="#svg-4855"></use></svg> <svg
+					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 512.00003 512.00003" id="svg-4855"
 					class="u-svg-content">
 					<path
@@ -404,21 +463,38 @@
 								class="u-expanded-width u-image u-image-default u-image-1">
 						</div>
 					</div>
-					<div class="u-container-style u-list-item u-repeater-item">
-						<div
-							class="u-container-layout u-similar-container u-container-layout-2">
-							<h2 class="u-align-center u-text u-text-grey-70 u-text-5">${menuDTO[1].name }</h2>
-							<p class="u-align-center u-text u-text-grey-50 u-text-6">
-								price : ${menuDTO[1].price } won<br>
-								<br>
-							</p>
-							<p class="u-text u-text-black u-text-7">${menuDTO[1].ex }</p>
-							<img
-								src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${menuDTO[1].pic }"
-								alt=""
-								class="u-expanded-width u-image u-image-default u-image-2">
+					<c:if test="${menuDTO[1] != null }">
+						<div class="u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-2">
+								<h2 class="u-align-center u-text u-text-grey-70 u-text-5">${menuDTO[1].name }</h2>
+								<p class="u-align-center u-text u-text-grey-50 u-text-6">
+									price : ${menuDTO[1].price } won<br> <br>
+								</p>
+								<p class="u-text u-text-black u-text-7">${menuDTO[1].ex }</p>
+								<img
+									src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${menuDTO[1].pic }"
+									alt=""
+									class="u-expanded-width u-image u-image-default u-image-2">
+							</div>
 						</div>
-					</div>
+					</c:if>
+					<c:if test="${menuDTO[1] eq null }">
+						<div class="u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-2">
+								<h2 class="u-align-center u-text u-text-grey-70 u-text-5">메뉴
+									준비중입니다.</h2>
+								<p class="u-align-center u-text u-text-grey-50 u-text-6">
+									<br>
+								</p>
+								<p class="u-text u-text-black u-text-7"></p>
+								<br> <br> <img src="" alt=""
+									class="u-expanded-width u-image u-image-default u-image-2">
+							</div>
+						</div>
+					</c:if>
+
 					<c:if test="${menuDTO[2] != null }">
 						<div class="u-container-style u-list-item u-repeater-item">
 							<div
@@ -443,8 +519,7 @@
 									<br>
 								</p>
 								<p class="u-text u-text-black u-text-10"></p>
-								<br>
-								<br> <img src="" alt=""
+								<br> <br> <img src="" alt=""
 									class="u-expanded-width u-image u-image-default u-image-3">
 							</div>
 						</div>
@@ -463,7 +538,6 @@
 			<h2 class="u-text u-text-default u-text-2">
 				Restaurant&nbsp;<b style="">reviews</b>
 			</h2>
-			<h1>${reviews[0].Imgs }</h1>
 			<c:if test="${reviews_size eq 0 }">
 				<h1>리뷰 작성 부탁드려요 ㅠ.ㅠ</h1>
 			</c:if>
@@ -486,79 +560,94 @@
 								<div alt="" class="u-image u-image-circle u-image-2"
 									data-image-width="1056" data-image-height="1500"></div>
 								<h6 class="u-text u-text-default u-text-5">${restId }</h6>
-								<p class="u-text u-text-6">${reviewsDTO[0].review}</p>
-								
-								<c:set var="pics" value="${fn:split(reviewsDTO[0].Imgs,'&')}" />
-								<c:forEach var="pic" items="${pics }">
-								<img class="u-image u-image-default u-image-3"
-									src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[0].memId}/${reviewsDTO[0].revDate}/${pic}" alt="" data-image-width="750"
-									data-image-height="1000">
-								
+								<p class="u-text u-text-6">"${reviewsDTO[0].review}"</p>
+								<c:set var="imgCntt" value="${fn:split(reviewsDTO[0].imgs,'&')}" />
+								<c:forEach var="img" items="${imgCntt }" varStatus="status">
+									<img
+										class="u-image u-image-default u-image-${img2[status.index].value+3}"
+										src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[0].memId}/${reviewsDTO[0].revDate}/${img}"
+										alt="" data-image-width="750" data-image-height="1000">
 								</c:forEach>
-
 								<br>
 								<p
 									class="u-text u-text-default u-text-palette-5-dark-1 u-text-7"></p>
 							</div>
 						</div>
 						<c:if test="${reviews_size > 1 }">
-							<c:forEach begin="2" end="${reviews_size +1}" step="1" var="cnt">
-								<h1>${cnt }</h1>
-								<div
-									class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-${cnt }">
+							<c:forEach begin="2" end="${reviews_size -1}" step="1" var="cnt"
+								varStatus="sts">
+								<c:if test="${cnt <= 3 }">
 									<div
-										class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-xl u-container-layout-2">
-										<br> <img
-											class="u-image u-image-default u-preserve-proportions u-image-6"
-											src="resources/rest_detail/bootstrap/images/commonImg/star.png"
-											alt="" data-image-width="512" data-image-height="512">
-										<p
-											class="u-text u-text-default u-text-palette-5-dark-1 u-text-8">4.8
-											/ 5.0</p>
-										<p
-											class="u-align-center-xs u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-5-dark-1 u-text-9">
-											<br>
-											<br>
-										</p>
-										<div alt="" class="u-image u-image-circle u-image-7"
-											data-image-width="1000" data-image-height="1500"></div>
-										<h6 class="u-text u-text-default u-text-10">한개똥</h6>
-										<p class="u-text u-text-11">"Aenean pulvinar dui ornare,
-											feugiat lorem non, ultrices justo. Mauris efficitur, mauris
-											in auctor euismod, quam elit ultrices urna, eget eleifend
-											arcu risus id metus. Maecenas ex enim, mattis eu velit vitae,
-											blandit mattis sapien. Sed aliquam leo et semper vestibulum."</p>
-										<c:set var="pics" value="${fn:split(reviewsDTO[cnt-1],'&')}" />
-										<c:forEach var="pic" items="${pics }" >
-										<img class="u-image u-image-default u-image-3"
-											src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[cnt-1].memId}/${reviewsDTO[cnt-1].revDate}/${pic}" alt="" data-image-width="750"
-											data-image-height="1000">
-										
+										class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-${cnt }"
+										id="u-list-item-${cnt }">
+								</c:if>
+								<c:if test="${cnt > 3 }">
+									<div class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-${cnt }"
+										id="u-list-item-${cnt }" style="display: none; ">
+								</c:if>
+								<div
+									class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-xl u-container-layout-2">
+									<br> <img
+										class="u-image u-image-default u-preserve-proportions u-image-6"
+										src="resources/rest_detail/bootstrap/images/commonImg/star.png"
+										alt="" data-image-width="512" data-image-height="512">
+									<p
+										class="u-text u-text-default u-text-palette-5-dark-1 u-text-8">${reviewsDTO[cnt].rate }.0
+										/ 5.0</p>
+									<p
+										class="u-align-center-xs u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-palette-5-dark-1 u-text-9">
+										<br> <br>
+									</p>
+									<div alt="" class="u-image u-image-circle u-image-7"
+										data-image-width="1000" data-image-height="1500"></div>
+									<h6 class="u-text u-text-default u-text-10">${reviewsDTO[cnt].memId}</h6>
+									<p class="u-text u-text-11">"${reviewsDTO[cnt].review}"</p>
+									<c:if test="${reviewsDTO[cnt].imgs ne 'non' }">
+										<c:set var="pics"
+											value="${fn:split(reviewsDTO[cnt].imgs,'&')}" />
+
+										<c:forEach var="pic" items="${pics }" varStatus="status">
+											<img
+												class="u-image u-image-default u-image-${status.count+7 }"
+												src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[cnt-1].memId}/${reviewsDTO[cnt-1].revDate}/${pic}"
+												alt="" data-image-width="750" data-image-height="1000">
+												<br>
 										</c:forEach>
+
+									</c:if>
+									<c:if test="${reviewsDTO[cnt].imgs eq 'non' }">
 										<br>
-									</div>
+										<br>
+										<br>
+										<br><br>
+										<br>
+									</c:if>
 								</div>
-							</c:forEach>
-						</c:if>
-
 					</div>
-				</div>
-
+					</c:forEach>
 			</c:if>
-		</div>
 
-		<a id="more_reviews" href=""
+		</div>
+		</div>
+		</c:if>
+		</div>
+		<a id="more_reviews"
 			class="u-border-active-black u-border-hover-black u-btn u-button-style u-btn-3">more</a>
 		</div>
 		<script type="text/javascript">
+		var CCCCCcnt = 1;
+		var listViewCount = 3;
       	$('#more_reviews').on('click',function(event){
-      		
+      		for(var i=1; i<listViewCount+1; i++){
+          		var list = document.getElementById('u-list-item-'+(i+(listViewCount*CCCCCcnt)));
+          		console.log('u-list-item-'+(i+(listViewCount*CCCCCcnt)));
+          		console.log(list);
+          		list.style.display = "block";
+      		}
+      		CCCCCcnt = CCCCCcnt+1;
       	});
       </script>
 	</section>
-
-
-
 	<section class="u-backlink u-clearfix u-grey-80">
 		<a class="u-link" href="https://nicepage.com/website-templates"
 			target="_blank"> <span>Website Templates</span>

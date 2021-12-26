@@ -31,7 +31,7 @@
 		<result property="memId" column="mem_id"/>
 		<result property="rate" column="rest_rate"/>
 		<result property="review" column="review"/>
-		<result property="Imgs" column="rev_pic"/>
+		<result property="imgs" column="rev_pic"/>
 		<result property="revDate" column="rev_date"/>
 		</resultMap>
 	<select id="infoRest" resultMap="rest">
