@@ -72,10 +72,6 @@ button:hover {
 	text-decoration: none;
 }
 
-#navdiv li:hover {
-	background-color: rgba(223, 209, 204);
-}
-
 #bigbox {
 	height: 650px;
 	display: flex;
@@ -91,7 +87,7 @@ button:hover {
 }
 
 table {
-	font-family: arial, sans-serif;
+	font-family: 'Gothic A1', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -167,7 +163,7 @@ h2 {
 					<span class="pagetitle"> <b>MY BOARD</b>
 					</span>
 				</div>
-				<h6>총 ${fn:length(boardInfo)} 개의 게시물이 조회되었습니다.</h6>
+				<h6 style="	font-family: 'Gothic A1', sans-serif;">총 ${fn:length(boardInfo)} 개의 게시물이 조회되었습니다.</h6>
 				<table>
 					<tr>
 						<th>게시판 종류</th>
@@ -181,13 +177,13 @@ h2 {
 								<tr>
 									<td>${board.board_category}</td>
 									<td><a href="#">${board.title}</a></td>
-									<td>${board.reg_date}</td>
+									<td>${board.reg_time}</td>
 									<td>${board.views}</td>
 								</tr>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<tr>
+							<tr> 
 								<td colspan="4" align="center">조회된 게시글이 없습니다.</td>
 							</tr>
 						</c:otherwise>

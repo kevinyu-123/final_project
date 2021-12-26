@@ -11,15 +11,20 @@
     <title>Untitled</title>
     <link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-</head>
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<Style>
+
+
+</Style>
 <body>
 
 <div id="footer">
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-       
+      
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="${contextPath }/main">Home</a></li>
                 <li class="list-inline-item"><a href="${contextPath }/event">Event</a></li>

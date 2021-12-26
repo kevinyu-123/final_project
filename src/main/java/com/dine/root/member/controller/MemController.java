@@ -3,6 +3,7 @@ package com.dine.root.member.controller;
 import java.util.ArrayList;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -287,6 +289,7 @@ public class MemController implements MemberSession {
 		int result = service.updatePwd(pwd, session_id);
 		return result;
 	}
+
 	/* 비밀번호수정 */
 	@RequestMapping(value = "deleteMember/{pwd}", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 	@ResponseBody
@@ -298,18 +301,11 @@ public class MemController implements MemberSession {
 		return result;
 	}
 
-
-
 ///////////////*mypage이동*///////////////////
 
 	@GetMapping("/mypage")
 	public String myPage() {
 		return "member/mypage";
-	}
-
-	@GetMapping("/mylikes")
-	public String myLikes() {
-		return "member/mylikes";
 	}
 
 	/* 내가쓴글 */
@@ -330,6 +326,37 @@ public class MemController implements MemberSession {
 		list = service.getReplyInfo(writer);
 		model.addAttribute("replyInfo", list);
 		return "member/myreply";
+	}
+
+///////// 좋아요 페이지 ///////////////////
+	@GetMapping("/mylikes")
+	public String myLikes() {
+		return "member/mylikes";
+	}
+
+	@RequestMapping("addLikes")
+	// 레스토랑 아이디 member테이블에 저장
+	public String addLikes(@RequestParam String liked_rest, HttpSession session) {
+		String session_id = (String) session.getAttribute(LOGIN_ID);
+		int result = service.addLikes(liked_rest, session_id);
+		if (result == 1) {
+			return "redirect:/mylikes";
+		}
+		return "";
+	}
+
+
+	@GetMapping("/likeList")
+	public String likeList(MemDTO dto, Model model, HttpSession session) {
+		String session_id = (String) session.getAttribute(LOGIN_ID);
+		ArrayList<MemDTO> list = new ArrayList<MemDTO>();
+		
+		list= service.getLikes(session_id);
+		model.addAttribute("likes",list);
+		
+		System.out.println(list);
+		
+		return "member/mylikes";
 	}
 
 }

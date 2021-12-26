@@ -16,7 +16,6 @@
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="${contextPath }/resources/css/mylikes.css">
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 #bigbox {
@@ -65,7 +64,7 @@ span {
 }
 
 #navdiv li:hover {
-	background-color: rgba(223, 209, 204);
+	
 }
 
 #flex {
@@ -82,8 +81,8 @@ span {
 
 #bigbox {
 	height: 650px;
-	display: flex;
 	overflow: auto;
+	display: flex;
 }
 
 #left_box {
@@ -95,25 +94,13 @@ span {
 	padding-top: 10px;
 }
 
-#re_right {
-	z-index: 50;
-	top: -15px;
-}
-
 #review_box {
+	display: inline-block;
 	height: 100%;
 }
 
-#left {
-	height: 250px;
-}
-
-#right {
-	height: 250px;
-}
-
-#mid {
-	height: 250px;
+#like {
+	display: inline-block;
 }
 </style>
 <script type="text/javascript">
@@ -122,6 +109,11 @@ span {
 		$(this).removeClass("hover");
 	});
 </script>
+
+<script>
+	
+</script>
+
 </head>
 <body>
 	<div class="w3-animate-opacity">
@@ -131,7 +123,7 @@ span {
 		<div id="div">
 			<div id="navdiv">
 				<ul>
-					<li><a href="mypage"><strong style="font-size: 25px;">
+					<li><a href="mypage"> <strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
 					<li><a href="mylikes">MY LIKES</a></li>
@@ -153,78 +145,45 @@ span {
 					</span>
 				</div>
 
-				<div id="review_box"
-					style="width: 90%; display: flex; position: relative;">
+				<div id="review_box" style="width: 90%; position: relative;">
 
-					<div id="left">
-						<div id="re_right">
-							<div>
-								<figure class="snip1132">
-									<img src="${contextPath}/resources/img/imgMain/sam.png"
-										alt="sample22" />
-									<figcaption>
-										<div class="heading">
+					<c:forEach items="${likes}" var="likes">
 
-											<span> restaurant name</span>
+						<input type="hidden" id="like" 
+						value="${likes.liked_rest}" >
+					
 
-										</div>
-										<div class="caption">
-											<p>food name</p>
-										</div>
-									</figcaption>
-									<a href="#"></a>
-								</figure>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 
-					<div id="mid">
-						<div id="re_right">
-							<div>
-								<figure class="snip1132">
-									<img src="${contextPath}/resources/img/imgMain/no.png"
-										alt="sample22" />
-									<figcaption>
-										<div class="heading">
 
-											<span> restaurant name</span>
+					<script>
+						var like = $('#like').val()
+						console.log(like)
 
-										</div>
-										<div class="caption">
-											<p>food name</p>
-										</div>
-									</figcaption>
-									<a href="#"></a>
-								</figure>
-							</div>
-						</div>
-					</div>
-					<div id="right">
-						<div id="re_right">
-							<div>
-								<figure class="snip1132">
-									<img src="${contextPath}/resources/img/imgMain/dum.png"
-										alt="sample22" />
-									<figcaption>
-										<div class="heading">
+						var arr = like.split('/')
+						for ( var i in arr) {
+							document.write('<div id="like">');
+							document.write('<figure class="snip1132">');
+							document.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
+							document.write('<figcaption><div class="heading"><span>'
+											+ arr[i] + '</span></div>');
+							document.write('<div class="caption"><p>' + arr[i]
+									+ '</p></div></figcaption>');
 
-											<span> restaurant name</span>
+							document.write('<a href="#"></a>');
+							document.write('</figure></div>');
+						}
 
-										</div>
-										<div class="caption">
-											<p>food name</p>
-										</div>
-									</figcaption>
-									<a href="#"></a>
-								</figure>
-							</div>
-						</div>
-					</div>
+						console.log(arr)
+					</script>
+
+
+
+
+
 				</div>
-
 			</div>
 		</div>
-
 
 		<footer>
 			<c:import url="../default/footer.jsp" />

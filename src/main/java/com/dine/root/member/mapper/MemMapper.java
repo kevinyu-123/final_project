@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.ui.Model;
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
+import com.dine.root.member.dto.AdminDTO;
 import com.dine.root.member.dto.MemDTO;
 
 @Mapper
@@ -61,6 +61,14 @@ public interface MemMapper {
 	public int updatePwd(@Param("pwd") String pwd, @Param("session_id") String session_id);
 
 	public int deleteMember(@Param("pwd") String pwd, @Param("session_id") String session_id);
+
+	public AdminDTO getMember(String id);
+	
+	
+	public int addLikes(String liked_rest, String session_id);
+	public ArrayList<MemDTO> getLikes(String session_id);
+
+
 
 
 

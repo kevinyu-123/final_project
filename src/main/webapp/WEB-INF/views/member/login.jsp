@@ -216,7 +216,11 @@ a:hover {
             <input type="hidden" name="name" id="kakaoNickname" />
          </form>
       </div>
+ <div id="ad" style="margin-top:100px;color:gray;">
+ <a href="adLogin"style="text-decoration: none"> administrator?</a>
+ </div>
    </div>
+
 </body>
 
 

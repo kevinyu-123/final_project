@@ -8,6 +8,21 @@
 <head>
 <meta charset="UTF-8">
 <title>DiningLab</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
+<link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
+	media="screen">
+<link rel="stylesheet" href="${contextPath } /resources/css/Home1.css"
+	media="screen">
+<script class="u-script" type="text/javascript"
+	src="${contextPath } /resources/js/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript"
+	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
+<meta name="generator" content="Nicepage 4.2.6, nicepage.com">
+<link id="u-theme-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+<link id="u-page-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +31,10 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 </head>
+<style>
+
+</style>
 <body>
 	<div id="wrap">
 		<div style="margin-left: 40px;">

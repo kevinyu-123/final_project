@@ -70,10 +70,6 @@ button:hover {
 	text-decoration: none;
 }
 
-#navdiv li:hover {
-	background-color: rgba(223, 209, 204);
-}
-
 #bigbox {
 	height: 650px;
 	display: flex;
@@ -93,7 +89,7 @@ button:hover {
 }
 
 table {
-	font-family: arial, sans-serif;
+	font-family: 'Gothic A1', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -165,22 +161,25 @@ h2 {
 					<span class="pagetitle"> <b>MY REPLY</b>
 					</span>
 					</div>
-					<h6>총 ${fn:length(replyInfo)} 개의 댓글이 조회되었습니다.</h6>
+					<h6 style="	font-family: 'Gothic A1', sans-serif;">총 ${fn:length(replyInfo)} 개의 댓글이 조회되었습니다.</h6>
 					<table border="1">
 						<tr>
-							<th>제목</th>
-							<th>댓글 내용</th>
+							
+							<th width="70%;">댓글 내용</th>
 							<th>작성일</th>
 							<th>조회</th>
 						</tr>
 						<c:choose>
 							<c:when test="${fn:length(replyInfo) != 0}">
+							<c:forEach var="reply" items="${replyInfo}">
+							
 								<tr>
-									<td>${replyInfo.comment_no }</td>
-									<td><a href="#">${replyInfo.content}</a></td>
-									<td>${replyInfo.reg_time}</td>
-									<td>${replyInfo.views}</td>
+									<td><a href="#">${reply.content}</a></td>
+									<td>${reply.reg_time}</td>
+									<td>${reply.views}</td>
 								</tr>
+								
+								</c:forEach>
 							</c:when>
 							<c:otherwise>
 								<tr>

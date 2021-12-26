@@ -1,6 +1,7 @@
 package com.dine.root.boardFree_reply.dto;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReplyDTO {
    private int comment_no;
@@ -9,7 +10,13 @@ public class ReplyDTO {
    private int group_layer;
    private String content;
    private String writer;
-   private Date reg_time;
+   public Timestamp getReg_time() {
+	return reg_time;
+}
+public void setReg_time(Timestamp reg_time) {
+	this.reg_time = reg_time;
+}
+private Timestamp reg_time;
    private int views;
    private int post_group;
    
@@ -49,12 +56,7 @@ public class ReplyDTO {
    public void setWriter(String writer) {
       this.writer = writer;
    }
-   public Date getReg_time() {
-      return reg_time;
-   }
-   public void setReg_time(Date reg_time) {
-      this.reg_time = reg_time;
-   }
+  
    public int getViews() {
       return views;
    }

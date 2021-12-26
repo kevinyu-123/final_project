@@ -15,7 +15,7 @@ figure.snip1132 {
 	color: #ffffff;
 	text-align: center;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-	border-radius:30px;
+	border-radius:20px;
 }
 
 figure.snip1132 * {
@@ -27,7 +27,7 @@ figure.snip1132 * {
 
 figure.snip1132 img {
 	opacity: 0.9;
-	border-radius: 30px;
+	border-radius: 20px;
 	max-width: 100%;
 	position: relative;
 	opacity: 1;

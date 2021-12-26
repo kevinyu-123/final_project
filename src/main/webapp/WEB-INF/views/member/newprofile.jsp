@@ -58,7 +58,7 @@
 }
 
 #navdiv li:hover {
-	background-color: rgba(223, 209, 204);
+	
 }
 
 .pagetitle {
@@ -85,7 +85,7 @@
 	margin-left: 30px;
 }
 
-input {
+#table input {
 	font-family: 'Outfit', sans-serif;
 	padding: 12px 20px;
 	margin: 8px 0;
@@ -98,7 +98,7 @@ input {
 	width: 300px;
 }
 
-.btn {
+#table .btn {
 	font-family: 'Gothic A1', sans-serif;
 	width: 100%;
 	padding: 12px 20px;
@@ -113,9 +113,19 @@ input {
 	margin-left: 10px;
 }
 
+#table input:focus {
+	border: 2px solid #555;
+}
+
+#table input:hover {
+	font-weight: bold;
+}
+
+
 #delBtn {
 	display: none;
 }
+
 </style>
 
 <script>
@@ -218,14 +228,14 @@ input {
 			<div id="bigbox">
 				<div id="left_box"></div>
 				<div id="mid_box">
-					${session_user}
+				
 					<div class=" w3-animate-left" style="margin-bottom: 15px;">
 						<span class="pagetitle"> <b>ACCOUNT SETTING </b>
 						</span>
 					</div>
 					<input type="text" value="${session_user}" id="sessionId"
 						name="sessionId" style="display: none;">
-					<table>
+					<table id="table">
 						<tr>
 							<td><span>수정할 닉네임</span><br> <input type="text"
 								id="name" name="name" placeholder="New name"> <input

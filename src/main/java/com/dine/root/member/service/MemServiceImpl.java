@@ -2,6 +2,7 @@ package com.dine.root.member.service;
 
 import java.sql.Date;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.mail.javamail.JavaMailSender;
@@ -19,12 +19,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.common.session.MemberSession;
 import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.mapper.MemMapper;
+
 
 @Service
 public class MemServiceImpl implements MemService, MemberSession {
@@ -286,8 +288,20 @@ public class MemServiceImpl implements MemService, MemberSession {
 		return result;
 	}
 
-
 	
+	
+	@Override
+	public int addLikes(String liked_rest, String session_id) {
+		int result = 0;
+		result = mapper.addLikes(liked_rest, session_id);
+		return result;
+	}
+
+	@Override
+	public ArrayList<MemDTO> getLikes(String session_id) {
+		return mapper.getLikes(session_id);}
+
+
 	
 	
 	

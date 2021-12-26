@@ -3,7 +3,7 @@ package com.dine.root.boardEvent.dto;
 import java.sql.Date;
 
 public class BoardDTO {
-   private int comment_no;
+   private int board_no;
    private int origin_no;
    private int group_ord;
    private int group_layer;
@@ -14,13 +14,14 @@ public class BoardDTO {
    private int views;
    private String board_category;
    
-   public int getComment_no() {
-      return comment_no;
-   }
-   public void setComment_no(int comment_no) {
-      this.comment_no = comment_no;
-   }
-   public int getOrigin_no() {
+
+   public int getBoard_no() {
+	return board_no;
+}
+public void setBoard_no(int board_no) {
+	this.board_no = board_no;
+}
+public int getOrigin_no() {
       return origin_no;
    }
    public void setOrigin_no(int origin_no) {

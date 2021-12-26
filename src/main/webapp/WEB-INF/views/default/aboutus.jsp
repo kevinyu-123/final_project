@@ -26,7 +26,6 @@ On The Planet">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
-
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 		"@type": "Organization",
@@ -39,7 +38,7 @@ On The Planet">
 </head>
 <body class="u-body">
 	<header>
-		<c:import url="../default/header.jsp"></c:import>
+		<c:import url="../default/header2.jsp"></c:import>
 	</header>
 	<section class="u-clearfix u-image u-section-1" id="sec-567e">
 		<div class="u-clearfix u-sheet u-sheet-1">
@@ -55,8 +54,7 @@ On The Planet">
 			</p>
 			<div class="u-container-style u-group u-group-1">
 				<div class="u-container-layout u-container-layout-1">
-					<div
-						class="u-opacity u-opacity-45 u-shape u-shape-rectangle u-white u-shape-2"></div>
+					<div class="u-opacity u-opacity-45 u-shape u-shape-rectangle u-white u-shape-2"></div>
 					<h2 class="u-text u-text-2">ABOUT US</h2>
 					<p class="u-text u-text-palette-1-dark-2 u-text-3">
 						안녕하세요, DiningLab 입니다.<br> <br>DiningLab은 세계 각지의 대표 음식을

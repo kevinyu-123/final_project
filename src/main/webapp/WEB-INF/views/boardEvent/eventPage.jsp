@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Event</title>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
@@ -31,11 +31,35 @@
 .pagetitle {
 	font-size: 30px;
 	padding: 15px;
-	margin-left:100px;
+	margin-left: 100px;
+}
+
+#write input {
+	font-family: 'Gothic A1', sans-serif;
+	width: 100px;
+	padding: 12px 20px;
+	margin: 15px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+}
+
+#write input:focus {
+	border: 2px solid #555;
+}
+
+#write input:hover {
+	font-weight: bold;
 }
 </style>
 
-
+<script>
+	function writeEvent() {
+		location.href = "writeEvent";
+	}
+</script>
 </head>
 <body>
 	<div class="w3-animate-opacity">
@@ -43,65 +67,90 @@
 			<c:import url="../default/header.jsp" />
 		</header>
 
-		<div class=" w3-animate-left" style="margin-top:20px;margin-bottom: 20px;margin-left:30px;">
-			<span class="pagetitle"> <b >EVENT</b>
+		<div class=" w3-animate-left"
+			style="margin-top: 20px; margin-bottom: 20px; margin-left: 30px;">
+			<span class="pagetitle"> <b>EVENT</b>
 			</span>
 		</div>
 
 		<div style="display: flex; overflow-x: auto;">
-			<div>
+		
+			<%-- 	<div>	<c:forEach items="${eventList}" var="eventList">
+					<div id="poster">
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/eventposter.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+							{eventList.id}
+							</span>
+							
+						</a>
+					</div>
+				</c:forEach> --%>
 				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/eventposter.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/eventposter.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+						
+							</span>
+							
+						</a>
+					</div>
+					<div id="poster">
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/event3.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+						
+							</span>
+							
+						</a>
+					</div>
+					<div id="poster">
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/event4.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+						
+							</span>
+							
+						</a>
+					</div>
+					<div id="poster">
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/event5.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+						
+							</span>
+							
+						</a>
+					</div>
+					<div id="poster">
+						<a href="eventDetail">
+						<!-- 이벤트해당사진 -->
+						 <img
+							src="${contextPath }/resources/img/board/event6.jpeg"
+							style="width: 350px; height: 550px">
+							<span>
+						
+							</span>
+							
+						</a>
+					</div>
+					
 			</div>
-			<div>
-				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/event2.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
-			</div>
-			<div>
-				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/event3.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
-			</div>
-			<div>
-				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/event4.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
-			</div>
-			<div>
-				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/event5.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
-			</div>
-			<div>
-				<div id="poster">
-					<a href="#"><img
-						src="${contextPath }/resources/img/board/event6.jpeg"
-						style="width: 350px; height: 500px"> </a>
-				</div>
-
-			</div>
-
-		</div>
-
-
-
 
 
 		<footer>
