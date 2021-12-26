@@ -109,7 +109,9 @@
 					</c:forEach>
 					</div>
 					<div style="margin-top: 20px;" align="right">
-						<button id="write_btn" onclick="location.href='${contextPath}/writeform'">글쓰기</button>
+						<c:if test="${session_user != null }">
+							<button id="write_btn" onclick="location.href='${contextPath}/writeform'">글쓰기</button>
+						</c:if>
 					</div>
 					</div>
 				</div>

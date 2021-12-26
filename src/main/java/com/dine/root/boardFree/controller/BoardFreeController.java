@@ -33,8 +33,6 @@ import com.google.gson.JsonObject;
 public class BoardFreeController implements MemberSession  {
 	@Autowired
 	BoardFreeService service;
-	
-	public static final String IMAGE_REPO ="C:/Users/USER/Desktop/file/local_dir";
 
 	
 	@GetMapping("/boardAllList")
@@ -88,7 +86,14 @@ public class BoardFreeController implements MemberSession  {
 	@GetMapping("/viewContent")
 	public String viewCont(@RequestParam int board_no,Model model) {
 		BoardDTO dto = service.contentView(board_no);
-		model.addAttribute("form",dto);
+		String imgUrl = dto.getImg_url();
+		if(imgUrl == null) {
+			model.addAttribute("form",dto);
+		}else {
+			String [] splitUrl = imgUrl.split(",");
+			model.addAttribute("url",splitUrl);
+			model.addAttribute("form",dto);
+		}
 		return "boardFree/listview";
 	}
 	
@@ -98,12 +103,8 @@ public class BoardFreeController implements MemberSession  {
 				HttpServletRequest request) {
 		
 		JsonObject jsonObject = new JsonObject();
-		
-		//외부 저장소
-		//String fileRoot = "C:/image/";
-		
+				
 		String contextRoot = request.getSession().getServletContext().getRealPath("/");
-		System.out.println(contextRoot);
 		String fileRoot = contextRoot+"resources/fileupload/";
 		System.out.println(fileRoot);
 		String originalFileName = multipartFile.getOriginalFilename();

@@ -37,8 +37,8 @@
 	</select>
 	
 	<insert id="saveWrite">
-		INSERT INTO community_board (board_no,title,content,writer,board_category)
-			 VALUES(test_seq.nextval,#{title},#{content},#{writer},#{board_category})
+		INSERT INTO community_board (board_no,title,content,writer,board_category,img_url)
+			 VALUES(test_seq.nextval,#{title},#{content},#{writer},#{board_category},#{img_url})
 	</insert>
 	
 	

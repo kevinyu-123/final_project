@@ -1,6 +1,5 @@
 package com.dine.root.boardFree.service;
 
-import java.util.List;
 
 import org.springframework.ui.Model;
 

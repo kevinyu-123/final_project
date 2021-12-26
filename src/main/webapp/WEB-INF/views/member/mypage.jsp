@@ -92,9 +92,6 @@ button:hover {
 	text-decoration: none;
 }
 
-#navdiv li:hover {
-	background-color: rgba(223, 209, 204);
-}
 
 #bigbox {
 	height: 650px;

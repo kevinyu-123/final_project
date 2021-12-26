@@ -29,7 +29,26 @@
 	width: 80px;
 }
 </style>
+<script type="text/javascript">
+	function save_form(){
+		var text = $("#summernote").val()
+		var newText = text.replace(/(<([^>]+)>)/ig,"");
+		$("#content").attr('value',newText)
+		console.log(newText)
+		var dummy = document.createElement("div");
+		dummy.innerHTML = $("#summernote").val()
+		var images = Array.from(dummy.querySelectorAll("img[src]"));
+		
+		var sources = images.map(function (item) {
+		  return item.src.split("/").pop();
+		});
+		console.log(sources)
+		$("#img_url").attr('value',sources.join(','))
+			fo.submit()
+	}
+</script>
 </head>
+
 <body>
 
 <div class="w3-animate-opacity">
@@ -40,17 +59,21 @@
 		<form id="fo" method="post" action="saveWrite">
 			<input type="hidden" name="writer"value="${session_user}"/>
 			<input type="hidden" name="board_category" value="free_board"> 
+			<input type="hidden" name="content"id="content">
+			<input type="hidden" id="img_url" name="img_url">
 			<input id="title_box" type="text" name="title" placeholder="제목을 입력해 주세요."/>
 			<br><br> 
-			<textarea id="summernote" name="content"></textarea>
-			<div align="center"><input id="subBtn" type="submit" value="등록하기"/></div>
+			<textarea id="summernote"></textarea>
+			<div align="center">
+			<input id="subBtn" type="button" value="등록하기" onclick="save_form()"/>
+			</div>
 		</form>
 	</div>
 </div>
 <script>
 $(document).ready(function() {
 	  $('#summernote').summernote({
-	    	placeholder: '내용을 입력하세요',
+	    	placeholder: '공유할 내용을 입력해주세요',
 	        height: 400,
 	        tabsize: 5,
 	        focus: true,
@@ -68,7 +91,6 @@ $(document).ready(function() {
 	});
 	
 function uploadSummernoteImageFile(file, el) {
-	console.log('test')
 	var data = new FormData();
 	data.append("file", file);
 	$.ajax({

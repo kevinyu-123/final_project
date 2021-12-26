@@ -12,7 +12,7 @@
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="writer" column="writer"/>
-		<result property="reg_date" column="reg_date"/>
+		<result property="reg_time" column="reg_time"/>
 		<result property="views" column="views"/>
 		<result property="board_category" column="board_category"/>	
 	</resultMap>
@@ -24,7 +24,7 @@
 		<result property="group_layer" column="group_layer"/>
 		<result property="content" column="content"/>
 		<result property="writer" column="writer"/>
-		<result property="reg_date" column="reg_date"/>
+		<result property="reg_time" column="reg_time"/>
 		<result property="views" column="views"/>
 		<result property="post_group" column="post_group"/>	
 	</resultMap>

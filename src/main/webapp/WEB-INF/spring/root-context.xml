@@ -29,7 +29,7 @@
    <mybatis-spring:scan base-package="com.dine.root.map.mapper"/>
    <mybatis-spring:scan base-package="com.dine.root.member.mapper"/>
    <mybatis-spring:scan base-package="com.dine.root.boardFree.mapper"/>
-	    
+    <mybatis-spring:scan base-package="com.dine.root.boardFree_reply.mapper"/>
 	<!--  첫 에러는 namespaces에서 mybatis-spring 설정 -->	
 		
 </beans>

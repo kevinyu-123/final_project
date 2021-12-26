@@ -196,7 +196,7 @@ color:white;
 				},
 				'geometry' : {
 					'type' : 'Point',
-					'coordinates' : [ json[i].lat, json[i].lng ]
+					'coordinates' : [ json[i].map_lat, json[i].map_lng ]
 				}
 			}]
 		};

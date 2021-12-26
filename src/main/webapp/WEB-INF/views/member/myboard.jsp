@@ -177,7 +177,7 @@ h2 {
 								<tr>
 									<td>${board.board_category}</td>
 									<td><a href="#">${board.title}</a></td>
-									<td>${board.reg_date}</td>
+									<td>${board.reg_time}</td>
 									<td>${board.views}</td>
 								</tr>
 							</c:forEach>
