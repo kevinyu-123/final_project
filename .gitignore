@@ -1,4 +1,5 @@
 .DS_Store
-.PROJECT
+.project
 /bin/
-.CLASSPATH
+.classpath
+.gitignore
