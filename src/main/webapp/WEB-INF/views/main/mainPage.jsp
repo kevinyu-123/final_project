@@ -13,15 +13,15 @@
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>Home</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
-<link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
+<link rel="stylesheet" href="${contextPath }/resources/css/Home.css">
+<link rel="stylesheet" href="/root/resources/css/nicepage.css"
 	media="screen">
-<link rel="stylesheet" href="${contextPath } /resources/css/Home1.css"
+<link rel="stylesheet" href="/root/resources/css/Home1.css"
 	media="screen">
 <script class="u-script" type="text/javascript"
-	src="${contextPath } /resources/js/jquery.js" defer=""></script>
+	src="/root/resources/js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript"
-	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
+	src="/root/resources/js/nicepage.js" defer=""></script>
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">

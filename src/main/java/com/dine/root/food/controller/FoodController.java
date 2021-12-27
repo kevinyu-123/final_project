@@ -39,11 +39,6 @@ public class FoodController {
 		return "main/mainPage";
 	}
 	
-	@GetMapping("test")
-	public String test() {
-		return "food2/test";
-	}
-	
 	@GetMapping("nation")
 	public String test3(@RequestParam("nation") String nation, Model model) {
 		model.addAttribute("nation", fs.nation(nation));
@@ -101,11 +96,6 @@ public class FoodController {
 		out = response.getWriter();
 		out.println(message);
 	}
-	
-	
-	
-	
-	
 	
 	
 	@GetMapping("food2")
