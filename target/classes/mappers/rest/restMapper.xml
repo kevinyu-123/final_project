@@ -43,4 +43,13 @@
 	<select id="infoReviews" resultMap="reviews">
 		select mem_id,rest_rate,review,rev_pic,rev_date from rest_review where rest_id=#{id}
 	</select>
+	<update id="updateLiked">
+		update member set liked_rest=#{restId}||'/'|| liked_rest where name=#{memId}
+	</update>
+	<select id="infoMemLike" resultType="Map">
+		select liked_rest from member where name=#{memId}
+	</select>
+	<update id="updateUnLike">
+		update member set liked_rest=#{upLike} where name=#{memId}
+	</update>
 </mapper>

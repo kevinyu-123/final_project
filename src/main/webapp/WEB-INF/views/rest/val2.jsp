@@ -314,21 +314,19 @@ margin-top: 10px;
 								<div class="u-text u-text-10">
 									<button type="button" class="btn btn-primary" id="rest_reviews"
 										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'"><p>리뷰쓰기</p></button>
-									<button type="button" class="btn btn-primary" id="fav_button" onclick="fav('aa')"><p id="rest_fav">찜하기</p></button>
+									<button type="button" class="btn btn-primary" id="fav_button" onclick="fav('aa',${restDTO.id})"><p id="rest_fav">찜하기</p></button>
 									<script type="text/javascript">
-									var restFav = document.getElementById('rest_fav');
-									console.log(restFav)
-									
-									function fav(memId){
-										var sendData = {"memId":memId};
-										if(rest_fav.value=="찜하기"){
+									function fav(memId,restId){
+										var sendData = { "memId":memId , "rest":restId };
+										console.log(sendData)
+										if($("#rest_fav").text()=="찜하기"){
 											$.ajax({
 										 	      type: "POST",
 										 	      dataType:"json",
 										 	      url: "liked_click",
 										     	  processData: false,
-										 	      contentType: false,
-										 	      data: sendData,
+										 	      contentType: "application/json; charset=utf-8",
+										 	   	  data:  JSON.stringify(sendData),
 										 	      success: function (data) {
 										 	    	  if(data.result == "ok"){
 										 	    		  alert("좋아요 클릭 완료!")
@@ -349,8 +347,8 @@ margin-top: 10px;
 										 	      dataType:"json",
 										 	      url: "dliked_click",
 										     	  processData: false,
-										 	      contentType: false,
-										 	      data: sendData,
+										     	  contentType: "application/json; charset=utf-8",
+										     	  data:  JSON.stringify(sendData),
 										 	      success: function (data) {
 										 	    	  if(data.result == "no"){
 										 	    		  alert("찜 취소 완료!")

@@ -1,9 +1,9 @@
 package com.dine.root.rest.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -92,5 +92,41 @@ public class restServiceImpl implements restService{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void updateLiked(Map<String, Object> idMap) {
+		// TODO Auto-generated method stub
+		try {
+			String memId = (String) idMap.get("memId");
+			int restId =  (int) idMap.get("rest");
+			dao.updateLiked(memId, restId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void updateUnLiked(Map<String, Object> idMap) {
+		try {
+			String memId = (String) idMap.get("memId");
+			Map memLike = dao.infoMemLike(memId);
+			System.out.println(memLike);
+			int unLike1 = (int) idMap.get("rest") ;
+			String unLike = ""+unLike1;
+			System.out.println(unLike);
+			System.out.println(memLike.get("LIKED_REST"));
+			String like = (String) memLike.get("LIKED_REST");
+			System.out.println(like);
+			String upLike = like.replace("/"+"식당2", "");
+			System.out.println(upLike);
+			
+			dao.updateUnLike(upLike,memId );
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		
 	}
 }
