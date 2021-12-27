@@ -11,12 +11,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
- 
+<link
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
+	rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-
-
 #profile {
 	font-family: 'Gothic A1', sans-serif;
 	text-align: center;
@@ -40,13 +40,23 @@ span {
 	margin-left: 540px;
 }
 
+#buttons2 {
+	margin-top: 50px;
+	margin-left: 450px;
+}
+
 #buttons img {
 	width: 30px;
 	height: 30px;
 }
 
+#buttons2 img {
+	width: 30px;
+	height: 30px;
+}
+
 button {
-	background-color: rgba(223, 209, 204);
+	background-color: #f4d19f;
 	border: none;
 	padding: 30px 30px;
 	display: inline-block;
@@ -92,18 +102,21 @@ button:hover {
 	text-decoration: none;
 }
 
+#navdiv li:hover {
+	
+}
 
 #bigbox {
-	height: 650px;
+	height:100%;
 }
 </style>
 
 </head>
-
-<header>
-	<c:import url="../default/header.jsp" />
-</header>
 <body>
+	<header>
+		<c:import url="../default/header.jsp" />
+	</header>
+
 
 	<div class="w3-animate-opacity">
 		<div id="bigbox">
@@ -116,9 +129,9 @@ button:hover {
 				<div id="navdiv">
 					<ul>
 						<li><a href="mypage"><strong style="font-size: 25px;">
-						MY PAGE</strong></a></li>
+									MY PAGE</strong></a></li>
 
-						<li><a href="mylikes">MY LIKES</a></li>
+						<li><a href="likeList">MY LIKES</a></li>
 						<li><a href="myboard">MY BOARD</a></li>
 						<li><a href="myreply">MY REPLY</a></li>
 						<li></li>
@@ -133,13 +146,17 @@ button:hover {
 						<tr>
 							<td>
 								<button class="likes" onclick="location.href='mylikes'">
-									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>MY LIKES
+									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>MY
+									LIKES
 								</button>
+
 							</td>
 							<td>
 								<button class="board" onclick="location.href='myboard'">
-									<img src="${contextPath }/resources/img/imgMain/write.png"><br>MY BOARD
+									<img src="${contextPath }/resources/img/imgMain/write.png"><br>MY
+									BOARD
 								</button>
+
 							</td>
 						</tr>
 						<tr>
@@ -148,17 +165,66 @@ button:hover {
 									<img src="${contextPath }/resources/img/imgMain/review.png"><br>
 									MY REPLY
 								</button>
+
 							</td>
 							<td>
 								<button class="account" onclick="location.href='newprofile'">
 									<img src="${contextPath }/resources/img/imgMain/account.png"><br>
 									ACCOUNT SETTINGS
 								</button>
+
 							</td>
 						</tr>
 					</table>
 
 				</div>
+				<c:if test="${session_user eq '운영진'}">
+					<script>
+						$('#buttons').css("display", "none")
+						$('#navdiv').css("display","none")
+					</script>
+					<div id="buttons2" style="height:100%;">
+						<table>
+							<tr>
+								<td>
+									<button class="likes" onclick="location.href='writeNews'">
+										<br>공지사항 등록
+									</button>
+								</td>
+								<td>
+									<button class="likes" onclick="location.href='writeEvent'">
+										<br>이벤트 등록
+									</button>
+								</td>
+								<td>
+									<button class="likes" onclick="location.href='recipeForm'">
+										<br>레시피등록
+									</button>
+								</td>
+								</tr>
+								<tr>
+								<td>
+									<button class="likes" onclick="location.href='boardAllList'">
+										<br>자유게시판
+									</button>
+								</td>
+								<td>
+									<button class="likes" onclick="location.href='nationRegForm'">
+										<br>나라정보등록
+									</button>
+								</td>
+								<td>
+									<button class="likes" onclick="location.href='food2'">
+										<br>음식 등록
+									</button>
+								</td>
+							</tr>
+						</table>
+
+					</div>
+
+				</c:if>
+
 			</div>
 
 		</div>

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dine.root.boardEvent_reply.dto.ReplyDTO;
+import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.boardFree_reply.mapper.RepMapper;
 
 @Service

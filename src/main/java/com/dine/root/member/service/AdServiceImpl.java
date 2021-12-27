@@ -13,18 +13,10 @@ public class AdServiceImpl implements AdService {
 	@Autowired
 	MemMapper mapper;
 	
-
-
 	@Override
-	public int adloginChk(String id, String pwd) {
-		AdminDTO dto = mapper.getMember(id);
-		if (dto != null) {
-			if (pwd.equals(dto.getPwd()))
-				return 0;
-		}
-		return 1;
+	public AdminDTO adloginChk(String id) {
+		return mapper.getMember(id);
 	}
-
 	
 
 }

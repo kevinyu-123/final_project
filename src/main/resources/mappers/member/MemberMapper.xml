@@ -150,7 +150,10 @@
 		select * from admin where id = #{id}
 	</select>
 	
-	
+	<select id="getLikes" resultMap="member">
+		select * from member
+		where name=#{session_id}
+	</select>
 
 
 </mapper>

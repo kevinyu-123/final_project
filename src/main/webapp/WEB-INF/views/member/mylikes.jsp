@@ -16,7 +16,6 @@
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="${contextPath }/resources/css/mylikes.css">
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 #bigbox {
@@ -111,6 +110,10 @@ span {
 	});
 </script>
 
+<script>
+	
+</script>
+
 </head>
 <body>
 	<div class="w3-animate-opacity">
@@ -120,10 +123,10 @@ span {
 		<div id="div">
 			<div id="navdiv">
 				<ul>
-					<li><a href="mypage"><strong style="font-size: 25px;">
+					<li><a href="mypage"> <strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
-					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="likeList">MY LIKES</a></li>
 					<li><a href="myboard">MY BOARD</a></li>
 					<li><a href="myreply">MY REPLY</a></li>
 					<li></li>
@@ -143,53 +146,39 @@ span {
 				</div>
 
 				<div id="review_box" style="width: 90%; position: relative;">
-					<c:forEach var="likes" items="${likes }">
 
-						<div id="like">
-							<!-- div시작 ...  -->
-							<figure class="snip1132">
-								<img src="${contextPath}/resources/img/imgMain/sam.png"
-									alt="sample22" />
-								<figcaption>
-									<div class="heading">
-
-										<span>${likes.restName }</span>
-										<!-- 레스토랑이름 -->
-
-									</div>
-									<div class="caption">
-										<p>${likes.restMenu }</p>
-										<!--메뉴이름 -->
-									</div>
-								</figcaption>
-								<a href="#"> </a>
-								<!-- 해당레스토랑페이지 -->
-							</figure>
-						</div>
+					<c:forEach items="${likes}" var="likes">
+						<input type="hidden" id="like" value="${likes.liked_rest}">
 					</c:forEach>
-					<div id="like">
-						<!-- div시작 ...  -->
-						<figure class="snip1132">
-							<img src="${contextPath}/resources/img/imgMain/sam.png"
-								alt="sample22" />
-							<figcaption>
-								<div class="heading">
-
-									<span> restaurant name</span>
-									<!-- 레스토랑이름 -->
-
-								</div>
-								<div class="caption">
-									<p>food name</p>
-									<!--메뉴이름 -->
-								</div>
-							</figcaption>
-							<a href="#"> </a>
-							<!-- 해당레스토랑페이지 -->
-						</figure>
-					</div>
 
 
+					<script>
+						var like = $('#like').val()
+						console.log(like)
+
+						var arr = like.split('/')
+						if(arr[0]==""){
+							document.write('<label> 좋아요 한 음식점이 없습니다. </label>');
+						}
+
+						for (var i = 0; i < arr.length - 1; i++) {
+							
+							document.write('<div id="like">');
+							document.write('<figure class="snip1132">');
+							document
+									.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
+							document
+									.write('<figcaption><div class="heading"><span>'
+											+ arr[i] + '</span></div>');
+							document.write('<div class="caption"><p>' + arr[i]
+									+ '</p></div></figcaption>');
+
+							document.write('<a href="#"></a>');
+							document.write('</figure></div>');
+						}
+
+						console.log(arr)
+					</script>
 
 				</div>
 			</div>

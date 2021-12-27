@@ -1,6 +1,5 @@
 package com.dine.root.boardFree.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +49,16 @@ public class BoardFreeServiceImpl implements BoardFreeService {
 	@Override
 	public int saveWrite(BoardDTO dto) {
 		return mapper.saveWrite(dto);
+	}
+
+	@Override
+	public int deleteCont(int board_no) {
+		return mapper.deleteCont(board_no);	
+	}
+
+	@Override
+	public int saveModForm(BoardDTO dto) {
+		return mapper.saveModForm(dto);
 	}
 	
 }

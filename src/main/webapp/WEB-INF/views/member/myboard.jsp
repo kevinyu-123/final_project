@@ -145,7 +145,7 @@ h2 {
 					<li><a href="mypage"><strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
-					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="likeList">MY LIKES</a></li>
 					<li><a href="myboard">MY BOARD</a></li>
 					<li><a href="myreply">MY REPLY</a></li>
 					<li></li>
@@ -183,7 +183,7 @@ h2 {
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
-							<tr style="background-color:#FFE7CF;"> 
+							<tr> 
 								<td colspan="4" align="center">조회된 게시글이 없습니다.</td>
 							</tr>
 						</c:otherwise>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dine.root.boardEvent_reply.dto.ReplyDTO;
+import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.boardFree_reply.service.RepService;
 
 @RestController

@@ -4,23 +4,12 @@ import java.sql.Date;
 
 public class BoardDTO {
 	private int board_no;
-	private int origin_no;
-	private int group_ord;
-	private int group_layer;
 	private String title;
 	private String content;
 	private String writer;
 	private Date reg_time;
 	private int views;
-	private String board_category;
-	private String img_url;
 	
-	public String getImg_url() {
-		return img_url;
-	}
-	public void setImg_url(String img_url) {
-		this.img_url = img_url;
-	}
 	
 	public int getBoard_no() {
 		return board_no;
@@ -28,24 +17,7 @@ public class BoardDTO {
 	public void setBoard_no(int board_no) {
 		this.board_no = board_no;
 	}
-	public int getOrigin_no() {
-		return origin_no;
-	}
-	public void setOrigin_no(int origin_no) {
-		this.origin_no = origin_no;
-	}
-	public int getGroup_ord() {
-		return group_ord;
-	}
-	public void setGroup_ord(int group_ord) {
-		this.group_ord = group_ord;
-	}
-	public int getGroup_layer() {
-		return group_layer;
-	}
-	public void setGroup_layer(int group_layer) {
-		this.group_layer = group_layer;
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -76,11 +48,6 @@ public class BoardDTO {
 	public void setViews(int views) {
 		this.views = views;
 	}
-	public String getBoard_category() {
-		return board_category;
-	}
-	public void setBoard_category(String board_category) {
-		this.board_category = board_category;
-	}
+
 }
 

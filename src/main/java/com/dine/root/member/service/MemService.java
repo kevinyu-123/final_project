@@ -56,8 +56,8 @@ public interface MemService {
 	public ArrayList<ReplyDTO> getReplyInfo(String writer);
 	public int deleteMember(String pwd, String session_id);
 	
+	public ArrayList<MemDTO> getLikes(String session_id);
 	
-	public int addLikes(String liked_rest, String session_id);
 
 	
 	

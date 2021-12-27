@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untitled</title>
-    <link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/default/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,7 +29,7 @@
                 <li class="list-inline-item"><a href="${contextPath }/main">Home</a></li>
                 <li class="list-inline-item"><a href="${contextPath }/event">Event</a></li>
                 <li class="list-inline-item"><a href="${contextPath }/aboutus">About</a></li>
-                <li class="list-inline-item"><a href="${contextPath}/boardNotice/news">News</a></li>
+                <li class="list-inline-item"><a href="${contextPath}/news">News</a></li>
                 <li class="list-inline-item"><a href="${contextPath}/sitemap">SiteMap</a></li>
             </ul>
 

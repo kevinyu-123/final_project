@@ -21,8 +21,7 @@
 		<result property="rate_cnt" column="rate_cnt"/>
 		<result property="lat" column="lat"/>
 		<result property="lng" column="lng"/>
-		<result property="map_lat" column="map_lat"/>
-		<result property="map_lng" column="map_lng"/>
+
 	</resultMap>
 
 	<select id="info" resultMap="map">

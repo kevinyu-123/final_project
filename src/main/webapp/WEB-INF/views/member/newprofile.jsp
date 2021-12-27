@@ -216,7 +216,7 @@
 					<li><a href="mypage"><strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
-					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="likeList">MY LIKES</a></li>
 					<li><a href="myboard">MY BOARD</a></li>
 					<li><a href="myreply">MY REPLY</a></li>
 					<li></li>

@@ -4,6 +4,7 @@ public class AdminDTO {
 	private String id;
 	private String pwd;
 	private String name;
+	
 	public String getId() {
 		return id;
 	}

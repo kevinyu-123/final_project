@@ -1,8 +1,10 @@
 package com.dine.root.member.service;
 
+import com.dine.root.member.dto.AdminDTO;
+
 public interface AdService {
 	
-	public int adloginChk(String id, String pwd);
+	public AdminDTO adloginChk(String id);
 
 	
 }

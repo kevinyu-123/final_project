@@ -143,7 +143,7 @@ h2 {
 					<li><a href="mypage"><strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
-					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="likeList">MY LIKES</a></li>
 					<li><a href="myboard">MY BOARD</a></li>
 					<li><a href="myreply">MY REPLY</a></li>
 					<li></li>
@@ -164,6 +164,7 @@ h2 {
 					<h6 style="	font-family: 'Gothic A1', sans-serif;">총 ${fn:length(replyInfo)} 개의 댓글이 조회되었습니다.</h6>
 					<table border="1">
 						<tr>
+							
 							<th width="70%;">댓글 내용</th>
 							<th>작성일</th>
 							<th>조회</th>
@@ -171,15 +172,17 @@ h2 {
 						<c:choose>
 							<c:when test="${fn:length(replyInfo) != 0}">
 							<c:forEach var="reply" items="${replyInfo}">
+							
 								<tr>
 									<td><a href="#">${reply.content}</a></td>
 									<td>${reply.reg_time}</td>
 									<td>${reply.views}</td>
 								</tr>
-							</c:forEach>
+								
+								</c:forEach>
 							</c:when>
 							<c:otherwise>
-								<tr  style="background-color:#FFE7CF">
+								<tr>
 									<td colspan="4" align="center">조회된 댓글이 없습니다.</td>
 								</tr>
 							</c:otherwise>

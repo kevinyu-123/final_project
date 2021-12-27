@@ -29,11 +29,11 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="${contextPath }/resources/css/header.css">
+<link rel="stylesheet"
+	href="${contextPath }/resources/css/default/header.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <style>
-
 </style>
 <body>
 	<div id="wrap">
@@ -58,18 +58,45 @@
 
 					</div>
 				</c:when>
+				
 				<c:otherwise>
-					<!-- 로그인 되어있을 시-->
-					<div class="dropdown">
-						<a class="dropbtn" href="${contextPath }/mypage">
-							<img src="${contextPath}/resources/img/imgMain/home.png"style="margin-top: 15px;">
+				<c:choose>
+				<c:when test="${session_user eq '운영진' }">
+				<div class="dropdown">
+						<a class="dropbtn" href="${contextPath }/mypage"> <img
+							src="${contextPath}/resources/img/imgMain/home.png"
+							style="margin-top: 15px;">
 						</a>
-						<div class="dropdown-content">
-							<a class="a" href="${contextPath }/mypage">MYPAGE</a> <a
-								class="a" href="${contextPath }/mylikes">MY LIKES</a> <a
-								class="a" href="${contextPath }/logout">SIGN OUT</a>
+				
+							<div class="dropdown-content">
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
+							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
+
 					</div>
+				</c:when>
+				<c:otherwise>
+				<!-- 로그인 되어있을 시-->
+					<div class="dropdown">
+						<a class="dropbtn" href="${contextPath }/mypage"> <img
+							src="${contextPath}/resources/img/imgMain/home.png"
+							style="margin-top: 15px;">
+						</a>
+				
+							<div class="dropdown-content">
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
+							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
+							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
+						</div>
+
+					</div>
+				
+				
+				</c:otherwise>
+			
+				
+				</c:choose>
+				
 				</c:otherwise>
 			</c:choose>
 		</div>

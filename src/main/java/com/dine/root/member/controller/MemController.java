@@ -128,7 +128,7 @@ public class MemController implements MemberSession {
 				Cook.setPath("/");
 				response.addCookie(Cook);
 			}
-			return "/main/mainPage";
+			return "redirect:/main";
 
 		} else {
 			return "member/login";
@@ -328,24 +328,17 @@ public class MemController implements MemberSession {
 		return "member/myreply";
 	}
 	
-/////////좋아요 ///////////////////
-	@GetMapping("/mylikes")
-	public String myLikes() {
+	@GetMapping("/likeList")
+	public String likeList(MemDTO dto, Model model, HttpSession session) {
+		String session_id = (String) session.getAttribute(LOGIN_ID);
+		ArrayList<MemDTO> list = new ArrayList<MemDTO>();
+		list= service.getLikes(session_id);
+		model.addAttribute("likes",list);
+		System.out.println(list);
+		
 		return "member/mylikes";
 	}
-	
-	@RequestMapping("addLikes")
-	//레스토랑 아이디 member테이블에 저장
-	public String addLikes(@RequestParam String liked_rest, HttpSession session) {
-		String session_id = (String) session.getAttribute(LOGIN_ID);
-		int result = service.addLikes(liked_rest, session_id);
-		
-		if (result == 1) {
-			return "member/mylikes";
-		}
-		return "";
-		
-	}
+
 	
 
 }
