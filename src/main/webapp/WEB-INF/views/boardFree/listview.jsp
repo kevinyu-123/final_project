@@ -12,6 +12,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
+ 
 
 <style type="text/css">
 #bigbox {
@@ -22,6 +27,7 @@
    width: 20%;
 }
 #mid_box {
+   font-family: 'Gothic A1', sans-serif;
    width: 60%;
    padding-top: 10px;
    height: 100%;
@@ -31,17 +37,17 @@
    width: 20%;
 }
 #t_btn{
-   width:90px;
-   height: 40px;
+
 }
 #txt_area{
    height: 100%;
-   border: 1px solid gray;
+  border: 1px solid #ccc;
+   font-family: 'Gothic A1', sans-serif;
 
-   border-radius:10px;
    width: 100%;
    margin-top: 10px;
 }
+
 a{
 text-decoration: none;
 }
@@ -66,6 +72,45 @@ img{
    font-weight: bold;
    
 }
+
+#t_btn {
+   width:90px;
+   height: 40px;
+	font-family: 'Gothic A1', sans-serif;
+	
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	margin-left: 10px;
+	padding:10px;
+}
+
+#t_btn:hover {
+	font-weight: bold;
+}
+
+#r_btn {
+   width:90px;
+   height: 40px;
+font-family: 'Gothic A1', sans-serif;
+	
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	margin-left: 10px;
+	padding:10px;
+}
+
+#r_btn:hover {
+	font-weight: bold;
+}
+
 
 </style>
 <script type="text/javascript">
@@ -93,32 +138,31 @@ img{
    }
    
    function comment_list(){
-      var post_group = $("#post_group").val()
-      $.ajax({
-           url:"replyData/"+post_group,
-           type:"GET", 
-           dataType:"json",
-           success: function(rep){
-           let html = ""
-           rep.forEach(function(data){
-              
-              var date = new Date(data.reg_time)
-              let writeDate = date.getFullYear()+"년"+(date.getMonth()+1)+"월"
-              writeDate += date.getDate()+"일"+date.getHours()+"시"
-              writeDate += date.getMinutes()+"분"
-              
-            html += "<b><small>작성일</small></b> :<small> "+writeDate+"</small><br>"
-              html += "<div align='left'><b>닉네임 : </b>"+data.writer+"<br>";
-              html += data.content+"<hr></div>"
-              html += "<hr>"
-           })
-           
-           $("#c_box").html(html)
-           },error:function(){
-           alert('데이터를 가져올 수 없습니다')
-          }
-         })
-   }
+	      var post_group = $("#post_group").val()
+	      $.ajax({
+	           url:"replyData/"+post_group,
+	           type:"GET", 
+	           dataType:"json",
+	           success: function(rep){
+	           let html = ""
+	           rep.forEach(function(data){
+	              
+	              var date = new Date(data.reg_time)
+	              let writeDate = date.getFullYear()+"."+(date.getMonth()+1)+"."
+	              writeDate += date.getDate()+". "+date.getHours()+":"
+	              writeDate += date.getMinutes()
+	              
+	              html += "<div align='left'><b>닉네임 : </b>"+data.writer+"<br>";
+	              html += data.content+"<br>"
+	            html += "<small> "+writeDate+"</small><br>"
+	              html += "<a><small>답글쓰기</small></a></div>"
+	              html += "<hr>"
+	           })
+	           
+	           $("#c_box").html(html)
+	         }
+	      })
+	   }
 </script>
 </head>
 <body onload="comment_list()">
@@ -138,13 +182,13 @@ img{
                <button id="t_btn" onclick="location.href='${contextPath}/boardAllList'">목록</button>
             </div>
             <div id="txt_area">
-               <div style="margin-top: 30px; margin-left: 15px;">
+               <div style="margin-top: 30px; margin-left: 15px;  font-family: 'Gothic A1', sans-serif;">
                   <span><a href="${contextPath}/boardAllList">자유게시판 ></a></span>
                   <hr>
-                  <h2 style="margin: 0px;">${info.title}</h2>
-                  <h4 style="padding-left: 30px;">
-                  <img id="user_img" src="${contextPath}/resources/img/imgMain/user.png">&nbsp; ${info.writer }</h4>
-                  <h4>${info.reg_time }</h4>
+                  <h2 style="margin: 0px;  font-family: 'Gothic A1', sans-serif;">${info.title}</h2>
+                  <h4 style="padding-left: 30px;  font-family: 'Gothic A1', sans-serif;">
+                  <img id="user_img" src="${contextPath}/resources/img/imgMain/user.png" style="  font-family: 'Gothic A1', sans-serif;">&nbsp; ${info.writer }</h4>
+                  <h4 style="  font-family: 'Gothic A1', sans-serif;">${info.reg_time }</h4>
                </div>
                <hr>
                <div style="margin-left: 30px;">
@@ -170,10 +214,10 @@ img{
                <form id="cfo" >
                   <c:choose>
                      <c:when test="${session_user != null }">
-                  <textarea rows="6" cols="111" name="content" id="content" style="resize: none" placeholder="댓글을 등록해 주세요"></textarea>
+                  <textarea rows="6" cols="111" name="content" id="content" style="resize: none; border: 1px solid #ccc; " placeholder="댓글을 등록해 주세요"></textarea>
                   <input type="hidden" name="writer" value="${session_user}">
                   <input type="hidden" id="post_group" name="post_group"  value="${info.board_no}">
-                  <input type="button" onclick="saveReply()" value="등록">
+                  <input type="button" id="r_btn" onclick="saveReply()" value="등록">
                      </c:when>
                      <c:otherwise>
                         <a href="/naverlogin">

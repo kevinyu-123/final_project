@@ -126,7 +126,7 @@ span {
 					<li><a href="mypage"> <strong style="font-size: 25px;">
 								MY PAGE</strong></a></li>
 
-					<li><a href="mylikes">MY LIKES</a></li>
+					<li><a href="likeList">MY LIKES</a></li>
 					<li><a href="myboard">MY BOARD</a></li>
 					<li><a href="myreply">MY REPLY</a></li>
 					<li></li>
@@ -148,11 +148,7 @@ span {
 				<div id="review_box" style="width: 90%; position: relative;">
 
 					<c:forEach items="${likes}" var="likes">
-
-						<input type="hidden" id="like" 
-						value="${likes.liked_rest}" >
-					
-
+						<input type="hidden" id="like" value="${likes.liked_rest}">
 					</c:forEach>
 
 
@@ -161,11 +157,18 @@ span {
 						console.log(like)
 
 						var arr = like.split('/')
-						for ( var i in arr) {
+						if(arr[0]==""){
+							document.write('<label> 좋아요 한 음식점이 없습니다. </label>');
+						}
+
+						for (var i = 0; i < arr.length - 1; i++) {
+							
 							document.write('<div id="like">');
 							document.write('<figure class="snip1132">');
-							document.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
-							document.write('<figcaption><div class="heading"><span>'
+							document
+									.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
+							document
+									.write('<figcaption><div class="heading"><span>'
 											+ arr[i] + '</span></div>');
 							document.write('<div class="caption"><p>' + arr[i]
 									+ '</p></div></figcaption>');
@@ -176,10 +179,6 @@ span {
 
 						console.log(arr)
 					</script>
-
-
-
-
 
 				</div>
 			</div>

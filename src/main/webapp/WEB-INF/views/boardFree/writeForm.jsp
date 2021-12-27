@@ -22,11 +22,44 @@
    height: 50px;
    border: 2px solid black;
    font-size: large;
+   	font-family: 'Gothic A1', sans-serif;
+}
+
+#write_btn  {
+	font-family: 'Gothic A1', sans-serif;
+	width: 100%;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius:10px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	width: 100px;
+	margin-left: 10px;
+	padding:10px;
+}
+
+input:hover {
+	font-weight: bold;
 }
 #subBtn{
+font-size:14px;
+	font-family: 'Gothic A1', sans-serif;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+
+
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	width: 100px;
+	margin-left: 10px;
+	padding:10px;
+
    margin-top: 20px;
-   height: 40px;
-   width: 80px;
+   height: 50px;
+
 }
 </style>
 <script type="text/javascript">
@@ -53,7 +86,7 @@
 
 <div class="w3-animate-opacity">
 
-   <h2 style="text-align: center; margin-top: 40px;">자유게시판 글쓰기</h2><br><br>
+   <h2 style="text-align: center; margin-top: 40px;	font-family: 'Gothic A1', sans-serif;">자유게시판 글쓰기</h2><br><br>
 
    <div style="width: 60%; margin: auto;">
       <form id="fo" method="post" action="saveWrite">
@@ -63,7 +96,7 @@
          <input type="hidden" id="img_url" name="img_url">
          <input id="title_box" type="text" name="title" placeholder="제목을 입력해 주세요."/>
          <br><br> 
-         <textarea id="summernote"></textarea>
+         <textarea id="summernote" style="font-family: 'Gothic A1', sans-serif;"></textarea>
          <div align="center">
          <input id="subBtn" type="button" value="등록하기" onclick="save_form()"/>
          </div>

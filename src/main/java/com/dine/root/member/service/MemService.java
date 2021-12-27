@@ -2,14 +2,13 @@ package com.dine.root.member.service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
@@ -71,7 +70,6 @@ public interface MemService {
 
 	public int deleteMember(String pwd, String session_id);
 
-	public int addLikes(String liked_rest, String session_id);
 
 	public ArrayList<MemDTO> getLikes(String session_id);
 

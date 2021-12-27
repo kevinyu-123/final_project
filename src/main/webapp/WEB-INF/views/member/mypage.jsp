@@ -131,7 +131,7 @@ button:hover {
 						<li><a href="mypage"><strong style="font-size: 25px;">
 									MY PAGE</strong></a></li>
 
-						<li><a href="mylikes">MY LIKES</a></li>
+						<li><a href="likeList">MY LIKES</a></li>
 						<li><a href="myboard">MY BOARD</a></li>
 						<li><a href="myreply">MY REPLY</a></li>
 						<li></li>
@@ -178,7 +178,7 @@ button:hover {
 					</table>
 
 				</div>
-				<c:if test="${session_user eq 'a123'}">
+				<c:if test="${session_user eq '운영진'}">
 					<script>
 						$('#buttons').css("display", "none")
 						$('#navdiv').css("display","none")
@@ -187,60 +187,36 @@ button:hover {
 						<table>
 							<tr>
 								<td>
-
 									<button class="likes" onclick="location.href='writeNews'">
 										<br>공지사항 등록
 									</button>
-
-
 								</td>
 								<td>
-
 									<button class="likes" onclick="location.href='writeEvent'">
 										<br>이벤트 등록
 									</button>
-
-
 								</td>
 								<td>
-
-									<button class="likes" onclick="location.href='writeRecipe'">
+									<button class="likes" onclick="location.href='recipeForm'">
 										<br>레시피등록
 									</button>
-
-
 								</td>
-								
-								
-								
 								</tr>
 								<tr>
 								<td>
-
-									<button class="likes" onclick="location.href='news'">
-										<br>공지사항 목록
+									<button class="likes" onclick="location.href='boardAllList'">
+										<br>자유게시판
 									</button>
-
-
 								</td>
 								<td>
-
-									<button class="likes" onclick="location.href='event'">
-										<br>이벤트 목록
+									<button class="likes" onclick="location.href='nationRegForm'">
+										<br>나라정보등록
 									</button>
-
-
 								</td>
-						
-						
-								
 								<td>
-
-									<button class="likes" onclick="location.href='freeboard'">
-										<br>자유게시판관리
+									<button class="likes" onclick="location.href='food2'">
+										<br>음식 등록
 									</button>
-
-
 								</td>
 							</tr>
 						</table>

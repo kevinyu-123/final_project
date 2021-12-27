@@ -16,21 +16,9 @@ public class MapDTO {
    private int rate_avr;
    private double lat;
    private double lng; 
-   private double map_lat;
-   private double map_lng;
+
    
-   public double getMap_lat() {
-	return map_lat;
-}
-public void setMap_lat(double map_lat) {
-	this.map_lat = map_lat;
-}
-public double getMap_lng() {
-	return map_lng;
-}
-public void setMap_lng(double map_lng) {
-	this.map_lng = map_lng;
-}
+
 
 public double getLat() {
       return lat;

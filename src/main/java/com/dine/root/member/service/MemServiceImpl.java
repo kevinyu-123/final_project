@@ -289,13 +289,6 @@ public class MemServiceImpl implements MemService, MemberSession {
 	}
 
 	
-	
-	@Override
-	public int addLikes(String liked_rest, String session_id) {
-		int result = 0;
-		result = mapper.addLikes(liked_rest, session_id);
-		return result;
-	}
 
 	@Override
 	public ArrayList<MemDTO> getLikes(String session_id) {

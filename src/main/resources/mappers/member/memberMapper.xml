@@ -153,14 +153,6 @@
 	</delete>
 
 
-	<!-- 좋아요 -->
-	<update id="addlikes">
-		UPDATE member SET liked_rest = liked_rest || '/' ||
-		#{liked_rest}
-		WHERE name = #{session_id}
-	</update>
-	
-	
 	<select id="getLikes" resultMap="member">
 		select * from member
 		where name=#{session_id}

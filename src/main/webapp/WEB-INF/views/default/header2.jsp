@@ -18,7 +18,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="${contextPath }/resources/css/header.css">
+<link rel="stylesheet" href="${contextPath }/resources/css/default/header.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
@@ -56,9 +56,9 @@ background-color:#FFDDBA;
 							<img src="${contextPath}/resources/img/imgMain/home.png"style="margin-top: 15px;">
 						</a>
 						<div class="dropdown-content">
-							<a class="a" href="${contextPath }/mypage">MYPAGE</a> <a
-								class="a" href="${contextPath }/mylikes">MY LIKES</a> <a
-								class="a" href="${contextPath }/logout">SIGN OUT</a>
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a>
+							 <a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
+							 <a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 					</div>
 				</c:otherwise>

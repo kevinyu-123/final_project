@@ -1,6 +1,6 @@
 package com.dine.root.boardFree_reply.dto;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
 
 public class ReplyDTO {
