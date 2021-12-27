@@ -1,0 +1,16 @@
+.tab__bar {
+  padding: 40px;
+  border-bottom: 1px solid #f9f9f9;
+}
+.tab__bar ul {
+  display: flex;
+  justify-content: center;
+  padding: 0px 60px;
+}
+
+.tab__bar ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 40px;
+}
