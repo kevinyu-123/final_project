@@ -78,16 +78,16 @@
 								countries<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc" class="w3-hide w3-white w3-card-4">
-								<a href="#" class="w3-bar-item w3-button">대한민국</a> 
-								<a href="#" class="w3-bar-item w3-button">싱가폴</a> 
-								<a href="#" class="w3-bar-item w3-button">대만</a> 
-								<a href="#" class="w3-bar-item w3-button">몽골</a> 
-								<a href="#" class="w3-bar-item w3-button">일본</a> 
-								<a href="#" class="w3-bar-item w3-button">필리핀</a> 
-								<a href="#" class="w3-bar-item w3-button">베트남</a> 
-								<a href="#" class="w3-bar-item w3-button">필리핀</a>
-								 <a href="#" class="w3-bar-item w3-button">라오스</a>
-								 <a href="#" class="w3-bar-item w3-button">기타</a>
+								<a href="${contextPath }/nation?nation=korea" class="w3-bar-item w3-button">대한민국</a> 
+								<a href="${contextPath }/nation?nation=singapore" class="w3-bar-item w3-button">싱가폴</a> 
+								<a href="${contextPath }/nation?nation=taiwan" class="w3-bar-item w3-button">대만</a> 
+								<a href="${contextPath }/nation?nation=mongol" class="w3-bar-item w3-button">몽골</a> 
+								<a href="${contextPath }/nation?nation=japan" class="w3-bar-item w3-button">일본</a> 
+								<a href="${contextPath }/nation?nation=philliphine" class="w3-bar-item w3-button">필리핀</a> 
+								<a href="${contextPath }/nation?nation=vietnam" class="w3-bar-item w3-button">베트남</a> 
+								 <a href="${contextPath }/nation?nation=laos" class="w3-bar-item w3-button">라오스</a>
+								 <a href="${contextPath }/nation?nation=hongkong" class="w3-bar-item w3-button">홍콩</a>
+								 <a href="${contextPath }/nation?nation=thailand" class="w3-bar-item w3-button">태국</a>
 							</div>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 								음식점위치<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc2" class="w3-hide w3-white w3-card-4">
-								<a href="#" class="w3-bar-item w3-button">서울</a> 
+								<a href="${contextPath }" class="w3-bar-item w3-button">서울</a> 
 								<a href="#" class="w3-bar-item w3-button">대전</a> 
 								<a href="#" class="w3-bar-item w3-button">대구</a> 
 								<a href="#" class="w3-bar-item w3-button">부산</a> 
