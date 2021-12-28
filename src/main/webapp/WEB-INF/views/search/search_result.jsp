@@ -133,12 +133,21 @@ button {
 	color: #ffffff;
 }
 
+a {
+	text-decoration-line: none;
+}
 
+li {
+	margin: 30px 0;
+}
 footer {
 	margin-top: 350px;
 }
 </style>
 
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 	<header>
@@ -150,10 +159,9 @@ footer {
 		<div class="main">
 			<div class="side">
 				<ul>
-					<li><a id = "link" href="#">Home</a></li>
-					<li><a id = "link" href="#">나라별</a></li>
-					<li><a id = "link" href="#">음식별</a></li>
-					<li><a id = "link" href="#">지역별</a></li>
+					<li><a href="#main_page">Dining Lab</a></li>
+					<li><a href="detail_search">세부검색</a></li>
+					<li><a href="#map">지도로 보기</a></li>
 				</ul>
 			</div>
 			<div class="center">
@@ -171,6 +179,11 @@ footer {
 						<div class="rest_pic">
 							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
 						</div>
+						
+						<c:if test="" >
+													
+						
+						</c:if>
 						
 						<div class="rest_info">
 							<div class="rest_title">

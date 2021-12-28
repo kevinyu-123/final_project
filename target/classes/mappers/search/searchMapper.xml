@@ -10,11 +10,12 @@
 		<result property="foodComment" column="FOOD_COMMENT" />
 		<result property="nation" column="NATION" />
 		<result property="intro" column="INTRO" />
-		<result property="category" column="CATEGORY_1" />
+		<result property="category_1" column="CATEGORY_1" />
+		<result property="category_2" column="CATEGORY_2" />
 		<result property="rate" column="RATE_AVR" />
 	</resultMap>
 
 	<select id="viewAll" resultMap="search">
-		SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, RATE_AVR FROM FOOD
+		SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR FROM FOOD
 	</select>
 </mapper>

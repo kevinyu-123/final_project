@@ -14,6 +14,7 @@
 	width: 940px;
 	margin: 0 auto;
 	height: 55vh;
+	flex-direction: column;
 }
 
 .search {
@@ -45,10 +46,16 @@ button {
 
 .detail {
 	display: flex;
-	
 }
-</style>
 
+
+#detail-btn {
+	margin: 10px auto 10px;
+	width: 90px;
+	height: 30px;
+}
+
+</style>
 </head>
 <body>
 	<header>
@@ -65,8 +72,7 @@ button {
 		</form>
 
 		<div class="detail">
-			
-		
+			<button id="detail-btn" onclick="location.href='detail_search'">상세 검색</button>
 		</div>
 	</div>
 
@@ -75,9 +81,6 @@ button {
 	</footer>
 </body>
 </html>
-
-
-
 
 
 
