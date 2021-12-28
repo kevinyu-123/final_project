@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>setNaverInfo</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,14 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+=======
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
+ 
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -43,26 +52,47 @@
 			error : function() {
 				alert('이메일 인증코드발송에 실패하였습니다.')
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 		})
 	}
 
 	function checkCode() {
+<<<<<<< HEAD
 		var emailCode = $("#email_auth").val()
 
 		$.ajax({
 			url : "checkVal/" + emailCode,
+=======
+		var email_auth = $("#email_auth").val()
+
+		$.ajax({
+			url : "checkVal/" + email_auth,
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 			type : "post",
 			dataType : "json",
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				if (data == 1) {
 					$("#authCheck").html("인증되었습니다.")
+<<<<<<< HEAD
+=======
+					
+		
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 				}
 			},
 			error : function() {
 				$("#authCheck").html("다시 진행해주세요.")
 			}
+<<<<<<< HEAD
 		})	
+=======
+		})
+		
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 	}
 	
 </script>
@@ -101,6 +131,11 @@ input:focus {
 	color: red;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 .email_chk {
 	color: #6A82FB;
 	display: none;
@@ -113,6 +148,10 @@ input:focus {
 <div class="w3-container w3-center w3-animate-opacity">
 
 	<form name="userRegisterForm" id="userRegisterForm" method="POST" action="naverRegister">
+<<<<<<< HEAD
+=======
+
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 		<input type="hidden" id="email" name="email" value="${email}" /> 
 		<input type="hidden" id="nickname" name="name" value="${nickname}" /> 
 		<input type="hidden" id="pwd" name="pwd" value="${id}">
@@ -120,6 +159,7 @@ input:focus {
 		<input type="hidden" id="naverlogin" name="naverlogin" value="${id}">
 		
 		<div id="LoginWrap">
+<<<<<<< HEAD
 			<h1>Sign up</h1>
 		<table>
 			<thead>
@@ -127,6 +167,16 @@ input:focus {
 					<th colspan="3">신규 가입 추가 정보 설정</th>
 				</tr>
 			</thead>
+=======
+
+			<h1>Sign up</h1>
+		<table>
+		
+				<tr>
+					<th colspan="3">신규 가입 추가 정보 설정</th>
+				</tr>
+
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 			<tbody>
 				<tr>
 					<td class="text">이메일 인증하기</td>
@@ -148,7 +198,12 @@ input:focus {
 					<td><label id="authCheck"></label><br></td>
 				</tr>
 				<tr>
+<<<<<<< HEAD
 					<td><input type="submit" value="가입"></td>
+=======
+					<td><input type="submit" value="가입">
+						</td>
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 				</tr>
 			</tbody>
 		</table>

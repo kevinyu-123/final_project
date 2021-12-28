@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>DiningLab</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
 	media="screen">
@@ -17,6 +18,17 @@
 	src="${contextPath } /resources/js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript"
 	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
+=======
+<link rel="stylesheet" href="/root/resources/css/mainPage.css">
+<link rel="stylesheet" href="/root/resources/css/nicepage.css"
+	media="screen">
+<link rel="stylesheet" href="/root/resources/css/Home1.css"
+	media="screen">
+<script class="u-script" type="text/javascript"
+	src="/root/resources/js/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript"
+	src="/root/resources/js/nicepage.js" defer=""></script>
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -29,8 +41,14 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200&family=Montserrat:wght@300&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
+<<<<<<< HEAD
 <link rel="stylesheet"
 	href="${contextPath }/resources/css/default/header.css">
+=======
+
+<link rel="stylesheet"
+	href="/root/resources/css/default/header.css">
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <style>
@@ -58,7 +76,10 @@
 
 					</div>
 				</c:when>
+<<<<<<< HEAD
 				
+=======
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 				<c:otherwise>
 				<c:choose>
 				<c:when test="${session_user eq '운영진' }">
@@ -85,7 +106,11 @@
 				
 							<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
+<<<<<<< HEAD
 							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
+=======
+							<a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 
@@ -96,7 +121,10 @@
 			
 				
 				</c:choose>
+<<<<<<< HEAD
 				
+=======
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 				</c:otherwise>
 			</c:choose>
 		</div>

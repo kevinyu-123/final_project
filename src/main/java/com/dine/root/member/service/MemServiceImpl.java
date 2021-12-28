@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.mail.javamail.JavaMailSender;
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
@@ -288,10 +290,12 @@ public class MemServiceImpl implements MemService, MemberSession {
 
 	@Override
 	public ArrayList<MemDTO> getLikes(String session_id) {
-		return mapper.getLikes(session_id);}
-	
-	
+		return mapper.getLikes(session_id);
+		}
+
+
+}	
 	
 	
 
-}
+

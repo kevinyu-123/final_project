@@ -2,6 +2,8 @@ package com.dine.root.member.controller;
 
 import java.util.Map;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +33,4 @@ public class EmailController {
 		int result = service.checkVal(emailCode,session);
 		return result;
 	}
-	
-	
 }

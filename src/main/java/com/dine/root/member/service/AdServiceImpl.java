@@ -2,7 +2,7 @@ package com.dine.root.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 
 import com.dine.root.member.dto.AdminDTO;
 import com.dine.root.member.mapper.MemMapper;
@@ -18,5 +18,4 @@ public class AdServiceImpl implements AdService {
 		return mapper.getMember(id);
 	}
 	
-
 }

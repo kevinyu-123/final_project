@@ -83,4 +83,3 @@ public class BoardDTO {
 		this.board_category = board_category;
 	}
 }
-

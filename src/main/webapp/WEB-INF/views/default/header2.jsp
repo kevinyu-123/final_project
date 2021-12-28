@@ -45,12 +45,10 @@ background-color:#FFDDBA;
 						<a class="dropbtn" href="${contextPath }/naverlogin"> <img
 							src="${contextPath}/resources/img/imgMain/account.png"
 							style="margin-top: 15px;">
-
 						</a>
 
 					</div>
-				</c:when>
-				
+				</c:when>				
 				<c:otherwise>
 				<c:choose>
 				<c:when test="${session_user eq '운영진' }">
@@ -85,10 +83,8 @@ background-color:#FFDDBA;
 				
 				
 				</c:otherwise>
-			
-				
+					
 				</c:choose>
-				
 				</c:otherwise>
 			</c:choose>
 		</div>

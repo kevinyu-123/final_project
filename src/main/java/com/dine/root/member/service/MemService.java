@@ -1,7 +1,7 @@
 package com.dine.root.member.service;
 
-import java.util.ArrayList
-;
+import java.util.ArrayList;
+
 
 import java.util.List;
 import java.util.Map;
@@ -21,10 +21,13 @@ public interface MemService {
 	public MemDTO userKakaoLoginPro(MemDTO dto);
 
 	public boolean auth(Map<String, String> map, HttpServletRequest request);
+
 	public int checkVal(String authVal, HttpSession session);
 
 	public int memKakaoRegister(MemDTO dto);
+
 	public MemDTO getUserSessionId(String sessionId);
+
 	public void keepLogin(String session_id, java.sql.Date session_date, String id);
 
 	public int register(MemDTO dto);
@@ -33,6 +36,7 @@ public interface MemService {
 
 	public Map<String, Object> naverConnectionCheck(Map<String, Object> apiJson);
 	public Map<String, Object> setNaverConnection(Map<String, Object> apiJson);
+
 	public Map<String, Object> userNaverLoginPro(Map<String, Object> apiJson);
 
 	public Integer userNaverRegisterPro(MemDTO dto);
@@ -60,9 +64,7 @@ public interface MemService {
 	
 
 	
-	
-
-
-	
-
 }
+
+
+	

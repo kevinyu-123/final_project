@@ -73,5 +73,4 @@ public class MemDTO {
 	public void setSession_date(java.sql.Date session_date) {
 		this.session_date = session_date;
 	}
-
 }

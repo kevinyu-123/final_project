@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /*
 import org.springframework.social.google.connect.GoogleConnectionFactory;
@@ -49,7 +50,6 @@ public class NaverLoginController implements MemberSession {
 	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
 		this.naverLoginBO = naverLoginBO;
 	}
-	
 
 	// 로그인 첫 화면 요청 메소드
 	@RequestMapping(value = "/naverlogin", method = { RequestMethod.GET, RequestMethod.POST })
@@ -107,17 +107,15 @@ public class NaverLoginController implements MemberSession {
 			service.setNaverConnection(apiJson);
 			Map<String, Object> loginCheck = service.userNaverLoginPro(apiJson);
 			session.setAttribute(LOGIN_ID, loginCheck);
-		
 
 		} else { // 모두 연동 되어있을시
 			Map<String, Object> loginCheck = service.userNaverLoginPro(apiJson);
 			String name=(String) loginCheck.toString();
 			String name1=name.substring(name.lastIndexOf("=")+1);
 			String replace=name1.replace("}","");
-		
+
 			System.out.println(replace);
 			session.setAttribute(LOGIN_ID,replace);
-
 		}
 
 		return "main/mainPage";
@@ -130,6 +128,7 @@ public class NaverLoginController implements MemberSession {
 			return "main/mainPage";
 		} else {
 			return "redirect:/login";
+
 		}
 	}
 

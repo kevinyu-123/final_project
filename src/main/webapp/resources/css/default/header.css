@@ -52,7 +52,11 @@
 }
 
 .a:hover {
+<<<<<<< HEAD
 	background-color: #FFE7CF;
+=======
+	background-color: #fbe7cb;
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 }
 
 #loginWrap {

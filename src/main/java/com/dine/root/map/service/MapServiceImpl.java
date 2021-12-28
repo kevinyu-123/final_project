@@ -10,6 +10,7 @@ import com.dine.root.map.mapper.MapMapper;
 
 @Service
 public class MapServiceImpl implements MapService {
+
 	@Autowired
 	MapMapper mapper;
 	

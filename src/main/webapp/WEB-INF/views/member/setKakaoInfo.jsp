@@ -8,13 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>setNaverInfo</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
+ 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -27,6 +26,7 @@
 			name : name,
 			email : email
 		}
+
 		$.ajax({
 			url : "auth", 
 			type : "post",
@@ -37,6 +37,8 @@
 				console.log(msg)
 				if (msg == true) {
 					console.log("sent");
+			         console.log(id)
+			         console.log(email)
 					alert("이메일 인증코드를 발송하였습니다.")
 				}
 			},
@@ -44,39 +46,48 @@
 				 console.log("error");
 				alert('이메일 인증코드발송에 실패하였습니다.')
 			}
+
 		})
 	}
 
 	function checkCode() {
-		var emailCode = $("#emailCode").val()
+		var email_auth = $("#email_auth").val()
+
 		$.ajax({
-			url : "checkVal/" + emailCode,
+			url : "checkVal/" + email_auth,
 			type : "post",
 			dataType : "json",
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				if (data == 1) {
-					$("#authCheck").html("인증되었습니다.")	
+					$("#authCheck").html("인증되었습니다.")
+					
+		
 				}
 			},
 			error : function() {
 				$("#authCheck").html("다시 진행해주세요.")
 			}
-		})	
+		})
+		
 	}
 	
 </script>
+
 <style>
 * {
 	font-family: 'Outfit', sans-serif;
 	margin: auto;
 }
+
 #LoginWrap {
 	padding: 30px;
 }
+
 h1 {
 	font-family: 'Outfit', sans-serif;
 }
+
 input, button {
 	width: 100%;
 	padding: 12px 20px;
@@ -88,12 +99,17 @@ input, button {
 	transition: 0.2s;
 	outline: none;
 }
+
 input:focus {
 	border: 3px solid #555;
 }
+
 #authChk {
 	color: red;
 }
+
+
+
 .email_chk {
 	color: #6A82FB;
 	display: none;
@@ -106,6 +122,7 @@ input:focus {
 <div class="w3-container w3-center w3-animate-opacity">
 
 	<form name="userRegisterForm" id="userRegisterForm" method="POST" action="memKakaoRegitser">
+   
    <input type="hidden"  id="email" name="email" value="${email}"/>
       <input type="hidden"  id="pwd" name="pwd"  value="${password}">
       <input type="hidden"  id="id" name="id" value="${password}">
@@ -113,11 +130,14 @@ input:focus {
       <input type="hidden" id="kakaologin" name="kakaologin" value="${password}">
       
 		<div id="LoginWrap">
+
 			<h1>Sign up</h1>
 		<table>
+		
 				<tr>
 					<th colspan="3">신규 가입 추가 정보 설정</th>
 				</tr>
+
 			<tbody>
 				<tr>
 					<td class="text">이메일 인증하기</td>
@@ -129,7 +149,7 @@ input:focus {
 					<td><input type="button" value="인증코드보내기" onclick="auth()"></td>
 				</tr>
 				<tr>
-					<td><input type="text"id="emailCode" name="email_auth"
+					<td><input type="text"id="email_auth" name="email_auth"
 						placeholder="코드 입력"></td>
 				</tr>
 				<tr>
@@ -139,7 +159,8 @@ input:focus {
 					<td><label id="authCheck"></label><br></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="가입"></td>
+					<td><input type="submit" value="가입">
+						</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,5 +1,6 @@
 package com.dine.root.boardNotice.mapper;
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,5 +21,4 @@ public interface NoticeMapper {
 	public BoardDTO viewNotice(int board_no);
 	
 	public int saveModNotice(BoardDTO dto);
-
 }

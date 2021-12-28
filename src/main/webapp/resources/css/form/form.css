@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+* {
+	margin: auto;
+}
+
+#LoginWrap {
+	padding: 30px;
+}
+
+#LoginWrap h1 {
+	font-family: 'Outfit', sans-serif;
+}
+
+#LoginWrap input {
+	font-family: 'Outfit', sans-serif;
+	padding: 12px 20px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+}
+
+.input-file-btn {
+	font-family: 'Outfit', sans-serif;
+	padding: 12px 20px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	display: block;
+	width: 100%;
+	height: 25px;
+	position: relative;
+}
+.input-file-btn span {
+	display: inline-block;
+	position: absolute;
+	top: 3px;
+}
+
+textarea {
+	font-family: 'Outfit', sans-serif;
+	padding: 12px 20px;
+	margin: 10px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+}
+
+#LoginWrap .btn {
+	font-family: 'Gothic A1', sans-serif;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+}
+
+#LoginWrap input:focus {
+	border: 2px solid #555;
+}
+
+#LoginWrap a:hover {
+	font-weight: bold;
+}

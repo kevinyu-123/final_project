@@ -3,6 +3,8 @@ package com.dine.root.member.controller;
 import java.util.ArrayList;
 
 import java.util.Calendar;
+
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +38,7 @@ import com.dine.root.member.service.MemService;
 
 @Controller
 public class MemController implements MemberSession {
+
 	@Autowired
 	MemService service;
 
@@ -288,18 +292,6 @@ public class MemController implements MemberSession {
 		int result = service.updatePwd(pwd, session_id);
 		return result;
 	}
-	/* 비밀번호수정 */
-	@RequestMapping(value = "deleteMember/{pwd}", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public int deleteMember(@PathVariable String pwd, HttpSession session) {
-		String session_id = (String) session.getAttribute(LOGIN_ID);
-		int result = service.deleteMember(pwd, session_id);
-		System.out.println(result);
-		session.invalidate();
-		return result;
-	}
-
-
 
 ///////////////*mypage이동*///////////////////
 
@@ -327,7 +319,16 @@ public class MemController implements MemberSession {
 		model.addAttribute("replyInfo", list);
 		return "member/myreply";
 	}
+
+
+///////// 좋아요 페이지 ///////////////////
 	
+//	@GetMapping("/mylikes")
+//	public String myLikes() {
+//		return "member/mylikes";
+//		
+//	}
+//
 	@GetMapping("/likeList")
 	public String likeList(MemDTO dto, Model model, HttpSession session) {
 		String session_id = (String) session.getAttribute(LOGIN_ID);
@@ -338,7 +339,5 @@ public class MemController implements MemberSession {
 		
 		return "member/mylikes";
 	}
-
-	
 
 }

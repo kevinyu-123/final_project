@@ -10,6 +10,7 @@ import com.dine.root.boardFree.mapper.BoardMapper;
 
 @Service
 public class BoardFreeServiceImpl implements BoardFreeService {
+
 	
 	@Autowired
 	BoardMapper mapper;

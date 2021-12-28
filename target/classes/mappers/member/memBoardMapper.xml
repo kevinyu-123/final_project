@@ -36,4 +36,5 @@
 	<select id="getReplyInfo" resultMap="reply">
 		SELECT * FROM community_board_comment WHERE writer = #{writer}
 	</select>
+
 </mapper>

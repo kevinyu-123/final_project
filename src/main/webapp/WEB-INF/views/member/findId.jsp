@@ -12,8 +12,15 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<<<<<<< HEAD
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
  
+=======
+<link
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
+	rel="stylesheet">
+
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -23,6 +30,7 @@
 	font-family: 'Gothic A1', sans-serif;
 }
 
+<<<<<<< HEAD
 span{
 text-align:center;
 font-size:20pt;
@@ -30,10 +38,21 @@ font-size:20pt;
 #div1{
 margin-top:40px;}
 
+=======
+span {
+	text-align: center;
+	font-size: 20pt;
+}
+
+#div1 {
+	margin-top: 40px;
+}
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 </style>
 </head>
 <body>
 	<div class="w3-container w3-center w3-animate-opacity">
+<<<<<<< HEAD
 <h1>
 			<b>아이디 찾기</b>
 		</h1>
@@ -46,6 +65,21 @@ margin-top:40px;}
 
 
 </div>
+=======
+		<h1>
+			<b>아이디 찾기</b>
+		</h1>
+		<c:forEach items="${member}" var="member">
+
+
+			<div id="div1">
+				<span>회원님의 아이디는 </span> <span><b> ${member.id} </b></span> <span>입니다.</span>
+			</div>
+		</c:forEach>
+
+
+	</div>
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 
 </body>
 </html>

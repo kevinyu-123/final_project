@@ -147,7 +147,11 @@ input:hover {
 					<div style="margin-top: 20px;" align="right">
 						<c:if test="${session_user != null }">
 						
+<<<<<<< HEAD
 							<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
+=======
+								<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 						</c:if>
 					</div>
 				</div>

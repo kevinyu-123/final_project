@@ -3,10 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>공지사항 쓰기</title>
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
@@ -85,3 +87,22 @@ $(document).ready(function() {
 
 </body>
 </html>
+=======
+<title>관리자가 글 쓰는 페이지</title>
+
+</head>
+<body>
+	냥냥
+
+	<form action="saveNotice" method="post">
+	
+		<input type="text" id="title" name="title">
+		<textarea id="content" name="content"></textarea>
+		<input type="text" id="id" name="id" value="${session_user }" readonly /> 
+		<input type="submit" value="저장">
+		
+		
+	</form>
+</body>
+</html>
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0

@@ -24,5 +24,4 @@ public class AdminDTO {
 		this.name = name;
 	}
 	
-
 }
