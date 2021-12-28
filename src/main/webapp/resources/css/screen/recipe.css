@@ -11,6 +11,10 @@
   margin: 20px 0px;
 }
 
+.main__screen__recipe-cookTime {
+	font-size: 20px;
+}
+
 .main__screen__recipe-info {
   display: flex;
   margin: 20px 0px;
@@ -60,7 +64,8 @@
 
 .main__screen__recipe__right-step {
   display: flex;
-  padding: 20px 0px;
+  padding: 10px 0px;
+  font-size: 18px;
 }
 .main__screen__recipe__right-title {
   font-size: 28px;
@@ -73,6 +78,9 @@
   line-height: 21px;
   padding-right: 8px;
   border-right: 2px solid #f5533d;
+}
+.main__screen__recipe__right-step__number {
+	font-size: 18px;
 }
 .main__screen__recipe__right-content {
   margin-left: 10px;

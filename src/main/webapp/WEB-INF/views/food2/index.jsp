@@ -27,12 +27,8 @@
 	align-items: center;
 }
 
-
 .main__screen__recipe-title {
 	padding-top: 40px;
-}
-.main__screen__recipe__left-content {
-	margin-top: 25px;
 }
 .main__screen__recipe__left-content ul {
 	list-style: circle;
@@ -47,6 +43,20 @@
 </style>
 <script src="https://kit.fontawesome.com/44d4c23d3e.js" crossorigin="anonymous"></script>
 <title>Document</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nicepage.css" media="screen">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/Home3.css" media="screen">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/event.css">
+    <script class="u-script" type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="${pageContext.request.contextPath }/resources/js/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i">
+   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&family=Playfair+Display+SC&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<!-- 
@@ -96,19 +106,19 @@
 						<span>${detail.category2 }</span>
 					</div>
 					<div class="main__screen-left-title">
-						<span>${detail.foodName }</span>
+						<span style="text-transform: uppercase;">${detail.foodName }</span>
 					</div>
 					<div class="main__screen-left-equalTitle">
-						<span>${detail.foodComment }</span>
+						<span style="text-transform: capitalize;">${detail.foodComment }</span>
 					</div>
 					<div class="main__screen-left-content">
-						<p>${detail.intro }</p>
+						<p style="text-transform: capitalize;">${detail.intro }</p>
 					</div>
 				</div>
 
 				<div class="main__screen-right">
 					<div class="main__screen-right-contry">
-						<span>${detail.nation }</span> <img
+						<span style="text-transform: uppercase;">${detail.nation }</span> <img
 							src="${contextPath }/resources/food2/${detail.subPic}" />
 					</div>
 					<div class="main__screen-right-location">
@@ -132,16 +142,19 @@
 		
 		
 		<div class="main__screen__recipe">
-			<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${recipe.foodName}">레시피 테이블 수정</a>
-			<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">레시피 테이블 삭제</a>
+			<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${detail.foodName}">레시피 테이블 수정</a>
+			<a href="${pageContext.request.contextPath }/recipeDelete?foodName=${detail.foodName}">레시피 테이블 삭제</a>
 			<div class="main__screen__recipe-title">
 				<div style="padding-bottom: 240px;">
-					<span>${recipe.foodName } 조리법</span>
+					<span style="text-transform: uppercase;">${recipe.foodName } 조리법</span>
 				</div>
 				<div>
 					<iframe width="770" height="400" src="https://www.youtube.com/embed/${recipe.youtubeAddr }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-right: 100px"></iframe>
 				</div>
 			</div>
+			<div class="main__screen__recipe-cookTime">
+				${recipe.cookTime }
+			</div>	
 			<div class="abc">
 				<div class="main__screen__recipe__left">
 					<div class="main__screen__recipe__left-title">
@@ -172,7 +185,10 @@
 					</div>
 				</div>
 			</div>
+			
+			
 
+		
 		<!-- 
 
 		<div class="main__screen__wheretoeat">
@@ -299,8 +315,28 @@
 		</div>
 		
 		 -->
-	</main>
-
+		 
+	<div class="main__screen-content" style="margin-top: 50px;">
+		<div class=" w3-animate-left" style="margin-top:20px;margin-bottom: 20px;margin-left:10px;">
+			<span class="pagetitle"> <b >추천 레스토랑</b></span>
+		</div>
+		<div style="display: flex; overflow-x: auto;">
+			<div>	
+				<div class="foodListName" style="text-align: center;">
+					<span style="text-transform: uppercase; ">{restDTO.name}</span>
+				</div>
+			<div id="poster">
+				<a href="${contextPath }/v"><img
+					src="#"
+					style="width: 350px; height: 500px"> </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	
+	
+	
 	<footer>
 		<c:import url="../default/footer.jsp"></c:import>
 	</footer>

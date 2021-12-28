@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -36,7 +37,8 @@ public class FoodController {
 	@Autowired
 	FoodService fs;
 	@Autowired
-	ServletContext servletContext;
+	com.dine.root.rest.service.restService restService;
+
 	
 	@GetMapping("main")
 	public String main() {
@@ -129,6 +131,10 @@ public class FoodController {
 		model.addAttribute("ingredients", split2);
 	
 		model.addAttribute("recipe", fs.recipe(foodName));
+		model.addAttribute("foodList", fs.getFoodsByNation(foodName));
+		
+		String name = null;
+ 		model.addAttribute("rest", restService.selectByName(name));
 
 		return "food2/index";
 	}
@@ -184,7 +190,7 @@ public class FoodController {
 		
 		if (result == 1) {	
 			msg = "성공적으로 저장되었습니다. 바로 레시피를 저장해 주세요.";
-			url = "/recipeForm";
+			url = "/main";
 //			return "food2/recipeForm";
 		} else {
 			msg = "저장 중 문제가 발생하였습니다.";
@@ -232,6 +238,17 @@ public class FoodController {
 		
 		model.addAttribute("recipe", fs.recipe(foodName));
 		return "food2/recipeEditForm";
+	}
+	
+	@PostMapping("recipeEdit")
+	public void recipeEdit(MultipartHttpServletRequest mul, HttpServletResponse response, HttpServletRequest request) throws IOException {
+		String message = fs.recipeEdit(mul, request);
+		
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+		out.println(message);
+		
 	}
 	
 	

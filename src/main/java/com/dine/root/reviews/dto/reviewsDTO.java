@@ -2,29 +2,37 @@ package com.dine.root.reviews.dto;
 
 import java.sql.Date;
 
-public class restReviewsDTO {
+public class reviewsDTO {
 	private String memId;
 	private int restId;
-	private String rate;
+	private String foodName;
+	private int rate;
 	private String review;
-	private String Imgs;
+	private String imgs;
 	private Date revDate;
-	public String getMemId() {
-		return memId;
-	}
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
+	
 	public int getRestId() {
 		return restId;
 	}
 	public void setRestId(int restId) {
 		this.restId = restId;
 	}
-	public String getRate() {
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+	public int getRate() {
 		return rate;
 	}
-	public void setRate(String rate) {
+	public void setRate(int rate) {
 		this.rate = rate;
 	}
 	public String getReview() {
@@ -34,10 +42,10 @@ public class restReviewsDTO {
 		this.review = review;
 	}
 	public String getImgs() {
-		return Imgs;
+		return imgs;
 	}
 	public void setImgs(String imgs) {
-		this.Imgs = imgs;
+		this.imgs = imgs;
 	}
 	public Date getRevDate() {
 		return revDate;

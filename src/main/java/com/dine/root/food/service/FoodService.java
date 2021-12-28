@@ -45,6 +45,9 @@ public interface FoodService {
 
 	public String foodDelete(String foodName, String mainPic, String subPic, String mapPic, HttpServletRequest request);
 
+	public String recipeEdit(MultipartHttpServletRequest mul, HttpServletRequest request);
+
+
 
 
 

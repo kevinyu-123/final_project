@@ -335,8 +335,33 @@ public class FoodServiceImpl implements FoodService {
 		return message;
 	}
 
+	@Override
+	public String recipeEdit(MultipartHttpServletRequest mul, HttpServletRequest request) {
+		RecipeDTO dto = new RecipeDTO();
+		dto.setFoodName(mul.getParameter("foodName"));
+		dto.setCookTime(mul.getParameter("cookTime"));
+		dto.setIngredients(mul.getParameter("ingredients"));
+		dto.setRecipe(mul.getParameter("recipe"));
+		dto.setYoutubeAddr("youtubeAddr");
 
+		String msg, url;
+		int result = 0;
 
-	
-	
+		try {
+			result = dao.recipeEdit(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if (result == 1) {
+			msg = "성공적으로 수정되었습니다";
+			url = "/main";
+		} else {
+			msg = "수정 중 문제가 발생하였습니다";
+			url = "/nationRegForm";
+		}
+		String message = bfs.getMessage(request, msg, url);
+		return message;
+	}
+
 }

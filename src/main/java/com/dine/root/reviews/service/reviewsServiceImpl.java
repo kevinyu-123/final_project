@@ -8,87 +8,114 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.dine.root.reviews.dto.foodReviewsDTO;
-import com.dine.root.reviews.dto.restReviewsDTO;
+import com.dine.root.rest.dto.restDTO;
+import com.dine.root.reviews.dao.reviewsDAO;
+import com.dine.root.reviews.dto.reviewsDTO;
+
 
 @Service
 public class reviewsServiceImpl implements reviewsService{
-
+	@Qualifier("reviewsDAO")
+	@Autowired reviewsDAO dao;
 	@Override
-	public void restReviewsUploadProcess(MultipartHttpServletRequest m) {
-		// TODO Auto-generated method stub
-		restReviewsDTO dto = new restReviewsDTO();
-		dto.setMemId(m.getParameter("memId"));
-		dto.setRestId(Integer.parseInt(m.getParameter("restId")));
-		dto.setRate(m.getParameter("rate"));
-		dto.setReview(m.getParameter("content"));
-
-		List<MultipartFile> files = m.getFiles("restImgs");
-		SimpleDateFormat fo = new SimpleDateFormat("yyyyMMddHHmmss-");
-		Calendar calendar = Calendar.getInstance();
-		
+	public int reviewsUploadNonFile(HttpServletRequest request) {
+		reviewsDTO dto = new reviewsDTO();
+		dto.setMemId(request.getParameter("memId"));
+		dto.setRate(Integer.parseInt(request.getParameter("rate")));
+		dto.setReview(request.getParameter("content"));
 		Date date = new Date();
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date date1 = new java.sql.Date(timeInMilliSeconds);
+		long timeInMilliSeconds = date.getTime();
+		java.sql.Date date1 = new java.sql.Date(timeInMilliSeconds);
 		dto.setRevDate(date1);
-		
-		String setDTOFileName = "";
-		if(files.size() != 0) {
-			for(int i=0; i<files.size(); i++) {
-				String sysFileName = fo.format(calendar.getTime());
-				sysFileName += files.get(i).getOriginalFilename();
-				System.out.println("사진 " + sysFileName);
-				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
-				try {
-					if(saveFile.mkdirs()) {
-						files.get(i).transferTo(saveFile);
-						setDTOFileName += sysFileName + "&";
-						dto.setImgs(setDTOFileName);
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		dto.setImgs("non");
+		dto.setRestId(Integer.parseInt(request.getParameter("restId")));
+		dto.setFoodName(request.getParameter("foodName"));
+		int check = 0;
+		if(request.getParameter("restId")==null) {
+			check = dao.insertFoodReview(dto);
+		}else {
+			check = dao.insertRestReview(dto);
+		}
+		System.out.println(check);
+		int restRateCheck=0;
+		int rateAvrCheck=0;
+		if(check == 1) {
+			System.out.println("rest db성공");
+			if(dto.getFoodName().equals("non")) {
+				System.out.println(dto.getRate());
+				System.out.println(dto.getRestId());
+				int restId = dto.getRestId(); int rate = dto.getRate();
+				restRateCheck= dao.updateRestRate(restId,rate);
+				System.out.println("restRate 저장완료");
+				rateAvrCheck = dao.updateRestRateAvr(restId);
+				System.out.println("restavr 저장완료");
+
+			}else {
+				dao.updateFoodRate(dto.getFoodName(),dto.getRate());
+				dao.updateFoodRateAvr(dto.getFoodName());
 			}
 		}else {
-			dto.setImgs("non");
+			System.out.println("실패");
 		}
+
 		System.out.println("멤버아이디 : " + dto.getMemId());
 		System.out.println("음식점아이디 : " + dto.getRestId());
+		System.out.println("음식 이름 : " + dto.getFoodName());
 		System.out.println("별점 : " + dto.getRate());
 		System.out.println("리뷰 : " + dto.getReview());
 		System.out.println("사진 : " + dto.getImgs());
 		System.out.println("저장날짜 : " + dto.getRevDate());
+		return check;
 	}
-
-	@Override
-	public void foodReviewsUploadProcess(List<MultipartFile> multipartFile, HttpServletRequest request) {
+	public int reviewsUploadProcess(List<MultipartFile> multipartFile,HttpServletRequest request) {	
 		// TODO Auto-generated method stub
-		foodReviewsDTO dto = new foodReviewsDTO();
+		reviewsDTO dto = new reviewsDTO();
+
 		dto.setMemId(request.getParameter("memId"));
-		dto.setFoodName(request.getParameter("foodName"));
-		dto.setRate(request.getParameter("rate"));
+		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 		dto.setReview(request.getParameter("content"));
-		
 		SimpleDateFormat fo = new SimpleDateFormat("yyyyMMddHHmmss-");
 		Calendar calendar = Calendar.getInstance();
-		
 		Date date = new Date();
-        long timeInMilliSeconds = date.getTime();
-        java.sql.Date date1 = new java.sql.Date(timeInMilliSeconds);
+		long timeInMilliSeconds = date.getTime();
+		java.sql.Date date1 = new java.sql.Date(timeInMilliSeconds);
 		dto.setRevDate(date1);
-		
 		String setDTOFileName = "";
-		if(multipartFile.size() != 0) {
-			for(MultipartFile file : multipartFile) {
-				String sysFileName = fo.format(calendar.getTime());
-				sysFileName += file.getOriginalFilename();
-				System.out.println("사진 " + sysFileName);
-				File saveFile = new File(foodReviewsImg + "/"+dto.getFoodName()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
+
+
+		for(MultipartFile file : multipartFile) {
+			String sysFileName = fo.format(calendar.getTime());
+			sysFileName += file.getOriginalFilename();
+			System.out.println("사진 " + sysFileName);
+			System.out.println(request.getParameter("restId"));
+			System.out.println(request.getParameter("foodName"));
+
+			if(request.getParameter("foodName").equals("non")) {
+				dto.setFoodName(request.getParameter("foodName"));
+				dto.setRestId(Integer.parseInt(request.getParameter("restId")));
+				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
+				System.out.println(saveFile.getAbsolutePath());
+				try {
+					if(saveFile.mkdirs()) {
+						file.transferTo(saveFile);
+						setDTOFileName += sysFileName + "&";
+						dto.setImgs(setDTOFileName);
+					}
+
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else if(request.getParameter("restId").equals("0")) {
+				dto.setRestId(0);
+				dto.setFoodName(request.getParameter("foodName"));
+				File saveFile = new File(foodReviewsImg + "/"+dto.getRestId()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
 				try {
 					if(saveFile.mkdirs()) {
 						file.transferTo(saveFile);
@@ -100,14 +127,54 @@ public class reviewsServiceImpl implements reviewsService{
 					e.printStackTrace();
 				}
 			}
-		}else {
-			dto.setImgs("non");
 		}
+		int check = 0;
+		if(dto.getRestId()==0) {
+			check = dao.insertFoodReview(dto);
+		}else {
+			check = dao.insertRestReview(dto);
+		}
+		System.out.println(check);
+		int restRateCheck=0;
+		int rateAvrCheck=0;
+		if(check == 1) {
+			System.out.println("rest db성공");
+			if(dto.getFoodName().equals("non")) {
+				System.out.println(dto.getRate());
+				System.out.println(dto.getRestId());
+				int restId = dto.getRestId(); int rate = dto.getRate();
+				restRateCheck= dao.updateRestRate(restId,rate);
+				System.out.println("restRate 저장완료");
+				rateAvrCheck = dao.updateRestRateAvr(restId);
+				System.out.println("restavr 저장완료");
+
+			}else {
+				dao.updateFoodRate(dto.getFoodName(),dto.getRate());
+				dao.updateFoodRateAvr(dto.getFoodName());
+			}
+		}else {
+			System.out.println("실패");
+		}
+
 		System.out.println("멤버아이디 : " + dto.getMemId());
-		System.out.println("음식이름 : " + dto.getFoodName());
+		System.out.println("음식점아이디 : " + dto.getRestId());
+		System.out.println("음식 이름 : " + dto.getFoodName());
 		System.out.println("별점 : " + dto.getRate());
 		System.out.println("리뷰 : " + dto.getReview());
 		System.out.println("사진 : " + dto.getImgs());
 		System.out.println("저장날짜 : " + dto.getRevDate());
+		return check;
+	}
+
+	@Override
+	public void infoRest(Model model,int restId) {
+		// TODO Auto-generated method stub
+		try {
+			restDTO dto = dao.infoRest(restId);
+			model.addAttribute("restDTO",dto);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

@@ -108,7 +108,7 @@ function frmCheck()
 	</header>
 
 	<main id="LoginWrap">
-		<form name="form" method="post" action="recipe" id="form">
+		<form name="form" method="post" action="recipeEdit" id="form" enctype="multipart/form-data" >
 			<!--  <input type="text" placeholder="아이디" name="id"> -->
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
 				<tr>
@@ -144,7 +144,7 @@ function frmCheck()
 				</tr>
 				<tr>
 					<td height="10"><label><input type="radio"
-							name="cookTime" id="cookTime" value="1인분 기준 30분 이내"
+							name="cookTime" id="cookTime" value="1인분 기준 30분 이내" checked="checked"
 							onclick="cookTime()"> 1인분 기준 30분 이내</label></td>
 				</tr>
 				<tr>
@@ -167,7 +167,7 @@ function frmCheck()
 								<td colspan="5" bgcolor="#FFFFFF" height="25" align="left">
 									<span style="font-size: 24px;">재료</span> <br> <input
 									name="addButton2" type="button" style="cursor: hand"
-									onClick="insRow2()" value="추가"> <font color="#FF0000">*</font>레시피를
+									onClick="insRow2()" value="추가"> <font color="#FF0000">*</font>재료를
 									추가하려면 추가버튼을 클릭하세요.
 								</td>
 							</tr>
@@ -218,7 +218,7 @@ function frmCheck()
 										cellpadding="0" bgcolor="#FFFFFF" border="0">
 										<tr>
 											<td><input type="text" name="addText"
-												style="width: 100%; height: 35px;"></td>
+												style="width: 100%; height: 35px;" ></td>
 											<td align="left"></td>
 										</tr>
 									</table>

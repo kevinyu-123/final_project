@@ -49,7 +49,6 @@
 	 <delete id="foodDelete">
 		DELETE FROM food WHERE food_name=#{foodName}
 	</delete>
-	
   	
   	<resultMap type="com.dine.root.food.dto.RecipeDTO" id="recipe">
       <!-- primary key 값은 id로 -->
@@ -69,6 +68,9 @@
 		INSERT INTO recipe(food_name, cook_time, ingredients, recipe, youtubeaddr) VALUES(#{foodName}, #{cookTime}, #{ingredients}, #{recipe}, #{youtubeAddr})
 	</insert>
 	
+	<update id="recipeEdit">
+		UPDATE recipe SET food_name=#{foodName}, cook_time=#{cookTime}, ingredients=#{ingredients}, recipe=#{recipe}, youtubeaddr=#{youtubeAddr} 
+	</update>
 	
 	<resultMap type="com.dine.root.food.dto.NationDTO" id="nation">
       <!-- primary key 값은 id로 -->

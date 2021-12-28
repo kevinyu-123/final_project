@@ -31,6 +31,9 @@ public interface FoodDAO {
 
 	public int foodDelete(String foodName);
 
+	public int recipeEdit(RecipeDTO dto);
+
+
 
 
 

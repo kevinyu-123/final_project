@@ -33,5 +33,9 @@
 	<!-- 마이바티스 xml파일과 dao빈 연결 -->
 	<mybatis-spring:scan
 		base-package="com.dine.root.food.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
+	<mybatis-spring:scan
+		base-package="com.dine.root.rest.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
+	<mybatis-spring:scan
+		base-package="com.dine.root.reviews.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
 
 </beans>
