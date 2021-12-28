@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ import com.dine.root.member.mapper.MemMapper;
 public class MemServiceImpl implements MemService, MemberSession {
 	@Autowired
 	MemMapper mapper;
-
+	
 	@Autowired
 	JavaMailSender mailSender;
 
