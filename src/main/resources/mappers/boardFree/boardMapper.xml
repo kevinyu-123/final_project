@@ -41,9 +41,13 @@
           VALUES(test_seq.nextval,#{title},#{content},#{writer},#{board_category},#{img_url})
    </insert>
    
+   <delete id="deleteCont">
+      DELETE FROM community_board WHERE board_no = #{board_no}
+   </delete>
    
-   
-   
+   <update id="saveModForm">
+      UPDATE community_board SET title = #{title}, content = #{content},img_url = #{img_url} WHERE board_no = #{board_no}
+   </update>
    
    
    

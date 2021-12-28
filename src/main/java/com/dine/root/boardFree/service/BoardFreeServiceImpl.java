@@ -50,5 +50,15 @@ public class BoardFreeServiceImpl implements BoardFreeService {
    public int saveWrite(BoardDTO dto) {
       return mapper.saveWrite(dto);
    }
+
+   @Override
+   public int deleteCont(int board_no) {
+      return mapper.deleteCont(board_no);   
+   }
+
+   @Override
+   public int saveModForm(BoardDTO dto) {
+      return mapper.saveModForm(dto);
+   }
    
 }

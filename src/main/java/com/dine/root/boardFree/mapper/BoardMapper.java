@@ -20,5 +20,9 @@ public interface BoardMapper {
    
    public int saveWrite(BoardDTO dto);
    
+   public int deleteCont(int board_no);
+   
+   public int saveModForm(BoardDTO dto);
+
    
 }

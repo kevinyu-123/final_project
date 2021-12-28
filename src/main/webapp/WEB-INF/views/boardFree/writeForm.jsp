@@ -49,7 +49,6 @@ font-size:14px;
 	box-sizing: border-box;
 	border: 1px solid #ccc;
 
-
 	-webkit-transition: 0.1s;
 	transition: 0.2s;
 	outline: none;

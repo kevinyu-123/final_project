@@ -93,7 +93,6 @@
     	
     <!-- 
     </section>
-    
     <footer class="u-align-center u-clearfix u-footer u-white u-footer" id="sec-90e0"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
       <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
@@ -105,7 +104,7 @@
       <a class="u-link" href="https://nicepage.com/website-builder" target="_blank">
         <span>Free Website Builder</span>
       </a>. 
-    </section>\
+    </section>
      -->
   </body>
 </html>
