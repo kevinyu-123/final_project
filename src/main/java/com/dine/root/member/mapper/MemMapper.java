@@ -64,8 +64,6 @@ public interface MemMapper {
 
 	public AdminDTO getMember(String id);
 	
-	
-	public int addLikes(String liked_rest, String session_id);
 	public ArrayList<MemDTO> getLikes(String session_id);
 
 

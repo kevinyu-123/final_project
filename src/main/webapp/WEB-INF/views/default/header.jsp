@@ -85,7 +85,7 @@
 				
 							<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
-							<a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
+							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
 							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 

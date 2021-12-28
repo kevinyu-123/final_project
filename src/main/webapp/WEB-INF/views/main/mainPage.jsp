@@ -105,7 +105,7 @@ function popup(){
 					<div
 						class="u-border-20 u-border-white u-image u-image-circle u-image-4"
 						data-image-width="1542" data-image-height="982">
-						<button class="btn" onclick="" STYLE="font-size: 25px; z-index: 1">CATEGORY_SEARCH</button>
+						<button class="btn" onclick="" STYLE="font-size: 25px; z-index: 1;left: 30%;">CATEGORY_SEARCH</button>
 					</div>
 				</div>
 

@@ -2,6 +2,9 @@ package com.dine.root.main.controller;
 
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +41,18 @@ public class MainController implements MemberSession {
 		cook.setMaxAge(60 * 60 * 24 );
 		cook.setPath("/");
 		response.addCookie(cook);
+		
+		PrintWriter out = null;
+	      response.setContentType("text/html; charset=utf-8");
+	      try {
+	         out = response.getWriter();
+	      } catch (IOException e) {
+	         e.printStackTrace();
+	      }
+	      out.print("<script>" +
+	      "window.close()"
+	            + "</script>");
+		
 	
 	}
 	@GetMapping("popup")

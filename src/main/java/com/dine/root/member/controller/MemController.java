@@ -328,14 +328,7 @@ public class MemController implements MemberSession {
 		return "member/myreply";
 	}
 
-///////// 좋아요 페이지 ///////////////////
-	
-//	@GetMapping("/mylikes")
-//	public String myLikes() {
-//		return "member/mylikes";
-//		
-//	}
-//
+
 
 	@GetMapping("/likeList")
 	public String likeList(MemDTO dto, Model model, HttpSession session) {

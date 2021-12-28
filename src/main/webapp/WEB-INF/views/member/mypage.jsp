@@ -145,7 +145,7 @@ button:hover {
 					<table>
 						<tr>
 							<td>
-								<button class="likes" onclick="location.href='mylikes'">
+								<button class="likes" onclick="location.href='likeList'">
 									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>MY
 									LIKES
 								</button>

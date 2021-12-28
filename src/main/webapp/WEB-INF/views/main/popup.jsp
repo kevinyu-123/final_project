@@ -12,7 +12,6 @@
 <script>
 	function notPopup() {
 		location.href = "cookieChk";
-		window.close();
 	}
 </script>
 </head>
