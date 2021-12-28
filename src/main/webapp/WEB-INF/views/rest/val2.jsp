@@ -157,9 +157,10 @@
 .u-text-10 button p{
 	margin: auto;
 }
-.u-container-style{
+.u-shape-rectangle{
 margin-top: 10px;
 }
+
 </style>
 </head>
 <body class="u-body">
