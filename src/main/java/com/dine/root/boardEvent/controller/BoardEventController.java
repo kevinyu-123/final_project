@@ -11,7 +11,6 @@ import com.dine.root.common.session.MemberSession;
 @Controller
 public class BoardEventController implements MemberSession {
 	
-	@Qualifier("boardEventServiceImpl")
 	@Autowired
 	BoardEventService service;
 	

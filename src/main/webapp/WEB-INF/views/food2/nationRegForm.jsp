@@ -91,7 +91,7 @@ function readURL(input) {
 				</tr>
 				<tr>
 					<td>
-						<textarea name="infomation" style="width: 100%; height: 250px; margin: 10px 0px;"></textarea>
+						<textarea name="infomation"  style="width: 100%; height: 250px; margin: 10px 0px; resize: none;"></textarea>
 					</td>
 				</tr>
 				<tr>

@@ -71,7 +71,7 @@ img{
             향토음식은 그 지역 공간의 지리적, 기후적 특성을 갖고 생산되는 지역 특산물로 그 지역에서만 전수되어 오는 고유한 조리법으로 만들어진 토속 민속음식이라 할 수 있다.
             즉, 향토음식은 고장마다 전승되는 세시풍속이나 통과의례 또는 생활 풍습 등은 문화적 특질 뿐 아니라 향토음식이 지니고 있는 영양적 의의도 크다고 본다.
             대표적으로 홍어회와 과메기를 들 수 있다.
-            <small id="citation"><a href="#">더 보러가기</a></small></p>
+            <small id="citation"><a href="${contextPath }/nation?nation=korea">더 보러가기</a></small></p>
       </section>
       <section id="japan">
          <h2><a name="japan">일본</a></h2>
@@ -85,7 +85,7 @@ img{
           특히 일본인들은 가정에서 요리할 때도 지역 특산물, 시기에 맞는 제철 채소와 재료를 사용하는 것을 매우 중요하게 생각한다.
           일본 가정식은 절제되고, 자극적이지 않은 맛으로 요리되어 정갈하고 소박한 형태로 차려진다.
           재료 본연의 맛을 살리는 요리법이지만, 요리에 따라 매우 단순한 맛으로 느껴지기도 한다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=japan">더 보러가기</a></small></p>
       </section>
       <section id="Taiwan">
          <h2><a name="taiwan">대만</a></h2>
@@ -94,7 +94,7 @@ img{
          타이완 요리는 푸젠 요리를 기반으로 하여 타이완에서 자라는 풍부한 식재를 포함한 향토 요리로 독립적으로 발전해 온 것이다.<br>
          그 특징은 토속 요리(일본 통치 전)에서 기름을 많이 사용하는 다른 지역의 중국 요리와 달리 비교적 담백하며, 소박하고, 섬세한 맛을 내는 요리가 많고 소금기도 중국 본토에 비해 적은점을 들 수 있다.
           또한 하카 요리와 일본 요리의 영향을 받았기 때문에 간장을 기본으로 한 양념과 건어물과 소금이 자주 사용되는 공통점도 발견되고 있다. 한편, 튀긴 셜롯, 마늘, 젖빛고기, 바질 등 향이 강한 양념도 자주 추가된다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=taiwan">더 보러가기</a></small></p>
       </section>
       <section id="HongKong">
          <h2><a name="hongkong">홍콩</a></h2>
@@ -106,7 +106,7 @@ img{
            홍콩 사람들은 자신이 지불하는 가격만큼 맛있고, 시각적으로 화려함이 가미된 음식을 좋아 한다.
             생선 요리는 일반적으로 사이즈가 큰 생선을 좋아하는 편이며, 다채로운 조미료를 통해 풍미를 살리는 것을 중요시 한다.
            핫팟(중국식 샤브샤브)을 먹을 때 또한 많은 양의 식재료를 한꺼번에 올려놓고 먹기도 한다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=hongkong">더 보러가기</a></small></p>
       </section>
       <section id="Mongol">
          <h2><a name="mongol">몽골</a></h2>
@@ -122,7 +122,7 @@ img{
          몽골의 대표적 화가 '샤라브'가 그린 가을풍경 속에도 양의 도살장면이 포함되어 있는데, 
          양을 여덟 개 부위로 해체해서 삶은 후, 살아 있을 때와 유사한 모습으로 그릇에 담아 내놓는다.
          그것은 슈우스라 불리고, 초원에서 최고의 접대요리다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=mongol">더 보러가기</a></small></p>
       </section>
       <section id="Thailand">
          <h2><a name="thailand">태국</a></h2>
@@ -137,7 +137,7 @@ img{
          더운 나라이기 때문에 뜨거운 국이나 탕보다는 볶음 요리가 더 발달하였다. 매운맛, 신맛, 단맛 등 다양한 맛이 하나의 조화를 이룬다. <br>
          세계 3대 수프 중 하나인 똠 얌 꿍에서 그 특징이 잘 드러난다. 각종 허브나 향신료를 잘 이용하는 것도 하나의 특징이다.
           대표적으로 고수 잎, 바질, 레몬그래스, 박하 등의 허브와 육두구, 생강, 타마린드, 창포 등의 향신료가 있다.   
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=thailand">더 보러가기</a></small></p>
       </section>
       <section id="Vietnam">
          <h2><a name="vietnam">베트남</a></h2>
@@ -164,7 +164,7 @@ img{
          거의 모든 요리에 등장한다고 볼 수 있다. 또한 세이보리 요리는 다른 요리와 다르게 결코 달지 않다.
          달거나 시큼한 맛은 전통적인 라오스 요리가 아닌 것이어서 이국 요리로 치부된다. 세 번째로 요리에 쓴 맛이 난다는 것이다. 
          라오스에서는 "단 것이 어지럽게 하고 쓴 맛이 좋은 것이다"("van pen lom; khom pen ya,")라는 말이 있다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=laos">더 보러가기</a></small></p>
       </section>
       <section id="Philippine">
          <h2><a name="philippine">필리핀</a></h2>
@@ -180,7 +180,7 @@ img{
            해산물을 이용한 전통 요리들은 일찍이 보르네오 섬에서 건너온 초기 개척자들, 즉 말레이 족의 음식에서 발생한 것으로 필리핀 요리 중에서 역사가 가장 오래 되었다.
           새우, 게, 굴, 생선, 가재 등을 이용한 기본적인 해산물 요리는 대부분 튀기거나 구워서 다양한 소스와 함께 먹는다. 붉은 색의 라푸라푸는 필리핀 사람들이 가장 즐겨먹는 생선이며, 
           다바오 지방의 이니호 나팡가 (구운 참치머리 요리)도 유명하다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=philippine">더 보러가기</a></small></p>
       </section>
       <section id="Singapore">
          <h2><a name="singapore">싱가폴</a></h2>
@@ -197,7 +197,7 @@ img{
           예를 들어 튀긴 돼지고기 같은 전형적인 중국 요리에 코코넛 등의 열대과일이나 레몬풀과 향신료 등의 말레이식 재료를 섞는 것이다.<br>
           자극이 덜한 중국 음식에는 말레이시아의 매콤한 양념인 삼발이 첨가된다.
           또 말레이 요리에 면이나 숙주, 간장 등의 중국 재료를 첨가하는 식의 퓨전 푸드가 바로 독특한 페라나칸 요리다.
-         <small id="citation"><a href="#">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=singapore">더 보러가기</a></small></p>
       </section>
    </div>
    <script>
