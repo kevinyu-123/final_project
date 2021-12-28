@@ -33,11 +33,7 @@ public class FoodController {
 	
 	@Autowired
 	ServletContext servletContext;
-	
-	@GetMapping("main")
-	public String main() {
-		return "main/mainPage";
-	}
+
 	
 	@GetMapping("nation")
 	public String test3(@RequestParam("nation") String nation, Model model) {

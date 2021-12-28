@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -13,7 +14,8 @@
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>Home</title>
-<link rel="stylesheet" href="${contextPath }/resources/css/Home.css">
+
+<link rel="stylesheet" href="/root/resources/css/Home.css">
 <link rel="stylesheet" href="/root/resources/css/nicepage.css"
 	media="screen">
 <link rel="stylesheet" href="/root/resources/css/Home1.css"
@@ -22,6 +24,7 @@
 	src="/root/resources/js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript"
 	src="/root/resources/js/nicepage.js" defer=""></script>
+
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -104,7 +107,7 @@ function popup(){
 					<div
 						class="u-border-20 u-border-white u-image u-image-circle u-image-4"
 						data-image-width="1542" data-image-height="982">
-						<button class="btn" onclick="" STYLE="font-size: 25px; z-index: 1">CATEGORY_SEARCH</button>
+						<button class="btn" onclick="" STYLE="font-size: 25px; z-index: 1; left: 30%;">CATEGORY_SEARCH</button>
 					</div>
 				</div>
 
