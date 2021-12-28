@@ -24,9 +24,22 @@
 	font-size: large;
 }
 #subBtn{
-	margin-top: 20px;
-	height: 40px;
-	width: 80px;
+font-size:14px;
+	font-family: 'Gothic A1', sans-serif;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+
+
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+	outline: none;
+	width: 100px;
+	margin-left: 10px;
+	padding:10px;
+
+   margin-top: 20px;
+   height: 50px;
+
 }
 </style>
 <script type="text/javascript">
@@ -63,7 +76,6 @@
 			<input type="hidden" name="content"id="content">
 			<input type="hidden" id="img_url" name="img_url">
 			<input type="hidden" name="board_no" value="${cont.board_no }">
-			<input type="hidden" name="reg_ime" value="${cont.reg_time}">
 			<input id="title_box" type="text" name="title" value="${cont.title}"/>
 			<br><br> 
 			<textarea id="summernote">

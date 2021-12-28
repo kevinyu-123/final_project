@@ -54,7 +54,7 @@ text-decoration: none;
 #user_img{
    height: 40px;
    width: 30px;
-   border-radius: 80%;
+   border-radius: 50%;
    background-color: gray;
 }
 img{
@@ -150,7 +150,7 @@ font-family: 'Gothic A1', sans-serif;
 	              writeDate += date.getDate()+". "+date.getHours()+":"
 	              writeDate += date.getMinutes()
 	              
-	              html += "<div align='left'><b>닉네임 : </b>"+data.writer+"<br>";
+	              html += "<div align='left'><b>"+data.writer+"</b><br>";
 	              html += data.content+"<br>"
 	            html += "<small> "+writeDate+"</small><br>"
 	              html += "<a><small>답글쓰기</small></a></div>"
