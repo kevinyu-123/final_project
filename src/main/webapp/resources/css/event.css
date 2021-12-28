@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#poster {
+	padding: 10px;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+#poster a:hover {
+	opacity: 70%;
+}
+
+.pagetitle {
+	font-size: 30px;
+	padding: 15px;
+	margin-left:100px;
+}

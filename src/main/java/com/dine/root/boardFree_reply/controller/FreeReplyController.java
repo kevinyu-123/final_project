@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import com.dine.root.boardFree_reply.service.RepService;
 
 @RestController
 public class FreeReplyController {
-   
+   @Qualifier("repServiceImpl")
    @Autowired
    RepService service;
    

@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /*
 import org.springframework.social.google.connect.GoogleConnectionFactory;
@@ -35,7 +36,7 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
  */
 @Controller
 public class NaverLoginController implements MemberSession {
-
+	@Qualifier("memServiceImpl")
 	@Autowired(required = false)
 	MemService service;
 

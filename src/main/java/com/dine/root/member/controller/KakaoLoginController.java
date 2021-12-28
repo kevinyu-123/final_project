@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,8 @@ import com.dine.root.member.service.MemService;
 
 @RestController
 public class KakaoLoginController implements MemberSession {
-   @Autowired
+	@Qualifier("memServiceImpl")
+	@Autowired
    MemService service;
 
       @PostMapping("/kakaoLoginChk")

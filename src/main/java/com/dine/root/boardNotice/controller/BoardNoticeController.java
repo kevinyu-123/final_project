@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.dine.root.common.session.MemberSession;
 @Controller
 
 public class BoardNoticeController implements MemberSession{
+@Qualifier("boardNoticeServiceImpl")
 	@Autowired
 	BoardNoticeService service;
 	
