@@ -18,6 +18,9 @@
 		<result property="lat" column="LAT"/>
 		<result property="lng" column="LNG"/>
 		<result property="restPic" column="rest_pic"/>
+		<result property="mainPic" column="REST_MAINPIC"/>
+		<result property="category1" column="CATEGORY_1"/>
+		<result property="category2" column="CATEGORY_2"/>
 	</resultMap>
 	<select id="infoRest" resultMap="rest">
 		select * from restaurant where id=#{id}

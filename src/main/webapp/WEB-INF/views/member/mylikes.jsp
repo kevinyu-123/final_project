@@ -173,7 +173,7 @@ span {
 							document.write('<div class="caption"><p>' + arr[i]
 									+ '</p></div></figcaption>');
 
-							document.write('<a href="#"></a>');
+							document.write('<a href="${contextPath}/v"></a>');
 							document.write('</figure></div>');
 						}
 

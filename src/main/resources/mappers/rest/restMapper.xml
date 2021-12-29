@@ -17,7 +17,10 @@
 		<result property="nation" column="NATION"/>
 		<result property="lat" column="LAT"/>
 		<result property="lng" column="LNG"/>
-		<result property="restPic" column="rest_pic"/>
+		<result property="restPic" column="REST_PIC"/>
+		<result property="mainPic" column="REST_MAINPIC"/>
+		<result property="category1" column="CATEGORY_1"/>
+		<result property="category2" column="CATEGORY_2"/>
 	</resultMap>
 	<resultMap id="menu" type="com.dine.root.rest.dto.menuDTO">
 		<id property="id" column="id"/>

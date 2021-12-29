@@ -24,9 +24,12 @@ public class restServiceImpl implements restService{
 			System.out.println(dto);
 			if(dto != null) {
 				m.addAttribute("restDTO",dto);
+				
 				String pic = dto.getRestPic();
 				System.out.println(pic);
 				String[] picArray = pic.split(",");
+				System.out.println("infoRest");
+
 				System.out.println(picArray);
 				System.out.println(picArray[0]);
 				System.out.println(picArray[1]);
@@ -38,7 +41,7 @@ public class restServiceImpl implements restService{
 				
 				double avr = Math.round(dto.getRateAvr()*100)/100.0;
 				System.out.println(avr);
-						
+				System.out.println("===============");
 				m.addAttribute("restPic",picArray);
 				m.addAttribute("avr",avr);
 			}
@@ -97,6 +100,7 @@ public class restServiceImpl implements restService{
 	@Override
 	public void updateLiked(Map<String, Object> idMap) {
 		// TODO Auto-generated method stub
+		System.out.println("좋아요 서비수");
 		try {
 			String memId = (String) idMap.get("memId");
 			int restId =  (int) idMap.get("rest");
@@ -104,10 +108,12 @@ public class restServiceImpl implements restService{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("좋아요 서비스 종료");
 	}
 
 	@Override
 	public void updateUnLiked(Map<String, Object> idMap) {
+		System.out.println("안좋아요 서비스");
 		try {
 			String memId = (String) idMap.get("memId");
 			Map memLike = dao.infoMemLike(memId);
@@ -118,7 +124,7 @@ public class restServiceImpl implements restService{
 			System.out.println(memLike.get("LIKED_REST"));
 			String like = (String) memLike.get("LIKED_REST");
 			System.out.println(like);
-			String upLike = like.replace("/"+"식당2", "");
+			String upLike = like.replace(unLike+"/", "");
 			System.out.println(upLike);
 			
 			dao.updateUnLike(upLike,memId );
@@ -126,6 +132,7 @@ public class restServiceImpl implements restService{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("안좋아요 서비스 종료");
 		// TODO Auto-generated method stub
 		
 	}

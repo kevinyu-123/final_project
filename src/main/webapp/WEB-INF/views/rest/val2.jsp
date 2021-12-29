@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="contextPath" value="${contextPath.request.pageContext }" />
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-<meta name="keywords"
-	content="돈사돈 신설동점, 흑돼지 3인세트 (800g), 백돼지 3인세트 (800g), 된장뽀글이, Restaurant&nbsp;reviews">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>rest_detail_page</title>
@@ -50,120 +50,126 @@
 <meta property="og:type" content="website">
 <style type="text/css">
 .container {
-	width: 110%;
-	height: 100%;
+	max-width: 103%;
+	height: auto;
 	position: absolute;
 	left: -15px;
+	object-fit: contain;
 }
 
 .carousel-inner img {
-	width: 870px;
+	width: 100%;
 	max-height: 504px;
 }
 
-.radius_border {
-	border: 1px solid #919191;
-	border-radius: 5px;
-}
+@media ( max-width : 1199px) {
+	.container {
+		max-width: 103%;
+		height: auto;
+		position: absolute;
+		left: -15px;
+		object-fit: contain;
+	}
+	.carousel-inner img {
+		width: 100%;
+		max-height: 416px;
+	}
 
-.custom_typecontrol {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	overflow: hidden;
-	width: 130px;
-	height: 30px;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-	font-size: 12px;
-	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
 }
-
-.custom_typecontrol span {
-	display: block;
-	width: 65px;
-	height: 30px;
-	float: left;
-	text-align: center;
-	line-height: 30px;
-	cursor: pointer;
+	.restReviewImg {
+		left: 5px;
+	}
+	.radius_border {
+		border: 1px solid #919191;
+		border-radius: 5px;
+	}
+	.custom_typecontrol {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		overflow: hidden;
+		width: 130px;
+		height: 30px;
+		margin: 0;
+		padding: 0;
+		z-index: 1;
+		font-size: 12px;
+		font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+	}
+	.custom_typecontrol span {
+		display: block;
+		width: 65px;
+		height: 30px;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	.custom_typecontrol .btn {
+		background: #fff;
+		background: linear-gradient(#fff, #e6e6e6);
+	}
+	.custom_typecontrol .btn:hover {
+		background: #f5f5f5;
+		background: linear-gradient(#f5f5f5, #e3e3e3);
+	}
+	.custom_typecontrol .btn:active {
+		background: #e6e6e6;
+		background: linear-gradient(#e6e6e6, #fff);
+	}
+	.custom_typecontrol .selected_btn {
+		color: #fff;
+		background: #425470;
+		background: linear-gradient(#425470, #5b6d8a);
+	}
+	.custom_typecontrol .selected_btn:hover {
+		color: #fff;
+	}
+	.custom_zoomcontrol {
+		position: absolute;
+		top: 50px;
+		right: 10px;
+		width: 36px;
+		height: 80px;
+		overflow: hidden;
+		z-index: 1;
+		background-color: #f5f5f5;
+	}
+	.custom_zoomcontrol span {
+		display: block;
+		width: 36px;
+		height: 40px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.custom_zoomcontrol span img {
+		width: 15px;
+		height: 15px;
+		padding: 12px 0;
+		border: none;
+	}
+	.custom_zoomcontrol span:first-child {
+		border-bottom: 1px solid #bfbfbf;
+	}
+	.u-layout-wrap-2 .u-text-4 {
+		font-size: 20px;
+		width: 400px;
+	}
+	.u-text-10 button {
+		margin-left: 20px;
+		width: 200px;
+	}
+	.u-text-10 button p {
+		margin: auto;
+	}
+	.u-shape-rectangle {
+		margin-top: 10px;
+	}
 }
-
-.custom_typecontrol .btn {
-	background: #fff;
-	background: linear-gradient(#fff, #e6e6e6);
-}
-
-.custom_typecontrol .btn:hover {
-	background: #f5f5f5;
-	background: linear-gradient(#f5f5f5, #e3e3e3);
-}
-
-.custom_typecontrol .btn:active {
-	background: #e6e6e6;
-	background: linear-gradient(#e6e6e6, #fff);
-}
-
-.custom_typecontrol .selected_btn {
-	color: #fff;
-	background: #425470;
-	background: linear-gradient(#425470, #5b6d8a);
-}
-
-.custom_typecontrol .selected_btn:hover {
-	color: #fff;
-}
-
-.custom_zoomcontrol {
-	position: absolute;
-	top: 50px;
-	right: 10px;
-	width: 36px;
-	height: 80px;
-	overflow: hidden;
-	z-index: 1;
-	background-color: #f5f5f5;
-}
-
-.custom_zoomcontrol span {
-	display: block;
-	width: 36px;
-	height: 40px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.custom_zoomcontrol span img {
-	width: 15px;
-	height: 15px;
-	padding: 12px 0;
-	border: none;
-}
-
-.custom_zoomcontrol span:first-child {
-	border-bottom: 1px solid #bfbfbf;
-}
-
-.u-layout-wrap-2 .u-text-4 {
-	font-size: 20px;
-	width: 400px;
-}
-
-.u-text-10 button {
-	margin-left: 20px;
-	width: 200px;
-}
-.u-text-10 button p{
-	margin: auto;
-}
-.u-shape-rectangle{
-margin-top: 10px;
-}
-
 </style>
 </head>
 <body class="u-body">
+	<c:import url="../default/header2.jsp"></c:import>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-4136">
 		<div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
 			<div
@@ -227,13 +233,13 @@ margin-top: 10px;
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-2"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
 											<div class="u-container-layout u-container-layout-2"></div>
 										</div>
 										<div
-											class="u-container-style u-image u-layout-cell u-size-30 u-image-3"
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-3 restReviewImg"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
 											<div class="u-container-layout u-container-layout-3"></div>
 										</div>
 									</div>
@@ -241,15 +247,15 @@ margin-top: 10px;
 								<div class="u-size-30">
 									<div class="u-layout-row">
 										<div
-											class="u-container-style u-image u-layout-cell u-size-30 u-image-4"
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-4 "
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
 											<div class="u-container-layout u-container-layout-4"></div>
 										</div>
 										<div
-											class="u-container-style u-image u-layout-cell u-size-30 u-image-5"
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-5 restReviewImg"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
 											<div class="u-container-layout u-container-layout-5"></div>
 										</div>
 									</div>
@@ -314,12 +320,17 @@ margin-top: 10px;
 								<p class="u-text u-text-9">추가할 정보2</p>
 								<div class="u-text u-text-10">
 									<button type="button" class="btn btn-primary" id="rest_reviews"
-										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'"><p>리뷰쓰기</p></button>
-									<button type="button" class="btn btn-primary" id="fav_button" onclick="fav('aa',${restDTO.id})"><p id="rest_fav">찜하기</p></button>
+										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">
+										<p>리뷰쓰기</p>
+									</button>
+									<button type="button" class="btn btn-primary" id="fav_button"
+										onclick="fav('aa',${restDTO.id})">
+										<p id="rest_fav">찜하기</p>
+									</button>
 									<script type="text/javascript">
 									function fav(memId,restId){
 										var sendData = { "memId":memId , "rest":restId };
-										console.log(sendData)
+										console.log("보내는 데이터"+sendData)
 										if($("#rest_fav").text()=="찜하기"){
 											$.ajax({
 										 	      type: "POST",
@@ -330,7 +341,10 @@ margin-top: 10px;
 										 	   	  data:  JSON.stringify(sendData),
 										 	      success: function (data) {
 										 	    	  if(data.result == "ok"){
-										 	    		  alert("좋아요 클릭 완료!")
+										 	    		  console.log("좋아요 진입")
+										 	    		 swal({
+										 	    			  icon: "success",
+										 	    			});
 										 	    		  rest_fav.innerText="찜 취소하기"
 										 	    	  }else
 										 	    		  alert("오류임");
@@ -351,8 +365,9 @@ margin-top: 10px;
 										     	  contentType: "application/json; charset=utf-8",
 										     	  data:  JSON.stringify(sendData),
 										 	      success: function (data) {
+										 	    	 console.log("안좋아요 진입")
 										 	    	  if(data.result == "no"){
-										 	    		  alert("찜 취소 완료!")
+										 	    		 swal ( "${restDTO.name}" ,  "찜 등록 취소!" ,  "error" )
 										 	    		  rest_fav.innerText="찜하기"
 										 	    	  }else
 										 	    		  alert("오류임");
@@ -564,8 +579,9 @@ margin-top: 10px;
 								<c:forEach var="img" items="${imgCntt }" varStatus="status">
 									<img
 										class="u-image u-image-default u-image-${img2[status.index].value+3}"
-										src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[0].memId}/${reviewsDTO[0].revDate}/${img}"
+										src="${contextPath }/resources/rest_reviews_img/${restId}/${reviewsDTO[0].memId}/${reviewsDTO[0].revDate}/${img}"
 										alt="" data-image-width="750" data-image-height="1000">
+										
 								</c:forEach>
 								<br>
 								<p
@@ -581,8 +597,9 @@ margin-top: 10px;
 										id="u-list-item-${cnt }">
 								</c:if>
 								<c:if test="${cnt > 3 }">
-									<div class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-${cnt }"
-										id="u-list-item-${cnt }" style="display: none; ">
+									<div
+										class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-${cnt }"
+										id="u-list-item-${cnt }" style="display: none;">
 								</c:if>
 								<div
 									class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-xl u-container-layout-2">
@@ -606,19 +623,24 @@ margin-top: 10px;
 											value="${fn:split(reviewsDTO[cnt].imgs,'&')}" />
 
 										<c:forEach var="pic" items="${pics }" varStatus="status">
-											<img
+										
+											<!-- <img
 												class="u-image u-image-default u-image-${status.count+7 }"
-												src="/root/resources/rest_reviews_img/${restId}/${reviewsDTO[cnt-1].memId}/${reviewsDTO[cnt-1].revDate}/${pic}"
+												src="${contextPath }/resources/rest_reviews_img/${restId}/${reviewsDTO[cnt-1].memId}/${reviewsDTO[cnt-1].revDate}/${pic}"
+												alt="" data-image-width="750" data-image-height="1000"> -->
+												<img
+												class="u-image u-image-default u-image-${status.count+7 }"
+												src="${contextPath }/resources/rest_reviews_img/${restId}/${reviewsDTO[cnt-1].memId}/${reviewsDTO[cnt-1].revDate}/${pic}"
 												alt="" data-image-width="750" data-image-height="1000">
-												<br>
 										</c:forEach>
-
+										<br>
 									</c:if>
 									<c:if test="${reviewsDTO[cnt].imgs eq 'non' }">
 										<br>
 										<br>
 										<br>
-										<br><br>
+										<br>
+										<br>
 										<br>
 									</c:if>
 								</div>
@@ -626,7 +648,6 @@ margin-top: 10px;
 					</c:forEach>
 			</c:if>
 
-		</div>
 		</div>
 		</c:if>
 		</div>
@@ -647,16 +668,8 @@ margin-top: 10px;
       	});
       </script>
 	</section>
-	<section class="u-backlink u-clearfix u-grey-80">
-		<a class="u-link" href="https://nicepage.com/website-templates"
-			target="_blank"> <span>Website Templates</span>
-		</a>
-		<p class="u-text">
-			<span>created with</span>
-		</p>
-		<a class="u-link" href="" target="_blank"> <span>Website
-				Builder Software</span>
-		</a>
-	</section>
+	<footer>
+		<c:import url="../default/footer.jsp"></c:import>
+	</footer>
 </body>
 </html>
