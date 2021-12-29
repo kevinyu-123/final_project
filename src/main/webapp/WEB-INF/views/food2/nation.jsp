@@ -44,11 +44,12 @@
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
   </head>
-	<a href="${pageContext.request.contextPath }/nationEditForm?nation=${nation.nation}">수정</a>
-	<a href="${pageContext.request.contextPath }/nationDelete?nation=${nation.nation}&nationPicture=${nation.nationPicture}">삭제</a>
-	
+  	<c:if test="${session_user eq '운영진' }">
+		<a href="${pageContext.request.contextPath }/nationEditForm?nation=${nation.nation}">수정</a>
+		<a href="${pageContext.request.contextPath }/nationDelete?nation=${nation.nation}&nationPicture=${nation.nationPicture}">삭제</a>
+	</c:if>
 	<header>
-		<c:import url="../default/header.jsp"></c:import>
+		<c:import url="../default/header2.jsp"></c:import>
 	</header>
 	
   <body  class="u-body"><header class="u-align-center-xs u-clearfix u-header u-header" id="sec-5ba5"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></header>

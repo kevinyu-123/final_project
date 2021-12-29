@@ -14,7 +14,6 @@
 	
 	</resultMap>
 	
-	
 	<insert id="saveNotice"> 
 		INSERT INTO notice_board (board_no,title,content,writer) VALUES(test_seq.nextval,#{title},#{content},#{writer})
 	</insert>

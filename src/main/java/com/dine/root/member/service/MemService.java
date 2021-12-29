@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.member.dto.MemDTO;
+import com.dine.root.rest.dto.restDTO;
 
 public interface MemService {
 
@@ -60,7 +61,9 @@ public interface MemService {
 	public ArrayList<ReplyDTO> getReplyInfo(String writer);
 	public int deleteMember(String pwd, String session_id);
 	
-	public ArrayList<MemDTO> getLikes(String session_id);
+	public MemDTO getLikes(String session_id);
+	
+	public restDTO getRest(String rest_name); 
 	
 
 	

@@ -32,12 +32,7 @@
   	</insert>
   	
   	<select id="selectFoodsByNaton" resultMap="food">
-  		SELECT 
-  				* 
-  		FROM 
-  				food 
-  		WHERE  	
-  				nation = #{nation}
+  		SELECT * FROM food WHERE nation = #{nation}
   		</select>
   		
   	<update id="foodEdit">

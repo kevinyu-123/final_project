@@ -55,11 +55,7 @@ text-decoration: none;
 #user_img{
    height: 40px;
    width: 30px;
-<<<<<<< HEAD
-   border-radius: 50%;
-=======
    border-radius: 80%;
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
    background-color: gray;
 }
 img{
@@ -89,7 +85,6 @@ img{
 	-webkit-transition: 0.1s;
 	transition: 0.2s;
 	outline: none;
-	margin-left: 10px;
 	padding:10px;
 }
 
@@ -100,22 +95,14 @@ img{
 #r_btn {
    width:90px;
    height: 40px;
-<<<<<<< HEAD
-font-family: 'Gothic A1', sans-serif;	
-=======
 font-family: 'Gothic A1', sans-serif;
-	
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 	margin: 8px 0;
 	box-sizing: border-box;
 	border: 1px solid #ccc;
 	-webkit-transition: 0.1s;
 	transition: 0.2s;
 	outline: none;
-<<<<<<< HEAD
-=======
 	margin-left: 10px;
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 	padding:10px;
 }
 
@@ -150,7 +137,8 @@ font-family: 'Gothic A1', sans-serif;
    }
    
    function comment_list(){
-	      var post_group = $("#post_group").val()
+	      let post_group = $("#post_group").val()
+	      let cnt = 0;
 	      $.ajax({
 	           url:"replyData/"+post_group,
 	           type:"GET", 
@@ -158,24 +146,19 @@ font-family: 'Gothic A1', sans-serif;
 	           success: function(rep){
 	           let html = ""
 	           rep.forEach(function(data){
-	              
 	              var date = new Date(data.reg_time)
 	              let writeDate = date.getFullYear()+"."+(date.getMonth()+1)+"."
 	              writeDate += date.getDate()+". "+date.getHours()+":"
-	              writeDate += date.getMinutes()
-	              
-<<<<<<< HEAD
+	              writeDate += date.getMinutes()	         
 	              html += "<div align='left'><b>"+data.writer+"</b><br>";
-=======
-	              html += "<div align='left'><b>닉네임 : </b>"+data.writer+"<br>";
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 	              html += data.content+"<br>"
-	            html += "<small> "+writeDate+"</small><br>"
+	              html += "<small> "+writeDate+"</small><br>"
 	              html += "<a><small>답글쓰기</small></a></div>"
 	              html += "<hr>"
+	              cnt++;
 	           })
-	           
 	           $("#c_box").html(html)
+	           $("#cnt").html("댓글("+cnt+")")
 	         }
 	      })
 	   }
@@ -218,9 +201,13 @@ font-family: 'Gothic A1', sans-serif;
                </div>
             </div>
             <div id="comment_area">
-               <span>댓글( )</span>
+               <span id="cnt"></span>
                <small><a href="javascript:void(0)" onclick="sort_by_reg()">등록순</a> &nbsp;</small>
                <small>&nbsp;<a href="javascript:void(0)" onclick="sort_by_date()">최신순</a></small>
+               <br>
+               <c:if test="${session_user eq null }">
+               	<span>로그인 후 댓글 확인이 가능합니다.</span>
+               </c:if>
                <hr>
             </div>
             <div id="c_box">
@@ -233,20 +220,13 @@ font-family: 'Gothic A1', sans-serif;
                      <c:when test="${session_user != null }">
                   <textarea rows="6" cols="111" name="content" id="content" style="resize: none; border: 1px solid #ccc; " placeholder="댓글을 등록해 주세요"></textarea>
                   <input type="hidden" name="writer" value="${session_user}">
-<<<<<<< HEAD
                   <input type="hidden" id="post_group" name="post_group"  value="${info.board_no}"><br>
-=======
-                  <input type="hidden" id="post_group" name="post_group"  value="${info.board_no}">
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
+
                   <input type="button" id="r_btn" onclick="saveReply()" value="등록">
                      </c:when>
                      <c:otherwise>
                         <a href="/naverlogin">
-<<<<<<< HEAD
                         <textarea rows="6" cols="120" style="resize: none" placeholder="로그인 후 이용할 수 있습니다."></textarea>
-=======
-                        <textarea rows="6" cols="111" style="resize: none" placeholder="로그인 후 이용할 수 있습니다."></textarea>
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
                         </a>
                      </c:otherwise>
                   </c:choose>

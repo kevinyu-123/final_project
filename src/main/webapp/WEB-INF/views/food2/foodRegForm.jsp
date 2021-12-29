@@ -17,8 +17,7 @@
 
 <script>
 function frmCheck()
-{
-         
+{  
          var form = document.form;
          form.submit();
  }

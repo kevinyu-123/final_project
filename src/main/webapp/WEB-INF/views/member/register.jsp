@@ -210,7 +210,7 @@
 				style="font-family: 'Outfit', sans-serif;">Log In</a><br>
 			</span>
 
-			<form id="fo" action="register" method="post">
+			<form id="fo" action="memRegister" method="post">
 				<table>
 					<tr>
 						<td><input type="text" id="id" name="id" placeholder="ID"

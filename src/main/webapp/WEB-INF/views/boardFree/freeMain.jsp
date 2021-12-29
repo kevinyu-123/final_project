@@ -102,7 +102,9 @@ input:hover {
 			<c:import url="../default/header.jsp" />
 		</header>
 		<div id="bigbox">
-			<div id="left_box"></div>
+			<div id="left_box">
+				<c:import url="../search/nav_bar.jsp"/>
+			</div>
 			<div id="mid_box">
 				<div id="tag_div">
 					<h2>
@@ -146,17 +148,16 @@ input:hover {
 					</div>
 					<div style="margin-top: 20px;" align="right">
 						<c:if test="${session_user != null }">
-						
-<<<<<<< HEAD
 							<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
-=======
-								<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
+
 						</c:if>
 					</div>
 				</div>
 			</div>
-			<div id="right_box"></div>
+			<div id="right_box">
+			
+			
+			</div>
 		</div>
 
 		<footer>

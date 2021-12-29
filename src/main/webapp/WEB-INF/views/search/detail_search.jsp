@@ -56,7 +56,7 @@ label {
 	<header>
 		<c:import url="../default/header.jsp" />
 	</header>
-
+		<c:import url="../search/nav_bar.jsp"/>
 	<div class="wrap">
 		<form action="search_result" method="get">
 			<div class="country">

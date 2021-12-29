@@ -146,44 +146,28 @@ span {
 				</div>
 
 				<div id="review_box" style="width: 90%; position: relative;">
-
-					<c:forEach items="${likes}" var="likes">
-						<input type="hidden" id="like" value="${likes.liked_rest}">
-					</c:forEach>
-
-
-					<script>
-						var like = $('#like').val()
-						console.log(like)
-
-						var arr = like.split('/')
-						if(arr[0]==""){
-							document.write('<label> 좋아요 한 음식점이 없습니다. </label>');
-						}
-
-						for (var i = 0; i < arr.length - 1; i++) {
-							
-							document.write('<div id="like">');
-							document.write('<figure class="snip1132">');
-							document
-									.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
-							document
-									.write('<figcaption><div class="heading"><span>'
-											+ arr[i] + '</span></div>');
-							document.write('<div class="caption"><p>' + arr[i]
-									+ '</p></div></figcaption>');
-
-							document.write('<a href="#"></a>');
-							document.write('</figure></div>');
-						}
-
-						console.log(arr)
-					</script>
-
+					<c:choose>
+						<c:when test="${fn:length(res_form) != 0}">
+							<c:forEach var="res" items="${res_form}">
+							<div>
+							<figure class="snip1132">
+							<img src="${contextPath}/resources/img/imgMain/${res.rest_mainpic}"alt="sample22"/>
+							<figcaption>
+							<div class="heading"><span>${res.name}</span></div>
+							</figcaption>
+							<a href="${contextPath}/v?id=${res.id}"></a>
+							</figure>
+							</div>
+						</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<label> 좋아요 한 음식점이 없습니다. </label>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
-
+		
 		<footer>
 			<c:import url="../default/footer.jsp" />
 		</footer>

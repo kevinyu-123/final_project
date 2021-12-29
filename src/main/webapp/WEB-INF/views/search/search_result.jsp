@@ -6,7 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>search</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
+	rel="stylesheet">
+
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <style type="text/css">
+
+body {
+font-family: 'Gothic A1', sans-serif;}
+
 html, body {
 	height: 100%;
 }
@@ -17,46 +33,17 @@ html, body {
 	height: 100%;
 }
 
-.tab {
-	height: 70px;
-}
 
 .main {
 	display: flex;
 	min-height: 100%;
 }
 
-/* side 탭 메뉴*/
-.side {
-	position: fixed;
-	display: flex;
-	width: 250px;
-	height: 300px;
-	margin-top: 50px;
-	margin-left: 250px;
-	margin-right: 15px;
-}
-
-ul {
-	border: 1px solid black;
-	list-style-type: none;
-	text-align: center;
-	height: 130px;
-	width: 120px;
-	margin-left: 100px;
-}
-
-#link {
-	font-size: large;
-	width:100px;
-	text-decoration: none;
-}
-
 /* 결과창 */
 .center {
 	display: flex;
 	flex: 1;
-	margin-left: 450px;
+	margin-left: 280px;
 	margin-right: 450px;
 	width: 600px;
 	flex-direction: column;
@@ -65,10 +52,6 @@ ul {
 
 .search {
 	text-align: center;
-	height: 10%;
-	width: 600px;
-	margin: 0 auto;
-	flex-grow: 0.1;
 }
 
 .results {
@@ -95,9 +78,9 @@ ul {
 #pic {
 	border-radius: 8px;
 	margin-left: auto;
-  	margin-right: auto;
-  	width: 250px;
-  	height: 100%;
+	margin-right: auto;
+	width: 250px;
+	height: 100%;
 }
 
 .rest_info {
@@ -108,29 +91,40 @@ ul {
 
 .conn {
 	height: 40px;
-    width: 400px;
-    border: 1px solid #1b5ac2;
-    background: #ffffff;
-    margin: 10px auto 10px;
+	width: 400px;
+	border-radius: 10px;
+	background: #ffffff;
+	margin: 20px auto 20px;
+	background: #ffffff;
 }
 
 input {
 	font-size: 16px;
-	width: 325px;
+	width: 600px;
 	padding: 7px;
 	border: 0px;
 	outline: none;
 	float: left;
+	font-size: 16px;
+	padding: 10px;
+	outline: none;
+	border: 2px solid #ccc;
+	border-radius: 30px;
+	text-align: center;
 }
 
 button {
-	width: 50px;
+	width: 70px;
 	height: 100%;
-	border: 0px;
-	background: #1b5ac2;
+	font-size: 14px;
+	font-family: 'Gothic A1', sans-serif;
+	box-sizing: border-box;
+	border: 2px solid #ddd;
+	border-radius: 25px;
+	padding: 10px;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
 	outline: none;
-	float: right;
-	color: #ffffff;
 }
 
 a {
@@ -140,6 +134,7 @@ a {
 li {
 	margin: 30px 0;
 }
+
 footer {
 	margin-top: 350px;
 }
@@ -150,173 +145,151 @@ footer {
 </script>
 </head>
 <body>
-	<header>
-		<c:import url="../default/header.jsp" />
-	</header>
+	<div class="w3-animate-opacity">
+		<header>
 	
-	<div class="wrap">
-		<div class="tab"></div>
-		<div class="main">
-			<div class="side">
-				<ul>
-					<li><a href="#main_page">Dining Lab</a></li>
-					<li><a href="detail_search">세부검색</a></li>
-					<li><a href="#map">지도로 보기</a></li>
-				</ul>
-			</div>
-			<div class="center">
-				<div class="search">
-					<h2>Dining Lab</h2>
-					<form class="conn" action="./search_result">
-						<input type="text" name="keyword" placeholder="나라 이름, 음식 또는 식당 검색" value="${keyword }">
-						<button type="submit" onclick="./search_result.jsp">검색</button>
-					</form>
+			<c:import url="../default/header.jsp" />
+		</header>
+		
+
+		<div class="wrap">
+			<div class="main">
+				<div class="center">
+					<div class="search">
+						<form class="conn" action="./search_result" method="get">
+							<div style="display: flex;">
+								<div>
+									<input type="text" name="keyword"
+										placeholder="나라 이름, 음식 또는 식당 검색" value="${keyword }">
+									<br> <br>
+								</div>
+								<div style="margin-left:10px;">
+									<button class="button" type="submit"
+										onclick="./search_result.jsp">검색</button>
+								</div>
+							</div>
+						</form>
+
+
+						<!-- 검색 결과창 -->
+						<div class="results">
+							<div class="result">
+								<div class="rest_pic">
+									<img id="pic"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+								</div>
+
+								<c:if test="">
+
+
+								</c:if>
+
+								<div class="rest_info">
+									<div class="rest_title">
+										<h4>소유라멘</h4>
+										<h4>일본</h4>
+									</div>
+									<div class="rest_comment">
+										<h5>라멘 / 소바 / 우동</h5>
+									</div>
+									<div class="rest_addr">
+										<p>서울시 중구 만리동1가 53-8</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="result">
+								<div class="rest_pic">
+									<img id="pic"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+								</div>
+
+								<div class="rest_info">
+									<div class="rest_title">
+										<h4>소유라멘</h4>
+										<h4>일본</h4>
+									</div>
+									<div class="rest_comment">
+										<h5>라멘 / 소바 / 우동</h5>
+									</div>
+									<div class="rest_addr">
+										<p>서울시 중구 만리동1가 53-8</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="result">
+								<div class="rest_pic">
+									<img id="pic"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+								</div>
+
+								<div class="rest_info">
+									<div class="rest_title">
+										<h4>소유라멘</h4>
+										<h4>일본</h4>
+									</div>
+									<div class="rest_comment">
+										<h5>라멘 / 소바 / 우동</h5>
+									</div>
+									<div class="rest_addr">
+										<p>서울시 중구 만리동1가 53-8</p>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="result">
+								<div class="rest_pic">
+									<img id="pic"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+								</div>
+
+								<div class="rest_info">
+									<div class="rest_title">
+										<h4>소유라멘</h4>
+										<h4>일본</h4>
+									</div>
+									<div class="rest_comment">
+										<h5>라멘 / 소바 / 우동</h5>
+									</div>
+									<div class="rest_addr">
+										<p>서울시 중구 만리동1가 53-8</p>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="result">
+								<div class="rest_pic">
+									<img id="pic"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+								</div>
+
+								<div class="rest_info">
+									<div class="rest_title">
+										<h4>소유라멘</h4>
+										<h4>일본</h4>
+									</div>
+									<div class="rest_comment">
+										<h5>라멘 / 소바 / 우동</h5>
+									</div>
+									<div class="rest_addr">
+										<p>서울시 중구 만리동1가 53-8</p>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
 				</div>
-				
-				<!-- 검색 결과창 -->
-				<div class="results">
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<c:if test="" >
-													
-						
-						</c:if>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-				
 			</div>
 		</div>
+		<footer>
+			<c:import url="../default/footer.jsp" />
+		</footer>
 	</div>
-	<footer>
-		<c:import url="../default/footer.jsp" />
-	</footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

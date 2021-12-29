@@ -77,13 +77,14 @@
 		</ul>
 	</div>
 	-->
-		 	 
+	 	 
 	 <header>
 		<c:import url="../default/header.jsp"></c:import>
 	</header>
-
-	<a href="${pageContext.request.contextPath }/foodEditForm?foodName=${detail.foodName}">음식 테이블 수정</a>
-	<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">음식 테이블 삭제</a>
+	<c:if test="${session_user eq '운영진' }">
+		<a href="${pageContext.request.contextPath }/foodEditForm?foodName=${detail.foodName}">음식 테이블 수정</a>
+		<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">음식 테이블 삭제</a>
+	</c:if>
 	<main class="main__screen">
 		<div class="main__screen-content">
 			<div class="main__screen-picture">
@@ -132,8 +133,10 @@
 		
 		
 		<div class="main__screen__recipe">
-			<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${recipe.foodName}">레시피 테이블 수정</a>
-			<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">레시피 테이블 삭제</a>
+			<c:if test="${session_user eq '운영진' }">
+				<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${recipe.foodName}">레시피 테이블 수정</a>
+				<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">레시피 테이블 삭제</a>
+			</c:if>
 			<div class="main__screen__recipe-title">
 				<div style="padding-bottom: 240px;">
 					<span>${recipe.foodName } 조리법</span>

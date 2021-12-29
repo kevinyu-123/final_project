@@ -117,10 +117,12 @@ button:hover {
 		<c:import url="../default/header.jsp" />
 	</header>
 
-
+	
 	<div class="w3-animate-opacity">
-		<div id="bigbox">
+	
+		<div id="bigbox">		
 			<div id="profile">
+			
 				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
 				<span><b>${session_user }</b></span>
 			</div>
@@ -145,7 +147,7 @@ button:hover {
 					<table>
 						<tr>
 							<td>
-								<button class="likes" onclick="location.href='mylikes'">
+								<button class="likes" onclick="location.href='likeList'">
 									<img src="${contextPath }/resources/img/imgMain/heart.png"><br>MY
 									LIKES
 								</button>
@@ -187,7 +189,7 @@ button:hover {
 						<table>
 							<tr>
 								<td>
-									<button class="likes" onclick="location.href='writeNews'">
+									<button class="likes" onclick="location.href='writenews'">
 										<br>공지사항 등록
 									</button>
 								</td>
@@ -197,7 +199,7 @@ button:hover {
 									</button>
 								</td>
 								<td>
-									<button class="likes" onclick="location.href='recipeForm'">
+									<button class="likes" onclick="location.href='${contextPath}/recipeForm'">
 										<br>레시피등록
 									</button>
 								</td>
@@ -209,12 +211,12 @@ button:hover {
 									</button>
 								</td>
 								<td>
-									<button class="likes" onclick="location.href='nationRegForm'">
+									<button class="likes" onclick="location.href='${contextPath}/nationRegForm'">
 										<br>나라정보등록
 									</button>
 								</td>
 								<td>
-									<button class="likes" onclick="location.href='food2'">
+									<button class="likes" onclick="location.href='${contextPath}/foodRegForm'">
 										<br>음식 등록
 									</button>
 								</td>

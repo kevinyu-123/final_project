@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -227,13 +229,13 @@ margin-top: 10px;
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-2"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
+											style="background-image: url('${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
 											<div class="u-container-layout u-container-layout-2"></div>
 										</div>
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-3"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
+											style="background-image: url('${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
 											<div class="u-container-layout u-container-layout-3"></div>
 										</div>
 									</div>
@@ -243,13 +245,13 @@ margin-top: 10px;
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-4"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
+											style="background-image: url('${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
 											<div class="u-container-layout u-container-layout-4"></div>
 										</div>
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-5"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('/root/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
+											style="background-image: url('${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
 											<div class="u-container-layout u-container-layout-5"></div>
 										</div>
 									</div>
