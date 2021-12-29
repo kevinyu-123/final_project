@@ -9,6 +9,19 @@
 </head>
 <body>
 	
+	${map.country }<br>
+	${map.addr }<br>
+	${map.food }<br>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 
 	<br>
 	<c:if test="${viewAll.size() == 0 }">
 		no data
@@ -19,5 +32,6 @@
 		<p>nation : ${dto.nation }</p>
 		<br><hr>
 	</c:forEach>
+	 -->
 </body>
 </html>

@@ -153,7 +153,22 @@ footer {
 	<header>
 		<c:import url="../default/header.jsp" />
 	</header>
-	
+	<!-- 
+	<c:forEach var="row" items="${map.list }">
+		<p>${row.foodName }</p>
+		<p>${row.foodComment }</p> 
+		<p>${row.nation }</p> 
+		<p>${row.intro }</p> 
+		<p>${row.category_1 }</p> 
+		<p>${row.category_2 }</p> 
+		<p>${row.rate }</p> 
+		<hr>
+	</c:forEach>
+	 
+	${map.country }<br>
+	${map.addr }<br>
+	${map.food }<br>
+	-->
 	<div class="wrap">
 		<div class="tab"></div>
 		<div class="main">
@@ -175,104 +190,59 @@ footer {
 				
 				<!-- 검색 결과창 -->
 				<div class="results">
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<c:if test="" >
-													
-						
-						</c:if>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
+					<c:choose>
+						<c:when test="${map.count } != 0">
+							${map.count } 개의 결과가 있습니다.
+							<hr>
+						</c:when>
+						<c:otherwise>
+							관련된 결과가 없습니다.
+							<hr>
+						</c:otherwise>
+					</c:choose>
 					
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+					<!-- 키워드 검색 결과 -->
+					<c:forEach var="row" items="${map.kList }">
+						<div class="result">
+							<div class="rest_pic">
+								<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+							</div>
+							<div class="rest_info">
+								<div class="rest_title">
+									<h4>${row.foodName }</h4> <h4>${row.nation }</h4>
+								</div>
+								<div class="rest_comment">
+									<h5>${row.category_2 }</h5>
+								</div>
+								<div class="rest_addr">
+									<p>${row.category_1 }</p>
+								</div>
+							</div>
+							<hr>
 						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
+					</c:forEach>
 					
-					<div class="result">
-						<div class="rest_pic">
-							<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+					<!-- 키워드 검색 결과 -->
+					<c:forEach var="row" items="${map.dList }">
+						<div class="result">
+							<div class="rest_pic">
+								<img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+							</div>
+							<div class="rest_info">
+								<div class="rest_title">
+									<h4>${row.foodName }</h4> <h4>${row.nation }</h4>
+								</div>
+								<div class="rest_comment">
+									<h5>${row.category_2 }</h5>
+								</div>
+								<div class="rest_addr">
+									<p>${row.category_1 }</p>
+								</div>
+							</div>
+							<hr>
 						</div>
-						
-						<div class="rest_info">
-							<div class="rest_title">
-								<h4>소유라멘</h4>	<h4>일본</h4>
-							</div>
-							<div class="rest_comment">
-								<h5>라멘 / 소바 / 우동</h5>
-							</div>
-							<div class="rest_addr">
-								<p>서울시 중구 만리동1가 53-8</p>
-							</div>
-						</div>
-						
-					</div>
-					
+					</c:forEach>
+
 				</div>
 				
 			</div>

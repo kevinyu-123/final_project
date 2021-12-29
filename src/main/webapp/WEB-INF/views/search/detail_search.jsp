@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -50,6 +51,13 @@ label {
 </head>
 <body>
 <script type="text/javascript">
+	var checked_radio = $('input:radio[name=country]:checked').val();
+	if(checked_radio === undefined) // 선택을 하지 않았을 경우
+	{
+	    alert('옵션을 선택해주세요.);
+	} else {
+	    alert(checked_radio + "를 선택하셨습니다.");
+	}
 
 </script>
 
@@ -58,16 +66,16 @@ label {
 	</header>
 
 	<div class="wrap">
-		<form action="search_result" method="get">
+		<form action="./search_result_detail" method="get">
 			<div class="country">
 				<div class="title">
 					<h4>나라</h4>
 				</div>
 				<div class="content">
-					<input type="radio" id="c1" name="country" value="kor"/>
+					<input type="radio" id="c1" name="country" value="대한민국" checked/>
 					<label for="c1">한국</label>
 					
-					<input type="radio" id="c2" name="country" value="jpn"/>
+					<input type="radio" id="c2" name="country" value="일본"/>
 					<label for="c2">일본</label>
 					
 					<input type="radio" id="c3" name="country" value="chn"/>
@@ -100,7 +108,7 @@ label {
 					<h4>지역</h4>
 				</div>
 				<div class="content">
-					<input type="radio" id="c1" name="addr" value="seo"/>
+					<input type="radio" id="c1" name="addr" value="서울" checked/>
 					<label for="c1">서울</label>
 					
 					<input type="radio" id="c2" name="addr" value="gye"/>
@@ -137,7 +145,7 @@ label {
 				</div>
 				
 				<div class="content">
-					<input type="radio" id="c1" name="food" value="rice"/>
+					<input type="radio" id="c1" name="food" value="밥" checked/>
 					<label for="c1">밥류</label>
 					
 					<input type="radio" id="c2" name="food" value="noodle"/>

@@ -6,6 +6,14 @@ public class SearchDTO {
 	private String foodName, foodComment, nation, intro, category_1, category_2; // sql 매치용 
 	private int rate;
 	
+	private String env;
+	
+	public String getEnv() {
+		return env;
+	}
+	public void setEnv(String env) {
+		this.env = env;
+	}
 	public String getKeyword() {
 		return keyword;
 	}
