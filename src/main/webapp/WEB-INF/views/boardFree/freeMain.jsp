@@ -102,7 +102,9 @@ input:hover {
 			<c:import url="../default/header.jsp" />
 		</header>
 		<div id="bigbox">
-			<div id="left_box"></div>
+			<div id="left_box">
+			<c:import url="../search/nav_bar.jsp"/>
+			</div>
 			<div id="mid_box">
 				<div id="tag_div">
 					<h2>

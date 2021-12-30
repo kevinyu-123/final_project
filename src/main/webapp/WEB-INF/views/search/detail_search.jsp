@@ -6,16 +6,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>
+상세찾기</title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
+	rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <style type="text/css">
+
+
 body {
+font-family: 'Gothic A1', sans-serif;
 	height: 100%;
 }
-.wrap {
+.wrap2 {
 	display: flex;
 	height: 60vh;
 	width: 940px;
 	margin: 0 auto;
-	border: 1px solid;
+	
 	justify-content: center;
 }
 .country, .addr, .food {

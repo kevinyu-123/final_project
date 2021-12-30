@@ -36,7 +36,6 @@
 	transition: 0.2s;
 	outline: none;
 	width: 100px;
-	
 	padding:10px;
 }
 

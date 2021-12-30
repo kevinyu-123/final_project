@@ -1,15 +1,13 @@
 package com.dine.root.boardFree.controller;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;

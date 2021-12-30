@@ -187,7 +187,7 @@ button:hover {
 						<table>
 							<tr>
 								<td>
-									<button class="likes" onclick="location.href='writeNews'">
+									<button class="likes" onclick="location.href='writenews'">
 										<br>공지사항 등록
 									</button>
 								</td>

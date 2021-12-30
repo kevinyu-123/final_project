@@ -77,7 +77,8 @@
 					<span>${food.foodName }</span>
 				</div>
 				<div id="poster">
-					<a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }"><img
+					<a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }">
+					<img
 						src="${pageContext.request.contextPath }/resources/food2/${food.mainPic}"
 						style="width: 350px; height: 500px"> </a>
 				</div>

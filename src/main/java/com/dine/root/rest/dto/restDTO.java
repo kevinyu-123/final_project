@@ -44,6 +44,16 @@ public class restDTO {
 	private double lng;
 	// 메인사진 
 	private String restPic;
+	private String rest_mainpic;
+	
+
+	public String getRest_mainpic() {
+		return rest_mainpic;
+	}
+
+	public void setRest_mainpic(String rest_mainpic) {
+		this.rest_mainpic = rest_mainpic;
+	}
 
 	public String getNation() {
 		return nation;

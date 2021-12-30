@@ -1,6 +1,7 @@
 package com.dine.root.food.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 
@@ -138,20 +139,8 @@ public class FoodController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@PostMapping("register")		
 	public String register(MultipartHttpServletRequest mul, HttpServletRequest request) {
-		
 		MultipartFile file = mul.getFile("mainPic");
 		MultipartFile file2 = mul.getFile("subPic");
 		MultipartFile file3 = mul.getFile("mapPic");

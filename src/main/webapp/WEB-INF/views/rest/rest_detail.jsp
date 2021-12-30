@@ -145,9 +145,14 @@ font-size: 20px;
 }
 </style>
 </head>
+
 <body class="u-body">
 	<!-- header 들어가야함 -->
+	<header>
+<c:import url="../default/header2.jsp" />
+</header>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-4136">
+	
 		<div
 			class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
 			<div

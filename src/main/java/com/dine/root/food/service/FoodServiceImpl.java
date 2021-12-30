@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,6 @@ public class FoodServiceImpl implements FoodService {
 	@Override
 	public FoodDTO detail(String foodName) {
 		FoodDTO dto = dao.detail(foodName);
-		
 		return dto;
 	}
 

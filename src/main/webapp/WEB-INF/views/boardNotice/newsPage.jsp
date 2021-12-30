@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #bigbox {
+
    height: 100%;
    display: flex;
 }
@@ -66,6 +67,7 @@
    text-decoration: none;
    }
 
+
 </style>
 </head>
 <body>
@@ -74,7 +76,8 @@
          <c:import url="../default/header.jsp" />
       </header>
             <div id="bigbox">
-            <div id="left_box"></div>
+            <div id="left_box">
+            <c:import url="../search/nav_bar.jsp"/></div>
             <div id="mid_box">
                <div id="tag_div"><h2>공지사항<br></h2>
                </div>
@@ -88,7 +91,7 @@
                         <c:forEach var="list" items="${list}">
                         <tr>
                             <td>${list.board_no}</td>
-                            <td width="60%;"><a href="${contextPath}/viewContent?board_no=${list.board_no}">${list.title}</a></td>
+                            <td width="60%;"><a href="${contextPath}/viewNotice?board_no=${list.board_no}">${list.title}</a></td>
                             <td>${list.writer}</td>
                             <td>${list.reg_time}</td>
                             <td>${list.views}</td>
@@ -109,7 +112,7 @@
                </div>
                   <c:if test="${session_user == '운영진' }">
                <div style="margin-top: 20px;" align="right">
-                     <button id="write_btn" onclick="location.href='${contextPath}/writeform'">글쓰기</button>
+                     <button id="write_btn" onclick="location.href='${contextPath}/writenews'">글쓰기</button>
                </div>
                   </c:if>
                </div>
@@ -122,5 +125,6 @@
       </footer>
 </div>
    
+
 </body>
 </html>
