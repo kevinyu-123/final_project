@@ -18,38 +18,6 @@
 		<result property="naverlogin" column="naverlogin" />
 	</resultMap>
 
-	<resultMap id="rest" type="com.dine.root.rest.dto.restDTO">
-		<id property="id" column="id" />
-		<result property="name" column="name" />
-		<result property="addr" column="addr" />
-		<result property="hours" column="hours" />
-		<result property="tel" column="tel" />
-		<result property="subEx" column="SUB_EX" />
-		<result property="mainEx" column="MAIN_EX" />
-		<result property="rateAll" column="RATE_ALL" />
-		<result property="rateCnt" column="RATE_CNT" />
-		<result property="rateAvr" column="RATE_AVR" />
-		<result property="nation" column="NATION" />
-		<result property="lat" column="LAT" />
-		<result property="lng" column="LNG" />
-		<result property="restPic" column="rest_pic" />
-		<result property="rest_mainpic" column="rest_mainpic" />
-	</resultMap>
-
-
-	<resultMap type="com.dine.root.member.dto.AdminDTO"
-		id="admin">
-		<result property="id" column="id" />
-		<result property="pwd" column="pwd" />
-		<result property="name" column="name" />
-	</resultMap>
-
-	<select id="getMember" resultMap="admin">
-		select * from admin where id =
-		#{id}
-	</select>
-
-
 	<insert id="register">
 		INSERT into member (id,pwd,name,email,email_auth)
 		VALUES(#{id},#{pwd},#{name},#{email},#{email_auth})
@@ -169,18 +137,23 @@
 	<delete id="deleteMember">
 		delete from member where name=#{session_id}
 	</delete>
+	
 
-
+	
+ <resultMap type="com.dine.root.member.dto.AdminDTO" id="admin">
+      <result property="id" column="id"/>
+      <result property="pwd" column="pwd"/>
+      <result property="name" column="name"/>
+   </resultMap>
+   
+	<select id="getMember" resultMap="admin">
+		select * from admin where id = #{id}
+	</select>
+	
 	<select id="getLikes" resultMap="member">
 		select * from member
 		where name=#{session_id}
 	</select>
-
-
-	<select id="getRest" resultMap="rest">
-		select * from restaurant where name=#{rest_name}
-	</select>
-
 
 
 </mapper>

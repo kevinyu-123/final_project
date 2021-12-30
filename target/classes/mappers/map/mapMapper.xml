@@ -4,31 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dine.root.map.mapper.MapMapper">
 
-   <resultMap type="com.dine.root.map.dto.MapDTO" id="map">
-      <!-- property = dto에 저장된 변수이름  column은 db table 의 컬럼명 -->
-      <id property="id" column="id" />
-      <result property="name" column="name" />
-      <result property="nation" column="nation"/>
-      <result property="addr" column="addr"/>
-      <result property="tel" column="tel"/>
-      <result property="open_hours" column="open_hours"/>
-      <result property="sub_ex" column="sub_ex"/>
-      <result property="main_ex" column="main_ex"/>
-      <result property="menu_cnt" column="menu_cnt"/>
-      <result property="coordinate" column="coordinate"/>
-      <result property="rate_all" column="rate_all"/>
-      <result property="rate_avg" column="rate_avg"/>
-      <result property="rate_cnt" column="rate_cnt"/>
-      <result property="lat" column="lat"/>
-      <result property="lng" column="lng"/>
+	<resultMap type="com.dine.root.map.dto.MapDTO" id="map">
+		<!-- property = dto에 저장된 변수이름  column은 db table 의 컬럼명 -->
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="nation" column="nation"/>
+		<result property="addr" column="addr"/>
+		<result property="tel" column="tel"/>
+		<result property="hours" column="hours"/>
+		<result property="sub_ex" column="sub_ex"/>
+		<result property="main_ex" column="main_ex"/>
+		<result property="menu_cnt" column="menu_cnt"/>
+		<result property="coordinate" column="coordinate"/>
+		<result property="rate_all" column="rate_all"/>
+		<result property="rate_avg" column="rate_avg"/>
+		<result property="rate_cnt" column="rate_cnt"/>
+		<result property="lat" column="lat"/>
+		<result property="lng" column="lng"/>
 
-   </resultMap>
+	</resultMap>
 
-   <select id="info" resultMap="map">
-      SELECT * FROM restaurant WHERE nation = #{nation}
-   </select>
-
-
+	<select id="info" resultMap="map">
+		SELECT * FROM restaurant WHERE nation = #{nation}
+	</select>
 
 
 
