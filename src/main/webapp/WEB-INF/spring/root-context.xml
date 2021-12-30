@@ -6,36 +6,38 @@
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-		
-			
-	<!-- 히카리 커넥션풀 빈 등록 -->
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName"
-			value="oracle.jdbc.driver.OracleDriver" />
-		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@210.221.253.215:1521:xe" />		<!-- 상황에 따라서 바뀔 수 있는 값 -->
-		<property name="username" value="five" />	<!-- 상황에 따라서 바뀔 수 있는 값 -->
-		<property name="password" value="oracle" />		<!-- 상황에 따라서 바뀔 수 있는 값 -->
-	</bean>
-	<!-- 히카리 데이터소스 빈 등록 -->
-	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
-		<constructor-arg ref="hikariConfig" />
-	</bean>
 
-	<!-- 데이터소스 마이바티스에 등록 및 xml 위치 설정 -->
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="ds" />
-		<property name="mapperLocations"
-			value="classpath:/mappers/**/*Mapper.xml" />
-		<!-- classpath = resource와 관련 , **는 그 밑에 모든 폴더나 파일 중 *Mapper.xml로 끝나야 한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
-	</bean>
-	<!-- 마이바티스 xml파일과 dao빈 연결 -->
-	<mybatis-spring:scan
-		base-package="com.dine.root.food.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
-	<mybatis-spring:scan
-		base-package="com.dine.root.rest.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
-	<mybatis-spring:scan
-		base-package="com.dine.root.reviews.dao" />	<!-- 저 경로에 있는 파일 + 그 하위파일 모두를 bean으로 등록한다. -->	<!-- 상황에 따라서 바뀔 수 있는 값 -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		 <!-- 히카리 커넥션풀 빈 등록 -->
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+      <property name="jdbcUrl" value="jdbc:oracle:thin:@210.221.253.215:1521:xe" />
+      <property name="username" value="five" />
+      <property name="password" value="oracle" />
+   </bean>   
+   <!-- 히카리 데이터소스 빈 등록 -->   
+   <bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+      <constructor-arg ref="hikariConfig"/>
+   </bean>
+   
+   <!-- 데이터소스 마이바티스에 등록 및 xml 위치 설정 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="ds"/>
+      <property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"/>
+   </bean>
+   
+   <!-- 마이바티스 xml파일과 dao빈 연결  -->
+   <mybatis-spring:scan base-package="com.dine.root.rest.dao"/>
+   <mybatis-spring:scan base-package="com.dine.root.food.dao"/>
+   <mybatis-spring:scan base-package="com.dine.root.reviews.dao"/>
+   
+   <mybatis-spring:scan base-package="com.dine.root.map.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.member.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.boardFree.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.boardFree_reply.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.boardNotice.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.boardEvent.mapper"/>
+   
+	<!--  첫 에러는 namespaces에서 mybatis-spring 설정 -->	
 
 </beans>

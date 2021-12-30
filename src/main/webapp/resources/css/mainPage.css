@@ -7,11 +7,10 @@
 }
 
 #container .btn {	
-	opacity: 60%;
-	background-color:white;
+opacity: 60%;
+	background-color: white;
 	position: absolute;
 	top: 50%;
-	left: 32%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	padding: 16px 32px;

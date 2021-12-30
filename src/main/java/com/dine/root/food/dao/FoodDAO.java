@@ -34,8 +34,4 @@ public interface FoodDAO {
 	public int recipeEdit(RecipeDTO dto);
 
 
-
-
-
-
 }

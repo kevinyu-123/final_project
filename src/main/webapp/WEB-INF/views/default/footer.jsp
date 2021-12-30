@@ -17,7 +17,7 @@
 			margin-left: 60px;
 		}    
     </style>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
@@ -25,17 +25,13 @@
     <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-       		
-       		<div class="social">
-	            <ul class="list-inline">
-	                <li class="list-inline-item"><a href="${contextPath }/main">Home</a></li>
-	                <li class="list-inline-item"><a href="${contextPath }/event">Event</a></li>
-	                <li class="list-inline-item"><a href="${contextPath }/aboutus">About</a></li>
-	                <li class="list-inline-item"><a href="${contextPath}/news">News</a></li>
-	                <li class="list-inline-item"><a href="${contextPath}/sitemap">SiteMap</a></li>
-	            </ul>
-			</div>
-			
+            <ul class="list-inline" style="	margin-left:500px;">
+                <li class="list-inline-item"><a href="${contextPath }/main">Home</a></li>
+                <li class="list-inline-item"><a href="${contextPath }/event">Event</a></li>
+                <li class="list-inline-item"><a href="${contextPath }/aboutus">About</a></li>
+                <li class="list-inline-item"><a href="${contextPath}/news">News</a></li>
+                <li class="list-inline-item"><a href="${contextPath}/sitemap">SiteMap</a></li>
+            </ul>
             <p class="copyright">Dining Lab.Inc © 2021</p>
         </footer>
     </div>

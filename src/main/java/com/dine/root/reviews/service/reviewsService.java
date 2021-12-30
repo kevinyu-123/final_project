@@ -14,5 +14,5 @@ public interface reviewsService {
 	public int reviewsUploadProcess(List<MultipartFile> multipartFile,HttpServletRequest request);
 	public int reviewsUploadNonFile(HttpServletRequest request);
 	
-	public void infoRest(Model model,int restId);
+	public void infoRest(Model model, int restId);
 }

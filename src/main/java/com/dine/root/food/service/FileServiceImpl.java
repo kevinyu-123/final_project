@@ -11,13 +11,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class FileServiceImpl implements FileService {
-
 	@Override
 	public String getMessage(HttpServletRequest request, String msg, String url) {
 		String message = null;
 		String path = request.getContextPath(); // 절대 경로
 		message = "<script>alert('" + msg + "');";
-		message += "location.href='" + path + url + "'; </script> "; // 즉 alert창 + 절대경로/url주소가 반납됨
+		message += "location.href='" + path + url + "';</script> "; // 즉 alert창 + 절대경로/url주소가 반납됨
 
 		return message;
 	}

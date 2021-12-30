@@ -53,7 +53,13 @@
 		update member set liked_rest=#{upLike} where name=#{memId}
 	</update>
 	
-	<select id="selectByName" resultMap="rest">
-		select * from restaurant where name=#{name}
-	</select>
+		<select id="selectNationByRest" resultMap="rest">
+  		SELECT 
+  				* 
+  		FROM 
+  				restaurant 
+  		WHERE  	
+  				nation = #{nation}
+  		</select>
+	
 </mapper>

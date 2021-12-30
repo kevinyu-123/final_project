@@ -6,7 +6,6 @@ public class NationDTO {
 	private String nationPicture;
 	private String address;
 	private String infomation;
-	private String foodPicture;
 	
 	
 	public String getNation() {
@@ -33,14 +32,6 @@ public class NationDTO {
 	public void setNationPicture(String nationPicture) {
 		this.nationPicture = nationPicture;
 	}
-	public String getFoodPicture() {
-		return foodPicture;
-	}
-	public void setFoodPicture(String foodPicture) {
-		this.foodPicture = foodPicture;
-	}
-	
-	
 	
 	
 }

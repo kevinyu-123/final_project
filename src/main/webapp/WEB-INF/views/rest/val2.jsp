@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -55,14 +55,19 @@
 	position: absolute;
 	left: -15px;
 }
+
+>>>>>>> e933eb725b38f567760adfb1a0f4ee813d9ea609
 .carousel-inner img {
 	width: 870px;
 	max-height: 504px;
 }
+
+>>>>>>> e933eb725b38f567760adfb1a0f4ee813d9ea609
 .radius_border {
 	border: 1px solid #919191;
 	border-radius: 5px;
 }
+
 .custom_typecontrol {
 	position: absolute;
 	top: 10px;
@@ -76,6 +81,7 @@
 	font-size: 12px;
 	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
 }
+
 .custom_typecontrol span {
 	display: block;
 	width: 65px;
@@ -85,26 +91,33 @@
 	line-height: 30px;
 	cursor: pointer;
 }
+
 .custom_typecontrol .btn {
 	background: #fff;
 	background: linear-gradient(#fff, #e6e6e6);
 }
+
 .custom_typecontrol .btn:hover {
 	background: #f5f5f5;
 	background: linear-gradient(#f5f5f5, #e3e3e3);
 }
+
+>>>>>>> e933eb725b38f567760adfb1a0f4ee813d9ea609
 .custom_typecontrol .btn:active {
 	background: #e6e6e6;
 	background: linear-gradient(#e6e6e6, #fff);
 }
+
 .custom_typecontrol .selected_btn {
 	color: #fff;
 	background: #425470;
 	background: linear-gradient(#425470, #5b6d8a);
 }
+
 .custom_typecontrol .selected_btn:hover {
 	color: #fff;
 }
+
 .custom_zoomcontrol {
 	position: absolute;
 	top: 50px;
@@ -115,6 +128,7 @@
 	z-index: 1;
 	background-color: #f5f5f5;
 }
+
 .custom_zoomcontrol span {
 	display: block;
 	width: 36px;
@@ -122,19 +136,23 @@
 	text-align: center;
 	cursor: pointer;
 }
+
 .custom_zoomcontrol span img {
 	width: 15px;
 	height: 15px;
 	padding: 12px 0;
 	border: none;
 }
+
 .custom_zoomcontrol span:first-child {
 	border-bottom: 1px solid #bfbfbf;
 }
+
 .u-layout-wrap-2 .u-text-4 {
 	font-size: 20px;
 	width: 400px;
 }
+
 .u-text-10 button {
 	margin-left: 20px;
 	width: 200px;
@@ -373,16 +391,20 @@ margin-top: 10px;
 										level : 3
 									// 지도의 확대 레벨
 									};
+
 									var map = new kakao.maps.Map(mapContainer,
 											mapOption); // 지도를 생성합니다
+
 									// 마커가 표시될 위치입니다 
 									var markerPosition = new kakao.maps.LatLng(
 											${restDTO.lat},
 											${restDTO.lng});
+
 									// 마커를 생성합니다
 									var marker = new kakao.maps.Marker({
 										position : markerPosition
 									});
+
 									// 마커가 지도 위에 표시되도록 설정합니다
 									marker.setMap(map);
 								</script>

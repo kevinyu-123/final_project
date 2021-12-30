@@ -147,21 +147,15 @@ function readURL3(input) {
 			
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td height="10" style="font-size: 24px;">카테고리 1 (지역 선택)</td>
-				</tr>
-				<tr>
-					<td>
-						<select id="category1"  name="category1" >
-							<option value="서울">서울</option>
-							<option value="대전">대전</option>
-							<option value="대구">대구</option>
-							<option value="부산">부산</option>
-							<option value="광주">광주</option>
-							<option value="울산">울산</option>
-							<option value="기타">기타</option>
-						</select>
+					<td height="10" style="font-size: 24px;">카테고리 1 (각 나라별 지역 선택)
 					</td>
 				</tr>
+				<tr>
+					<td height="10"><input type="text" placeholder="각 나라별 지역 선택"
+						name="category1" style="width: 100%;"
+						> <br></td>
+				</tr>
+				<tr>
 			</table>
 			
 			<table width="400" border="0" cellspacing="0" cellpadding="0">

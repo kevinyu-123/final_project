@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -20,14 +23,10 @@ public interface FoodService {
 	public FoodDTO detail(String foodName);
 
 	public RecipeDTO recipe(String foodName);
-	
-	public int register(FoodDTO dto, Model model);
 
-	public int register2(MultipartHttpServletRequest mul);
+	public String register2(MultipartHttpServletRequest mul, HttpServletRequest request);
 
 	public int recipeInsert(RecipeDTO dto);
-
-	public int nationInsert(NationDTO dto);
 
 	public NationDTO nation(String nation);
 
@@ -47,12 +46,7 @@ public interface FoodService {
 
 	public String recipeEdit(MultipartHttpServletRequest mul, HttpServletRequest request);
 
-
-
-
-
-
-	
+	public String nationInsert(MultipartHttpServletRequest mul, HttpServletRequest request);
 
 
 }

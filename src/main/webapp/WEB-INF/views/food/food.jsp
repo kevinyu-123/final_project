@@ -21,6 +21,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+body, html {
+height: 100%;
+scroll-behavior: smooth;
+overflow-anchor: none;
+}
+body {
+	font-family: muli;
+	font-size: 16px;
+	color: #292929;
+}
 .header, .food-detail, .wrap-nav, .food-recipe{
 	background-color: #ffffff;
 }
@@ -253,6 +263,7 @@ text-align: center;
 			</div>
 		</div>
 		<div class="food-recipe">
+<<<<<<< HEAD
 						<div class="container">
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->

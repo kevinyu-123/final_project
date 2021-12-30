@@ -28,6 +28,8 @@ import com.dine.root.food.dto.FoodDTO;
 import com.dine.root.food.dto.NationDTO;
 import com.dine.root.food.dto.RecipeDTO;
 import com.dine.root.food.service.FoodService;
+import com.dine.root.rest.dto.restDTO;
+import com.dine.root.rest.service.restService;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -37,48 +39,36 @@ public class FoodController {
 	@Autowired
 	FoodService fs;
 	@Autowired
-	com.dine.root.rest.service.restService restService;
+	restService rs;
+	
+	public void printWriter(String message, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		out = response.getWriter();
+		out.println(message);
+	}
+	
+	@GetMapping("nationRegForm") 
+	public String test4() {
+		
+		return "food2/nationRegForm";
+	}
 
-	
-	@GetMapping("main")
-	public String main() {
-		return "main/mainPage";
-	}
-	
-	@GetMapping("test")
-	public String test() {
-		return "food2/test";
-	}
-	
 	@GetMapping("nation")
 	public String test3(@RequestParam("nation") String nation, Model model) {
 		model.addAttribute("nation", fs.nation(nation));
 		model.addAttribute("foodList", fs.getFoodsByNation(nation));
 		return "food2/nation";
 	}
-	@GetMapping("nationRegForm") 
-	public String test4() {
-		// 여기서 나라 이름 받아서 나라이름은 리드온니로 바꾸기
-		return "food2/nationRegForm";
-	}
+
 	@PostMapping("nation")
-	public String test5(NationDTO dto, Model model, MultipartHttpServletRequest mul) {
+	public void test5(MultipartHttpServletRequest mul, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		MultipartFile file = mul.getFile("nationPicture2");
 		
-		String nationName = fs.getFilePath(mul);
+		printWriter(fs.nationInsert(mul, request), request, response);
 		
-		dto.setNationPicture(nationName);
-		
-//		MultipartFile file = mul.getFile("nationPicture2");
-//		System.out.println(file.getOriginalFilename());
-		
-		int result =  fs.nationInsert(dto);	// 중복되는 아이디를 처리하기 위한 model값
-		
-		if (result == 1) {	
-			return "redirect:nation?nation=" + dto.getNation();
-		}
-		return "redirect:nationRegForm";
 	}
-	
 	
 	@GetMapping("nationEditForm")
 	public String nationEditForm(@RequestParam("nation") String nation, Model model) {
@@ -86,41 +76,41 @@ public class FoodController {
 		model.addAttribute("nation", fs.nation(nation));
 		return "food2/nationEditForm";
 	}
+	
 	@PostMapping("nationEdit")
 	public void nationEdit(MultipartHttpServletRequest mul, HttpServletResponse response, HttpServletRequest request) throws IOException {
-		String message = fs.nationEdit(mul, request);
 		
-		PrintWriter out = null;
-		response.setContentType("text/html; charset=utf-8");
-		out = response.getWriter();
-		out.println(message);
-		
+		printWriter(fs.nationEdit(mul, request), request, response);
 	}
 	
 	@GetMapping("nationDelete")
 	public void nationDeleteForm(@RequestParam("nation") String nation, @RequestParam("nationPicture") String nationPicture,
 			HttpServletRequest request, HttpServletResponse response) throws IOException {
 		 
-		String message = fs.nationDelete(nation ,nationPicture, request);
-		PrintWriter out=null;
-		response.setContentType("text/html; charset=utf-8");
-		out = response.getWriter();
-		out.println(message);
+		printWriter(fs.nationDelete(nation, nationPicture, request), request, response);
 	}
 	
+	@GetMapping("foodRegForm")
+	public String foodRegForm() {
+		return "food2/foodRegForm";
+	}
 	
-	
-	
-	
-	
-	
+	@PostMapping("foodReg")		
+	public void register(MultipartHttpServletRequest mul, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		MultipartFile file = mul.getFile("mainPic");
+		MultipartFile file2 = mul.getFile("subPic");
+		MultipartFile file3 = mul.getFile("mapPic");
+		
+		printWriter(fs.register2(mul, request), request, response);
+		
+	}
 	@GetMapping("food2")
-	public String index(Model model , @RequestParam("foodName") String foodName) {
-
+	public String index(Model model , @RequestParam("foodName") String foodName, @RequestParam("nation") String nation) {
 		model.addAttribute("detail", fs.detail(foodName));
 		
-		// 페이지 따로 할꺼니까 여기 부분 잘라서 recipe쪽에 넣어야 할 듯??
 		RecipeDTO dto = fs.recipe(foodName);
+
 		String addr = dto.getRecipe();
 		String ingredients = dto.getIngredients();
 		
@@ -133,15 +123,9 @@ public class FoodController {
 		model.addAttribute("recipe", fs.recipe(foodName));
 		model.addAttribute("foodList", fs.getFoodsByNation(foodName));
 		
-		String name = null;
- 		model.addAttribute("rest", restService.selectByName(name));
+		model.addAttribute("restList", rs.getRestByNation(nation));
 
 		return "food2/index";
-	}
-	
-	@GetMapping("foodRegForm")
-	public String foodRegForm() {
-		return "food2/foodRegForm";
 	}
 	
 	@GetMapping("foodEditForm")
@@ -152,68 +136,18 @@ public class FoodController {
 	
 	@PostMapping("foodEdit")
 	public void foodEdit(MultipartHttpServletRequest mul, HttpServletResponse response, HttpServletRequest request) throws IOException {
-		String message = fs.foodEdit(mul, request);
 		
-		PrintWriter out = null;
-		response.setContentType("text/html; charset=utf-8");
-		out = response.getWriter();
-		out.println(message);
+		printWriter(fs.foodEdit(mul, request), request, response);
 		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@PostMapping("register")		
-	public String register(MultipartHttpServletRequest mul, HttpServletRequest request) {
-		
-		MultipartFile file = mul.getFile("mainPic");
-		MultipartFile file2 = mul.getFile("subPic");
-		MultipartFile file3 = mul.getFile("mapPic");
-		
-//		System.out.println(file.getOriginalFilename());	
-//		System.out.println(file2.getOriginalFilename());	
-//		System.out.println(file3.getOriginalFilename());	
-		
-		
-		int result =  fs.register2(mul);	
-		String msg, url;
-		
-		if (result == 1) {	
-			msg = "성공적으로 저장되었습니다. 바로 레시피를 저장해 주세요.";
-			url = "/main";
-//			return "food2/recipeForm";
-		} else {
-			msg = "저장 중 문제가 발생하였습니다.";
-			url = "/foodRegForm";
-		}
-//		return "redirect:foodRegForm";
-		String message = fs.getMessage(request, msg, url);
-		return message;
 	}
 	
 	@GetMapping("foodDelete")
 	public void foodDelete(@RequestParam("foodName") String foodName, @RequestParam("mainPic") String mainPic,
 			@RequestParam("subPic") String subPic,@RequestParam("mapPic") String mapPic,
 			HttpServletRequest request, HttpServletResponse response) throws IOException {
-		 
-		String message = fs.foodDelete(foodName ,mainPic, subPic, mapPic, request);
-		PrintWriter out=null;
-		response.setContentType("text/html; charset=utf-8");
-		out = response.getWriter();
-		out.println(message);
+		
+		printWriter(fs.foodDelete(foodName, mainPic, subPic, mapPic, request), request, response);
 	}
-	
-	
 	
 	
 	@GetMapping("recipeForm")
@@ -228,7 +162,7 @@ public class FoodController {
 		int result =  fs.recipeInsert(dto);	// 중복되는 아이디를 처리하기 위한 model값
 		
 		if (result == 1) {	
-			return "redirect:food2?foodName=" + dto.getFoodName();
+			return "redirect:main";
 		}
 		return "redirect:recipeForm";
 	}
@@ -237,19 +171,16 @@ public class FoodController {
 	public String recipeEditForm(@RequestParam("foodName") String foodName, Model model) {
 		
 		model.addAttribute("recipe", fs.recipe(foodName));
+		
 		return "food2/recipeEditForm";
+		
 	}
 	
 	@PostMapping("recipeEdit")
 	public void recipeEdit(MultipartHttpServletRequest mul, HttpServletResponse response, HttpServletRequest request) throws IOException {
-		String message = fs.recipeEdit(mul, request);
 		
-		PrintWriter out = null;
-		response.setContentType("text/html; charset=utf-8");
-		out = response.getWriter();
-		out.println(message);
+		printWriter(fs.recipeEdit(mul, request), request, response);
 		
 	}
-	
 	
 }

@@ -26,14 +26,13 @@ public class restController {
 	@Autowired restService rs;
 	
 	@RequestMapping("v")
-	public String restDetail2(Model m) {
-		int id = 41;
+	public String restDetail2(Model m, @RequestParam int id) {
+//		int id = 63;
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
 		rs.infoReviews(m,id);
 		
 		return "/rest/val2";
-
 	}
 	
 	@ResponseBody

@@ -31,6 +31,9 @@
 			text-align: center;
 			text-transform: capitalize;
 		}
+		.foodPhoto {
+			margin-left: 60px;
+		}
 	</style>
 	
 	
@@ -48,18 +51,18 @@
 	<a href="${pageContext.request.contextPath }/nationDelete?nation=${nation.nation}&nationPicture=${nation.nationPicture}">삭제</a>
 	
 	<header>
-		<c:import url="../default/header.jsp"></c:import>
+		<c:import url="../default/header2.jsp"></c:import>
 	</header>
 	
   <body  class="u-body"><header class="u-align-center-xs u-clearfix u-header u-header" id="sec-5ba5"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-align-center u-clearfix u-section-1" id="carousel_8920">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-custom-font u-font-merriweather u-text u-text-default u-text-1" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left" style="text-transform: uppercase;">${nation.nation }</h2>
+        <h2 class="u-custom-font u-font-merriweather u-text u-text-default u-text-1" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left" style="text-transform: uppercase; margin-top: 30px;">${nation.nation }</h2>
        <!--  <div class="u-image u-image-circle u-image-1" alt="" data-image-width="721" data-image-height="1080" data-animation-name="rollIn" data-animation-duration="2000" data-animation-direction="" id="nationPic"></div> -->
         <div class="u-image u-image-circle " alt="" data-image-width="721" data-image-height="1080" data-animation-name="rollIn" data-animation-duration="2000" data-animation-direction="" id="nationPic"><img src="${pageContext.request.contextPath }/resources/food2/${nation.nationPicture }" style=" width: 70%;
-  height: 40%; margin-top: 20px;"></div>
+  		height: 40%; margin-top: 20px;"></div>
         <h5 class="u-custom-font u-font-ubuntu u-text u-text-2">${nation.address }</h5>
-        <p class="u-align-justify-lg u-align-justify-md u-align-justify-xl u-text u-text-grey-40 u-text-3" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Right"> ${nation.infomation }</p>
+        <p class="u-align-justify-lg u-align-justify-md u-align-justify-xl u-text u-text-grey-40 u-text-3" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Right" > ${nation.infomation }</p>
       </div>
     </section>
     
@@ -71,14 +74,14 @@
 		
 		<div style="display: flex; overflow-x: auto;">
 			<c:forEach var="food" items="${foodList}">
-			<div>	
-				<div class="foodListName">
-					<span style="text-transform: uppercase;">${food.foodName }</span>
-				</div>
+			<div class="foodPhoto">	
 				<div id="poster">
-					<a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }"><img
+					<a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }&nation=${food.nation}"><img
 						src="${pageContext.request.contextPath }/resources/food2/${food.mainPic}"
-						style="width: 350px; height: 500px"> </a>
+						style="width: 400px; height: 300px;"> </a>
+				</div>
+				<div class="foodListName">
+					<span style="text-transform: uppercase; font-size: 16px;">${food.foodName }</span>
 				</div>
 			</div>
 			</c:forEach>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.dine.root.food.dto.FoodDTO;
 import com.dine.root.rest.dao.restDAO;
 import com.dine.root.rest.dto.menuDTO;
 import com.dine.root.rest.dto.restDTO;
@@ -22,7 +23,7 @@ public class restServiceImpl implements restService{
 		// TODO Auto-generated method stub
 		try {
 			restDTO dto = dao.infoRest(id);
-			System.out.println(dto);
+			System.out.println("dto" + dto);
 			if(dto != null) {
 				m.addAttribute("restDTO",dto);
 				String pic = dto.getRestPic();
@@ -127,13 +128,12 @@ public class restServiceImpl implements restService{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<restDTO> selectByName(String name) {
-		
-		return dao.selectByName(name);
+	public List<restDTO> getRestByNation(String nation) {
+		return dao.selectNationByRest(nation);
 	}
+
 }

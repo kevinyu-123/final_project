@@ -15,20 +15,20 @@
 	href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap"
 	rel="stylesheet">
 <style type="text/css">
-* {
-	font-family: 'Gothic A1', sans-serif;
-}
-.main__screen-left-title {
-	color: orange;
-}
-.main__screen__recipe-title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.main__screen {
+	padding: 0px 100px 0px 100px;
 }
 
 .main__screen__recipe-title {
 	padding-top: 40px;
+	text-align: center;
+}
+.main__screen__recipe__left  {
+	margin-left: 170px;
+}
+
+.main__screen__recipe__left-content {
+	margin-top: 25px;
 }
 .main__screen__recipe__left-content ul {
 	list-style: circle;
@@ -40,6 +40,8 @@
 .main__screen__recipe__left-content {
 	border-bottom: none;
 }
+
+
 </style>
 <script src="https://kit.fontawesome.com/44d4c23d3e.js" crossorigin="anonymous"></script>
 <title>Document</title>
@@ -89,11 +91,12 @@
 	-->
 		 	 
 	 <header>
-		<c:import url="../default/header.jsp"></c:import>
+		<c:import url="../default/header2.jsp"></c:import>
 	</header>
-
+	<c:if test="${session_user eq '운영진' }">
 	<a href="${pageContext.request.contextPath }/foodEditForm?foodName=${detail.foodName}">음식 테이블 수정</a>
 	<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">음식 테이블 삭제</a>
+	</c:if>	
 	<main class="main__screen">
 		<div class="main__screen-content">
 			<div class="main__screen-picture">
@@ -101,7 +104,7 @@
 			</div>
 			<div class="main__screen-column">
 				<div class="main__screen-left">
-					<div class="main__screen-left-menu">
+					<div class="main__screen-left-menu" style="margin-bottom: 10px;">
 						<span>${detail.category1 } | </span>
 						<span>${detail.category2 }</span>
 					</div>
@@ -112,7 +115,7 @@
 						<span style="text-transform: capitalize;">${detail.foodComment }</span>
 					</div>
 					<div class="main__screen-left-content">
-						<p style="text-transform: capitalize;">${detail.intro }</p>
+						<p style="text-transform: capitalize; line-height: 30px;">${detail.intro }</p>
 					</div>
 				</div>
 
@@ -142,19 +145,22 @@
 		
 		
 		<div class="main__screen__recipe">
-			<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${detail.foodName}">레시피 테이블 수정</a>
-			<a href="${pageContext.request.contextPath }/recipeDelete?foodName=${detail.foodName}">레시피 테이블 삭제</a>
+			<c:if test="${session_user eq '운영진' }">
+			<a href="${pageContext.request.contextPath }/recipeEditForm?foodName=${recipe.foodName}">레시피 테이블 수정</a>
+			<a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">레시피 테이블 삭제</a>
+			</c:if>
 			<div class="main__screen__recipe-title">
-				<div style="padding-bottom: 240px;">
-					<span style="text-transform: uppercase;">${recipe.foodName } 조리법</span>
+				<div>
+					<span><b> 조리법 </b></span>
+					<div class="main__screen__recipe-cookTime" style="font-size: 18px; margin: 30px 0px 40px 10px;">
+						${recipe.cookTime }
+					</div>	
 				</div>
 				<div>
-					<iframe width="770" height="400" src="https://www.youtube.com/embed/${recipe.youtubeAddr }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-right: 100px"></iframe>
+					<iframe width="1000" height="600" src="https://www.youtube.com/embed/${recipe.youtubeAddr }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
 				</div>
 			</div>
-			<div class="main__screen__recipe-cookTime">
-				${recipe.cookTime }
-			</div>	
+			
 			<div class="abc">
 				<div class="main__screen__recipe__left">
 					<div class="main__screen__recipe__left-title">
@@ -185,157 +191,28 @@
 					</div>
 				</div>
 			</div>
-			
-			
-
-		
-		<!-- 
-
-		<div class="main__screen__wheretoeat">
-			<div class="main__screen__wheretoeat-main">
-				<div class="main__screen__wheretoeat-main-left">
-					<img
-						src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fmyplace-phinf.pstatic.net%2F20210924_23%2F1632458229423m08yi_JPEG%2Fupload_e2f7b742a783166bb0ff4d44607fb4fe.jpeg" />
-					<img
-						src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fmyplace-phinf.pstatic.net%2F20210926_56%2F1632646250662R7tIs_JPEG%2Fupload_2a77fbee03154a562ffb47c75c6067c3.jpeg" />
-				</div>
-				<div class="main__screen__wheretoeat-main-right">
-					<div class="main__screen__wheretoeat-main-right__column">
-						<span>오레노 라멘</span>
-						<div class="main__screen__wheretoeat-main-right__column-location">
-							<p>서울 마포구 독막로6길 14</p>
-							<p>합정역 7번 출구에서426m</p>
-						</div>
-					</div>
-					<div class="main__screen__wheretoeat-main-right__column">
-						<div class="worktime-title">
-							<span>영업 시간</span>
-						</div>
-						<div class="worktime">
-							<span>점심 11:30 - 15:00 (L.o 14:40)</span> <span>저녁 17:00 -
-								21:00 (L.o 20:30)</span>
-						</div>
-						<div class="info">
-							<p>'연중무휴' 휴무시 인스타 공지 예정 인근 유료주차장(당인노상공영주차장)을 이용해주세요 노키즈 존입니다.
-								중학생부터 입장 가능합니다.</p>
-						</div>
-					</div>
-					<div class="main__screen__wheretoeat-main-right__column">
-						<div class="michelin__guide">
-							<span class="michelin__guide-title">미쉐린 가이드 서울 2022</span> <span>국내에서
-								외국 음식의 대중화는 곧 현지화의 성공을 의미한다. 진입 장벽이 낮은 대중음식의 경우 더욱더 그러하다. 신동우
-								셰프는 오랜 시간에 걸쳐 축적한 라멘 비즈니스 노하우로 정통성과 대중성이라는 두 마리 토끼를 모두 잡았다. 진한 닭
-								육수가 매력적인 토리파이탄과 깔끔하면서도 깊은 맛을 자랑하는 쇼유 라멘에서 그가 추구하는 색깔이 뚜렷이 드러난다.
-								신 셰프는 라멘의 생명인 육수와 면을 매일매일 만들어내며 끊임없는 테스팅으로 품질 유지에 심혈을 기울인다.
-								"스스로에게 떳떳한 라멘을 만들고 싶다"는 그의 말에서 자부심이 엿보인다.</span>
-						</div>
-					</div>
-					<div class="main__screen__wheretoeat-main-right__column">
-						<div>
-							<div class="menu-title">
-								<span>메뉴 9</span>
-							</div>
-							<div class="menu-kinds">
-								<div>
-									<span>토리빠이탄 라멘</span> <span>9,000원</span>
-								</div>
-								<div>
-									<span>카라빠이탄 라멘</span> <span>9,000원</span>
-								</div>
-								<div>
-									<span>쇼유라멘</span> <span>9,000원</span>
-								</div>
-								<div>
-									<span>시오라멘</span> <span>9,000원</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="main__screen__comment">
-			<div class="main__screen__comment__left">
-				<div class="main__screen__comment-title">
-					<span>최신순</span>
-				</div>
-				<div class="main__screen__comment-info">
-					<div class="main__screen__comment-pic">
-						<img
-							src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MjBfMTYg%2FMDAxNjE4ODQ3Mjc2MDUw.XW7a4r-PmgYEo_fW0YljRkS3fKGhSnTFVIhbVaaFrMQg.PW4-s-zdmeZdyUqV9E6syyd2c7CtWpRzxfuFSBnYNi0g.JPEG.imsodal%2FDSCF3762.JPG" />
-						<div class="main__screen__comment-userInfo">
-							<div class="main__screen__comment-userInfo-id">
-								<span>탱크</span>
-							</div>
-							<span>리뷰 339 사진 25</span>
-						</div>
-					</div>
-					<div class="main__screen__comment-follow">
-						<a href="#">팔로우</a>
-					</div>
-				</div>
-				<div class="main__screen__comment-content">
-					<span>맛있어요 !</span>
-				</div>
-				<div class="main__screen__comment-icon">😁😁음식이 맛있어요, 양이 많아요</div>
-				<div class="main__screen__comment-date">
-					<span>11.28일</span> <span>1번째 방문</span> <span>영수증</span>
-				</div>
-			</div>
-			<div class="main__screen__comment__right">
-				<div class="main__screen__comment-title">
-					<span>최신순</span>
-				</div>
-				<div class="main__screen__comment-info">
-					<div class="main__screen__comment-pic">
-						<img
-							src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MjBfMTYg%2FMDAxNjE4ODQ3Mjc2MDUw.XW7a4r-PmgYEo_fW0YljRkS3fKGhSnTFVIhbVaaFrMQg.PW4-s-zdmeZdyUqV9E6syyd2c7CtWpRzxfuFSBnYNi0g.JPEG.imsodal%2FDSCF3762.JPG" />
-						<div class="main__screen__comment-userInfo">
-							<div class="main__screen__comment-userInfo-id">
-								<span>탱크</span>
-							</div>
-							<span>리뷰 339 사진 25</span>
-						</div>
-					</div>
-					<div class="main__screen__comment-follow">
-						<a href="#">팔로우</a>
-					</div>
-				</div>
-				<div class="main__screen__comment-content">
-					<span>맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요
-						!맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요 !맛있어요
-						!맛있어요 !맛있어요 !맛있어요 !</span>
-				</div>
-				<div class="main__screen__comment-icon">😁😁음식이 맛있어요, 양이 많아요</div>
-				<div class="main__screen__comment-date">
-					<span>11.28일</span> <span>1번째 방문</span> <span>영수증</span>
-				</div>
-			</div>
-		</div>
-		
-		 -->
+		 
 		 
 	<div class="main__screen-content" style="margin-top: 50px;">
-		<div class=" w3-animate-left" style="margin-top:20px;margin-bottom: 20px;margin-left:10px;">
-			<span class="pagetitle"> <b >추천 레스토랑</b></span>
+		<div class=" w3-animate-left" style="margin-top:-20px;margin-bottom: 20px;margin-left:-100px;">
+			<span class="pagetitle" style="margin-bottom: 100px; font-size: 34px;"> <b >추천 레스토랑</b></span>
 		</div>
 		<div style="display: flex; overflow-x: auto;">
-			<div>	
+		<c:forEach items="${restList }" var="rest">
+			<div>
 				<div class="foodListName" style="text-align: center;">
-					<span style="text-transform: uppercase; ">{restDTO.name}</span>
+					<span>${rest.name}</span>
 				</div>
-			<div id="poster">
-				<a href="${contextPath }/v"><img
+				<div id="poster">
+				<a href="${contextPath }/v?id=${rest.id}"><img
 					src="#"
 					style="width: 350px; height: 500px"> </a>
 				</div>
 			</div>
+		</c:forEach>
 		</div>
 	</div>
 </main>
-	
-	
 	
 	<footer>
 		<c:import url="../default/footer.jsp"></c:import>

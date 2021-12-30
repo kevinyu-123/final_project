@@ -16,6 +16,9 @@ public interface restService {
 	public void infoReviews(Model m,int id);
 	public void updateLiked(Map<String, Object> idMap);
 	public void updateUnLiked(Map<String, Object> idMap);
-	public List<restDTO> selectByName(String name);
+	
+	public List<restDTO> getRestByNation(String nation);
+	
+	
 	
 }
