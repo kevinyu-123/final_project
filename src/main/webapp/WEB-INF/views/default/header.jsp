@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>DiningLab</title>
+
 <link rel="stylesheet" href="${contextPath }/resources/css/mainPage.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
 	media="screen">
@@ -15,6 +16,7 @@
 	media="screen">
 <script class="u-script" type="text/javascript"
 	src="${contextPath }/resources/js/jquery.js" defer=""></script>
+
 <script class="u-script" type="text/javascript"
 	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
@@ -32,7 +34,9 @@
 
 <link rel="stylesheet"
 	href="${contextPath }/resources/css/default/header.css">
-<script src="https://c	ode.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 <style>
 </style>
@@ -85,7 +89,7 @@
 				
 							<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
-							<a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
+							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
 							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 

@@ -7,12 +7,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.ui.Model;
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.member.dto.AdminDTO;
 import com.dine.root.member.dto.MemDTO;
+import com.dine.root.rest.dto.restDTO;
 
 @Mapper
 public interface MemMapper {
@@ -64,9 +64,10 @@ public interface MemMapper {
 
 	public AdminDTO getMember(String id);
 	
+	public MemDTO getLikes(String session_id);
 	
-	public int addLikes(String liked_rest, String session_id);
-	public ArrayList<MemDTO> getLikes(String session_id);
+	public restDTO getRest(String rest_name); 
+
 
 
 

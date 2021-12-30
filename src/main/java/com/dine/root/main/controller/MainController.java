@@ -2,12 +2,15 @@ package com.dine.root.main.controller;
 
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -19,7 +22,8 @@ import com.dine.root.member.service.MemService;
 
 @Controller
 public class MainController implements MemberSession {
-	@Qualifier("memServiceImpl")
+
+
 	@Autowired(required = false)
 	MemService ms;
 
@@ -34,12 +38,23 @@ public class MainController implements MemberSession {
 	
 	
 	@GetMapping("cookieChk")
+
 	public void cookieChk(HttpServletResponse response ) {
 		Cookie cook = new Cookie("myCookie", "나의쿠키");
 		cook.setMaxAge(60 * 60 * 24 );
 		cook.setPath("/");
 		response.addCookie(cook);
-	
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=utf-8");
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		out.print("<script>" 
+				+ " window.close()"
+				+ "</script>");
+
 	}
 	@GetMapping("popup")
 	public String popup() {
@@ -50,13 +65,11 @@ public class MainController implements MemberSession {
 	public String myCookie(HttpServletResponse response, Model model,
 			@CookieValue(value="myCookie",required=false) Cookie cook,
 			HttpServletRequest request){
-
 		Cookie[] cookies = request.getCookies();
 		if(cookies != null) {
 			for(Cookie c : cookies )
 				System.out.println(c.getName()+" : "+c.getValue());
 		}
-
 		if(cook != null )
 			model.addAttribute("cook",cook.getValue());
 		return "main/mainPage";

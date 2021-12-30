@@ -2,7 +2,6 @@ package com.dine.root.member.service;
 
 import java.sql.Date;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,29 +10,30 @@ import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.mail.javamail.JavaMailSender;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.dine.root.boardFree.dto.BoardDTO;
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.common.session.MemberSession;
 import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.mapper.MemMapper;
-
+import com.dine.root.rest.dto.restDTO;
 
 @Service
 public class MemServiceImpl implements MemService, MemberSession {
 	@Autowired
 	MemMapper mapper;
-	
+
 	@Autowired
 	JavaMailSender mailSender;
 
@@ -289,18 +289,20 @@ public class MemServiceImpl implements MemService, MemberSession {
 		return result;
 	}
 
-	
+
+	public MemDTO getLikes(String session_id) {
+		return mapper.getLikes(session_id);
+		}
+
 
 	@Override
-	public ArrayList<MemDTO> getLikes(String session_id) {
-		MemDTO dto = new MemDTO();
-		String n = dto.getLiked_rest();
-
-		return mapper.getLikes(session_id);}
-
-
-	
-	
+	public restDTO getRest(String rest_name) {
+		return mapper.getRest(rest_name);
+	}
 	
 
-}
+}	
+	
+	
+
+

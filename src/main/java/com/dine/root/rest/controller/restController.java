@@ -2,6 +2,9 @@ package com.dine.root.rest.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -21,7 +24,12 @@ public class restController {
 	@Autowired restService rs;
 	
 	@RequestMapping("restaurant")
-	public String restDetail2(Model m, @RequestParam int id) {
+	public String restDetail2(Model m, @RequestParam int id, HttpSession session) {
+		String name = (String) session.getAttribute("session_user");
+		System.out.println("세션값 : "+name);
+		if(name != null) {
+			rs.infoLiked(m,name,id);
+		}
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
 		rs.infoReviews(m,id);
@@ -34,12 +42,18 @@ public class restController {
 	@RequestMapping(value = "liked_click", method = RequestMethod.POST, produces ="application/json; charset=UTF8;" )
 	public HashMap<String,String> likedClick(@RequestBody Map<String, Object> idMap){
 		HashMap<String,String> map = new HashMap<String, String>();
-		System.out.println("멤버 아이디 : "+idMap.get("memId"));
-		System.out.println(idMap.toString());
-		rs.updateLiked(idMap);
-		map.put("result", "ok");
-		System.out.println("좋아요 컨트롤러");
-		return map;
+		if(idMap.get("memId").equals("")) {
+			map.put("result","no");
+			return map;
+		}else {
+			System.out.println("멤버 아이디 : "+idMap.get("memId"));
+			System.out.println(idMap.toString());
+			rs.updateLiked(idMap);
+			map.put("result", "ok");
+			System.out.println("좋아요 컨트롤러");
+			return map;
+		}
+
 	}
 	@ResponseBody
 	@RequestMapping(value = "dliked_click", method = RequestMethod.POST)

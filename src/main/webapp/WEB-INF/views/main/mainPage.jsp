@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -15,13 +14,13 @@
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>Home</title>
 
-<link rel="stylesheet" href="${contextPath }/resources/css/Home.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
 	media="screen">
-<link rel="stylesheet" href="${contextPath }/resources/css/Home1.css"
+<link rel="stylesheet" href="${contextPath } /resources/css/Home1.css"
 	media="screen">
 <script class="u-script" type="text/javascript"
-	src="${contextPath }/resources/js/jquery.js" defer=""></script>
+	src="${contextPath } /resources/js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript"
 	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
 
@@ -107,7 +106,7 @@ function popup(){
 					<div
 						class="u-border-20 u-border-white u-image u-image-circle u-image-4"
 						data-image-width="1542" data-image-height="982">
-						<button class="btn" onclick="" STYLE="font-size: 25px; z-index: 1; left: 30%;">CATEGORY_SEARCH</button>
+						<button class="btn" onclick="location.href='${contextPath}/search'" STYLE="font-size: 25px; z-index: 1;left: 30%;">CATEGORY_SEARCH</button>
 					</div>
 				</div>
 

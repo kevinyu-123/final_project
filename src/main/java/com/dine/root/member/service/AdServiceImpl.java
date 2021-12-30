@@ -10,13 +10,12 @@ import com.dine.root.member.mapper.MemMapper;
 
 @Service
 public class AdServiceImpl implements AdService {
-   @Autowired
-   MemMapper mapper;
-   
-   @Override
-   public AdminDTO adloginChk(String id) {
-      return mapper.getMember(id);
-   }
-   
-
+	@Autowired
+	MemMapper mapper;
+	
+	@Override
+	public AdminDTO adloginChk(String id) {
+		return mapper.getMember(id);
+	}
+	
 }

@@ -56,7 +56,7 @@
 	 	      success: function (data) {
 	 	    	  if(data.result == "OK"){
 	 	    		 alert("리뷰 등록 완료");
-	 	    		  history.back()
+	 	    		  window.location = document.referrer;
 	 	    	  }else
 	 	    		  alert("오류임");
 	 	    	  console.log(data);
@@ -258,9 +258,9 @@ margin: auto;
 
 			</script>
 			<c:if test="${att eq 'food'}"><textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)"
-			placeholder="${memId } 님 , 음식에 대한 리뷰를 작성해주세요 ! "></textarea></c:if>
+			placeholder="${session_user } 님 , 음식에 대한 리뷰를 작성해주세요 ! "></textarea></c:if>
 			<c:if test="${att eq 'rest'}"><textarea name="content" id="content" onkeydown="resize(this)" onkeyup="resize(this)"
-			placeholder="${memId } 님 , ${restDTO.name } 을 방문하시고 느낀 소감을 작성해주세요 !"></textarea></c:if>	
+			placeholder="${session_user } 님 , ${restDTO.name } 을 방문하시고 느낀 소감을 작성해주세요 !"></textarea></c:if>	
 			
 			<div style="color: #aaa;" id="content_cnt">(0 / 최대 1,000자)</div>
 			<br>

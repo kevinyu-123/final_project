@@ -24,45 +24,37 @@
 <script>
 	function register() {
 		var inval_Arr = new Array(5).fill(false);
-
 		var id = $("#id").val()
 		var email = $("#email").val()
 		var pwd = $("#pwd").val()
 		var name = $("#name").val()
 		var emailCode = $("#emailCode").val()
-
 		if (id == "") {
 			inval_Arr[0] = false
 		} else {
 			inval_Arr[0] = true;
 		}
-
 		if (pwd == "") {
 			inval_Arr[1] = false
 		} else {
 			inval_Arr[1] = true;
 		}
-
 		if (name == "") {
 			inval_Arr[2] = false
 		} else {
 			inval_Arr[2] = true;
 		}
-
 		if (email == "") {
 			inval_Arr[3] = false
 		} else {
 			inval_Arr[3] = true;
 		}
-
 		if (emailCode == "") {
 			inval_Arr[4] = false
 		} else {
 			inval_Arr[4] = true;
 		}
-
 		var validAll = true;
-
 		for (var i = 0; i < inval_Arr.length; i++) {
 			if (inval_Arr[i] == false) {
 				validAll = false;
@@ -71,14 +63,10 @@
 		if (validAll) { // 유효성 모두 통과
 			alert('회원가입을 축하합니다 ;)');
 			fo.submit()
-
 		} else {
 			alert('빈칸을 모두 입력해주세요! :)')
-
 		}
-
 	}
-
 	function auth() {
 		var name = $("#name").val()
 		var email = $('#email').val()
@@ -86,7 +74,6 @@
 			name : name,
 			email : email
 		}
-
 		$.ajax({
 			url : "auth",
 			type : "post",
@@ -105,13 +92,10 @@
 			error : function() {
 				alert('이메일 인증코드발송에 실패하였습니다.')
 			}
-
 		})
 	}
-
 	function checkCode() {
 		var emailCode = $("#emailCode").val()
-
 		$.ajax({
 			url : "checkVal/" + emailCode,
 			type : "post",
@@ -131,7 +115,6 @@
 			}
 		})
 	}
-
 	function idCheck() {
 		var id = $('#id').val();
 		$.ajax({
@@ -149,7 +132,6 @@
 					$('.id_ok').css("display", "none");
 				}
 			},
-
 			error : function() {
 				alert("에러입니다");
 			}
@@ -157,7 +139,6 @@
 	};
 	function emailCheck() {
 		var email = $('#email').val();
-
 		$.ajax({
 			url : 'emailCheck',
 			type : 'post',
@@ -180,21 +161,17 @@
 			}
 		});
 	};
-
 	function checkEmail() {
 		var email = $('#email').val();
 		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-
 		if (exptext.test(email) == false) {
 			$('.email_chk').css("display", "inline-block");
 			userinput.email.focus();
-
 		} else {
 			$('.email_chk').css("display", "none");
 			return true;
 		}
 		return false;
-
 	}
 	function nameCheck(){
 		var name= $('#name').val();
@@ -212,7 +189,6 @@
 					$('.name_ok').css("display", "none");
 				}
 			},
-
 			error : function() {
 				alert("에러입니다");
 			}
@@ -234,7 +210,7 @@
 				style="font-family: 'Outfit', sans-serif;">Log In</a><br>
 			</span>
 
-			<form id="fo" action="register" method="post">
+			<form id="fo" action="memRegister" method="post">
 				<table>
 					<tr>
 						<td><input type="text" id="id" name="id" placeholder="ID"

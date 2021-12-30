@@ -167,7 +167,7 @@ h2 {
 				<table>
 					<tr>
 						<th>게시판 종류</th>
-						<th>게시글 제목</th>
+						<th width="60%;">게시글 제목</th>
 						<th>게시 날짜</th>
 						<th>조회</th>
 					</tr>
@@ -176,7 +176,7 @@ h2 {
 							<c:forEach var="board" items="${boardInfo}">
 								<tr>
 									<td>${board.board_category}</td>
-									<td><a href="#">${board.title}</a></td>
+									<td><a href="${contextPath}/viewContent?board_no=${board.board_no}">${board.title}</a></td>
 									<td>${board.reg_time}</td>
 									<td>${board.views}</td>
 								</tr>

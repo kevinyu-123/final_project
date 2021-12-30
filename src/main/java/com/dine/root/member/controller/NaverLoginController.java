@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /*
 import org.springframework.social.google.connect.GoogleConnectionFactory;
@@ -36,15 +36,11 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
  */
 @Controller
 public class NaverLoginController implements MemberSession {
-	@Qualifier("memServiceImpl")
-	@Autowired(required = false)
-	MemService service;
 
-	BCryptPasswordEncoder encoder ;
+	@Autowired
+	MemService service;
 	
-	public NaverLoginController() {
-		encoder = new BCryptPasswordEncoder();
-	}
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
@@ -111,16 +107,17 @@ public class NaverLoginController implements MemberSession {
 			service.setNaverConnection(apiJson);
 			Map<String, Object> loginCheck = service.userNaverLoginPro(apiJson);
 			session.setAttribute(LOGIN_ID, loginCheck);
-		
+
 		} else { // 모두 연동 되어있을시
 			Map<String, Object> loginCheck = service.userNaverLoginPro(apiJson);
 			String name=(String) loginCheck.toString();
 			String name1=name.substring(name.lastIndexOf("=")+1);
 			String replace=name1.replace("}","");
+
 			System.out.println(replace);
 			session.setAttribute(LOGIN_ID,replace);
-
 		}
+
 		return "main/mainPage";
 	}
 
@@ -130,7 +127,8 @@ public class NaverLoginController implements MemberSession {
 		if (result == 1) {
 			return "main/mainPage";
 		} else {
-			return "redirect:memlogin";
+			return "redirect:/login";
+
 		}
 	}
 
