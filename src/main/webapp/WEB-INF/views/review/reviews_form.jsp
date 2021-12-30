@@ -186,7 +186,7 @@ margin: auto;
 				<input type="hidden" name="att"value="food" />
 				
 				<input type="hidden" name="rate" id="rate" value="5" />
-				<input type="hidden" name="memId" value="김떙땡" />
+				<input type="hidden" name="memId" value="${session_user }" />
 				<input type="hidden" name="foodName" value="김치" />
 				<input type="hidden" name="restId" value="0" />
 				
@@ -195,7 +195,7 @@ margin: auto;
 				<input type="hidden" name="att" value="rest" />
 				<input type="hidden" name="foodName" value="non" />
 				<input type="hidden" name="rate" id="rate" value="5" />
-				<input type="hidden" name="memId" value="${memId }" />
+				<input type="hidden" name="memId" value="${session_user }"/>
 				<input type="hidden" name="restId" value="${restDTO.id }" />
 			</c:if>
 

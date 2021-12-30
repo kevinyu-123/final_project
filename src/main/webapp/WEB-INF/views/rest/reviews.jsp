@@ -49,12 +49,12 @@
                 <img class="u-image u-image-default u-preserve-proportions u-image-1" src="resources/rest_detail/bootstrap/images/commonImg/star.png" alt="" data-image-width="512" data-image-height="512">
                 <p class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">${rev.rate }.0 / 5.0</p>
                 <div alt="" class="u-image u-image-circle u-image-2" data-image-width="1056" data-image-height="1500"></div>
-                <h6 class="u-text u-text-default u-text-4">${restId }</h6>
+                <h6 class="u-text u-text-default u-text-4">${rev.memId }</h6>
                 <p class="u-text u-text-5">"${rev.review}"</p>
                 <c:if test="${rev.imgs ne 'non' }">
                 <c:set var="imgCntt" value="${fn:split(rev.imgs,'&')}" />
 				<c:forEach var="img" items="${imgCntt }" varStatus="status">
-                <img class="u-image u-image-default u-image-${status.count+2 }" src="${contextPath }/resources/rest_reviews_img/${restId}/${rev.memId}/${rev.revDate}/${img}" alt="" data-image-width="750" data-image-height="1000">
+                <img class="u-image u-image-default u-image-${status.count+2 }" src="${contextPath }/resources/rest_reviews_img/${restId}/${rev.revDate}/${img}" alt="" data-image-width="750" data-image-height="1000">
             	</c:forEach>
             	</c:if>
             	<c:if test="${rev.imgs eq 'non' }">
@@ -75,7 +75,7 @@
                 <c:if test="${rev.imgs ne 'non' }">
                 <c:set var="imgCntt" value="${fn:split(rev.imgs,'&')}" />
 				<c:forEach var="img" items="${imgCntt }" varStatus="status">
-                <img class="u-image u-image-default u-image-${status.count+2 }" src="${contextPath }/resources/rest_reviews_img/${restId}/${rev.memId}/${rev.revDate}/${img}" alt="" data-image-width="750" data-image-height="1000">
+                <img class="u-image u-image-default u-image-${status.count+2 }" src="${contextPath }/resources/rest_reviews_img/${restId}/${rev.revDate}/${img}" alt="" data-image-width="750" data-image-height="1000">
             	</c:forEach>
             	</c:if>
             	<c:if test="${rev.imgs eq 'non' }">
