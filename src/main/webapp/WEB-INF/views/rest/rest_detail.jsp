@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="contextPath" value="${contextPath.request.pageContext }" />
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-<meta name="keywords"
-	content="돈사돈 신설동점, 흑돼지 3인세트 (800g), 백돼지 3인세트 (800g), 된장뽀글이, Restaurant&nbsp;reviews">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>rest_detail_page</title>
 <link rel="stylesheet"
 	href="resources/rest_detail/bootstrap/css/nicepage.css" media="screen">
 <link rel="stylesheet"
-	href="resources/rest_detail/bootstrap/css/Home.css" media="screen">
+	href="resources/rest_detail/bootstrap/css/val2.css" media="screen">
 <script class="u-script" type="text/javascript"
 	src="resources/rest_detail/bootstrap/js/jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript"
 	src="resources/rest_detail/bootstrap/js/nicepage.js" defer=""></script>
-<meta name="generator" content="Nicepage 4.1.0, nicepage.com">
+<meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 <link rel="stylesheet"
@@ -32,186 +31,263 @@
 	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="val2.css" media="screen">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
-		"name": "",
-		"logo": "images/default-logo.png"
+		"name": ""
 }</script>
 <meta name="theme-color" content="#478ac9">
-<meta property="og:title" content="Home">
+<meta property="og:title" content="val2">
 <meta property="og:type" content="website">
 <style type="text/css">
-#myCarousel {
-	width: 1127px;
-}
-
-.carousel-inner .item {
-	height: 480px;
-}
-
-.radius_border {
-	border: 1px solid #919191;
-	border-radius: 5px;
-}
-
-.custom_typecontrol {
+.container {
+	max-width: 103%;
+	height: auto;
 	position: absolute;
-	top: 10px;
-	right: 10px;
-	overflow: hidden;
-	width: 130px;
-	height: 30px;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-	font-size: 12px;
-	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+	left: -15px;
+	object-fit: contain;
 }
 
-.custom_typecontrol span {
-	display: block;
-	width: 65px;
-	height: 30px;
-	float: left;
-	text-align: center;
-	line-height: 30px;
-	cursor: pointer;
+.carousel-inner img {
+	width: 100%;
+	max-height: 504px;
 }
 
-.custom_typecontrol .btn {
-	background: #fff;
-	background: linear-gradient(#fff, #e6e6e6);
-}
+@media ( max-width : 1199px) {
+	.container {
+		max-width: 103%;
+		max-height: 416px;
+		position: absolute;
+		left: -15px;
+		object-fit: contain;
+	}
+	.carousel-inner img {
+		width: 100%;
+		max-height: 416px;
+	}
 
-.custom_typecontrol .btn:hover {
-	background: #f5f5f5;
-	background: linear-gradient(#f5f5f5, #e3e3e3);
 }
-
-.custom_typecontrol .btn:active {
-	background: #e6e6e6;
-	background: linear-gradient(#e6e6e6, #fff);
-}
-
-.custom_typecontrol .selected_btn {
-	color: #fff;
-	background: #425470;
-	background: linear-gradient(#425470, #5b6d8a);
-}
-
-.custom_typecontrol .selected_btn:hover {
-	color: #fff;
-}
-
-.custom_zoomcontrol {
-	position: absolute;
-	top: 50px;
-	right: 10px;
-	width: 36px;
-	height: 80px;
-	overflow: hidden;
-	z-index: 1;
-	background-color: #f5f5f5;
-}
-
-.custom_zoomcontrol span {
-	display: block;
-	width: 36px;
-	height: 40px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.custom_zoomcontrol span img {
-	width: 15px;
-	height: 15px;
-	padding: 12px 0;
-	border: none;
-}
-
-.custom_zoomcontrol span:first-child {
-	border-bottom: 1px solid #bfbfbf;
-}
-.u-text-5{
-font-size: 20px;
+	.restReviewImg {
+		left: 5px;
+	}
+	.radius_border {
+		border: 1px solid #919191;
+		border-radius: 5px;
+	}
+	.custom_typecontrol {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		overflow: hidden;
+		width: 130px;
+		height: 30px;
+		margin: 0;
+		padding: 0;
+		z-index: 1;
+		font-size: 12px;
+		font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+	}
+	.custom_typecontrol span {
+		display: block;
+		width: 65px;
+		height: 30px;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	.custom_typecontrol .btn {
+		background: #fff;
+		background: linear-gradient(#fff, #e6e6e6);
+	}
+	.custom_typecontrol .btn:hover {
+		background: #f5f5f5;
+		background: linear-gradient(#f5f5f5, #e3e3e3);
+	}
+	.custom_typecontrol .btn:active {
+		background: #e6e6e6;
+		background: linear-gradient(#e6e6e6, #fff);
+	}
+	.custom_typecontrol .selected_btn {
+		color: #fff;
+		background: #425470;
+		background: linear-gradient(#425470, #5b6d8a);
+	}
+	.custom_typecontrol .selected_btn:hover {
+		color: #fff;
+	}
+	.custom_zoomcontrol {
+		position: absolute;
+		top: 50px;
+		right: 10px;
+		width: 36px;
+		height: 80px;
+		overflow: hidden;
+		z-index: 1;
+		background-color: #f5f5f5;
+	}
+	.custom_zoomcontrol span {
+		display: block;
+		width: 36px;
+		height: 40px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.custom_zoomcontrol span img {
+		width: 15px;
+		height: 15px;
+		padding: 12px 0;
+		border: none;
+	}
+	.custom_zoomcontrol span:first-child {
+		border-bottom: 1px solid #bfbfbf;
+	}
+	.u-layout-wrap-2 .u-text-4 {
+		font-size: 20px;
+		width: 400px;
+	}
+	.u-text-10 button {
+		margin-left: 20px;
+		width: 200px;
+	}
+	.u-text-10 button p {
+		margin: auto;
+	}
+	.u-shape-rectangle {
+		margin-top: 10px;
+	}
 }
 </style>
 </head>
 <body class="u-body">
-	<!-- header 들어가야함 -->
+	<c:import url="../default/header2.jsp"></c:import>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-4136">
-		<div
-			class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
-			<div
-				class="u-carousel u-expanded-width u-gallery u-gallery-slider u-layout-carousel u-lightbox u-no-transition u-product-zoom u-show-text-none u-gallery-1"
-				id="carousel-0e37" data-interval="5000" data-u-ride="carousel">
-				<div class="container">
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-						<!-- Indicators -->
-						<c:set var ="cnt" value="${fn:length(restPic) }"/>
-
-						<ol class="carousel-indicators">
-							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							<c:forEach var="num" begin="1" end="${cnt-1 }">
-								<li data-target="#myCarousel" data-slide-to="${num }"></li>
-							</c:forEach>
-						</ol>
-
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner"
-							style="max-height: 600px; margin-top: 50px;">
-							<div class="item active">
-								<img src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }"
-									style="width: 100%; height: 600px;">
-							</div>
-							<c:forEach var="num" begin="1" end="${cnt-1 }">
-								<div class="item">
-									<img src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[num] }" style="width: 100%; height: 600px;">
-								</div>
-							</c:forEach>
-						</div>
-						<!-- Left and right controls -->
-						<a class="left carousel-control" href="#myCarousel"
-							data-slide="prev"> <span
-							class="glyphicon glyphicon-chevron-left"></span> <span
-							class="sr-only">Previous</span>
-						</a> <a class="right carousel-control" href="#myCarousel"
-							data-slide="next"> <span
-							class="glyphicon glyphicon-chevron-right"></span> <span
-							class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-			</div>
+		<div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
 			<div
 				class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
 				<div class="u-layout">
 					<div class="u-layout-row">
 						<div
-							class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-							<div class="u-container-layout u-container-layout-1">
+							class="u-size-31-sm u-size-31-xs u-size-43-lg u-size-43-xl u-size-60-md">
+							<div class="u-layout-col">
+								<div
+									class="u-container-style u-image u-layout-cell u-size-60 u-image-1"
+									data-image-width="750" data-image-height="1000">
+									<div class="u-container-layout u-container-layout-1">
+										<div class="container">
+											<div id="myCarousel" class="carousel slide"
+												data-ride="carousel">
+												<!-- Indicators -->
+												<c:set var="cnt" value="${fn:length(restPic) }" />
+
+												<ol class="carousel-indicators">
+													<li data-target="#myCarousel" data-slide-to="0"
+														class="active"></li>
+													<c:forEach var="num" begin="1" end="${cnt-1 }">
+														<li data-target="#myCarousel" data-slide-to="${num }"></li>
+													</c:forEach>
+												</ol>
+												<!-- Wrapper for slides -->
+												<div class="carousel-inner" style="">
+													<div class="item active">
+														<img
+															src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }">
+													</div>
+													<c:forEach var="num" begin="1" end="${cnt-1 }">
+														<div class="item">
+															<img
+																src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[num] }">
+														</div>
+													</c:forEach>
+												</div>
+												<!-- Left and right controls -->
+												<a class="left carousel-control" href="#myCarousel"
+													data-slide="prev"> <span
+													class="glyphicon glyphicon-chevron-left"></span> <span
+													class="sr-only">Previous</span>
+												</a> <a class="right carousel-control" href="#myCarousel"
+													data-slide="next"> <span
+													class="glyphicon glyphicon-chevron-right"></span> <span
+													class="sr-only">Next</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							class="u-size-17-lg u-size-17-xl u-size-29-sm u-size-29-xs u-size-60-md">
+							<div class="u-layout-col">
+								<div class="u-size-30">
+									<div class="u-layout-row">
+										<div
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-2"
+											data-image-width="750" data-image-height="1000"
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
+											<div class="u-container-layout u-container-layout-2"></div>
+										</div>
+										<div
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-3 restReviewImg"
+											data-image-width="750" data-image-height="1000"
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
+											<div class="u-container-layout u-container-layout-3"></div>
+										</div>
+									</div>
+								</div>
+								<div class="u-size-30">
+									<div class="u-layout-row">
+										<div
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-4 "
+											data-image-width="750" data-image-height="1000"
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
+											<div class="u-container-layout u-container-layout-4"></div>
+										</div>
+										<div
+											class="u-container-style u-image u-layout-cell u-size-30 u-image-5 restReviewImg"
+											data-image-width="750" data-image-height="1000"
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
+											<div class="u-container-layout u-container-layout-5"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-2">
+				<div class="u-layout">
+					<div class="u-layout-row">
+						<div
+							class="u-container-style u-layout-cell u-size-30 u-layout-cell-6">
+							<div class="u-container-layout u-container-layout-6">
 								<h1 class="u-text u-text-default u-text-1">${restDTO.name }</h1>
 								<img
-									class="u-image u-image-default u-preserve-proportions u-image-1"
+									class="u-image u-image-default u-preserve-proportions u-image-6"
 									src="resources/rest_detail/bootstrap/images/commonImg/star.png"
 									alt="" data-image-width="512" data-image-height="512">
 								<p
-									class="u-text u-text-default u-text-palette-5-dark-1 u-text-2">${restDTO.rateAvr } / 5.0</p>
+									class="u-text u-text-default u-text-palette-5-dark-1 u-text-2">${avr }
+									/ 5.0</p>
 								<p
 									class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">${restDTO.subEx }</p>
 								<div
-									class="u-border-2 u-border-palette-5-base u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-line-1"></div>
+									class="u-border-2 u-border-palette-5-base u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xs u-line u-line-horizontal u-line-1"></div>
 								<div
-									class="u-border-2 u-border-palette-5-base u-hidden-md u-hidden-xs u-line u-line-horizontal u-line-2"></div>
-								<p class="u-text u-text-default u-text-4">
+									class="u-border-2 u-border-palette-5-base u-hidden-lg u-hidden-md u-hidden-sm u-hidden-xs u-line u-line-horizontal u-line-2"></div>
+								<p class="u-text u-text-4">"${restDTO.mainEx }"</p>
+								<p class="u-text u-text-5">
 									<span class="u-icon u-icon-1"><svg class="u-svg-content"
 											viewBox="0 0 8.4666665 8.4666669"
 											style="width: 1em; height: 1em;">
@@ -224,31 +300,97 @@ font-size: 20px;
 												transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)"></path>
 </g></svg><img></span>&nbsp; ${restDTO.addr }
 								</p>
-								<p
-									class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-text-body-color u-btn-1"><span
-									class="u-icon u-icon-2"><svg class="u-svg-content"
-											viewBox="0 0 405.333 405.333" x="0px" y="0px"
-											style="width: 1em; height: 1em;">
+								<p class="u-text u-text-6">
+									<span class="u-icon u-icon-2"><svg class="u-svg-content"
+											viewBox="0 0 405.333 405.333" x="0px" y="0px">
 											<path
-												d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span>&nbsp;
-									${restDTO.tel } </p> <p 
-									class="u-active-none u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-text-body-color u-btn-2"><span
-									class="u-icon u-text-black u-icon-3"><svg
-											class="u-svg-content" viewBox="0 0 32 32"
-											style="width: 1em; height: 1em;">
+												d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span>
+									&nbsp; 전화번호 : ${restDTO.tel }
+								</p>
+								<p class="u-text u-text-7">
+									<span class="u-icon u-text-black u-icon-3"><svg
+											class="u-svg-content" viewBox="0 0 32 32">
 											<g id="_34-Time">
 											<path
 												d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm1,29.95V26H15v3.95A14,14,0,0,1,2.05,17H6V15H2.05A14,14,0,0,1,15,2.05V6h2V2.05A14,14,0,0,1,29.95,15H26v2h3.95A14,14,0,0,1,17,29.95Z"></path>
 											<path d="M17,9H15v7a1,1,0,0,0,.29.71l5,5,1.41-1.41L17,15.59Z"></path>
-</g></svg><img></span>&nbsp;영업시간 :  ${restDTO.hours } </p>
-								<p class="u-text u-text-5">"${restDTO.mainEx }"</p>
+</g></svg><img></span> &nbsp; 영업시간 : ${restDTO.hours }
+								</p>
+								<p class="u-text u-text-8">추가할 정보1</p>
+								<p class="u-text u-text-9">추가할 정보2</p>
+								<div class="u-text u-text-10">
+									<button type="button" class="btn btn-primary" id="rest_reviews"
+										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">
+										<p>리뷰쓰기</p>
+									</button>
+									<button type="button" class="btn btn-primary" id="fav_button"
+										onclick="fav('aa',${restDTO.id})">
+										<p id="rest_fav">찜하기</p>
+									</button>
+									<script type="text/javascript">
+									function fav(memId,restId){
+										var sendData = { "memId":memId , "rest":restId };
+										console.log("보내는 데이터"+sendData)
+										if($("#rest_fav").text()=="찜하기"){
+											$.ajax({
+										 	      type: "POST",
+										 	      dataType:"json",
+										 	      url: "liked_click",
+										     	  processData: false,
+										 	      contentType: "application/json; charset=utf-8",
+										 	   	  data:  JSON.stringify(sendData),
+										 	      success: function (data) {
+										 	    	  if(data.result == "ok"){
+										 	    		  console.log("좋아요 진입")
+										 	    		 swal({
+										 	    			  icon: "success",
+										 	    			});
+										 	    		  rest_fav.innerText="찜 취소하기"
+										 	    	  }else
+										 	    		  alert("오류임");
+										 	    	  console.log(data);
+										 	      },
+										 	      error: function (request, status, error) {
+										 	    	alert("문제가 생겼습니다.");
+										 	     return false;
+										 	      }
+										 	    });
+										
+										}else{
+											$.ajax({
+										 	      type: "POST",
+										 	      dataType:"json",
+										 	      url: "dliked_click",
+										     	  processData: false,
+										     	  contentType: "application/json; charset=utf-8",
+										     	  data:  JSON.stringify(sendData),
+										 	      success: function (data) {
+										 	    	 console.log("안좋아요 진입")
+										 	    	  if(data.result == "no"){
+										 	    		 swal ( "${restDTO.name}" ,  "찜 등록 취소!" ,  "error" )
+										 	    		  rest_fav.innerText="찜하기"
+										 	    	  }else
+										 	    		  alert("오류임");
+										 	    	  console.log(data);
+										 	      },
+										 	      error: function (request, status, error) {
+										 	    	alert("문제가 생겼습니다.");
+										 	     return false;
+										 	      }
+										 	    });
+										
+										}
+									}
+									</script>
+								</div>
 							</div>
 						</div>
 						<div
-							class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-							<div class="u-container-layout u-container-layout-2">
+							class="u-container-style u-image u-layout-cell u-size-30 u-image-7"
+							data-image-width="750" data-image-height="1000">
+							<div class="u-container-layout u-container-layout-7">
 								<div class="map_wrap">
-									<div id="map" style="width: 542px; height: 450px;"></div>
+									<div id="map" style="width: 560px; height: 550px;"></div>
 								</div>
 								<script type="text/javascript"
 									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b98926a604353b43e636cb141e9ef77"></script>
@@ -289,7 +431,7 @@ font-size: 20px;
 	<section class="u-align-center u-clearfix u-section-2"
 		id="carousel_f7e5">
 		<div
-			class="u-clearfix u-sheet u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xl u-sheet-1">
+			class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
 			<div
 				class="u-border-2 u-border-palette-5-base u-expanded-width u-hidden-md u-hidden-xs u-line u-line-horizontal u-line-1"></div>
 			<span class="u-icon u-icon-circle u-text-grey-40 u-icon-1"><svg
@@ -321,138 +463,31 @@ font-size: 20px;
 			<h3 class="u-text u-text-1">Dining Menu</h3>
 			<div class="u-expanded-width u-list u-list-1">
 				<div class="u-repeater u-repeater-1">
+				<c:forEach var="menu" items="${menuDTO }" varStatus="status">
 					<div class="u-container-style u-list-item u-repeater-item">
-						<div
-							class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-							<h2 class="u-text u-text-grey-70 u-text-2">흑돼지 3인세트 (800g)</h2>
-							<p class="u-text u-text-grey-50 u-text-3">메뉴설명1</p>
+					<div
+							class="u-container-layout u-similar-container u-container-layout-${status.count }">
+							<h2 class="u-align-center u-text u-text-grey-70 u-text-2">${menu.name }</h2>
+							<p class="u-align-center u-text u-text-grey-50 u-text-3">
+								price : ${menu.price } won<br> <br>
+							</p>
+							<p class="u-text u-text-black u-text-4">${menu.ex }</p>
 							<img
-								src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${restPic[num] }"
+								src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${menu.pic }"
 								alt=""
 								class="u-expanded-width u-image u-image-default u-image-1">
 						</div>
 					</div>
-					<div class="u-container-style u-list-item u-repeater-item">
-						<div
-							class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
-							<h2 class="u-text u-text-grey-70 u-text-4">백돼지 3인세트 (800g)</h2>
-							<p class="u-text u-text-grey-50 u-text-5">메뉴설명2</p>
-							<img
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/9e0024470b0f8316708609efdc4d2f57.jpeg"
-								alt=""
-								class="u-expanded-width u-image u-image-default u-image-2">
-						</div>
-					</div>
-					<div class="u-container-style u-list-item u-repeater-item">
-						<div
-							class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-							<h2 class="u-text u-text-grey-70 u-text-6">된장뽀글이</h2>
-							<p class="u-text u-text-grey-50 u-text-7">메뉴설명3</p>
-							<img
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/b81dc61f5cc588090e947e2da8347594.jpeg"
-								alt=""
-								class="u-expanded-width u-image u-image-default u-image-3">
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div
 				class="u-border-2 u-border-palette-5-base u-expanded-width u-hidden-md u-hidden-xs u-line u-line-horizontal u-line-2"></div>
 		</div>
 	</section>
-	<section class="u-align-center u-clearfix u-section-3"
-		id="carousel_dc53">
-		<div class="u-clearfix u-sheet u-sheet-1">
-			<h6 class="u-text u-text-default u-text-1">돈사돈 신설동점</h6>
-			<h2 class="u-text u-text-default u-text-2">
-				Restaurant&nbsp;<b style="">reviews</b>
-			</h2>
-			<div class="u-list u-list-1">
-				<div class="u-repeater u-repeater-1">
-					<div
-						class="u-container-style u-list-item u-repeater-item u-shape-rectangle">
-						<div
-							class="u-container-layout u-similar-container u-container-layout-1">
-							<img
-								class="u-image u-image-default u-preserve-proportions u-image-1"
-								src="resources/rest_detail/bootstrap/images/commonImg/star.png"
-								alt="" data-image-width="512" data-image-height="512">
-							<p class="u-text u-text-default u-text-palette-5-dark-1 u-text-3">4.8
-								/ 5.0</p>
-							<div alt="" class="u-image u-image-circle u-image-2"
-								data-image-width="1056" data-image-height="1500"></div>
-							<h6 class="u-text u-text-default u-text-4">김개똥</h6>
-							<p class="u-text u-text-5">맛이 어쩌구저쩌구입니다.</p>
-							<a href="https://nicepage.com/c/art-design-website-templates"
-								class="u-border-4 u-border-grey-75 u-btn u-button-style u-none u-btn-1">read
-								more</a> <img class="u-image u-image-default u-image-3"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000"> <img
-								class="u-image u-image-default u-image-4"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000"> <img
-								class="u-image u-image-default u-image-5"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000">
-						</div>
-					</div>
-					<div
-						class="u-container-style u-custom-item u-grey-5 u-list-item u-repeater-item u-shape-rectangle u-list-item-2">
-						<div
-							class="u-container-layout u-similar-container u-container-layout-2">
-							<img
-								class="u-image u-image-default u-preserve-proportions u-image-6"
-								src="resources/rest_detail/bootstrap/images/commonImg/star.png"
-								alt="" data-image-width="512" data-image-height="512">
-							<p class="u-text u-text-default u-text-palette-5-dark-1 u-text-6">4.8
-								/ 5.0</p>
-							<div alt="" class="u-image u-image-circle u-image-7"
-								data-image-width="1000" data-image-height="1500"></div>
-							<h6 class="u-text u-text-default u-text-7">한개똥</h6>
-							<p class="u-text u-text-8">"Aenean pulvinar dui ornare,
-								feugiat lorem non, ultrices justo. Mauris efficitur, mauris in
-								auctor euismod, quam elit ultrices urna, eget eleifend arcu
-								risus id metus. Maecenas ex enim, mattis eu velit vitae, blandit
-								mattis sapien. Sed aliquam leo et semper vestibulum."</p>
-							<a href="https://nicepage.com/k/interactive-website-templates"
-								class="u-border-4 u-border-grey-75 u-btn u-button-style u-btn-2">read
-								more</a> <img class="u-image u-image-default u-image-8"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000"> <img
-								class="u-image u-image-default u-image-9"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000"> <img
-								class="u-image u-image-default u-image-10"
-								src="resources/rest_detail/bootstrap/images/돈사돈 신설동점/4.jpg"
-								alt="" data-image-width="750" data-image-height="1000">
-						</div>
-					</div>
-				</div>
-			</div>
-			<a href="https://nicepage.me"
-				class="u-border-active-black u-border-hover-black u-btn u-button-style u-btn-3">more</a>
-		</div>
-	</section>
-
-
-	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
-		id="sec-a814">
-		<div class="u-clearfix u-sheet u-sheet-1">
-			<p class="u-small-text u-text u-text-variant u-text-1">Sample
-				text. Click to select the text box. Click again or double click to
-				start editing the text.</p>
-		</div>
+	<c:import url="reviews.jsp"/>
+	<footer>
+		<c:import url="../default/footer.jsp"></c:import>
 	</footer>
-	<section class="u-backlink u-clearfix u-grey-80">
-		<a class="u-link" href="https://nicepage.com/website-templates"
-			target="_blank"> <span>Website Templates</span>
-		</a>
-		<p class="u-text">
-			<span>created with</span>
-		</p>
-		<a class="u-link" href="" target="_blank"> <span>Website
-				Builder Software</span>
-		</a>.
-	</section>
 </body>
 </html>

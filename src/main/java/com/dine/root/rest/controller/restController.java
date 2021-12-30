@@ -20,14 +20,13 @@ public class restController {
 	@Qualifier("restServiceImpl")
 	@Autowired restService rs;
 	
-	@RequestMapping("v")
+	@RequestMapping("restaurant")
 	public String restDetail2(Model m, @RequestParam int id) {
-		//int id = 41;
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
 		rs.infoReviews(m,id);
 		
-		return "/rest/val2";
+		return "/rest/rest_detail";
 
 	}
 	
