@@ -55,6 +55,7 @@
 	<select id="countCategories" resultType="int">
 		SELECT COUNT(*)
 		FROM FOOD
+		<include refid="detailCon"></include>
 	</select>
 	
 	<sql id="condition">

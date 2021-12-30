@@ -191,9 +191,12 @@ footer {
 				<!-- 검색 결과창 -->
 				<div class="results">
 					<c:choose>
-						<c:when test="${map.count } != 0">
-							${map.count } 개의 결과가 있습니다.
+						<c:when test="${map.dCount > 0 }">
+							${map.dCount } 개의 결과가 있습니다.
 							<hr>
+						</c:when>
+						<c:when test="${map.kCount > 0 }">
+							${map.kCount } 개의 결과가 있습니다.
 						</c:when>
 						<c:otherwise>
 							관련된 결과가 없습니다.
@@ -222,7 +225,7 @@ footer {
 						</div>
 					</c:forEach>
 					
-					<!-- 키워드 검색 결과 -->
+					<!-- 세부검색 결과 -->
 					<c:forEach var="row" items="${map.dList }">
 						<div class="result">
 							<div class="rest_pic">

@@ -34,13 +34,13 @@ public class SearchController {
 							throws Exception {
 		
 		List<SearchDTO> kList = searchService.viewAll(keyword);
-		int count = searchService.countArticle(keyword);
+		int kCount = searchService.countArticle(keyword);
 		
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("kList", kList);
-		map.put("count", count);
+		map.put("kCount", kCount);
 		map.put("keyword", keyword);
 		mav.addObject("map", map);
 		mav.setViewName("search/search_result");
@@ -79,13 +79,13 @@ public class SearchController {
 									 Model model) throws Exception {
 		
 		List<SearchDTO> dList = searchService.categorise(country, addr, food);
-		int count = searchService.countCategories(country, addr, food);
+		int dCount = searchService.countCategories(country, addr, food);
 		
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("dList", dList);
-		map.put("count", count);
+		map.put("dCount", dCount);
 		map.put("country", country);
 		map.put("addr", addr);
 		map.put("food", food);
