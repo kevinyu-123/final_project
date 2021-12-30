@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <head>
 <meta charset="UTF-8">
@@ -54,8 +55,8 @@
 	 	      contentType: false,
 	 	      success: function (data) {
 	 	    	  if(data.result == "OK"){
-	 	    		  alert("리뷰 작성 완료")
-	 	    		  location.href="/root/v";
+	 	    		 alert("리뷰 등록 완료");
+	 	    		  history.back()
 	 	    	  }else
 	 	    		  alert("오류임");
 	 	    	  console.log(data);

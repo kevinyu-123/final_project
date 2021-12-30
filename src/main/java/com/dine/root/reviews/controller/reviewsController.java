@@ -31,13 +31,13 @@ public class reviewsController {
 		model.addAttribute("att","rest");
 		model.addAttribute("memId","aa");
 		rs.infoRest(model,restId);
-		return "food/reviews_form";
+		return "review/reviews_form";
 	}
 	
 	@RequestMapping("food_reviews_form")
 	public String Reviews(Model model) {
 		model.addAttribute("att","food");
-		return "food/reviews_form";
+		return "review/reviews_form";
 	}
 	
 	@ResponseBody
@@ -72,14 +72,6 @@ public class reviewsController {
 		return msg;
 	}
 
-	@RequestMapping("food")
-	public String food() {
-		return "/food/food_detail";
-	}
-	@RequestMapping("f")
-	public String f() {
-		return "/food/food";
-	}
 	@RequestMapping("upload_rest_Review")
 	public void upload(MultipartHttpServletRequest m, HttpServletResponse res) throws IOException {
 		System.out.println("정보 1 : "+m.getParameter("rate"));

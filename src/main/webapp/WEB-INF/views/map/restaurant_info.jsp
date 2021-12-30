@@ -228,7 +228,7 @@ color:white;
 				new maplibregl.Marker(el)
 				.setLngLat(marker.geometry.coordinates)
 				.setPopup(new maplibregl.Popup()
-				.setHTML("<label>상호명: </label><a href='${contextPath}/v?id=${json[i].id}'>"+json[i].name +"</a><br><br><label>주소: "+json[i].addr+"</label><br><br><label>특징: "+json[i].main_ex+"</label><br><br><label>운영시간: "+json[i].hours+"</label><br><br><label>전화번호: "+json[i].tel+"</label>"))
+				.setHTML("<label><b>상호명:</b> </label><a href='${contextPath}/restaurant?id="+json[i].id+"'>"+json[i].name +"</a><br><br><label><b>주소:</b> "+json[i].addr+"</label><br><br><label><b>특징:</b> "+json[i].main_ex+"</label><br><br><label><b>운영시간:</b> "+json[i].hours+"</label><br><br><label><b>전화번호:</b> "+json[i].tel+"</label>"))
 				.addTo(map);
 				});
 			}

@@ -151,11 +151,11 @@ span {
 							<c:forEach var="res" items="${res_form}">
 							<div>
 							<figure class="snip1132">
-							<img src="${contextPath}/resources/img/imgMain/${res.rest_mainpic}"alt="sample22"/>
+							<img src="${contextPath}/resources/img/imgMain/${res.mainPic}"/>
 							<figcaption>
 							<div class="heading"><span>${res.name}</span></div>
 							</figcaption>
-							<a href="${contextPath}/v?id=${res.id}"></a>
+							<a href="${contextPath}/restaurant?id=${res.id}"></a>
 							</figure>
 							</div>
 						</c:forEach>

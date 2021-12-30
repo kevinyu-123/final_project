@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface reviewsService {
 	public static final String restReviewsImg = "C:\\spring_project\\final_project\\src\\main\\webapp\\resources\\rest_reviews_img";
+	//public static final String restReviewsImg = "C:\\spring_project\\Image";
 	public static final String foodReviewsImg = "C:\\spring_project\\final_project\\src\\main\\webapp\\resources\\food_reviews_img";
 	public int reviewsUploadProcess(List<MultipartFile> multipartFile,HttpServletRequest request);
 	public int reviewsUploadNonFile(HttpServletRequest request);

@@ -1,3 +1,5 @@
+
+
 .u-section-1 .u-sheet-1 {
   min-height: 1139px;
 }
@@ -19,21 +21,18 @@
 
 .u-section-1 .u-image-3 {
   min-height: 252px;
-  background-image: url("/root/resources/rest_detail/bootstrap/images/22/mainPic/4.jpg");
 }
 
 
 
 .u-section-1 .u-image-4 {
   min-height: 252px;
-  background-image: url("/root/resources/rest_detail/bootstrap/images/22/mainPic/4.jpg");
 }
 
 
 
 .u-section-1 .u-image-5 {
   min-height: 252px;
-  background-image: url("/root/resources/rest_detail/bootstrap/images/22/mainPic/4.jpg");
 }
 
 
@@ -136,7 +135,6 @@
 
 .u-section-1 .u-image-7 {
   min-height: 530px;
-  background-image: url("images/4.jpg");
 }
 
 .u-section-1 .u-container-layout-7 {
@@ -876,7 +874,7 @@
 .u-section-3 .u-image-2 {
   width: 110px;
   height: 110px;
-  background-image: url("/root/resources/rest_detail/bootstrap/images/commonImg/pexels-photo-5388587.jpeg");
+  background-image: url("/resources/rest_detail/bootstrap/images/commonImg/mem.png");
   background-position: 50% 13.24%;
   margin: -21px auto 0 0;
 }
@@ -966,7 +964,7 @@
 .u-section-3 .u-image-7 {
   width: 110px;
   height: 110px;
-  background-image: url("/root/resources/rest_detail/bootstrap/images/commonImg/pexels-photo-5599044.jpeg");
+  background-image: url("/resources/rest_detail/bootstrap/images/commonImg/mem.png");
   background-position: 50% 50%;
   margin: -21px auto 0 0;
 }
