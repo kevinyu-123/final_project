@@ -339,8 +339,8 @@
 											<path d="M17,9H15v7a1,1,0,0,0,.29.71l5,5,1.41-1.41L17,15.59Z"></path>
 </g></svg><img></span> &nbsp; 영업시간 : ${restDTO.hours }
 								</p>
-								<p class="u-text u-text-8">추가할 정보1</p>
-								<p class="u-text u-text-9">추가할 정보2</p>
+								<p class="u-text u-text-8">&nbsp;</p>
+								<p class="u-text u-text-9">&nbsp;</p>
 								<div class="u-text u-text-10">
 									<button type="button" class="btn btn-primary" id="rest_reviews"
 										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">
