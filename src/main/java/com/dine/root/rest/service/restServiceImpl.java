@@ -1,6 +1,7 @@
 package com.dine.root.rest.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,4 +130,8 @@ public class restServiceImpl implements restService{
 		// TODO Auto-generated method stub
 		
 	}
+	   @Override
+	   public List<restDTO> getRestByNation(String nation) {
+	      return dao.selectNationByRest(nation);
+	   }
 }

@@ -11,7 +11,7 @@
 		<result property="nation" column="nation"/>
 		<result property="addr" column="addr"/>
 		<result property="tel" column="tel"/>
-		<result property="open_hours" column="open_hours"/>
+		<result property="hours" column="hours"/>
 		<result property="sub_ex" column="sub_ex"/>
 		<result property="main_ex" column="main_ex"/>
 		<result property="menu_cnt" column="menu_cnt"/>

@@ -145,148 +145,89 @@ footer {
 </script>
 </head>
 <body>
-	<div class="w3-animate-opacity">
-		<header>
-	
-			<c:import url="../default/header.jsp" />
-		</header>
-		
+   <header>
+      <c:import url="../default/header.jsp" />
+   </header>
+   
+   <div class="wrap">
+      <div class="tab"></div>
+      <div class="main">
+         <div class="center">
+            <div class="search">
+               <h2>Dining Lab</h2>
+               <form class="conn" action="./search_result">
+                  <input type="text" name="keyword" placeholder="나라 이름, 음식 또는 식당 검색" value="${keyword }">
+                  <button type="submit" onclick="./search_result.jsp">검색</button>
+               </form>
+            </div>
+            
+            <!-- 검색 결과창 -->
+            <div class="results">
+               <c:choose>
+                  <c:when test="${map.kCount > 0 }">
+                     ${map.kCount } 개의 결과가 있습니다.
+                  </c:when>
+                  <c:when test="${map.dCount > 0 }">
+                     ${map.dCount } 개의 결과가 있습니다.
+                     <hr>
+                  </c:when>
+                  <c:otherwise>
+                     관련된 결과가 없습니다.
+                     <hr>
+                  </c:otherwise>
+               </c:choose>
+               
+               <!-- 키워드 검색 결과 -->
+               <c:forEach var="row" items="${map.kList }">
+                  <div class="result">
+                     <div class="rest_pic">
+                        <img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+                     </div>
+                     <div class="rest_info">
+                        <div class="rest_title">
+                           <h4>${row.foodName }</h4> <h4>${row.nation }</h4>
+                        </div>
+                        <div class="rest_comment">
+                           <h5>${row.category_2 }</h5>
+                        </div>
+                        <div class="rest_addr">
+                           <p>${row.category_1 }</p>
+                        </div>
+                     </div>
+                     <hr>
+                  </div>
+               </c:forEach>
+               
+               <!-- 세부검색 결과 -->
+               <c:forEach var="row" items="${map.dList }">
+                  <div class="result">
+                     <div class="rest_pic">
+                        <img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
+                     </div>
+                     <div class="rest_info">
+                        <div class="rest_title">
+                           <h4>${row.foodName }</h4> <h4>${row.nation }</h4>
+                        </div>
+                        <div class="rest_comment">
+                           <h5>${row.category_2 }</h5>
+                        </div>
+                        <div class="rest_addr">
+                           <p>${row.category_1 }</p>
+                        </div>
+                     </div>
+                     <hr>
+                  </div>
+               </c:forEach>
 
-		<div class="wrap">
-			<div class="main">
-				<div class="center">
-					<div class="search">
-						<form class="conn" action="./search_result" method="get">
-							<div style="display: flex;">
-								<div>
-									<input type="text" name="keyword"
-										placeholder="나라 이름, 음식 또는 식당 검색" value="${keyword }">
-									<br> <br>
-								</div>
-								<div style="margin-left:10px;">
-									<button class="button" type="submit"
-										onclick="./search_result.jsp">검색</button>
-								</div>
-							</div>
-						</form>
-
-
-						<!-- 검색 결과창 -->
-						<div class="results">
-							<div class="result">
-								<div class="rest_pic">
-									<img id="pic"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-								</div>
-
-								<c:if test="">
-
-
-								</c:if>
-
-								<div class="rest_info">
-									<div class="rest_title">
-										<h4>소유라멘</h4>
-										<h4>일본</h4>
-									</div>
-									<div class="rest_comment">
-										<h5>라멘 / 소바 / 우동</h5>
-									</div>
-									<div class="rest_addr">
-										<p>서울시 중구 만리동1가 53-8</p>
-									</div>
-								</div>
-
-							</div>
-							<div class="result">
-								<div class="rest_pic">
-									<img id="pic"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-								</div>
-
-								<div class="rest_info">
-									<div class="rest_title">
-										<h4>소유라멘</h4>
-										<h4>일본</h4>
-									</div>
-									<div class="rest_comment">
-										<h5>라멘 / 소바 / 우동</h5>
-									</div>
-									<div class="rest_addr">
-										<p>서울시 중구 만리동1가 53-8</p>
-									</div>
-								</div>
-
-							</div>
-							<div class="result">
-								<div class="rest_pic">
-									<img id="pic"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-								</div>
-
-								<div class="rest_info">
-									<div class="rest_title">
-										<h4>소유라멘</h4>
-										<h4>일본</h4>
-									</div>
-									<div class="rest_comment">
-										<h5>라멘 / 소바 / 우동</h5>
-									</div>
-									<div class="rest_addr">
-										<p>서울시 중구 만리동1가 53-8</p>
-									</div>
-								</div>
-
-							</div>
-
-							<div class="result">
-								<div class="rest_pic">
-									<img id="pic"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-								</div>
-
-								<div class="rest_info">
-									<div class="rest_title">
-										<h4>소유라멘</h4>
-										<h4>일본</h4>
-									</div>
-									<div class="rest_comment">
-										<h5>라멘 / 소바 / 우동</h5>
-									</div>
-									<div class="rest_addr">
-										<p>서울시 중구 만리동1가 53-8</p>
-									</div>
-								</div>
-
-							</div>
-
-							<div class="result">
-								<div class="rest_pic">
-									<img id="pic"
-										src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-								</div>
-
-								<div class="rest_info">
-									<div class="rest_title">
-										<h4>소유라멘</h4>
-										<h4>일본</h4>
-									</div>
-									<div class="rest_comment">
-										<h5>라멘 / 소바 / 우동</h5>
-									</div>
-									<div class="rest_addr">
-										<p>서울시 중구 만리동1가 53-8</p>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
+            </div>
+            
+         </div>
+      </div>
+   </div>
+   <footer>
+      <c:import url="../default/footer.jsp" />
+   </footer>
+</body>
 		<footer>
 			<c:import url="../default/footer.jsp" />
 		</footer>

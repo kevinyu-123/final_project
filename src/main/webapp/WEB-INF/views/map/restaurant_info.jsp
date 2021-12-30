@@ -131,6 +131,10 @@ color:white;
 .right.collapsed {
 	transform: translateX(295px);
 }
+#i{
+	height: 30px;
+	width:20px;
+}
 </style>
 
 </head>
@@ -140,34 +144,44 @@ color:white;
 			<div class="sidebar-content rounded-rect flex-center">
 				<table >
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=south korea"><img id="icon" src="${contextPath}/resources/img/map/korea.png">대한민국</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=대한민국">
+						<img id="icon" src="${contextPath}/resources/img/map/korea.png">대한민국</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=singapore"><img id="icon" src="${contextPath}/resources/img/map/singapore.png">싱가폴</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=싱가폴">
+						<img id="icon" src="${contextPath}/resources/img/map/singapore.png">싱가폴</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=taiwan"><img id="icon" src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=대만">
+						<img id="icon" src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=mongol"><img id="icon" src="${contextPath}/resources/img/map/mongolia.png">몽골</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=몽골">
+						<img id="icon" src="${contextPath}/resources/img/map/mongolia.png">몽골</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=japan"><img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=일본">
+						<img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=philippine"><img id="icon" src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=필리핀">
+						<img id="icon" src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=vietnam"><img id="icon" src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=베트남">
+						<img id="icon" src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=laos"><img id="icon" src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=라오스">
+						<img id="icon" src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=hongkong"><img id="icon" src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=홍콩">
+						<img id="icon" src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
 					</tr>
 					<tr>
-						<th><a href="${contextPath}/map/restaurant_info?nation=thailand"><img id="icon" src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
+						<th><a href="${contextPath}/map/restaurant_info?nation=태국">
+						<img id="icon" src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
 					</tr>
 				</table>
 				<div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">&larr;</div>
@@ -176,49 +190,50 @@ color:white;
 	</div>
 
 	<script>
-		var map = new maplibregl.Map(
-				{
-					container : 'map',
-					style : 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
-					center : [ 126.98345066142599, 37.54776556070125 ],
-					zoom : 11.5
-				});
-		
-		var geojson = [];
-		var json = JSON.parse('${jsonlist}');
-		for(var i =0;i<json.length;i++){
-		 geojson[i] = {
-			'type' : 'FeatureCollection',
-			'features' : [ {
-				'type' : 'Feature',
-				'properties' : {
-					'iconSize' : [ 60, 60 ]
-				},
-				'geometry' : {
-					'type' : 'Point',
-					'coordinates' : [ json[i].lng, json[i].lat ]
-				}
-			}]
-		};
-	}
+	var map = new maplibregl.Map(
+			{
+				container : 'map',
+				style : 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+				center : [ 126.98345066142599, 37.54776556070125 ],
+				zoom : 11.5
+			});
+	
+	var geojson = [];
+	var json = JSON.parse('${jsonlist}');
+	for(var i =0;i<json.length;i++){
+	 geojson[i] = {
+		'type' : 'FeatureCollection',
+		'features' : [ {
+			'type' : 'Feature',
+			'properties' : {
+				'iconSize' : [ 60, 60 ]	
+			},
+			'geometry' : {
+				'type' : 'Point',
+				'coordinates' : [ json[i].lng, json[i].lat ]
+					}
+				}]
+			};
+		}
 
-				for(i =0;i<json.length;i++){
-					geojson[i].features.forEach(function(marker) {
-					// create a DOM element for the marker
-					var el = document.createElement('div');
-					el.className = 'marker';
-					el.style.backgroundImage = 'url(${contextPath}/resources/img/map/restaurant.png)';
-					el.style.width = marker.properties.iconSize[0] + 'px';
-					el.style.height = marker.properties.iconSize[1] + 'px';
+			for(i =0;i<json.length;i++){
+				geojson[i].features.forEach(function(marker) {
+				// create a DOM element for the marker
+				var el = document.createElement('div');
+				el.className = 'marker';
+				el.style.backgroundImage = 'url(${contextPath}/resources/img/map/restaurant.png)';
+				el.style.width = marker.properties.iconSize[0] + 'px';
+				el.style.height = marker.properties.iconSize[1] + 'px';
 
-					new maplibregl.Marker(el)
-					.setLngLat(marker.geometry.coordinates)
-					.setPopup(new maplibregl.Popup()
-					.setText("상호 명: "+json[i].name +" 부가 내용 : "+json[i].sub_ex+" / 주소 :"+json[i].addr))
-					.addTo(map);
+				new maplibregl.Marker(el)
+				.setLngLat(marker.geometry.coordinates)
+				.setPopup(new maplibregl.Popup()
+				.setHTML("<label>상호명: </label><a href='${contextPath}/v?id=${json[i].id}'>"+json[i].name +"</a><br><br><label>주소: "+json[i].addr+"</label><br><br><label>특징: "+json[i].main_ex+"</label><br><br><label>운영시간: "+json[i].hours+"</label><br><br><label>전화번호: "+json[i].tel+"</label>"))
+				.addTo(map);
 				});
 			}
-			
+
+
 		function toggleSidebar(id) {
 			var elem = document.getElementById(id);
 			var classes = elem.className.split(' ');

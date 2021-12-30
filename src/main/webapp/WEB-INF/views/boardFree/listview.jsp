@@ -126,7 +126,6 @@ font-family: 'Gothic A1', sans-serif;
          data : JSON.stringify(form),
          contentType : "application/json;charset=utf-8",
          success : function(data){
-            alert('댓글이 성공적으로 등록되었습니다.');
             $("#content").val("")
             comment_list()
          },

@@ -52,4 +52,7 @@
 	<update id="updateUnLike">
 		update member set liked_rest=#{upLike} where name=#{memId}
 	</update>
+	<select id="selectNationByRest" resultMap="rest">
+        SELECT * FROM restaurant WHERE nation = #{nation}
+        </select>
 </mapper>

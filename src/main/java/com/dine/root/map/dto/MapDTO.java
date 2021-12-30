@@ -4,8 +4,9 @@ public class MapDTO {
 	private int id;
 	private String name;
 	private String addr;
-	private String open_hours;
 	private String tel;
+	private String hours;
+	
 	private String sub_ex;
 	private String main_ex;
 	private int menu_cnt;
@@ -17,6 +18,12 @@ public class MapDTO {
 	private double lat;
 	private double lng;
 
+	public String getHours() {
+		return hours;
+	}
+	public void setHours(String hours) {
+		this.hours = hours;
+	}
 	public double getLat() {
 		return lat;
 	}
@@ -47,12 +54,7 @@ public class MapDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public String getOpen_hours() {
-		return open_hours;
-	}
-	public void setOpen_hours(String open_hours) {
-		this.open_hours = open_hours;
-	}
+
 	public String getTel() {
 		return tel;
 	}

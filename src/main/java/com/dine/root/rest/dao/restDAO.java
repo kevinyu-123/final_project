@@ -1,6 +1,7 @@
 package com.dine.root.rest.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -18,4 +19,5 @@ public interface restDAO {
 	public void updateLiked(@Param("memId") String memId,@Param("restId") int restId);
 	public Map infoMemLike(String memId);
 	public void updateUnLike(@Param("upLike") String upLike ,@Param("memId") String memId);
+	public List<restDTO> selectNationByRest(String nation);
 }

@@ -4,18 +4,71 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.dine.root.mybatis.search.SearchMapper">
-	<resultMap type="com.dine.root.search.dto.SearchDTO" id="search">
-		<result property="foodName" column="FOOD_NAME" />
-		<result property="foodComment" column="FOOD_COMMENT" />
-		<result property="nation" column="NATION" />
-		<result property="intro" column="INTRO" />
-		<result property="category_1" column="CATEGORY_1" />
-		<result property="category_2" column="CATEGORY_2" />
-		<result property="rate" column="RATE_AVR" />
-	</resultMap>
-
-	<select id="viewAll" resultMap="search">
-		SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR FROM FOOD
-	</select>
+<mapper namespace="com.dine.root.search.mapper.SearchMapper">
+   <resultMap type="com.dine.root.search.dto.SearchDTO" id="search">
+      <result property="foodName" column="FOOD_NAME" />
+      <result property="foodComment" column="FOOD_COMMENT" />
+      <result property="nation" column="NATION" />
+      <result property="intro" column="INTRO" />
+      <result property="category_1" column="CATEGORY_1" />
+      <result property="category_2" column="CATEGORY_2" />
+      <result property="rate" column="RATE_AVR" />
+   </resultMap>
+   <!-- 
+   <resultMap type="com.dine.root.search.dto.SearchDTO" id="cat">
+      <result property="foodName" column="FOOD_NAME" />
+      <result property="foodComment" column="FOOD_COMMENT" />
+      <result property="country" column="NATION"/>
+      <result property="intro" column="INTRO" />
+      <result property="addr" column="CATEGORY_1"/>
+      <result property="food" column="CATEGORY_2"/>
+      <result property="rate" column="RATE_AVR" />
+   </resultMap>
+   -->
+<!-- 
+   <select id="viewAll" resultMap="search">
+      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR FROM FOOD
+   </select>
+ -->   
+    <!-- 키워드 검색 쿼리문 -->
+   <select id="viewAll" resultMap="search">
+      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR
+      FROM FOOD
+      <include refid="condition"></include>
+      ORDER BY FOOD_NAME DESC, NATION DESC
+   </select>
+   <!-- 키워드 검색 결과 갯수 -->
+   <select id="countArticle" resultType="int">
+      SELECT COUNT(*)
+      FROM FOOD
+      <include refid="condition"></include>
+   </select>
+   
+   <!-- 세부검색 쿼리문 -->
+   <select id="categorise" resultMap="search">
+      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR
+      FROM FOOD
+      <include refid="detailCon"></include>
+      ORDER BY FOOD_NAME DESC, NATION DESC, CATEGORY_1 DESC
+   </select>
+   
+   <select id="countCategories" resultType="int">
+      SELECT COUNT(*)
+      FROM FOOD
+      <include refid="detailCon"></include>
+   </select>
+   
+   <sql id="condition">
+      WHERE FOOD_NAME LIKE '%'||#{keyword}||'%'
+      OR NATION LIKE '%'||#{keyword}||'%'
+      OR CATEGORY_1 LIKE '%'||#{keyword}||'%'
+   </sql>
+   
+   <sql id="detailCon">
+      WHERE NATION LIKE '%'||#{country }||'%'
+      AND CATEGORY_1 LIKE '%'||#{addr }||'%'
+      AND CATEGORY_2 LIKE '%'||#{food }||'%'
+   </sql>
+   
+   
 </mapper>

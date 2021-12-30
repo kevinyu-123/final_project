@@ -19,10 +19,12 @@ text-align: center;
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block" style="display:none;z-index:5" id="mySidebar">
   <button id="butt" class="w3-bar-item w3-button w3-xxlarge" onclick="w3_close()" style="text-align: center;">목 록</button>
+  <a href="${contextPath}/search" class="w3-bar-item w3-button">음식 검색</a>
   <a href="${contextPath}/boardAllList" class="w3-bar-item w3-button">자유게시판</a>
   <a href="${contextPath}/news" class="w3-bar-item w3-button">공지사항</a>
   <a href="${contextPath}/event" class="w3-bar-item w3-button">이벤트</a>
   <a href="${contextPath}/map/mapmain" class="w3-bar-item w3-button">지도 보기</a>
+
 </div>
 
 <!-- Page Content -->
