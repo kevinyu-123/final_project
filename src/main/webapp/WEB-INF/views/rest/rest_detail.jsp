@@ -62,6 +62,7 @@
 	max-height: 504px;
 }
 
+
 @media ( max-width : 1199px) {
 	.container {
 		max-width: 103%;
@@ -183,31 +184,42 @@
 									class="u-container-style u-image u-layout-cell u-size-60 u-image-1"
 									data-image-width="750" data-image-height="1000">
 									<div class="u-container-layout u-container-layout-1">
+									<c:set var="cc" value="non.png"/>
+									
+									<c:if test="${restPic[0] != cc}">
 										<div class="container">
 											<div id="myCarousel" class="carousel slide"
 												data-ride="carousel">
 												<!-- Indicators -->
 												<c:set var="cnt" value="${fn:length(restPic) }" />
-
 												<ol class="carousel-indicators">
 													<li data-target="#myCarousel" data-slide-to="0"
 														class="active"></li>
+													<c:if test="${cnt == 1 }">
+													<li data-target="#myCarousel" data-slide-to="1"></li>
+													</c:if>
+													<c:if test="${cnt > 1 }">
 													<c:forEach var="num" begin="1" end="${cnt-1 }">
 														<li data-target="#myCarousel" data-slide-to="${num }"></li>
 													</c:forEach>
+													</c:if>
 												</ol>
+												
 												<!-- Wrapper for slides -->
 												<div class="carousel-inner" style="">
 													<div class="item active">
 														<img
 															src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }">
 													</div>
+
+													<c:if test="${cnt > 1 }">
 													<c:forEach var="num" begin="1" end="${cnt-1 }">
 														<div class="item">
 															<img
 																src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[num] }">
 														</div>
 													</c:forEach>
+													</c:if>
 												</div>
 												<!-- Left and right controls -->
 												<a class="left carousel-control" href="#myCarousel"
@@ -221,6 +233,17 @@
 												</a>
 											</div>
 										</div>
+										</c:if>
+										<c:if test="${restPic[0] == cc }">
+													<div class="carousel-inner" style="">
+													<div class="item active">
+														<img
+															src="resources/rest_detail/bootstrap/images/commonImg/${restPic[0] }"
+															id="nonPic"
+															>
+													</div>
+													</div>
+										</c:if>
 									</div>
 								</div>
 							</div>

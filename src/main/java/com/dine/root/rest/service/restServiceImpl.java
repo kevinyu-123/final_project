@@ -27,22 +27,27 @@ public class restServiceImpl implements restService{
 				
 				String pic = dto.getRestPic();
 				System.out.println(pic);
-				String[] picArray = pic.split(",");
-				System.out.println("infoRest");
+				if(!pic.equals("-")) {
+					String[] picArray = pic.split(",");
+					System.out.println("infoRest");
 
-				System.out.println(picArray);
-				System.out.println(picArray[0]);
-				System.out.println(picArray[1]);
-				System.out.println(picArray[2]);
-				System.out.println(picArray[3]);
-				System.out.println(dto.getHours());
-				System.out.println(dto.getId());
-				
-				
+					System.out.println(picArray);
+					System.out.println(picArray[0]);
+					System.out.println(picArray[1]);
+					System.out.println(picArray[2]);
+					System.out.println(picArray[3]);
+					System.out.println(dto.getHours());
+					System.out.println(dto.getId());
+					m.addAttribute("restPic",picArray);
+				}
+				else {
+					String [] picArray = {"non.png","2","3"};
+					m.addAttribute("restPic",picArray);
+				}
 				double avr = Math.round(dto.getRateAvr()*100)/100.0;
 				System.out.println(avr);
 				System.out.println("===============");
-				m.addAttribute("restPic",picArray);
+				
 				m.addAttribute("avr",avr);
 			}
 		}catch(Exception e) {
