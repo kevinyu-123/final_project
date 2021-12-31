@@ -11,11 +11,12 @@ import com.dine.root.rest.dto.restDTO;
 
 public interface restService {
 	// restID -> getDTO
+	public void infoLiked(Model m, String name,int id);
 	public void infoRest(Model m,int id);
 	public void infoMenu(Model m,int id);
 	public void infoReviews(Model m,int id);
 	public void updateLiked(Map<String, Object> idMap);
 	public void updateUnLiked(Map<String, Object> idMap);
-	public List<restDTO> getRestByNation(String nation);
+	public List<restDTO> getRestByname(String foodName);
 	
 }

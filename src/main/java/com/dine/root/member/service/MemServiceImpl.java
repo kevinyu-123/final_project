@@ -295,8 +295,8 @@ public class MemServiceImpl implements MemService, MemberSession {
 		}
 
 	@Override
-	public restDTO getRest(String rest_name) {
-		return mapper.getRest(rest_name);
+	public restDTO getRest(int id) {
+		return mapper.getRest(id);
 	}
 	
 

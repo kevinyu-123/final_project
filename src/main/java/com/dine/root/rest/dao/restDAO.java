@@ -19,5 +19,6 @@ public interface restDAO {
 	public void updateLiked(@Param("memId") String memId,@Param("restId") int restId);
 	public Map infoMemLike(String memId);
 	public void updateUnLike(@Param("upLike") String upLike ,@Param("memId") String memId);
-	public List<restDTO> selectNationByRest(String nation);
+	public Map infoLiked(String name);
+	public List<restDTO> getRestByname(String foodName);
 }

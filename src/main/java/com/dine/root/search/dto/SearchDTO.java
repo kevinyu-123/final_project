@@ -3,9 +3,15 @@ package com.dine.root.search.dto;
 public class SearchDTO {
 	private String keyword; // keyword from search page
 	private String country, addr, food; // detail search dto
-	private String foodName, foodComment, nation, intro, category_1, category_2; // sql 매치용 
+	private String foodName, foodComment, nation, intro, category_1, category_2,main_pic; // sql 매치용 
 	private int rate;
 	
+	public String getMain_pic() {
+		return main_pic;
+	}
+	public void setMain_pic(String main_pic) {
+		this.main_pic = main_pic;
+	}
 	public String getKeyword() {
 		return keyword;
 	}

@@ -47,13 +47,14 @@
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
   </head>
+  <c:if test="${session_user eq '운영진' }">
    <a href="${pageContext.request.contextPath }/nationEditForm?nation=${nation.nation}">수정</a>
    <a href="${pageContext.request.contextPath }/nationDelete?nation=${nation.nation}&nationPicture=${nation.nationPicture}">삭제</a>
-   
+   </c:if>
    <header>
       <c:import url="../default/header2.jsp"></c:import>
    </header>
-   
+   <c:import url="../search/nav_bar.jsp"/>
   <body  class="u-body"><header class="u-align-center-xs u-clearfix u-header u-header" id="sec-5ba5"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-align-center u-clearfix u-section-1" id="carousel_8920">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -76,7 +77,7 @@
          <c:forEach var="food" items="${foodList}">
          <div class="foodPhoto">   
             <div id="poster">
-               <a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }&nation=${food.nation}"><img
+               <a href="${pageContext.request.contextPath }/food2?foodName=${food.foodName }"><img
                   src="${pageContext.request.contextPath }/resources/food2/${food.mainPic}"
                   style="width: 400px; height: 300px;"> </a>
             </div>

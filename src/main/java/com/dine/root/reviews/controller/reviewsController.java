@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -26,8 +28,8 @@ public class reviewsController {
 	@Autowired reviewsServiceImpl rs;
 	
 	@RequestMapping("rest_reviews_form")
-	public String restReviews(Model model ,@RequestParam("rest") int restId) {
-		
+	public String restReviews(Model model ,@RequestParam("rest") int restId,HttpSession session) {
+		String name = (String) session.getAttribute("session_user");
 		model.addAttribute("att","rest");
 		model.addAttribute("memId","aa");
 		rs.infoRest(model,restId);
@@ -55,7 +57,7 @@ public class reviewsController {
 		String att = request.getParameter("att");
 		System.out.println("att : "+att);
 		System.out.println("멀티파트파일" + multipartFile);
-		
+		System.out.println("회원 이름" + request.getParameter("memId"));
 		
 		if(multipartFile.size() == 0) {
 			check = rs.reviewsUploadNonFile(request);

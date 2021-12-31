@@ -33,10 +33,6 @@ public class restServiceImpl implements restService{
 					System.out.println("infoRest");
 
 					System.out.println(picArray);
-					System.out.println(picArray[0]);
-					System.out.println(picArray[1]);
-					System.out.println(picArray[2]);
-					System.out.println(picArray[3]);
 					System.out.println(dto.getHours());
 					System.out.println(dto.getId());
 					m.addAttribute("restPic",picArray);
@@ -45,6 +41,8 @@ public class restServiceImpl implements restService{
 					String [] picArray = {"non.png","2","3"};
 					m.addAttribute("restPic",picArray);
 				}
+				System.out.println("평점 dto 값 :"+dto.getRateAvr());
+				System.out.println("평균 평점 :");
 				double avr = Math.round(dto.getRateAvr()*100)/100.0;
 				System.out.println(avr);
 				System.out.println("===============");
@@ -142,8 +140,28 @@ public class restServiceImpl implements restService{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void infoLiked(Model m, String name,int id) {
+		// TODO Auto-generated method stub
+		Map liked = dao.infoLiked(name);
+		System.out.println(liked);
+		if(liked == null) {
+			// 찜 아예 없다
+		}else {
+			if(liked.toString().contains(""+id)) {
+				// 찜에 해당 레스토랑이 달려있다
+				System.out.println("찜에 해당 레스토랑이 달려있다");
+				m.addAttribute("liked","true");
+			}else {
+				System.out.println("찜이 널이 아니지만 해당 레스토랑이 없다.");
+			}
+			
+		}
+		
+	}
 	 @Override
-	   public List<restDTO> getRestByNation(String nation) {
-	      return dao.selectNationByRest(nation);
+	 public List<restDTO> getRestByname(String foodName) {
+	      return dao.getRestByname(foodName);
 	   }
 }

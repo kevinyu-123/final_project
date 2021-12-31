@@ -76,8 +76,10 @@ public class reviewsServiceImpl implements reviewsService{
 	public int reviewsUploadProcess(List<MultipartFile> multipartFile,HttpServletRequest request) {	
 		// TODO Auto-generated method stub
 		reviewsDTO dto = new reviewsDTO();
-
+		String memName = request.getParameter("memId");
+		// 멤버 이름으로 mem_id를 찾아서 dto에 저장시켜야 하는데 출력은 그럼 다시 멤버를 찾아야하는것보다 로그인 세션에서 id값을 전달해주는 좋다
 		dto.setMemId(request.getParameter("memId"));
+		System.out.println("멤버아이디 : "+dto.getMemId());
 		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 		dto.setReview(request.getParameter("content"));
 		SimpleDateFormat fo = new SimpleDateFormat("yyyyMMddHHmmss-");
@@ -99,7 +101,7 @@ public class reviewsServiceImpl implements reviewsService{
 			if(request.getParameter("foodName").equals("non")) {
 				dto.setFoodName(request.getParameter("foodName"));
 				dto.setRestId(Integer.parseInt(request.getParameter("restId")));
-				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
+				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
 				System.out.println(saveFile.getAbsolutePath());
 				try {
 					if(saveFile.mkdirs()) {

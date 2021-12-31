@@ -24,7 +24,9 @@ text-align: center;
   <a href="${contextPath}/news" class="w3-bar-item w3-button">공지사항</a>
   <a href="${contextPath}/event" class="w3-bar-item w3-button">이벤트</a>
   <a href="${contextPath}/map/mapmain" class="w3-bar-item w3-button">지도 보기</a>
-
+  <c:if test="${session_user != null }">
+  <a href="${contextPath}/mypage" class="w3-bar-item w3-button">마이 페이지</a>
+	</c:if>
 </div>
 
 <!-- Page Content -->

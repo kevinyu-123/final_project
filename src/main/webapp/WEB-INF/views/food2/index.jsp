@@ -91,13 +91,14 @@
    -->
            
     <header>
-      <c:import url="../default/header2.jsp"></c:import>
+      <c:import url="../default/header2.jsp"/>
    </header>
+   <c:import url="../search/nav_bar.jsp"/>
    <c:if test="${session_user eq '운영진' }">
    <a href="${pageContext.request.contextPath }/foodEditForm?foodName=${detail.foodName}">음식 테이블 수정</a>
    <a href="${pageContext.request.contextPath }/foodDelete?foodName=${detail.foodName}&mainPic=${detail.mainPic}&subPic=${detail.subPic}&mapPic=${detail.mapPic}">음식 테이블 삭제</a>
    </c:if>   
-   				<c:import url="../search/nav_bar.jsp"/>
+   			
    <main class="main__screen">
    
       <div class="main__screen-content">
@@ -206,9 +207,9 @@
                <span>${rest.name}</span>
             </div>
             <div id="poster">
-            <a href="${contextPath }/v?id=${rest.id}"><img
-               src="#"
-               style="width: 350px; height: 500px"> </a>
+            <a href="${contextPath }/restaurant?id=${rest.id}">
+            	<img src="${contextPath}/resources/rest_detail/bootstrap/images/${rest.id}/${rest.mainPic}" style="width: 350px; height: 500px">
+            </a>
             </div>
          </div>
       </c:forEach>

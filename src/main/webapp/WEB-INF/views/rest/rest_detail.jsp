@@ -49,24 +49,26 @@
 <meta property="og:title" content="val2">
 <meta property="og:type" content="website">
 <style type="text/css">
+
+
 .container {
 	max-width: 103%;
-	height: auto;
+	max-height: 505px;
 	position: absolute;
 	left: -15px;
-	object-fit: contain;
-}
 
+}
 .carousel-inner img {
 	width: 100%;
-	max-height: 504px;
+	max-height: 505px;
+	min-height: 504px;
 }
-
 
 @media ( max-width : 1199px) {
 	.container {
 		max-width: 103%;
 		max-height: 416px;
+		min-height: 416px;
 		position: absolute;
 		left: -15px;
 		object-fit: contain;
@@ -74,6 +76,7 @@
 	.carousel-inner img {
 		width: 100%;
 		max-height: 416px;
+		min-height: 416px;
 	}
 
 }
@@ -171,8 +174,9 @@
 </head>
 <body class="u-body">
 	<c:import url="../default/header2.jsp"></c:import>
+
 		<c:import url="../search/nav_bar.jsp"/>
-	
+
 	<section class="u-align-center u-clearfix u-section-1" id="sec-4136">
 		<div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
 			<div
@@ -209,16 +213,16 @@
 												
 												<!-- Wrapper for slides -->
 												<div class="carousel-inner" style="">
-													<div class="item active">
+													<div class="item active mainPic">
 														<img
-															src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }">
+															src="resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[0] }">
 													</div>
 
 													<c:if test="${cnt > 1 }">
 													<c:forEach var="num" begin="1" end="${cnt-1 }">
-														<div class="item">
+														<div class="item mainPic">
 															<img
-																src="resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[num] }">
+																src="resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[num] }">
 														</div>
 													</c:forEach>
 													</c:if>
@@ -238,7 +242,7 @@
 										</c:if>
 										<c:if test="${restPic[0] == cc }">
 													<div class="carousel-inner" style="">
-													<div class="item active">
+													<div class="item active mainPic">
 														<img
 															src="resources/rest_detail/bootstrap/images/commonImg/${restPic[0] }"
 															id="nonPic"
@@ -258,13 +262,13 @@
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-2"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[0] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[0] }');">
 											<div class="u-container-layout u-container-layout-2"></div>
 										</div>
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-3 restReviewImg"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[1] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[1] }');">
 											<div class="u-container-layout u-container-layout-3"></div>
 										</div>
 									</div>
@@ -274,13 +278,13 @@
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-4 "
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[2] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[2] }');">
 											<div class="u-container-layout u-container-layout-4"></div>
 										</div>
 										<div
 											class="u-container-style u-image u-layout-cell u-size-30 u-image-5 restReviewImg"
 											data-image-width="750" data-image-height="1000"
-											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/mainPic/${restPic[3] }');">
+											style="background-image: url('${contextPath }/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[3] }');">
 											<div class="u-container-layout u-container-layout-5"></div>
 										</div>
 									</div>
@@ -344,14 +348,23 @@
 								<p class="u-text u-text-8">&nbsp;</p>
 								<p class="u-text u-text-9">&nbsp;</p>
 								<div class="u-text u-text-10">
+									<button type="button" class="btn btn-primary" id="fav_button"
+										onclick="fav('${session_user }',${restDTO.id})">
+										<c:if test="${liked ne true }">
+											<p id="rest_fav">찜하기</p>
+										</c:if>
+										<c:if test="${liked eq true }">
+											<p id="rest_fav">찜 취소하기</p>
+										</c:if>
+										
+									</button>
+									<c:if test="${session_user != null }">
 									<button type="button" class="btn btn-primary" id="rest_reviews"
 										onclick="location.href='rest_reviews_form?rest=${restDTO.id}'">
 										<p>리뷰쓰기</p>
 									</button>
-									<button type="button" class="btn btn-primary" id="fav_button"
-										onclick="fav('aa',${restDTO.id})">
-										<p id="rest_fav">찜하기</p>
-									</button>
+									</c:if>
+
 									<script type="text/javascript">
 									function fav(memId,restId){
 										var sendData = { "memId":memId , "rest":restId };
@@ -372,7 +385,7 @@
 										 	    			});
 										 	    		  rest_fav.innerText="찜 취소하기"
 										 	    	  }else
-										 	    		  alert("오류임");
+										 	    		  alert("로그인 먼저 해 주세요!");
 										 	    	  console.log(data);
 										 	      },
 										 	      error: function (request, status, error) {
@@ -496,8 +509,9 @@
 							<p class="u-align-center u-text u-text-grey-50 u-text-3">
 								price : ${menu.price } won<br> <br>
 							</p>
+
 							<img
-								src="resources/rest_detail/bootstrap/images/${restDTO.id }/menu/${menu.pic }"
+								src="resources/rest_detail/bootstrap/images/${restDTO.id }/${menu.pic }"
 								alt=""
 								class="u-expanded-width u-image u-image-default u-image-1">
 						</div>
