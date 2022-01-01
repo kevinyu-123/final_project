@@ -17,6 +17,26 @@
 		<result property="kakaologin" column="kakaologin" />
 		<result property="naverlogin" column="naverlogin" />
 	</resultMap>
+	
+	<resultMap id="rest" type="com.dine.root.rest.dto.restDTO">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="addr" column="addr" />
+		<result property="hours" column="hours" />
+		<result property="tel" column="tel" />
+		<result property="subEx" column="SUB_EX" />
+		<result property="mainEx" column="MAIN_EX" />
+		<result property="rateAll" column="RATE_ALL" />
+		<result property="rateCnt" column="RATE_CNT" />
+		<result property="rateAvr" column="RATE_AVR" />
+		<result property="nation" column="NATION" />
+		<result property="lat" column="LAT" />
+		<result property="lng" column="LNG" />
+		<result property="restPic" column="REST_PIC" />
+		<result property="mainPic" column="REST_MAINPIC" />
+		<result property="category1" column="CATEGORY_1" />
+		<result property="category2" column="CATEGORY_2" />
+	</resultMap>
 
 	<insert id="register">
 		INSERT into member (id,pwd,name,email,email_auth)
@@ -154,6 +174,9 @@
 		select * from member
 		where name=#{session_id}
 	</select>
-
+	
+	<select id="getRest" resultMap="rest">
+		SELECT * FROM restaurant WHERE id= #{id}
+	</select>
 
 </mapper>
