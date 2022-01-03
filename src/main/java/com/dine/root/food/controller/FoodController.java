@@ -62,6 +62,7 @@ public class FoodController {
       return "food2/nation";
    }
 
+
    @PostMapping("nation")
    public void test5(MultipartHttpServletRequest mul, HttpServletRequest request, HttpServletResponse response) throws IOException {
       MultipartFile file = mul.getFile("nationPicture2");
@@ -106,12 +107,15 @@ public class FoodController {
       
    }
    @GetMapping("food2")
-   public String index(Model model , @RequestParam("foodName") String foodName, @RequestParam("nation") String nation) {
+   public String index(Model model , @RequestParam String foodName) {
       model.addAttribute("detail", fs.detail(foodName));
       
       // 페이지 따로 할꺼니까 여기 부분 잘라서 recipe쪽에 넣어야 할 듯??
+  
       RecipeDTO dto = fs.recipe(foodName);
-
+      List<restDTO> rdto = rs.getRestByname(foodName);
+      System.out.println(rdto.size());
+      
       String addr = dto.getRecipe();
       String ingredients = dto.getIngredients();
       
@@ -124,7 +128,7 @@ public class FoodController {
       model.addAttribute("recipe", fs.recipe(foodName));
       model.addAttribute("foodList", fs.getFoodsByNation(foodName));
       
-      model.addAttribute("restList", rs.getRestByNation(nation));
+      model.addAttribute("restList", rdto);
       
       return "food2/index";
    }

@@ -13,6 +13,9 @@
       <result property="category_1" column="CATEGORY_1" />
       <result property="category_2" column="CATEGORY_2" />
       <result property="rate" column="RATE_AVR" />
+
+      <result property="main_pic" column="main_pic" />
+
    </resultMap>
    <!-- 
    <resultMap type="com.dine.root.search.dto.SearchDTO" id="cat">
@@ -32,7 +35,9 @@
  -->   
     <!-- 키워드 검색 쿼리문 -->
    <select id="viewAll" resultMap="search">
-      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR
+
+      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR,MAIN_PIC
+
       FROM FOOD
       <include refid="condition"></include>
       ORDER BY FOOD_NAME DESC, NATION DESC
@@ -43,10 +48,11 @@
       FROM FOOD
       <include refid="condition"></include>
    </select>
-   
+
    <!-- 세부검색 쿼리문 -->
    <select id="categorise" resultMap="search">
-      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR
+      SELECT FOOD_NAME, FOOD_COMMENT, NATION, INTRO, CATEGORY_1, CATEGORY_2, RATE_AVR,MAIN_PIC
+
       FROM FOOD
       <include refid="detailCon"></include>
       ORDER BY FOOD_NAME DESC, NATION DESC, CATEGORY_1 DESC
@@ -62,6 +68,9 @@
       WHERE FOOD_NAME LIKE '%'||#{keyword}||'%'
       OR NATION LIKE '%'||#{keyword}||'%'
       OR CATEGORY_1 LIKE '%'||#{keyword}||'%'
+
+      OR CATEGORY_2 LIKE '%'||#{keyword}||'%'
+
    </sql>
    
    <sql id="detailCon">

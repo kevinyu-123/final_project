@@ -50,7 +50,9 @@ public class SearchController {
    
    @GetMapping("detail_search")
    public String detailSearch() {
-      return "search/d_test";
+
+      return "search/detail_search";
+
    }
    
    @GetMapping("search_result_detail")

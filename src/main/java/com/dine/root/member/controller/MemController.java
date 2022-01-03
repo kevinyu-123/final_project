@@ -337,16 +337,15 @@ public class MemController implements MemberSession {
 		List<restDTO> rdto = new ArrayList<restDTO>();
 		dto = service.getLikes(session_id);
 		String liked_rest = dto.getLiked_rest();
-		System.out.println("좋아요 가게 :" + liked_rest);
+
 		if(liked_rest == null) {
 			model.addAttribute("form",dto);
 		}else {
-			String [] splitRest = liked_rest.split("/");
+			String [] splitRest =liked_rest.split("/");
 			for(int i=0; i<splitRest.length;i++) {
-				rdto.add(service.getRest(splitRest[i]));
+				rdto.add(service.getRest(Integer.parseInt(splitRest[i])));
 				System.out.println(splitRest[i]);
 			}
-			
 			model.addAttribute("res_form",rdto);
 		}
 		 	

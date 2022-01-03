@@ -110,7 +110,9 @@ font-weight: bold;}
 				<br>
 
 				<form class="search" action="./search_result" method="get">
-					<input type="text" name="keyword" placeholder="나라 이름, 음식 또는 식당 검색"
+
+					<input type="text" name="keyword" placeholder="나라 이름, 음식 또는 지역 검색"
+
 						value="${keyword }"> <br>
 					<br>
 					<div style="display: flex;">

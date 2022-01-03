@@ -197,7 +197,8 @@ color:white;
 				center : [ 126.98345066142599, 37.54776556070125 ],
 				zoom : 11.5
 			});
-	
+
+
 	var geojson = [];
 	var json = JSON.parse('${jsonlist}');
 	for(var i =0;i<json.length;i++){

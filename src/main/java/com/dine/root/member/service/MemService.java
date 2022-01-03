@@ -63,7 +63,9 @@ public interface MemService {
 	
 	public MemDTO getLikes(String session_id);
 	
-	public restDTO getRest(String rest_name); 
+
+	public restDTO getRest(int id); 
+
 	
 
 	

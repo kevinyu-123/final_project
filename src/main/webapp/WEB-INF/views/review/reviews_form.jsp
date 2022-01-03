@@ -52,7 +52,9 @@
 	 	      contentType: false,
 	 	      success: function (data) {
 	 	    	  if(data.result == "OK"){
-	 	    		 alert("리뷰가 성공적으로 등록이 완료되었습니다");
+
+	 	    		 alert("리뷰 등록 완료");
+
 	 	    		  window.location = document.referrer;
 	 	    	  }else
 	 	    		  alert("잠시 후 다시 실행해 주세요");

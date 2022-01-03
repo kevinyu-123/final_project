@@ -290,14 +290,14 @@ public class MemServiceImpl implements MemService, MemberSession {
 	}
 
 
+	@Override
 	public MemDTO getLikes(String session_id) {
 		return mapper.getLikes(session_id);
 		}
 
-
 	@Override
-	public restDTO getRest(String rest_name) {
-		return mapper.getRest(rest_name);
+	public restDTO getRest(int id) {
+		return mapper.getRest(id);
 	}
 	
 

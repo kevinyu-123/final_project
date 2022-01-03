@@ -21,7 +21,9 @@
 <style type="text/css">
 
 body {
-font-family: 'Gothic A1', sans-serif;}
+	font-family: 'Gothic A1', sans-serif;
+}
+
 
 html, body {
 	height: 100%;
@@ -52,12 +54,17 @@ html, body {
 
 .search {
 	text-align: center;
+
+	display: flex;
+	width:800px;
+	margin-left: 60px;
+	
 }
 
 .results {
 	display: flex;
 	margin: 0 auto;
-	width: 70%;
+	width: 75%;
 	margin-top: 10%;
 	flex-direction: column;
 }
@@ -79,8 +86,10 @@ html, body {
 	border-radius: 8px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 250px;
-	height: 100%;
+
+	width: 350px;
+	height: 250px;
+
 }
 
 .rest_info {
@@ -94,11 +103,13 @@ html, body {
 	width: 400px;
 	border-radius: 10px;
 	background: #ffffff;
-	margin: 20px auto 20px;
+
+	margin: 20px 0 20px;
+
 	background: #ffffff;
 }
 
-input {
+.input {
 	font-size: 16px;
 	width: 600px;
 	padding: 7px;
@@ -111,20 +122,27 @@ input {
 	border: 2px solid #ccc;
 	border-radius: 30px;
 	text-align: center;
+
+	margin-left:200px;
 }
 
-button {
+.button {
+
 	width: 70px;
 	height: 100%;
 	font-size: 14px;
 	font-family: 'Gothic A1', sans-serif;
-	box-sizing: border-box;
-	border: 2px solid #ddd;
-	border-radius: 25px;
+
+	border: 2px solid #ddd; border-radius : 25px;
+
 	padding: 10px;
 	-webkit-transition: 0.3s;
 	transition: 0.3s;
 	outline: none;
+
+	border-radius: 25px;
+	margin-left:10px;
+
 }
 
 a {
@@ -138,6 +156,9 @@ li {
 footer {
 	margin-top: 350px;
 }
+input:hover {
+	font-weight: bold;
+}
 </style>
 
 <script type="text/javascript">
@@ -145,92 +166,92 @@ footer {
 </script>
 </head>
 <body>
-   <header>
-      <c:import url="../default/header.jsp" />
-   </header>
-   
-   <div class="wrap">
-      <div class="tab"></div>
-      <div class="main">
-         <div class="center">
-            <div class="search">
-               <h2>Dining Lab</h2>
-               <form class="conn" action="./search_result">
-                  <input type="text" name="keyword" placeholder="나라 이름, 음식 또는 식당 검색" value="${keyword }">
-                  <button type="submit" onclick="./search_result.jsp">검색</button>
-               </form>
-            </div>
-            
-            <!-- 검색 결과창 -->
-            <div class="results">
-               <c:choose>
-                  <c:when test="${map.kCount > 0 }">
-                     ${map.kCount } 개의 결과가 있습니다.
+
+	<header>
+		<c:import url="../default/header.jsp" />
+	</header>
+
+	<div class="wrap">
+		<div class="tab"></div>
+		<div class="main">
+			<div class="center">
+				<div>
+
+					<form class="conn" action="./search_result">
+						<div class="search">
+							<input type="text" name="keyword" style="float: left;"
+								class="input" placeholder="나라 이름, 음식 또는 지역 검색"
+								value="${keyword }">
+							<input type="submit" onclick="./search_result.jsp"
+								class="button" value="검색">
+						</div>
+					</form>
+
+
+				</div>
+
+				<!-- 검색 결과창 -->
+				<div class="results">
+					<c:choose>
+						<c:when test="${map.kCount > 0 }">
+                     ${map.kCount } 개의 검색 결과가 있습니다.
                   </c:when>
-                  <c:when test="${map.dCount > 0 }">
-                     ${map.dCount } 개의 결과가 있습니다.
+						<c:when test="${map.dCount > 0 }">
+                     ${map.dCount } 개의 검색 결과가 있습니다.
                      <hr>
-                  </c:when>
-                  <c:otherwise>
+						</c:when>
+						<c:otherwise>
                      관련된 결과가 없습니다.
                      <hr>
-                  </c:otherwise>
-               </c:choose>
-               
-               <!-- 키워드 검색 결과 -->
-               <c:forEach var="row" items="${map.kList }">
-                  <div class="result">
-                     <div class="rest_pic">
-                        <img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-                     </div>
-                     <div class="rest_info">
-                        <div class="rest_title">
-                           <h4>${row.foodName }</h4> <h4>${row.nation }</h4>
-                        </div>
-                        <div class="rest_comment">
-                           <h5>${row.category_2 }</h5>
-                        </div>
-                        <div class="rest_addr">
-                           <p>${row.category_1 }</p>
-                        </div>
-                     </div>
-                     <hr>
-                  </div>
-               </c:forEach>
-               
-               <!-- 세부검색 결과 -->
-               <c:forEach var="row" items="${map.dList }">
-                  <div class="result">
-                     <div class="rest_pic">
-                        <img id="pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/1200px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg">
-                     </div>
-                     <div class="rest_info">
-                        <div class="rest_title">
-                           <h4>${row.foodName }</h4> <h4>${row.nation }</h4>
-                        </div>
-                        <div class="rest_comment">
-                           <h5>${row.category_2 }</h5>
-                        </div>
-                        <div class="rest_addr">
-                           <p>${row.category_1 }</p>
-                        </div>
-                     </div>
-                     <hr>
-                  </div>
-               </c:forEach>
+						</c:otherwise>
+					</c:choose>
 
-            </div>
-            
-         </div>
-      </div>
-   </div>
-   <footer>
-      <c:import url="../default/footer.jsp" />
-   </footer>
-</body>
-		<footer>
-			<c:import url="../default/footer.jsp" />
-		</footer>
+					<!-- 키워드 검색 결과 -->
+					<c:forEach var="row" items="${map.kList }">
+						<div class="result">
+							<div class="rest_pic">
+								<a href="${contextPath}/food2?foodName=${row.foodName }">
+									<img id="pic"src="${contextPath}/resources/food2/${row.main_pic}">
+								</a>
+							</div>
+							<div class="rest_info">
+								
+									<h4>${row.foodName }</h4>
+									<h4>${row.nation }</h4>				
+									<h5>${row.category_2 }</h5>
+									<p>${row.category_1 }</p>
+								
+							</div>
+							<hr>
+						</div>
+					</c:forEach>
+
+					<!-- 세부검색 결과 -->
+					<c:forEach var="row" items="${map.dList }">
+						<div class="result">
+							<div class="rest_pic">
+							<a href="${contextPath}/food2?foodName=${row.foodName}">
+									<img id="pic"src="${contextPath}/resources/food2/${row.main_pic}">
+								</a>
+							</div>
+							<div class="rest_info">
+								
+									<h4>${row.foodName }</h4>
+									<h4>${row.nation }</h4>
+									<h5>${row.category_2 }</h5>						
+	 								<p>${row.category_1 }</p>
+								
+							</div>
+							<hr>
+						</div>
+					</c:forEach>
+
+				</div>
+
+			</div>
+		</div>
+
 	</div>
 </body>
+
 </html>

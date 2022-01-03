@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <title>DiningLab</title>
 
-<link rel="stylesheet" href="${contextPath }/resources/css/mainPage.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/mainPage.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
 	media="screen">
-<link rel="stylesheet" href="${contextPath }/resources/css/Home1.css"
+<link rel="stylesheet" href="${contextPath } /resources/css/Home1.css"
 	media="screen">
 <script class="u-script" type="text/javascript"
-	src="${contextPath }/resources/js/jquery.js" defer=""></script>
+	src="${contextPath } /resources/js/jquery.js" defer=""></script>
 
 <script class="u-script" type="text/javascript"
 	src="${contextPath }/resources/js/nicepage.js" defer=""></script>

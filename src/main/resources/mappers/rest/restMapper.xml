@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.dine.root.rest.dao.restDAO">
 
 	<resultMap id="rest" type="com.dine.root.rest.dto.restDTO">
@@ -40,35 +41,28 @@
 		<result property="imgs" column="rev_pic" />
 		<result property="revDate" column="rev_date" />
 	</resultMap>
-	
-	<select id="infoRest" resultMap="rest"> 
-		select * from restaurant where id=#{id} 
+
+	<select id="infoRest" resultMap="rest"> select * from restaurant where
+		id=#{id} </select>
+	<select id="infoMenu" resultMap="menu"> select * from menu where
+		rest_Id=#{id} </select>
+	<select id="infoReviews" resultMap="reviews"> select
+		mem_id,rest_rate,review,rev_pic,rev_date from rest_review where
+		rest_id=#{id} </select>
+	<update id="updateLiked"> update member set liked_rest=#{restId}||'/'||
+		liked_rest where name=#{memId} </update>
+	<select id="infoMemLike" resultType="Map"> select liked_rest from
+		member where name=#{memId} </select>
+	<update id="updateUnLike"> update member set liked_rest=#{upLike} where
+		name=#{memId} </update>
+	<select id="selectNationByRest" resultMap="rest"> SELECT * FROM
+		restaurant WHERE nation = #{nation} </select>
+	<select id="infoLiked" resultType="Map"> select liked_rest from member
+		where name=#{name} </select>
+
+
+	<select id="getRestByname" resultMap="rest">
+		SELECT * FROM restaurant WHERE sub_ex = #{foodName}
 	</select>
-	
-	<select id="infoMenu" resultMap="menu"> 
-		select * from menu where rest_Id=#{id} 
-	</select>
-	
-	<select id="infoReviews" resultMap="reviews">
-		 select mem_id,rest_rate,review,rev_pic,rev_date from rest_review where rest_id=#{id} 
-	</select>
-	
-	<update id="updateLiked"> 
-		update member set liked_rest=#{restId}||'/'|| liked_rest where name=#{memId} 
-	</update>
-	
-	<select id="infoMemLike" resultType="Map"> 
-		select liked_rest from member where name=#{memId} 
-	</select>
-	
-	<update id="updateUnLike">
-	 	update member set liked_rest=#{upLike} where name=#{memId}
-	</update>
-	
-	<select id="selectNationByRest" resultMap="rest">
-        SELECT * FROM restaurant WHERE nation = #{nation}
-    </select>
-    <select id="infoLiked" resultType="Map">
-    	select liked_rest from member where name=#{name}
-    </select>
+
 </mapper>
