@@ -8,15 +8,17 @@
 <head>
 <meta charset="UTF-8">
 <title>DiningLab</title>
-<link rel="stylesheet" href="/root/resources/css/mainPage.css">
-<link rel="stylesheet" href="/root/resources/css/nicepage.css"
+
+<link rel="stylesheet" href="${contextPath }/resources/css/mainPage.css">
+<link rel="stylesheet" href="${contextPath }/resources/css/nicepage.css"
 	media="screen">
-<link rel="stylesheet" href="/root/resources/css/Home1.css"
+<link rel="stylesheet" href="${contextPath }/resources/css/Home1.css"
 	media="screen">
 <script class="u-script" type="text/javascript"
-	src="/root/resources/js/jquery.js" defer=""></script>
+	src="${contextPath }/resources/js/jquery.js" defer=""></script>
+
 <script class="u-script" type="text/javascript"
-	src="/root/resources/js/nicepage.js" defer=""></script>
+	src="${contextPath }/resources/js/nicepage.js" defer=""></script>
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -31,8 +33,10 @@
 	rel="stylesheet">
 
 <link rel="stylesheet"
-	href="/root/resources/css/default/header.css">
+	href="${contextPath }/resources/css/default/header.css">
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 <style>
 </style>
@@ -85,22 +89,16 @@
 				
 							<div class="dropdown-content">
 							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
-							<a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
+							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
 							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
 
 					</div>
-				
-				
 				</c:otherwise>
-			
-				
 				</c:choose>
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
-
-
 </body>
 </html>

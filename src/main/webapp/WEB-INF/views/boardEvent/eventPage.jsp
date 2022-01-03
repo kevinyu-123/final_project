@@ -74,88 +74,42 @@
 		</div>
 
 		<div style="display: flex; overflow-x: auto;">
-		
-			<%-- 	<div>	<c:forEach items="${eventList}" var="eventList">
+
+
+			<c:forEach items="${eventList}" var="eventList">
+				<div>
 					<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/eventposter.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-							{eventList.id}
-							</span>
+					<a href="${contextPath }/eventDetail?img_url=${eventList.img_url}">
 							
-						</a>
-					</div>
-				</c:forEach> --%>
-				<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/eventposter.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-						
-							</span>
 							
-						</a>
-					</div>
-					<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/event3.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-						
-							</span>
-							
-						</a>
-					</div>
-					<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/event4.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-						
-							</span>
-							
-						</a>
-					</div>
-					<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/event5.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-						
-							</span>
-							
-						</a>
-					</div>
-					<div id="poster">
-						<a href="eventDetail">
-						<!-- 이벤트해당사진 -->
-						 <img
-							src="${contextPath }/resources/img/board/event6.jpeg"
-							style="width: 350px; height: 550px">
-							<span>
-						
-							</span>
-							
-						</a>
-					</div>
+				<img src="${contextPath }/resources/img/event/${eventList.img_url}"
+					style="width: 500px; height: 700px;">
 					
-			</div>
+						</a>
+					</div>
+				</div>
+			</c:forEach>
 
-
+		</div>
 		<footer>
 			<c:import url="../default/footer.jsp" />
 		</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</div>
 </body>
 </html>

@@ -3,36 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dine.root.reviews.dao.reviewsDAO">
-	<resultMap id="rest" type="com.dine.root.rest.dto.restDTO" >
-		<id property="id" column="id"/>
-		<result property="name" column="name"/>
-		<result property="addr" column="addr"/>
-		<result property="hours" column="hours"/>
-		<result property="tel" column="tel"/>
-		<result property="subEx" column="SUB_EX"/>
-		<result property="mainEx" column="MAIN_EX"/>
-		<result property="rateAll" column="RATE_ALL"/>
-		<result property="rateCnt" column="RATE_CNT"/>
-		<result property="rateAvr" column="RATE_AVR"/>
-		<result property="nation" column="NATION"/>
-		<result property="lat" column="LAT"/>
-		<result property="lng" column="LNG"/>
-		<result property="restPic" column="rest_pic"/>
-	</resultMap>
-	<select id="infoRest" resultMap="rest">
-		select * from restaurant where id=#{id}
-	</select>
-	<insert id="insertRestReview">
-	insert into rest_review values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{imgs},#{restId},#{revDate})
-	</insert>
-	<insert id="insertFoodReview">
-	insert into food_review values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{imgs},#{revDate})
-	</insert>
 
-	<update id="updateRestRate" >
-	update restaurant set rate_all=rate_all+#{rate},rate_cnt=rate_cnt+1 where id=#{restId}
+	<resultMap id="rest" type="com.dine.root.rest.dto.restDTO">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="addr" column="addr" />
+		<result property="hours" column="hours" />
+		<result property="tel" column="tel" />
+		<result property="subEx" column="SUB_EX" />
+		<result property="mainEx" column="MAIN_EX" />
+		<result property="rateAll" column="RATE_ALL" />
+		<result property="rateCnt" column="RATE_CNT" />
+		<result property="rateAvr" column="RATE_AVR" />
+		<result property="nation" column="NATION" />
+		<result property="lat" column="LAT" />
+		<result property="lng" column="LNG" />
+		<result property="restPic" column="rest_pic" />
+		<result property="mainPic" column="REST_MAINPIC" />
+		<result property="category1" column="CATEGORY_1" />
+		<result property="category2" column="CATEGORY_2" />
+
+	</resultMap>
+	<select id="infoRest" resultMap="rest"> select * from restaurant where
+		id=#{id} </select>
+	<insert id="insertRestReview"> insert into rest_review
+		values(rest_review_seq.nextval,#{memId},#{rate},#{review},#{imgs},#{restId},#{revDate})
+	</insert>
+	<insert id="insertFoodReview"> insert into food_review
+		values(food_review_seq.nextval,#{memId},#{foodName},#{rate},#{review},#{imgs},#{revDate})
+	</insert>
+	<update id="updateRestRate"> update restaurant set
+		rate_all=rate_all+#{rate},rate_cnt=rate_cnt+1 where id=#{restId}
 	</update>
-	<update id="updateRestRateAvr">
-	update restaurant set rate_avr = rate_all / rate_cnt where id = #{restId}
-	</update>
+	<update id="updateRestRateAvr"> update restaurant set rate_avr = rate_all / rate_cnt
+		where id = #{restId} </update>
 </mapper>

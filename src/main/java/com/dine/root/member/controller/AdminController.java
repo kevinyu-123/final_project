@@ -1,10 +1,14 @@
 package com.dine.root.member.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,26 +18,22 @@ import com.dine.root.member.service.AdService;
 
 @Controller
 public class AdminController implements MemberSession {
-	@Qualifier("adServiceImpl")
 	@Autowired
-   AdService service;
+	AdService service;
 
-   @RequestMapping("adLogin")
-   public String adLogin() {
-      return "admin/adLogin";
-   }
+	@RequestMapping("adLogin")
+	public String adLogin() {
+		return "admin/adLogin";
+	}
+	
+	@PostMapping("adloginChk")
+	public String userCheck(AdminDTO dto,HttpSession session) {
+		AdminDTO chk = service.adloginChk(dto.getId());
+		if (chk.getId().equals(dto.getId()) && chk.getPwd().equals(dto.getPwd())) {
+			session.setAttribute(LOGIN_ID, chk.getName());
+			return "redirect:/main";
+		}
+		return "admin/adLogin";
 
-   @PostMapping("adloginChk")
-   public String userCheck(AdminDTO dto,HttpSession session) {
-      AdminDTO chk = service.adloginChk(dto.getId());
-      if (chk.getId().equals(dto.getId()) && chk.getPwd().equals(dto.getPwd())) {
-         session.setAttribute(LOGIN_ID, chk.getName());
-         return "redirect:/main";
-      }
-      return "admin/adLogin";
-
-   }
-
-   
-
+	}
 }

@@ -6,7 +6,7 @@
   
 <mapper namespace="com.dine.root.food.dao.FoodDAO">
    <resultMap type="com.dine.root.food.dto.FoodDTO" id="food">
-      <id property="foodName" column="food_name" />	
+      <id property="foodName" column="food_name" />   
       <result property="foodComment" column="food_comment" />
       <result property="nation" column="nation" />
       <result property="mainPic" column="main_pic" />
@@ -26,32 +26,31 @@
       SELECT * FROM food WHERE food_name= #{foodName}
    </select> 
    
-   	<insert id="register">
-  			INSERT INTO food (food_name, food_comment, nation, main_pic,  intro, category_1, category_2, sub_pic, map_pic) 
-  			VALUES(#{foodName}, #{foodComment}, #{nation}, #{mainPic}, #{intro}, #{category1}, #{category2}, #{subPic}, #{mapPic})
-  	</insert>
-  	
-  	<select id="selectFoodsByNaton" resultMap="food">
-  		SELECT 
-  				* 
-  		FROM 
-  				food 
-  		WHERE  	
-  				nation = #{nation}
-  		</select>
-  		
-  	<update id="foodEdit">
-		UPDATE food SET food_name=#{foodName}, food_comment=#{foodComment}, nation=#{nation},
-		main_pic=#{mainPic}, intro=#{intro}, category_1=#{category1}, category_2=#{category2}, sub_pic=#{subPic}, map_pic=#{mapPic}
-		WHERE food_name=#{foodName}
-	</update>
-	
-	 <delete id="foodDelete">
-		DELETE FROM food WHERE food_name=#{foodName}
-	</delete>
-	
-  	
-  	<resultMap type="com.dine.root.food.dto.RecipeDTO" id="recipe">
+      <insert id="register">
+           INSERT INTO food (food_name, food_comment, nation, main_pic,  intro, category_1, category_2, sub_pic, map_pic) 
+           VALUES(#{foodName}, #{foodComment}, #{nation}, #{mainPic}, #{intro}, #{category1}, #{category2}, #{subPic}, #{mapPic})
+     </insert>
+     
+     <select id="selectFoodsByNaton" resultMap="food">
+        SELECT 
+              * 
+        FROM 
+              food 
+        WHERE     
+              nation = #{nation}
+        </select>
+        
+     <update id="foodEdit">
+      UPDATE food SET food_name=#{foodName}, food_comment=#{foodComment}, nation=#{nation},
+      main_pic=#{mainPic}, intro=#{intro}, category_1=#{category1}, category_2=#{category2}, sub_pic=#{subPic}, map_pic=#{mapPic}
+      WHERE food_name=#{foodName}
+   </update>
+   
+    <delete id="foodDelete">
+      DELETE FROM food WHERE food_name=#{foodName}
+   </delete>
+     
+     <resultMap type="com.dine.root.food.dto.RecipeDTO" id="recipe">
       <!-- primary key 값은 id로 -->
       <result property="id" column="id" />
       <result property="foodName" column="food_name" />
@@ -62,15 +61,18 @@
    </resultMap>
    
    <select id="recipe" resultMap="recipe">
-    	SELECT * FROM recipe WHERE food_name= #{foodName}
+       SELECT * FROM recipe WHERE food_name= #{foodName}
    </select>
-	
-	<insert id="recipeInsert">
-		INSERT INTO recipe(food_name, cook_time, ingredients, recipe, youtubeaddr) VALUES(#{foodName}, #{cookTime}, #{ingredients}, #{recipe}, #{youtubeAddr})
-	</insert>
-	
-	
-	<resultMap type="com.dine.root.food.dto.NationDTO" id="nation">
+   
+   <insert id="recipeInsert">
+      INSERT INTO recipe(food_name, cook_time, ingredients, recipe, youtubeaddr) VALUES(#{foodName}, #{cookTime}, #{ingredients}, #{recipe}, #{youtubeAddr})
+   </insert>
+   
+   <update id="recipeEdit">
+      UPDATE recipe SET food_name=#{foodName}, cook_time=#{cookTime}, ingredients=#{ingredients}, recipe=#{recipe}, youtubeaddr=#{youtubeAddr} 
+   </update>
+   
+   <resultMap type="com.dine.root.food.dto.NationDTO" id="nation">
       <!-- primary key 값은 id로 -->
       <result property="nation" column="nation" />
       <result property="nationPicture" column="nation_picture" />
@@ -79,22 +81,21 @@
    </resultMap>
    
    <insert id="nationInsert">
-   		INSERT INTO nationinfo(nation, nation_picture, address, infomation) VALUES(#{nation}, #{nationPicture}, #{address}, #{infomation})
+         INSERT INTO nationinfo(nation, nation_picture, address, infomation) VALUES(#{nation}, #{nationPicture}, #{address}, #{infomation})
    </insert>
-	
-	  <select id="nation" resultMap="nation">
-    	SELECT * FROM nationinfo WHERE nation= #{nation}
-   	  </select>
-   	  
-   	 <update id="nationEdit">
-		UPDATE nationinfo SET nation_picture=#{nationPicture}, address=#{address}, infomation=#{infomation} WHERE nation=#{nation}
-	</update>
    
-   	<delete id="nationDelete">
-		DELETE FROM nationinfo WHERE nation=#{nation}
-	</delete>
-	
+     <select id="nation" resultMap="nation">
+       SELECT * FROM nationinfo WHERE nation= #{nation}
+        </select>
+        
+       <update id="nationEdit">
+      UPDATE nationinfo SET nation_picture=#{nationPicture}, address=#{address}, infomation=#{infomation} WHERE nation=#{nation}
+   </update>
+   
+      <delete id="nationDelete">
+      DELETE FROM nationinfo WHERE nation=#{nation}
+   </delete>
+   
 </mapper>
-
 
 

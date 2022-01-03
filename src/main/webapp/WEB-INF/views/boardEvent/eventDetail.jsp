@@ -30,11 +30,11 @@
 
 			<div style="padding: 20px;">
 			
-				<!-- ${board.title} -->
-				<h2>EVENT TITLE</h2>
-				<!-- ${board.img} -->
-				<img src="${contextPath }/resources/img/board/eventposter.jpeg"
-					style="width: 800px; height: 1200px;">
+				
+				<h2>${event.title} </h2>
+		
+				<img src="${contextPath }/resources/img/event/${event.img_url}"
+					style="width: 700px; height: 1000px;">
 					
 				<div style="font-family: 'Gothic A1', sans-serif; font-size: 20px;">
 			<div style="padding:40px;">
@@ -42,12 +42,8 @@
 					<h3>~ 이달의 이벤트 ~</h3>
 					<br> 
 					<br>
-					<!-- board.content -->
-					<span> =====내용==== <br>
-					
-						이벤트 기간 : <br>
-						2021-12-01 ~<br>
-						 2021-12-31 <br>
+				
+					<span> ${event.content}
 					</span>
 					</div>
 

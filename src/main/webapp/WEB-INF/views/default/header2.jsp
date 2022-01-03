@@ -48,19 +48,43 @@ background-color:#FFDDBA;
 						</a>
 
 					</div>
+				</c:when>				
+				<c:otherwise>
+				<c:choose>
+				<c:when test="${session_user eq '운영진' }">
+				<div class="dropdown">
+						<a class="dropbtn" href="${contextPath }/mypage"> <img
+							src="${contextPath}/resources/img/imgMain/home.png"
+							style="margin-top: 15px;">
+						</a>
+				
+							<div class="dropdown-content">
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
+							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
+						</div>
+
+					</div>
 				</c:when>
 				<c:otherwise>
-					<!-- 로그인 되어있을 시-->
+				<!-- 로그인 되어있을 시-->
 					<div class="dropdown">
-						<a class="dropbtn" href="${contextPath }/mypage">
-							<img src="${contextPath}/resources/img/imgMain/home.png"style="margin-top: 15px;">
+						<a class="dropbtn" href="${contextPath }/mypage"> <img
+							src="${contextPath}/resources/img/imgMain/home.png"
+							style="margin-top: 15px;">
 						</a>
-						<div class="dropdown-content">
-							<a class="a" href="${contextPath }/mypage">MYPAGE</a>
-							 <a class="a" href="${contextPath }/mylikes">MY LIKES</a> 
-							 <a class="a" href="${contextPath }/logout">SIGN OUT</a>
+				
+							<div class="dropdown-content">
+							<a class="a" href="${contextPath }/mypage">MYPAGE</a> 
+							<a class="a" href="${contextPath }/likeList">MY LIKES</a> 
+							<a class="a" href="${contextPath }/logout">SIGN OUT</a>
 						</div>
+
 					</div>
+				
+				
+				</c:otherwise>
+					
+				</c:choose>
 				</c:otherwise>
 			</c:choose>
 		</div>

@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -26,18 +28,18 @@ public class reviewsController {
 	@Autowired reviewsServiceImpl rs;
 	
 	@RequestMapping("rest_reviews_form")
-	public String restReviews(Model model ,@RequestParam("rest") int restId) {
-		
+	public String restReviews(Model model ,@RequestParam("rest") int restId,HttpSession session) {
+		String name = (String) session.getAttribute("session_user");
 		model.addAttribute("att","rest");
 		model.addAttribute("memId","aa");
 		rs.infoRest(model,restId);
-		return "food/reviews_form";
+		return "review/reviews_form";
 	}
 	
 	@RequestMapping("food_reviews_form")
 	public String Reviews(Model model) {
 		model.addAttribute("att","food");
-		return "food/reviews_form";
+		return "review/reviews_form";
 	}
 	
 	@ResponseBody
@@ -55,7 +57,7 @@ public class reviewsController {
 		String att = request.getParameter("att");
 		System.out.println("att : "+att);
 		System.out.println("멀티파트파일" + multipartFile);
-		
+		System.out.println("회원 이름" + request.getParameter("memId"));
 		
 		if(multipartFile.size() == 0) {
 			check = rs.reviewsUploadNonFile(request);
@@ -72,14 +74,6 @@ public class reviewsController {
 		return msg;
 	}
 
-	@RequestMapping("food")
-	public String food() {
-		return "/food/food_detail";
-	}
-	@RequestMapping("f")
-	public String f() {
-		return "/food/food";
-	}
 	@RequestMapping("upload_rest_Review")
 	public void upload(MultipartHttpServletRequest m, HttpServletResponse res) throws IOException {
 		System.out.println("정보 1 : "+m.getParameter("rate"));

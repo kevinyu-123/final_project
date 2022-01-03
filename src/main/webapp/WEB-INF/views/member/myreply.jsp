@@ -8,9 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>댓글 조회</title>
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -71,7 +69,7 @@ button:hover {
 }
 
 #bigbox {
-	height: 650px;
+	height: 100%;
 	display: flex;
 }
 
@@ -167,16 +165,16 @@ h2 {
 							
 							<th width="70%;">댓글 내용</th>
 							<th>작성일</th>
-							<th>조회</th>
+							
 						</tr>
 						<c:choose>
 							<c:when test="${fn:length(replyInfo) != 0}">
 							<c:forEach var="reply" items="${replyInfo}">
 							
 								<tr>
-									<td><a href="#">${reply.content}</a></td>
+									<td><a href="${contextPath}/viewContent?board_no=${reply.post_group}">${reply.content}</a></td>
 									<td>${reply.reg_time}</td>
-									<td>${reply.views}</td>
+									
 								</tr>
 								
 								</c:forEach>

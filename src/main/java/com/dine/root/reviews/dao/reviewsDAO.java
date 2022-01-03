@@ -1,10 +1,12 @@
 package com.dine.root.reviews.dao;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.dine.root.rest.dto.restDTO;
 import com.dine.root.reviews.dto.reviewsDTO;
 
+@Mapper
 public interface reviewsDAO {
 	public restDTO infoRest(int restId);
 	public int insertRestReview(reviewsDTO dto);

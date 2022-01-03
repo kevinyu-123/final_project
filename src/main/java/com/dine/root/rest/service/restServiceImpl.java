@@ -1,6 +1,7 @@
 package com.dine.root.rest.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +22,18 @@ public class restServiceImpl implements restService{
 		// TODO Auto-generated method stub
 		try {
 			restDTO dto = dao.infoRest(id);
-			System.out.println(dto);
 			if(dto != null) {
 				m.addAttribute("restDTO",dto);
 				String pic = dto.getRestPic();
-				System.out.println(pic);
-				String[] picArray = pic.split(",");
-				System.out.println(picArray);
-				System.out.println(picArray[0]);
-				System.out.println(picArray[1]);
-				System.out.println(picArray[2]);
-				System.out.println(picArray[3]);
-				System.out.println(dto.getHours());
-				System.out.println(dto.getId());
-				
-				
+				if(!pic.equals("-")) {
+					String[] picArray = pic.split(",");
+					m.addAttribute("restPic",picArray);
+				}
+				else {
+					String [] picArray = {"non.png","2","3"};
+					m.addAttribute("restPic",picArray);
+				}
 				double avr = Math.round(dto.getRateAvr()*100)/100.0;
-				System.out.println(avr);
-						
-				m.addAttribute("restPic",picArray);
 				m.addAttribute("avr",avr);
 			}
 		}catch(Exception e) {
@@ -54,7 +48,6 @@ public class restServiceImpl implements restService{
 		try {
 			ArrayList<menuDTO> menuDTO = dao.infoMenu(id);
 			m.addAttribute("menuDTO",menuDTO);
-			System.out.println(menuDTO.get(0).getPic());
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -67,19 +60,6 @@ public class restServiceImpl implements restService{
 		try {
 			ArrayList<reviewsDTO> reviewsDTO = new ArrayList<reviewsDTO>();
 			reviewsDTO = dao.infoReviews(id);
-			for(reviewsDTO d : reviewsDTO) {
-				System.out.println("1"+d.getFoodName());
-				System.out.println("2"+d.getImgs());
-				System.out.println("3"+d.getMemId());
-				System.out.println("4"+d.getRate());
-				System.out.println("5"+d.getRestId());
-				System.out.println("6"+d.getReview());
-				System.out.println("7"+d.getRevDate());
-
-			}
-			System.out.println("reviewsDTO.size()" + reviewsDTO.size());
-			System.out.println("reviewsDTO" + reviewsDTO);
-			
 			if(reviewsDTO.size() != 0) {
 				m.addAttribute("reviewsDTO", reviewsDTO);
 				m.addAttribute("restId", id);
@@ -111,15 +91,10 @@ public class restServiceImpl implements restService{
 		try {
 			String memId = (String) idMap.get("memId");
 			Map memLike = dao.infoMemLike(memId);
-			System.out.println(memLike);
 			int unLike1 = (int) idMap.get("rest") ;
 			String unLike = ""+unLike1;
-			System.out.println(unLike);
-			System.out.println(memLike.get("LIKED_REST"));
 			String like = (String) memLike.get("LIKED_REST");
-			System.out.println(like);
-			String upLike = like.replace("/"+"식당2", "");
-			System.out.println(upLike);
+			String upLike = like.replace(unLike+"/", "");
 			
 			dao.updateUnLike(upLike,memId );
 			
@@ -128,5 +103,24 @@ public class restServiceImpl implements restService{
 		}
 		// TODO Auto-generated method stub
 		
+	}
+	 @Override
+	   public List<restDTO> getRestByNation(String nation) {
+	      return dao.selectNationByRest(nation);
+	   }
+
+	@Override
+	public void infoLiked(Model m, String name,int id) {
+		// TODO Auto-generated method stub
+		Map liked = dao.infoLiked(name);
+		if(liked == null) {
+			// 찜 아예 없다
+		}else {
+			if(liked.toString().contains(""+id)) {
+				// 찜에 해당 레스토랑이 달려있다
+				m.addAttribute("liked","true");
+			}else {
+			}
+		}
 	}
 }

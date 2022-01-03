@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
@@ -91,7 +92,7 @@ font-size:14px;
    <div style="width: 60%; margin: auto;">
       <form id="fo" method="post" action="saveWrite">
          <input type="hidden" name="writer"value="${session_user}"/>
-         <input type="hidden" name="board_category" value="free_board"> 
+         <input type="hidden" name="board_category" value="자유게시판"> 
          <input type="hidden" name="content"id="content">
          <input type="hidden" id="img_url" name="img_url">
          <input id="title_box" type="text" name="title" placeholder="제목을 입력해 주세요."/>

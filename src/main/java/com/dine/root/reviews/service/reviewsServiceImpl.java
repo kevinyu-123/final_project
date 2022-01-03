@@ -36,13 +36,13 @@ public class reviewsServiceImpl implements reviewsService{
 		dto.setImgs("non");
 		dto.setRestId(Integer.parseInt(request.getParameter("restId")));
 		dto.setFoodName(request.getParameter("foodName"));
+		
 		int check = 0;
 		if(request.getParameter("restId")==null) {
 			check = dao.insertFoodReview(dto);
 		}else {
 			check = dao.insertRestReview(dto);
 		}
-		System.out.println(check);
 		int restRateCheck=0;
 		int rateAvrCheck=0;
 		if(check == 1) {
@@ -61,22 +61,14 @@ public class reviewsServiceImpl implements reviewsService{
 				dao.updateFoodRateAvr(dto.getFoodName());
 			}
 		}else {
-			System.out.println("실패");
 		}
-
-		System.out.println("멤버아이디 : " + dto.getMemId());
-		System.out.println("음식점아이디 : " + dto.getRestId());
-		System.out.println("음식 이름 : " + dto.getFoodName());
-		System.out.println("별점 : " + dto.getRate());
-		System.out.println("리뷰 : " + dto.getReview());
-		System.out.println("사진 : " + dto.getImgs());
-		System.out.println("저장날짜 : " + dto.getRevDate());
 		return check;
 	}
 	public int reviewsUploadProcess(List<MultipartFile> multipartFile,HttpServletRequest request) {	
 		// TODO Auto-generated method stub
 		reviewsDTO dto = new reviewsDTO();
-
+		String memName = request.getParameter("memId");
+		// 멤버 이름으로 mem_id를 찾아서 dto에 저장시켜야 하는데 출력은 그럼 다시 멤버를 찾아야하는것보다 로그인 세션에서 id값을 전달해주는 좋다
 		dto.setMemId(request.getParameter("memId"));
 		dto.setRate(Integer.parseInt(request.getParameter("rate")));
 		dto.setReview(request.getParameter("content"));
@@ -92,14 +84,11 @@ public class reviewsServiceImpl implements reviewsService{
 		for(MultipartFile file : multipartFile) {
 			String sysFileName = fo.format(calendar.getTime());
 			sysFileName += file.getOriginalFilename();
-			System.out.println("사진 " + sysFileName);
-			System.out.println(request.getParameter("restId"));
-			System.out.println(request.getParameter("foodName"));
 
 			if(request.getParameter("foodName").equals("non")) {
 				dto.setFoodName(request.getParameter("foodName"));
 				dto.setRestId(Integer.parseInt(request.getParameter("restId")));
-				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+dto.getMemId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
+				File saveFile = new File(restReviewsImg + "/"+dto.getRestId()+"/"+ dto.getRevDate()+"/"+ sysFileName);
 				System.out.println(saveFile.getAbsolutePath());
 				try {
 					if(saveFile.mkdirs()) {

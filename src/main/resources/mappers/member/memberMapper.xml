@@ -17,20 +17,6 @@
 		<result property="kakaologin" column="kakaologin" />
 		<result property="naverlogin" column="naverlogin" />
 	</resultMap>
-	
-
-	<resultMap type="com.dine.root.member.dto.AdminDTO"
-		id="admin">
-		<result property="id" column="id" />
-		<result property="pwd" column="pwd" />
-		<result property="name" column="name" />
-	</resultMap>
-
-	<select id="getMember" resultMap="admin">
-		select * from admin where id =
-		#{id}
-	</select>
-	
 
 	<insert id="register">
 		INSERT into member (id,pwd,name,email,email_auth)
@@ -151,16 +137,23 @@
 	<delete id="deleteMember">
 		delete from member where name=#{session_id}
 	</delete>
+	
 
-
+	
+ <resultMap type="com.dine.root.member.dto.AdminDTO" id="admin">
+      <result property="id" column="id"/>
+      <result property="pwd" column="pwd"/>
+      <result property="name" column="name"/>
+   </resultMap>
+   
+	<select id="getMember" resultMap="admin">
+		select * from admin where id = #{id}
+	</select>
+	
 	<select id="getLikes" resultMap="member">
 		select * from member
 		where name=#{session_id}
 	</select>
-
-
-
-
 
 
 </mapper>

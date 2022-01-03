@@ -13,26 +13,27 @@ import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.service.MemService;
 
 public class AutoLoginInterceptor extends HandlerInterceptorAdapter implements MemberSession {
-
 	@Autowired
-	MemService ms;
-
+	MemService service;
+	
 	@Override
-	public boolean preHandle(HttpServletRequest request, 
-			HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+				
 		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-		if (loginCookie != null) {
-
-			MemDTO dto = ms.getUserSessionId(loginCookie.getValue());
-			
-			if (dto != null) {
+		if(loginCookie != null) {
+			MemDTO dto = service.getUserSessionId(loginCookie.getValue());
+			if(dto != null) {
+			//	HttpSession session = request.getSession();
+			//	session.setAttribute(LOGIN, dto.getId());
+				
+				//위 방식과 같음
 				request.getSession().setAttribute(LOGIN_ID, dto.getId());
 			}
 		}
-
 		return true;
 	}
+	
+	
 
 }

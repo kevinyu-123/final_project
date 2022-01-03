@@ -44,6 +44,36 @@ public class restDTO {
 	private double lng;
 	// 메인사진 
 	private String restPic;
+	// rest_mainpic
+	private String mainPic;
+	// 카테고리 1
+	private String category1;
+	// 카테고리 2
+	private String category2;
+	
+	public String getMainPic() {
+		return mainPic;
+	}
+
+	public void setMainPic(String mainPic) {
+		this.mainPic = mainPic;
+	}
+
+	public String getCategory1() {
+		return category1;
+	}
+
+	public void setCategory1(String category1) {
+		this.category1 = category1;
+	}
+
+	public String getCategory2() {
+		return category2;
+	}
+
+	public void setCategory2(String category2) {
+		this.category2 = category2;
+	}
 
 	public String getNation() {
 		return nation;
