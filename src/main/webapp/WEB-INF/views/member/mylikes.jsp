@@ -149,15 +149,15 @@ span {
                <c:choose>
                   <c:when test="${fn:length(res_form) != 0}">
                      <c:forEach var="res" items="${res_form}">
-                     <div>
+                 <div style="display:inline-block;">
                      <figure class="snip1132">
-                     <img src="${contextPath}/resources/img/imgMain/${res.rest_mainpic}"alt="sample22"/>
+                     <img src="${contextPath}/resources/rest_detail/bootstrap/images/${res.id}/${res.mainPic}" style="width:300px; height:200px;"/>
                      <figcaption>
                      <div class="heading"><span>${res.name}</span></div>
                      </figcaption>
-                     <a href="${contextPath}/v?id=${res.id}"></a>
+                     <a href="${contextPath}/restaurant?id=${res.id}"></a>
                      </figure>
-                     </div>
+                </div>
                   </c:forEach>
                   </c:when>
                   <c:otherwise>

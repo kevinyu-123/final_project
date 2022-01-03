@@ -103,11 +103,7 @@ input:focus {
 	color: red;
 }
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 .email_chk {
 	color: #6A82FB;
 	display: none;
