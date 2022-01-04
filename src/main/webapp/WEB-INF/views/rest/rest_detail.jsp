@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<c:set var="contextPath" value="${contextPath.request.pageContext }" />
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -215,14 +215,14 @@
 												<div class="carousel-inner" style="">
 													<div class="item active mainPic">
 														<img
-															src="resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[0] }">
+															src="${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[0] }">
 													</div>
 
 													<c:if test="${cnt > 1 }">
 													<c:forEach var="num" begin="1" end="${cnt-1 }">
 														<div class="item mainPic">
 															<img
-																src="resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[num] }">
+																src="${contextPath}/resources/rest_detail/bootstrap/images/${restDTO.id }/${restPic[num] }">
 														</div>
 													</c:forEach>
 													</c:if>
@@ -244,7 +244,7 @@
 													<div class="carousel-inner" style="">
 													<div class="item active mainPic">
 														<img
-															src="resources/rest_detail/bootstrap/images/commonImg/${restPic[0] }"
+															src="${contextPath}/resources/rest_detail/bootstrap/images/commonImg/${restPic[0] }"
 															id="nonPic"
 															>
 													</div>
@@ -431,7 +431,7 @@
 									<div id="map" style="width: 560px; height: 550px;"></div>
 								</div>
 								<script type="text/javascript"
-									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b98926a604353b43e636cb141e9ef77"></script>
+									src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b87610e695d8bef6993ac70b8fefc32"></script>
 								<script>
 									var mapContainer = document
 											.getElementById('map'), // 지도를 표시할 div 

@@ -224,7 +224,7 @@ font-family: 'Gothic A1', sans-serif;
                   <input type="button" id="r_btn" onclick="saveReply()" value="등록">
                      </c:when>
                      <c:otherwise>
-                        <a href="/naverlogin">
+                        <a href="${contextPath}/naverlogin">
                         <textarea rows="6" cols="120" style="resize: none" placeholder="로그인 후 이용할 수 있습니다."></textarea>
                         </a>
                      </c:otherwise>

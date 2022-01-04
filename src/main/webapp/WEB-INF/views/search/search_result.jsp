@@ -61,7 +61,7 @@ html, body {
 .results {
 	display: flex;
 	margin: 0 auto;
-	width: 75%;
+	width: 100%;
 	margin-top: 10%;
 	flex-direction: column;
 }
@@ -115,7 +115,7 @@ html, body {
 	border: 2px solid #ccc;
 	border-radius: 30px;
 	text-align: center;
-	margin-left:200px;
+	margin-left:120px;
 }
 
 .button {

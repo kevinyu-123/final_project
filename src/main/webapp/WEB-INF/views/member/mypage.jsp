@@ -37,7 +37,7 @@ span {
 
 #buttons {
 	margin-top: 50px;
-	margin-left: 540px;
+	margin-left: 460px;
 }
 
 #buttons2 {
