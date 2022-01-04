@@ -5,5 +5,5 @@ import java.util.List;
 import com.dine.root.map.dto.MapDTO;
 
 public interface MapService {
-   public List<MapDTO> info(String nation);
+	public List<MapDTO> info(String nation);
 }

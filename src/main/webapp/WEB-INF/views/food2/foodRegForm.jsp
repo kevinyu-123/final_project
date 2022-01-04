@@ -17,8 +17,7 @@
 
 <script>
 function frmCheck()
-{
-         
+{  
          var form = document.form;
          form.submit();
  }
@@ -33,7 +32,7 @@ function frmCheck()
 	</header>
 	
 		<main id="LoginWrap">
-		<form name="form" method="post"  id="form"  action="foodReg" enctype="multipart/form-data">
+		<form name="form" method="post"  id="form"  action="register" enctype="multipart/form-data">
 			<!--  <input type="text" placeholder="아이디" name="id"> -->
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
 				<tr>
@@ -98,20 +97,6 @@ function frmCheck()
 			
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td height="10" style="font-size: 24px;">카테고리 1 (각 나라별 지역 선택)
-					</td>
-				</tr>
-				<tr>
-					<td height="10"><input type="text" placeholder="각 나라별 지역 선택"
-						name="category1" style="width: 100%;"
-						> <br></td>
-				</tr>
-				<tr>
-			</table>
-			
-			<!-- 
-			<table width="400" border="0" cellspacing="0" cellpadding="0">
-				<tr>
 					<td height="10" style="font-size: 24px;">카테고리 1 (지역 선택)</td>
 				</tr>
 				<tr>
@@ -128,7 +113,6 @@ function frmCheck()
 					</td>
 				</tr>
 			</table>
-			 -->
 			
 			<table width="400" border="0" cellspacing="0" cellpadding="0">
 				<tr>

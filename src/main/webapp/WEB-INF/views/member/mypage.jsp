@@ -23,38 +23,31 @@
 	padding: 20px;
 	margin: auto;
 }
-
 #profile img {
 	width: 50px;
 	height: 50px;
 }
-
 span {
 	text-align: center;
 	margin: auto;
 	font-size: 30px;
 }
-
 #buttons {
 	margin-top: 50px;
 	margin-left: 540px;
 }
-
 #buttons2 {
 	margin-top: 50px;
 	margin-left: 450px;
 }
-
 #buttons img {
 	width: 30px;
 	height: 30px;
 }
-
 #buttons2 img {
 	width: 30px;
 	height: 30px;
 }
-
 button {
 	background-color: #f4d19f;
 	border: none;
@@ -66,46 +59,38 @@ button {
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 }
-
 button:hover {
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
 		rgba(0, 0, 0, 0.19);
 }
-
 .likes, .board, .reply, .account {
 	font-size: 25px;
 	width: 300px;
 	height: 200px;
 }
-
 #navdiv {
 	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
 }
-
 #navdiv ul {
 	margin: 0;
 	padding: 0;
 	width: 200px;
 }
-
 #navdiv ul li {
 	list-style-type: none;
 }
-
 #navdiv li a {
 	font-size: 20px;
 	display: block;
 	padding: 8px 10px;
 	text-decoration: none;
 }
-
 #navdiv li:hover {
 	
 }
-
 #bigbox {
 	height:100%;
 }
@@ -117,10 +102,12 @@ button:hover {
 		<c:import url="../default/header.jsp" />
 	</header>
 
-
+	
 	<div class="w3-animate-opacity">
-		<div id="bigbox">
+	
+		<div id="bigbox">		
 			<div id="profile">
+			
 				<img src="${contextPath }/resources/img/imgMain/user.png"><br>
 				<span><b>${session_user }</b></span>
 			</div>
@@ -187,7 +174,7 @@ button:hover {
 						<table>
 							<tr>
 								<td>
-									<button class="likes" onclick="location.href='writeNews'">
+									<button class="likes" onclick="location.href='writenews'">
 										<br>공지사항 등록
 									</button>
 								</td>

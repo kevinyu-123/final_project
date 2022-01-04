@@ -37,6 +37,7 @@
    <mybatis-spring:scan base-package="com.dine.root.boardFree_reply.mapper"/>
    <mybatis-spring:scan base-package="com.dine.root.boardNotice.mapper"/>
    <mybatis-spring:scan base-package="com.dine.root.boardEvent.mapper"/>
+   <mybatis-spring:scan base-package="com.dine.root.search.mapper"/>
    
 	<!--  첫 에러는 namespaces에서 mybatis-spring 설정 -->	
 

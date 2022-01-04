@@ -18,13 +18,11 @@
 	rel="stylesheet">
 
 <style>
-
 span {
 	text-align: center;
 	margin: auto;
 	font-size: 30px;
 }
-
 button {
 	background-color: rgba(223, 209, 204);
 	border: none;
@@ -36,90 +34,73 @@ button {
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 }
-
 button:hover {
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
 		rgba(0, 0, 0, 0.19);
 }
-
 .likes, .board, .reply, .account {
 	font-size: 25px;
 	width: 300px;
 	height: 200px;
 }
-
 #navdiv {
 	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
 }
-
 #navdiv ul {
 	margin: 0;
 	padding: 0;
 	width: 200px;
 }
-
 #navdiv ul li {
 	list-style-type: none;
 }
-
 #navdiv li a {
 	font-size: 20px;
 	display: block;
 	padding: 8px 10px;
 	text-decoration: none;
 }
-
 #bigbox {
 	height: 650px;
 	display: flex;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	width: 60%;
 	padding-top: 10px;
 }
-
 table {
 	font-family: 'Gothic A1', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
-
 td, th {
 	border: 1px solid #dddddd;
 	text-align: center;
 	padding: 8px;
 }
-
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
-
 h2 {
 	text-align: center;
 }
-
 #rowsPerPage, #pageCount {
 	float: right;
 }
-
 #textbox {
 	width: 100px;
 	height: 20px;
 	letter-spacing: -5px"
 }
-
 h2 {
 	text-align: center;
 }
-
 #right_box {
 	width: 20%;
 }
@@ -127,7 +108,6 @@ h2 {
 	font-size: 30px;
 	padding: 15px;
 }
-
 </style>
 <script type="text/javascript">
 	
@@ -167,7 +147,7 @@ h2 {
 				<table>
 					<tr>
 						<th>게시판 종류</th>
-						<th>게시글 제목</th>
+						<th width="60%;">게시글 제목</th>
 						<th>게시 날짜</th>
 						<th>조회</th>
 					</tr>
@@ -176,7 +156,7 @@ h2 {
 							<c:forEach var="board" items="${boardInfo}">
 								<tr>
 									<td>${board.board_category}</td>
-									<td><a href="#">${board.title}</a></td>
+									<td><a href="${contextPath}/viewContent?board_no=${board.board_no}">${board.title}</a></td>
 									<td>${board.reg_time}</td>
 									<td>${board.views}</td>
 								</tr>

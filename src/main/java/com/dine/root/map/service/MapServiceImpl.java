@@ -10,13 +10,14 @@ import com.dine.root.map.mapper.MapMapper;
 
 @Service
 public class MapServiceImpl implements MapService {
-   @Autowired
-   MapMapper mapper;
-   
-   
-   @Override
-   public List<MapDTO> info(String nation) {
-      return mapper.info(nation);
-   }
+
+	@Autowired
+	MapMapper mapper;
+	
+	
+	@Override
+	public List<MapDTO> info(String nation) {
+		return mapper.info(nation);
+	}
 
 }

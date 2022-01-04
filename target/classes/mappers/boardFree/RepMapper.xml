@@ -4,31 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dine.root.boardFree_reply.mapper.RepMapper">
 
-   <resultMap type="com.dine.root.boardFree_reply.dto.ReplyDTO" id="reply">
-      <result property="comment_no" column="comment_no"/>
-      <result property="origin_no" column="origin_no"/>
-      <result property="group_ord" column="group_ord"/>
-      <result property="group_layer" column="group_layer"/>
-      <result property="content" column="content"/>
-      <result property="writer" column="writer"/>
-      <result property="reg_time" column="reg_time"/>
-      <result property="views" column="views"/>
-      <result property="post_group" column="post_group"/>
-   </resultMap>
-   
-   <insert id="addRep">
-      INSERT INTO community_board_comment (comment_no,content,writer,post_group) VALUES(COMMUNITY_BOARD_COMMENT_SEQ.nextval,#{content},#{writer},#{post_group})
-   </insert>
-   
-   <select id="getRepList" resultMap="reply">
-      SELECT * FROM community_board_comment WHERE post_group = #{post_group} ORDER BY reg_time DESC
-   </select>
-   
-   
-   
-   
-   
-   
-   
-   
-   </mapper>
+	<resultMap type="com.dine.root.boardFree_reply.dto.ReplyDTO" id="reply">
+		<result property="comment_no" column="comment_no"/>
+		<result property="origin_no" column="origin_no"/>
+		<result property="group_ord" column="group_ord"/>
+		<result property="group_layer" column="group_layer"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<result property="reg_time" column="reg_time"/>
+		<result property="views" column="views"/>
+		<result property="post_group" column="post_group"/>
+	</resultMap>
+	
+	<insert id="addRep">
+		INSERT INTO community_board_comment (comment_no,content,writer,post_group) VALUES(COMMUNITY_BOARD_COMMENT_SEQ.nextval,#{content},#{writer},#{post_group})
+	</insert>
+	
+	<select id="getRepList" resultMap="reply">
+		SELECT * FROM community_board_comment WHERE post_group = #{post_group} ORDER BY reg_time DESC
+	</select>
+	
+	
+	
+	</mapper>

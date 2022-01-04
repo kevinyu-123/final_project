@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
@@ -32,22 +33,18 @@
    padding-top: 10px;
    height: 100%;
 }
-
 #right_box {
    width: 20%;
 }
 #t_btn{
-
 }
 #txt_area{
    height: 100%;
   border: 1px solid #ccc;
    font-family: 'Gothic A1', sans-serif;
-
    width: 100%;
    margin-top: 10px;
 }
-
 a{
 text-decoration: none;
 }
@@ -65,14 +62,12 @@ img{
 #comment_area{
    margin-top: 20px;
    
-
 }
 #comment_area span{
    font-size: medium;
    font-weight: bold;
    
 }
-
 #t_btn {
    width:90px;
    height: 40px;
@@ -84,19 +79,15 @@ img{
 	-webkit-transition: 0.1s;
 	transition: 0.2s;
 	outline: none;
-	margin-left: 10px;
 	padding:10px;
 }
-
 #t_btn:hover {
 	font-weight: bold;
 }
-
 #r_btn {
    width:90px;
    height: 40px;
 font-family: 'Gothic A1', sans-serif;
-	
 	margin: 8px 0;
 	box-sizing: border-box;
 	border: 1px solid #ccc;
@@ -106,12 +97,9 @@ font-family: 'Gothic A1', sans-serif;
 	margin-left: 10px;
 	padding:10px;
 }
-
 #r_btn:hover {
 	font-weight: bold;
 }
-
-
 </style>
 <script type="text/javascript">
    function saveReply(){
@@ -127,7 +115,6 @@ font-family: 'Gothic A1', sans-serif;
          data : JSON.stringify(form),
          contentType : "application/json;charset=utf-8",
          success : function(data){
-            alert('댓글이 성공적으로 등록되었습니다.');
             $("#content").val("")
             comment_list()
          },
@@ -138,7 +125,8 @@ font-family: 'Gothic A1', sans-serif;
    }
    
    function comment_list(){
-	      var post_group = $("#post_group").val()
+	      let post_group = $("#post_group").val()
+	      let cnt = 0;
 	      $.ajax({
 	           url:"replyData/"+post_group,
 	           type:"GET", 
@@ -146,20 +134,19 @@ font-family: 'Gothic A1', sans-serif;
 	           success: function(rep){
 	           let html = ""
 	           rep.forEach(function(data){
-	              
 	              var date = new Date(data.reg_time)
 	              let writeDate = date.getFullYear()+"."+(date.getMonth()+1)+"."
 	              writeDate += date.getDate()+". "+date.getHours()+":"
-	              writeDate += date.getMinutes()
-	              
+	              writeDate += date.getMinutes()	         
 	              html += "<div align='left'><b>"+data.writer+"</b><br>";
 	              html += data.content+"<br>"
-	            html += "<small> "+writeDate+"</small><br>"
+	              html += "<small> "+writeDate+"</small><br>"
 	              html += "<a><small>답글쓰기</small></a></div>"
 	              html += "<hr>"
+	              cnt++;
 	           })
-	           
 	           $("#c_box").html(html)
+	           $("#cnt").html("댓글("+cnt+")")
 	         }
 	      })
 	   }
@@ -176,9 +163,9 @@ font-family: 'Gothic A1', sans-serif;
             <div id="mid_box">
             <div align="right" style="margin-top: 20px;">
             <c:if test="${session_user == info.writer or session_user eq '운영진' }">
-            
-               <button id="t_btn" onclick="#">수정</button>
-               <button id="t_btn" onclick="location.href='${contextPath}/deleteCont'">삭제</button>
+               <button id="t_btn" onclick="location.href='${contextPath}/formModify?board_no=${info.board_no}'">수정</button>
+               <button id="t_btn" onclick="location.href='${contextPath}/deleteCont?board_no=${info.board_no}'">삭제</button>
+
             </c:if>
                <button id="t_btn" onclick="location.href='${contextPath}/boardAllList'">목록</button>
             </div>
@@ -188,8 +175,7 @@ font-family: 'Gothic A1', sans-serif;
                   <hr>
                   <h2 style="margin: 0px;  font-family: 'Gothic A1', sans-serif;">${info.title}</h2>
                   <h4 style="padding-left: 30px;  font-family: 'Gothic A1', sans-serif;">
-                  <img id="user_img" src="${contextPath}/resources/img/imgMain/user.png" style="  
-                  font-family: 'Gothic A1', sans-serif;">&nbsp; ${info.writer }</h4>
+                  <img id="user_img" src="${contextPath}/resources/img/imgMain/user.png" style="  font-family: 'Gothic A1', sans-serif;">&nbsp; ${info.writer }</h4>
                   <h4 style="  font-family: 'Gothic A1', sans-serif;">${info.reg_time }</h4>
                </div>
                <hr>
@@ -203,9 +189,13 @@ font-family: 'Gothic A1', sans-serif;
                </div>
             </div>
             <div id="comment_area">
-               <span>댓글( )</span>
+               <span id="cnt"></span>
                <small><a href="javascript:void(0)" onclick="sort_by_reg()">등록순</a> &nbsp;</small>
                <small>&nbsp;<a href="javascript:void(0)" onclick="sort_by_date()">최신순</a></small>
+               <br>
+               <c:if test="${session_user eq null }">
+               	<span>로그인 후 댓글 확인이 가능합니다.</span>
+               </c:if>
                <hr>
             </div>
             <div id="c_box">
@@ -218,14 +208,13 @@ font-family: 'Gothic A1', sans-serif;
                      <c:when test="${session_user != null }">
                   <textarea rows="6" cols="111" name="content" id="content" style="resize: none; border: 1px solid #ccc; " placeholder="댓글을 등록해 주세요"></textarea>
                   <input type="hidden" name="writer" value="${session_user}">
-                  <input type="hidden" id="post_group" name="post_group"  value="${info.board_no}">
-                  <br>
+                  <input type="hidden" id="post_group" name="post_group"  value="${info.board_no}"><br>
+
                   <input type="button" id="r_btn" onclick="saveReply()" value="등록">
-                  
                      </c:when>
                      <c:otherwise>
                         <a href="/naverlogin">
-                        <textarea rows="6" cols="111" style="resize: none" placeholder="로그인 후 이용할 수 있습니다."></textarea>
+                        <textarea rows="6" cols="120" style="resize: none" placeholder="로그인 후 이용할 수 있습니다."></textarea>
                         </a>
                      </c:otherwise>
                   </c:choose>

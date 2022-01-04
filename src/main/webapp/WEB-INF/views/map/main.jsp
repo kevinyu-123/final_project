@@ -16,7 +16,6 @@ body {
    margin: 0;
    padding: 0;
 }
-
 #map {
    position: absolute;
    top: 0;
@@ -28,25 +27,19 @@ body {
    border-radius: 10px;
    box-shadow: 0 0 50px -25px black;
    align-content: center;
-
-
 }
-
 .flex-center {
    position: absolute;
    display: flex;
    justify-content: center;
    align-items: center;
 }
-
 .flex-center.left {
    left: 0px;
 }
-
 .flex-center.right {
    right: 0px;
 }
-
 .sidebar-content {
    position: absolute;
    width: 95%;
@@ -55,7 +48,6 @@ body {
    font-size: 32px;
    color: gray;
 }
-
 .sidebar-toggle {
    position: absolute;
    width: 1.3em;
@@ -65,16 +57,13 @@ body {
    justify-content: center;
    align-items: center;
 }
-
 .sidebar-toggle.right {
    left: -1.5em;
 }
-
 .sidebar-toggle:hover {
    color: #0aa1cf;
    cursor: pointer;
 }
-
 .sidebar {
    transition: transform 1s;
    z-index: 1;
@@ -92,24 +81,20 @@ table button {
    height: 70px;
    overflow: visible;
    background: transparent;
-
 }
 img{
    width : 70px;
    height: 70px;
-
 }
 table a{
 font-size: small;
 text-decoration: none !important;
 color:black;
-
 }
 table a:hover{
 text-decoration: none;
 color:white;
 }
-
 .right.collapsed {
    transform: translateX(295px);
 }
@@ -122,38 +107,44 @@ color:white;
          <div class="sidebar-content rounded-rect flex-center">
             <table >
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=korea">
+                  <th><a href="${contextPath}/map/restaurant_info?nation=대한민국">
                   <img id="icon" src="${contextPath}/resources/img/map/korea.png">대한민국</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=singapore">
+                  <th><a href="${contextPath}/map/restaurant_info?nation=싱가폴">
                   <img id="icon" src="${contextPath}/resources/img/map/singapore.png">싱가폴</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=taiwan">
+                  <th><a href="${contextPath}/map/restaurant_info?nation=대만">
                   <img id="icon" src="${contextPath}/resources/img/map/taiwan.png">대만</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=mongol">
+                  <th><a href="${contextPath}/map/restaurant_info?nation=몽골">
                   <img id="icon" src="${contextPath}/resources/img/map/mongolia.png">몽골</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=japan"><img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=일본">
+                  <img id="icon" src="${contextPath}/resources/img/map/japan.png">일본</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=philippine"><img id="icon" src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=필리핀">
+                  <img id="icon" src="${contextPath}/resources/img/map/philippine.png">필리핀</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=vietnam"><img id="icon" src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=베트남">
+                  <img id="icon" src="${contextPath}/resources/img/map/vietnam.png">베트남</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=laos"><img id="icon" src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=라오스">
+                  <img id="icon" src="${contextPath}/resources/img/map/laos.png">라오스</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=hongkong"><img id="icon" src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=홍콩">
+                  <img id="icon" src="${contextPath}/resources/img/map/hongkong.png">홍콩</a></th>
                </tr>
                <tr>
-                  <th><a href="${contextPath}/map/restaurant_info?nation=thailand"><img id="icon" src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
+                  <th><a href="${contextPath}/map/restaurant_info?nation=태국">
+                  <img id="icon" src="${contextPath}/resources/img/map/thailand.png">태국</a></th>
                </tr>
             </table>
             <div class="sidebar-toggle rounded-rect right" onclick="toggleSidebar('right')">&larr;</div>

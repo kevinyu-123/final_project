@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -31,28 +30,23 @@
 	opacity:80%;
 	z-index:-1;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	display: flex;
 	padding-top: 10px;
 }
-
 #left {
 	width: 300px;
 	height: 250px;
 	padding: 20px;
 }
-
 #right {
 	width: 300px;
 	height: 250px;
 	padding: 20px;
 }
-
 #mid {
 	width: 300px;
 	height: 100%;
@@ -78,16 +72,16 @@
 								countries<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc" class="w3-hide w3-white w3-card-4">
-								<a href="#" class="w3-bar-item w3-button">대한민국</a> 
-								<a href="#" class="w3-bar-item w3-button">싱가폴</a> 
-								<a href="#" class="w3-bar-item w3-button">대만</a> 
-								<a href="#" class="w3-bar-item w3-button">몽골</a> 
-								<a href="#" class="w3-bar-item w3-button">일본</a> 
-								<a href="#" class="w3-bar-item w3-button">필리핀</a> 
-								<a href="#" class="w3-bar-item w3-button">베트남</a> 
-								<a href="#" class="w3-bar-item w3-button">필리핀</a>
-								 <a href="#" class="w3-bar-item w3-button">라오스</a>
-								 <a href="#" class="w3-bar-item w3-button">기타</a>
+								<a href="${contextPath }/nation?nation=대한민국" class="w3-bar-item w3-button">대한민국</a> 
+								<a href="${contextPath }/nation?nation=싱가폴" class="w3-bar-item w3-button">싱가폴</a> 
+								<a href="${contextPath }/nation?nation=대만" class="w3-bar-item w3-button">대만</a> 
+								<a href="${contextPath }/nation?nation=몽골" class="w3-bar-item w3-button">몽골</a> 
+								<a href="${contextPath }/nation?nation=일본" class="w3-bar-item w3-button">일본</a> 
+								<a href="${contextPath }/nation?nation=필리핀" class="w3-bar-item w3-button">필리핀</a> 
+								<a href="${contextPath }/nation?nation=베트남" class="w3-bar-item w3-button">베트남</a> 
+								 <a href="${contextPath }/nation?nation=라오스" class="w3-bar-item w3-button">라오스</a>
+								 <a href="${contextPath }/nation?nation=홍콩" class="w3-bar-item w3-button">홍콩</a>
+								 <a href="${contextPath }/nation?nation=태국" class="w3-bar-item w3-button">태국</a>
 							</div>
 						</div>
 					</div>
@@ -101,7 +95,7 @@
 								음식점위치<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc2" class="w3-hide w3-white w3-card-4">
-								<a href="#" class="w3-bar-item w3-button">서울</a> 
+								<a href="${contextPath }" class="w3-bar-item w3-button">서울</a> 
 								<a href="#" class="w3-bar-item w3-button">대전</a> 
 								<a href="#" class="w3-bar-item w3-button">대구</a> 
 								<a href="#" class="w3-bar-item w3-button">부산</a> 
@@ -164,7 +158,6 @@
 							.replace(" w3-green", "");
 				}
 			}
-
 			function myAccFunc3() {
 				var x = document.getElementById("demoAcc3");
 				if (x.className.indexOf("w3-show") == -1) {

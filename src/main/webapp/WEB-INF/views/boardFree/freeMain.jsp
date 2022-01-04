@@ -13,69 +13,55 @@
 	height: 100%;
 	display: flex;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	font-family: 'Gothic A1', sans-serif;
 	width: 60%;
 	padding-top: 10px;
 }
-
 #right_box {
 	width: 20%;
 }
-
 table {
 	font-family: 'Gothic A1', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
-
 td, th {
 	border: 1px solid #dddddd;
 	text-align: center;
 	padding: 8px;
 }
-
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
-
 h2 {
 	text-align: center;
 }
-
 #rowsPerPage, #pageCount {
 	float: right;
 }
-
 #textbox {
 	width: 100px;
 	height: 20px;
 	letter-spacing: -5px"
 }
-
 h2 {
 	text-align: left;
 	font: bold;
 	margin-bottom: 0px;
 }
-
 #tag_div {
 	
 }
-
 #table_div {
 	margin-top: 30px;
 }
-
 a {
 	text-decoration: none;
 }
-
 #write_btn  {
 	font-family: 'Gothic A1', sans-serif;
 	width: 100%;
@@ -89,11 +75,9 @@ a {
 	margin-left: 10px;
 	padding:10px;
 }
-
 input:hover {
 	font-weight: bold;
 }
-
 </style>
 </head>
 <body>
@@ -102,7 +86,9 @@ input:hover {
 			<c:import url="../default/header.jsp" />
 		</header>
 		<div id="bigbox">
-			<div id="left_box"></div>
+			<div id="left_box">
+				<c:import url="../search/nav_bar.jsp"/>
+			</div>
 			<div id="mid_box">
 				<div id="tag_div">
 					<h2>
@@ -146,13 +132,16 @@ input:hover {
 					</div>
 					<div style="margin-top: 20px;" align="right">
 						<c:if test="${session_user != null }">
-						
-								<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
+							<input type="button" id="write_btn" onclick="location.href='${contextPath}/writeform'" value="글쓰기">
+
 						</c:if>
 					</div>
 				</div>
 			</div>
-			<div id="right_box"></div>
+			<div id="right_box">
+			
+			
+			</div>
 		</div>
 
 		<footer>

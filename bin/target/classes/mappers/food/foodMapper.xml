@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.dine.root.food.dao.FoodDAO">
+   <resultMap type="com.dine.root.food.dto.FoodDTO" id="food">
+      <id property="foodName" column="food_name" />   
+      <result property="foodComment" column="food_comment" />
+      <result property="nation" column="nation" />
+      <result property="mainPic" column="main_pic" />
+      <result property="intro" column="intro" />
+      <result property="category1" column="category_1" />
+      <result property="rateAll" column="rate_all" />
+      <result property="rateCnt" column="rate_cnt" />
+      <result property="rateAvg" column="rate_avr" />
+      <result property="category2" column="category_2" />
+      <result property="subPic" column="sub_pic" />
+      <result property="mapPic" column="map_pic" />
+      
+   </resultMap>
+   <select id="detail" resultMap="food">   <!-- resultMap은 select문에서만 실행 -->
+      <!-- 여기서 쓰는 resultMap은 위에 id로 저장한 resultMap과 매핑하는것 왜냐면 위에 id와 coulmn이 항상 
+         같을 순 없으니까! -->
+      SELECT * FROM food WHERE food_name= #{foodName}
+   </select> 
+   
+<<<<<<< HEAD
+   	<insert id="register">
+  			INSERT INTO food (food_name, food_comment, nation, main_pic,  intro, category_1, category_2, sub_pic, map_pic) 
+  			VALUES(#{foodName}, #{foodComment}, #{nation}, #{mainPic}, #{intro}, #{category1}, #{category2}, #{subPic}, #{mapPic})
+  	</insert>
+  	
+  	<select id="selectFoodsByNaton" resultMap="food">
+  		SELECT *  FROM food WHERE  	nation = #{nation}
+  		</select>
+  		
+  	<update id="foodEdit">
+		UPDATE food SET food_name=#{foodName}, food_comment=#{foodComment}, nation=#{nation},
+		main_pic=#{mainPic}, intro=#{intro}, category_1=#{category1}, category_2=#{category2}, sub_pic=#{subPic}, map_pic=#{mapPic}
+		WHERE food_name=#{foodName}
+	</update>
+	
+	 <delete id="foodDelete">
+		DELETE FROM food WHERE food_name=#{foodName}
+	</delete>
+  	
+  	<resultMap type="com.dine.root.food.dto.RecipeDTO" id="recipe">
+=======
+      <insert id="register">
+           INSERT INTO food (food_name, food_comment, nation, main_pic,  intro, category_1, category_2, sub_pic, map_pic) 
+           VALUES(#{foodName}, #{foodComment}, #{nation}, #{mainPic}, #{intro}, #{category1}, #{category2}, #{subPic}, #{mapPic})
+     </insert>
+     
+     <select id="selectFoodsByNaton" resultMap="food">
+        SELECT 
+              * 
+        FROM 
+              food 
+        WHERE     
+              nation = #{nation}
+        </select>
+        
+     <update id="foodEdit">
+      UPDATE food SET food_name=#{foodName}, food_comment=#{foodComment}, nation=#{nation},
+      main_pic=#{mainPic}, intro=#{intro}, category_1=#{category1}, category_2=#{category2}, sub_pic=#{subPic}, map_pic=#{mapPic}
+      WHERE food_name=#{foodName}
+   </update>
+   
+    <delete id="foodDelete">
+      DELETE FROM food WHERE food_name=#{foodName}
+   </delete>
+     
+     <resultMap type="com.dine.root.food.dto.RecipeDTO" id="recipe">
+>>>>>>> 44320c7b2d4d096001ef56b9af69910695b14a36
+      <!-- primary key 값은 id로 -->
+      <result property="id" column="id" />
+      <result property="foodName" column="food_name" />
+      <result property="cookTime" column="cook_time" />
+      <result property="ingredients" column="ingredients" />
+      <result property="recipe" column="recipe" />
+      <result property="youtubeAddr" column="youtubeaddr" />
+   </resultMap>
+   
+   <select id="recipe" resultMap="recipe">
+       SELECT * FROM recipe WHERE food_name= #{foodName}
+   </select>
+<<<<<<< HEAD
+	
+	<insert id="recipeInsert">
+		INSERT INTO recipe(food_name, cook_time, ingredients, recipe, youtubeaddr) VALUES(#{foodName}, #{cookTime}, #{ingredients}, #{recipe}, #{youtubeAddr})
+	</insert>
+	
+	<update id="recipeEdit">
+		UPDATE recipe SET food_name=#{foodName}, cook_time=#{cookTime}, ingredients=#{ingredients}, recipe=#{recipe}, youtubeaddr=#{youtubeAddr} 
+	</update>
+	
+	<resultMap type="com.dine.root.food.dto.NationDTO" id="nation">
+=======
+   
+   <insert id="recipeInsert">
+      INSERT INTO recipe(food_name, cook_time, ingredients, recipe, youtubeaddr) VALUES(#{foodName}, #{cookTime}, #{ingredients}, #{recipe}, #{youtubeAddr})
+   </insert>
+   
+   <update id="recipeEdit">
+      UPDATE recipe SET food_name=#{foodName}, cook_time=#{cookTime}, ingredients=#{ingredients}, recipe=#{recipe}, youtubeaddr=#{youtubeAddr} 
+   </update>
+   
+   <resultMap type="com.dine.root.food.dto.NationDTO" id="nation">
+>>>>>>> 44320c7b2d4d096001ef56b9af69910695b14a36
+      <!-- primary key 값은 id로 -->
+      <result property="nation" column="nation" />
+      <result property="nationPicture" column="nation_picture" />
+      <result property="address" column="address" />
+      <result property="infomation" column="infomation" />
+   </resultMap>
+   
+   <insert id="nationInsert">
+         INSERT INTO nationinfo(nation, nation_picture, address, infomation) VALUES(#{nation}, #{nationPicture}, #{address}, #{infomation})
+   </insert>
+   
+     <select id="nation" resultMap="nation">
+       SELECT * FROM nationinfo WHERE nation= #{nation}
+        </select>
+        
+       <update id="nationEdit">
+      UPDATE nationinfo SET nation_picture=#{nationPicture}, address=#{address}, infomation=#{infomation} WHERE nation=#{nation}
+   </update>
+   
+      <delete id="nationDelete">
+      DELETE FROM nationinfo WHERE nation=#{nation}
+   </delete>
+   
+</mapper>
+
+

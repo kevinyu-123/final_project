@@ -44,5 +44,4 @@ public class KakaoLoginController implements MemberSession {
       }
    
 
-         
 }

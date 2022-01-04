@@ -42,14 +42,10 @@ span {
 		</h1>
 		<c:forEach items="${member}" var="member">
 
-
 			<div id="div1">
 				<span>회원님의 아이디는 </span> <span><b> ${member.id} </b></span> <span>입니다.</span>
 			</div>
 		</c:forEach>
-
-
 	</div>
-
 </body>
 </html>

@@ -10,19 +10,19 @@ import com.dine.root.boardFree_reply.mapper.RepMapper;
 
 @Service
 public class RepServiceImpl implements RepService {
-   
-   @Autowired
-   RepMapper mapper;
+	
+	@Autowired
+	RepMapper mapper;
 
-   @Override
-   public void addRep(ReplyDTO dto) {
-      mapper.addRep(dto);
-      
-   }
+	@Override
+	public void addRep(ReplyDTO dto) {
+		mapper.addRep(dto);
+		
+	}
 
-   @Override
-   public List<ReplyDTO> getRepList(int post_group) {
-      
-      return mapper.getRepList(post_group);
-   }
+	@Override
+	public List<ReplyDTO> getRepList(int post_group) {
+		
+		return mapper.getRepList(post_group);
+	}
 }

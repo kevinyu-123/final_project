@@ -8,6 +8,6 @@ import com.dine.root.map.dto.MapDTO;
 
 @Mapper
 public interface MapMapper {
-   
-   public List<MapDTO> info(String nation);
+	
+	public List<MapDTO> info(String nation);
 }

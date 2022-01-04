@@ -2,14 +2,10 @@ package com.dine.root.rest.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dine.root.rest.service.restService;
-import com.dine.root.rest.service.restServiceImpl;
 
 @Controller
 public class restController {
@@ -25,14 +20,14 @@ public class restController {
 	@Qualifier("restServiceImpl")
 	@Autowired restService rs;
 	
-	@RequestMapping("v")
+	@RequestMapping("restaurant")
 	public String restDetail2(Model m, @RequestParam int id) {
-//		int id = 63;
 		rs.infoRest(m,id);
 		rs.infoMenu(m,id);
 		rs.infoReviews(m,id);
 		
-		return "/rest/val2";
+		return "/rest/rest_detail";
+
 	}
 	
 	@ResponseBody
@@ -43,6 +38,7 @@ public class restController {
 		System.out.println(idMap.toString());
 		rs.updateLiked(idMap);
 		map.put("result", "ok");
+		System.out.println("좋아요 컨트롤러");
 		return map;
 	}
 	@ResponseBody
@@ -51,7 +47,9 @@ public class restController {
 		HashMap<String,String> map = new HashMap<String, String>();
 		rs.updateUnLiked(idMap);
 		map.put("result", "no");
+		System.out.println("안좋아요 컨트롤러");
 		return map;
 	}
+	
 	
 }

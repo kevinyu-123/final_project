@@ -8,9 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>댓글 조회</title>
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -22,7 +20,6 @@ span {
 	margin: auto;
 	font-size: 30px;
 }
-
 button {
 	background-color: rgba(223, 209, 204);
 	border: none;
@@ -34,90 +31,73 @@ button {
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 }
-
 button:hover {
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
 		rgba(0, 0, 0, 0.19);
 }
-
 .likes, .board, .reply, .account {
 	font-size: 25px;
 	width: 300px;
 	height: 200px;
 }
-
 #navdiv {
 	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
 }
-
 #navdiv ul {
 	margin: 0;
 	padding: 0;
 	width: 200px;
 }
-
 #navdiv ul li {
 	list-style-type: none;
 }
-
 #navdiv li a {
 	font-size: 20px;
 	display: block;
 	padding: 8px 10px;
 	text-decoration: none;
 }
-
 #bigbox {
-	height: 650px;
+	height: 100%;
 	display: flex;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	width: 60%;
 	padding-top: 10px;
 }
-
 #right_box {
 	width: 20%;
 }
-
 table {
 	font-family: 'Gothic A1', sans-serif;
 	border-collapse: collapse;
 	width: 100%;
 }
-
 td, th {
 	border: 1px solid #dddddd;
 	text-align: center;
 	padding: 8px;
 }
-
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
-
 h2 {
 	text-align: center;
 }
-
 #rowsPerPage, #pageCount {
 	float: right;
 }
-
 #textbox {
 	width: 100px;
 	height: 20px;
 	letter-spacing: -5px"
 }
-
 h2 {
 	text-align: center;
 }
@@ -125,7 +105,6 @@ h2 {
 	font-size: 30px;
 	padding: 15px;
 }
-
 </style>
 <script type="text/javascript">
 	
@@ -167,16 +146,16 @@ h2 {
 							
 							<th width="70%;">댓글 내용</th>
 							<th>작성일</th>
-							<th>조회</th>
+							
 						</tr>
 						<c:choose>
 							<c:when test="${fn:length(replyInfo) != 0}">
 							<c:forEach var="reply" items="${replyInfo}">
 							
 								<tr>
-									<td><a href="#">${reply.content}</a></td>
+									<td><a href="${contextPath}/viewContent?board_no=${reply.post_group}">${reply.content}</a></td>
 									<td>${reply.reg_time}</td>
-									<td>${reply.views}</td>
+									
 								</tr>
 								
 								</c:forEach>

@@ -10,15 +10,17 @@
 <title>setNaverInfo</title>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Montserrat&family=Outfit:wght@100&display=swap" rel="stylesheet">
- 
+<link
+	href="https://fonts.googleapis.com/css2?family=Outfit:wght@100&display=swap"
+	rel="stylesheet">
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript">
-
 	function auth() {
 		var name = $("#nickname").val()
 		var email = $('#email').val()
@@ -26,7 +28,6 @@
 			name : name,
 			email : email
 		}
-
 		$.ajax({
 			url : "auth",
 			type : "post",
@@ -42,30 +43,24 @@
 			error : function() {
 				alert('이메일 인증코드발송에 실패하였습니다.')
 			}
-
 		})
 	}
-
 	function checkCode() {
-		var email_auth = $("#email_auth").val()
-
+		var emailCode = $("#email_auth").val()
 		$.ajax({
-			url : "checkVal/" + email_auth,
+			url : "checkVal/" + emailCode,
 			type : "post",
 			dataType : "json",
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				if (data == 1) {
 					$("#authCheck").html("인증되었습니다.")
-					
-		
 				}
 			},
 			error : function() {
 				$("#authCheck").html("다시 진행해주세요.")
 			}
 		})
-		
 	}
 	
 </script>
@@ -75,15 +70,12 @@
 	font-family: 'Outfit', sans-serif;
 	margin: auto;
 }
-
 #LoginWrap {
 	padding: 30px;
 }
-
 h1 {
 	font-family: 'Outfit', sans-serif;
 }
-
 input, button {
 	width: 100%;
 	padding: 12px 20px;
@@ -95,17 +87,15 @@ input, button {
 	transition: 0.2s;
 	outline: none;
 }
-
 input:focus {
 	border: 3px solid #555;
 }
-
 #authChk {
 	color: red;
 }
-
-
-
+<<<<<<< HEAD
+=======
+>>>>>>> b00c85860789fdfaa593fb869734aca3158fe7c0
 .email_chk {
 	color: #6A82FB;
 	display: none;
@@ -118,7 +108,6 @@ input:focus {
 <div class="w3-container w3-center w3-animate-opacity">
 
 	<form name="userRegisterForm" id="userRegisterForm" method="POST" action="naverRegister">
-
 		<input type="hidden" id="email" name="email" value="${email}" /> 
 		<input type="hidden" id="nickname" name="name" value="${nickname}" /> 
 		<input type="hidden" id="pwd" name="pwd" value="${id}">
@@ -126,15 +115,12 @@ input:focus {
 		<input type="hidden" id="naverlogin" name="naverlogin" value="${id}">
 		
 		<div id="LoginWrap">
-
 			<h1>Sign up</h1>
 		<table>
-		
 				<tr>
 					<th colspan="3">신규 가입 추가 정보 설정</th>
 				</tr>
 
-			<tbody>
 				<tr>
 					<td class="text">이메일 인증하기</td>
 				</tr>
@@ -155,16 +141,13 @@ input:focus {
 					<td><label id="authCheck"></label><br></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="가입">
-						</td>
+					<td><input type="submit" value="가입"></td>
 				</tr>
 			</tbody>
 		</table>
 		</div>
-	</form>
-	
-	
-	</div>
+	</form>	
+</div>
 	
 </body>
 </html>

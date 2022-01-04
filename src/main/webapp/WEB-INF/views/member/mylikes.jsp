@@ -21,84 +21,69 @@
 #bigbox {
 	height: 100%;
 }
-
 #profile {
 	text-align: center;
 	padding: 20px;
 	margin: auto;
 }
-
 #profile img {
 	width: 50px;
 	height: 50px;
 }
-
 span {
 	text-align: center;
 	margin: auto;
 	font-size: 30px;
 }
-
 #navdiv {
 	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
 }
-
 #navdiv ul {
 	margin: 0;
 	padding: 0;
 	width: 200px;
 }
-
 #navdiv ul li {
 	list-style-type: none;
 }
-
 #navdiv li a {
 	font-size: 20px;
 	display: block;
 	padding: 8px 10px;
 	text-decoration: none;
 }
-
 #navdiv li:hover {
 	
 }
-
 #flex {
 	margin-left: 300px;
 	margin-top: 50px;
 	display: flex;
 	position: relative;
 }
-
 .pagetitle {
 	font-size: 30px;
 	padding: 15px;
 }
-
 #bigbox {
 	height: 650px;
 	overflow: auto;
 	display: flex;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	width: 80%;
 	padding-top: 10px;
 }
-
 #review_box {
 	display: inline-block;
 	height: 100%;
 }
-
 #like {
 	display: inline-block;
 }
@@ -146,44 +131,28 @@ span {
 				</div>
 
 				<div id="review_box" style="width: 90%; position: relative;">
-
-					<c:forEach items="${likes}" var="likes">
-						<input type="hidden" id="like" value="${likes.liked_rest}">
-					</c:forEach>
-
-
-					<script>
-						var like = $('#like').val()
-						console.log(like)
-
-						var arr = like.split('/')
-						if(arr[0]==""){
-							document.write('<label> 좋아요 한 음식점이 없습니다. </label>');
-						}
-
-						for (var i = 0; i < arr.length - 1; i++) {
-							
-							document.write('<div id="like">');
-							document.write('<figure class="snip1132">');
-							document
-									.write('<img src="${contextPath}/resources/img/imgMain/sam.png"alt="sample22"/>');
-							document
-									.write('<figcaption><div class="heading"><span>'
-											+ arr[i] + '</span></div>');
-							document.write('<div class="caption"><p>' + arr[i]
-									+ '</p></div></figcaption>');
-
-							document.write('<a href="#"></a>');
-							document.write('</figure></div>');
-						}
-
-						console.log(arr)
-					</script>
-
+					<c:choose>
+						<c:when test="${fn:length(res_form) != 0}">
+							<c:forEach var="res" items="${res_form}">
+							<div>
+							<figure class="snip1132">
+							<img src="${contextPath}/resources/img/imgMain/${res.mainPic}"/>
+							<figcaption>
+							<div class="heading"><span>${res.name}</span></div>
+							</figcaption>
+							<a href="${contextPath}/restaurant?id=${res.id}"></a>
+							</figure>
+							</div>
+						</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<label> 좋아요 한 음식점이 없습니다. </label>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
-
+		
 		<footer>
 			<c:import url="../default/footer.jsp" />
 		</footer>

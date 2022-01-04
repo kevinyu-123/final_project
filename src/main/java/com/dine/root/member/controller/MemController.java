@@ -33,6 +33,7 @@ import com.dine.root.boardFree_reply.dto.ReplyDTO;
 import com.dine.root.common.session.MemberSession;
 import com.dine.root.member.dto.MemDTO;
 import com.dine.root.member.service.MemService;
+import com.dine.root.rest.dto.restDTO;
 
 @Controller
 public class MemController implements MemberSession {
@@ -180,7 +181,7 @@ public class MemController implements MemberSession {
 		return "member/register";
 	}
 
-	@RequestMapping(value = "/register", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/memRegister", method = { RequestMethod.GET, RequestMethod.POST })
 	public String register(MemDTO dto) {
 		int result = service.register(dto);
 		if (result == 1) {
@@ -333,11 +334,20 @@ public class MemController implements MemberSession {
 	@GetMapping("/likeList")
 	public String likeList(MemDTO dto, Model model, HttpSession session) {
 		String session_id = (String) session.getAttribute(LOGIN_ID);
-		ArrayList<MemDTO> list = new ArrayList<MemDTO>();
-		list= service.getLikes(session_id);
-		model.addAttribute("likes",list);
-		System.out.println(list);
-		
+		List<restDTO> rdto = new ArrayList<restDTO>();
+		dto = service.getLikes(session_id);
+		String liked_rest = dto.getLiked_rest();
+		if(liked_rest == null) {
+			model.addAttribute("form",dto);
+		}else {
+			String [] splitRest = liked_rest.split("/");
+			for(int i=0; i<splitRest.length;i++) {
+				rdto.add(service.getRest(splitRest[i]));
+				System.out.println(splitRest[i]);
+			}
+			model.addAttribute("res_form",rdto);
+		}
+		 	
 		return "member/mylikes";
 	}
 

@@ -14,7 +14,6 @@ body {
    margin: 0;
    padding: 0;
 }
-
 #map {
    position: absolute;
    top: 0;
@@ -29,7 +28,6 @@ body {
    position: fixed;
    width: 50%;
 }
-
 #features {
    width: 50%;
    margin-left: 50%;
@@ -37,7 +35,6 @@ body {
    overflow-y: scroll;
    background-color: #fafafa;
 }
-
 section {
    padding: 30px 50px;
    line-height: 25px;
@@ -45,11 +42,9 @@ section {
    opacity: 0.25;
    font-size: 13px;
 }
-
 section.active {
    opacity: 1;
 }
-
 section:last-child {
    border-bottom: thick;
    margin-bottom: 800px;
@@ -180,7 +175,7 @@ img{
            해산물을 이용한 전통 요리들은 일찍이 보르네오 섬에서 건너온 초기 개척자들, 즉 말레이 족의 음식에서 발생한 것으로 필리핀 요리 중에서 역사가 가장 오래 되었다.
           새우, 게, 굴, 생선, 가재 등을 이용한 기본적인 해산물 요리는 대부분 튀기거나 구워서 다양한 소스와 함께 먹는다. 붉은 색의 라푸라푸는 필리핀 사람들이 가장 즐겨먹는 생선이며, 
           다바오 지방의 이니호 나팡가 (구운 참치머리 요리)도 유명하다.
-         <small id="citation"><a href="${contextPath }/nation?nation=philippine">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=필리핀">더 보러가기</a></small></p>
       </section>
       <section id="Singapore">
          <h2><a name="singapore">싱가폴</a></h2>
@@ -197,7 +192,7 @@ img{
           예를 들어 튀긴 돼지고기 같은 전형적인 중국 요리에 코코넛 등의 열대과일이나 레몬풀과 향신료 등의 말레이식 재료를 섞는 것이다.<br>
           자극이 덜한 중국 음식에는 말레이시아의 매콤한 양념인 삼발이 첨가된다.
           또 말레이 요리에 면이나 숙주, 간장 등의 중국 재료를 첨가하는 식의 퓨전 푸드가 바로 독특한 페라나칸 요리다.
-         <small id="citation"><a href="${contextPath }/nation?nation=singapore">더 보러가기</a></small></p>
+         <small id="citation"><a href="${contextPath }/nation?nation=싱가폴">더 보러가기</a></small></p>
       </section>
    </div>
    <script>

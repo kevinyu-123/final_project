@@ -21,70 +21,57 @@
 #bigbox {
 	height: 100%;
 }
-
 #profile {
 	font-family: 'Gothic A1', sans-serif;
 	text-align: center;
 	padding: 20px;
 }
-
 #profile img {
 	width: 50px;
 	height: 50px;
 }
-
 #navdiv {
 	font-family: 'Montserrat', sans-serif;
 	position: fixed;
 	text-align: center;
 	list-style-type: none;
 }
-
 #navdiv ul {
 	margin: 0;
 	padding: 0;
 	width: 200px;
 }
-
 #navdiv ul li {
 	list-style-type: none;
 }
-
 #navdiv li a {
 	font-size: 20px;
 	display: block;
 	padding: 8px 10px;
 	text-decoration: none;
 }
-
 #navdiv li:hover {
 	
 }
-
 .pagetitle {
 	font-size: 30px;
 	padding: 15px;
 }
-
 #bigbox {
 	height: 650px;
 	display: flex;
 }
-
 #left_box {
 	width: 20%;
 }
-
 #mid_box {
 	width: 60%;
 	padding-top: 10px;
 }
-
 #fo {
 	font-family: 'Gothic A1', sans-serif;
 	margin-left: 30px;
 }
-
 #table input {
 	font-family: 'Outfit', sans-serif;
 	padding: 12px 20px;
@@ -97,7 +84,6 @@
 	outline: none;
 	width: 300px;
 }
-
 #table .btn {
 	font-family: 'Gothic A1', sans-serif;
 	width: 100%;
@@ -112,27 +98,20 @@
 	width: 70px;
 	margin-left: 10px;
 }
-
 #table input:focus {
 	border: 2px solid #555;
 }
-
 #table input:hover {
 	font-weight: bold;
 }
-
-
 #delBtn {
 	display: none;
 }
-
 </style>
 
 <script>
 	function updateName() {
-
 		var name = $("#name").val();
-
 		$.ajax({
 			url : "updateName/" + name,
 			type : "post",
@@ -148,13 +127,10 @@
 			error : function() {
 				alert("저장에 실패했습니다.")
 			}
-
 		});
-
 	};
 	function updatePwd() {
 		var pwd = $("#pwd").val();
-
 		$.ajax({
 			url : "updatePwd/" + pwd,
 			type : "post",
@@ -170,24 +146,18 @@
 			error : function() {
 				alert("저장에 실패했습니다.")
 			}
-
 		});
 	};
-
 	function deleteBtn() {
 		$('#deleteDiv').css("display", " inline-block");
 	}
-
 	function delete1() {
 		var pwd = $('#userPwd').val()
-
 		alert("정말 회원탈퇴 하시겠습니까?")
-
 		$.ajax({
 			url : "deleteMember/" + pwd,
 			type : "post",
 			dataType : "json",
-
 			contentType : "application/JSON; charset=utf-8",
 			success : function(result) {
 				if (result == 1) {
@@ -198,7 +168,6 @@
 			error : function() {
 				alert("탈퇴에 실패했습니다.")
 			}
-
 		})
 	}
 </script>

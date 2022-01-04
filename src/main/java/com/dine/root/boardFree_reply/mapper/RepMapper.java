@@ -6,10 +6,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.dine.root.boardFree_reply.dto.ReplyDTO;
 
-
 @Mapper
 public interface RepMapper {
-   public void addRep(ReplyDTO dto);
-   
-   public List<ReplyDTO> getRepList(int post_group);
+	
+	public void addRep(ReplyDTO dto);
+	
+	public List<ReplyDTO> getRepList(int post_group);
 }
