@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Parameters;*/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,8 +55,10 @@ public class NaverLoginController implements MemberSession {
 
 	// 로그인 첫 화면 요청 메소드
 	@RequestMapping(value = "/naverlogin", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login(Model model, HttpSession session) {
-
+	public String login(@CookieValue(value = "idCookie", required = false) Cookie idCookie, Model model, HttpSession session) {
+		if (idCookie != null) {
+			model.addAttribute("idVal", idCookie.getValue());
+		}
 		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 

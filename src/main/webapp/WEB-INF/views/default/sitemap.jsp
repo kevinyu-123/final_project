@@ -77,16 +77,16 @@
 								countries<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc" class="w3-hide w3-white w3-card-4">
-								<a href="${contextPath }/nation?nation=korea" class="w3-bar-item w3-button">대한민국</a> 
-								<a href="${contextPath }/nation?nation=singapore" class="w3-bar-item w3-button">싱가폴</a> 
-								<a href="${contextPath }/nation?nation=taiwan" class="w3-bar-item w3-button">대만</a> 
-								<a href="${contextPath }/nation?nation=mongol" class="w3-bar-item w3-button">몽골</a> 
-								<a href="${contextPath }/nation?nation=japan" class="w3-bar-item w3-button">일본</a> 
-								<a href="${contextPath }/nation?nation=philliphine" class="w3-bar-item w3-button">필리핀</a> 
-								<a href="${contextPath }/nation?nation=vietnam" class="w3-bar-item w3-button">베트남</a> 
-								 <a href="${contextPath }/nation?nation=laos" class="w3-bar-item w3-button">라오스</a>
-								 <a href="${contextPath }/nation?nation=hongkong" class="w3-bar-item w3-button">홍콩</a>
-								 <a href="${contextPath }/nation?nation=thailand" class="w3-bar-item w3-button">태국</a>
+								<a href="${contextPath }/nation?nation=대한민국" class="w3-bar-item w3-button">대한민국</a> 
+								<a href="${contextPath }/nation?nation=싱가폴" class="w3-bar-item w3-button">싱가폴</a> 
+								<a href="${contextPath }/nation?nation=대만" class="w3-bar-item w3-button">대만</a> 
+								<a href="${contextPath }/nation?nation=몽골" class="w3-bar-item w3-button">몽골</a> 
+								<a href="${contextPath }/nation?nation=일본" class="w3-bar-item w3-button">일본</a> 
+								<a href="${contextPath }/nation?nation=필리핀" class="w3-bar-item w3-button">필리핀</a> 
+								<a href="${contextPath }/nation?nation=베트남" class="w3-bar-item w3-button">베트남</a> 
+								 <a href="${contextPath }/nation?nation=라오스" class="w3-bar-item w3-button">라오스</a>
+								 <a href="${contextPath }/nation?nation=홍콩" class="w3-bar-item w3-button">홍콩</a>
+								 <a href="${contextPath }/nation?nation=태국" class="w3-bar-item w3-button">태국</a>
 							</div>
 						</div>
 					</div>
@@ -100,13 +100,15 @@
 								음식점위치<i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc2" class="w3-hide w3-white w3-card-4">
-								<a href="${contextPath }" class="w3-bar-item w3-button">서울</a> 
-								<a href="#" class="w3-bar-item w3-button">대전</a> 
-								<a href="#" class="w3-bar-item w3-button">대구</a> 
-								<a href="#" class="w3-bar-item w3-button">부산</a> 
-								<a href="#" class="w3-bar-item w3-button">광주</a>
-								 <a href="#" class="w3-bar-item w3-button">울산</a>
-								 <a href="#" class="w3-bar-item w3-button">기타</a>
+								<a href="${contextPath }/search_result?keyword=서울" class="w3-bar-item w3-button">서울</a> 
+								<a href="${contextPath }/search_result?keyword=경기도" class="w3-bar-item w3-button">경기도</a> 
+								<a href="${contextPath }/search_result?keyword=대구" class="w3-bar-item w3-button">대구</a> 
+								<a href="${contextPath }/search_result?keyword=부산" class="w3-bar-item w3-button">부산</a> 
+								<a href="${contextPath }/search_result?keyword=광주" class="w3-bar-item w3-button">광주</a>
+								<a href="${contextPath }/search_result?keyword=울산" class="w3-bar-item w3-button">울산</a>
+								<a href="${contextPath }/search_result?keyword=제주도" class="w3-bar-item w3-button">제주도</a>
+								<a href="${contextPath }/search_result?keyword=전라도" class="w3-bar-item w3-button">전라도</a>
+								<a href="${contextPath }/search_result?keyword=기타" class="w3-bar-item w3-button">기타</a>
 							</div>
 
 						</div>
@@ -122,13 +124,13 @@
 								메인종류 <i class="fa fa-caret-down"></i>
 							</div>
 							<div id="demoAcc3" class="w3-hide w3-white w3-card-4">
-								<a href="#" class="w3-bar-item w3-button">밥요리</a> <a href="#"
-									class="w3-bar-item w3-button">면요리</a> <a href="#"
-									class="w3-bar-item w3-button">음료및디저트</a> <a href="#"
-									class="w3-bar-item w3-button">구이</a> <a href="#"
-									class="w3-bar-item w3-button">국물요리</a> <a href="#"
-									class="w3-bar-item w3-button">찜요리</a>
-									 <a href="#" class="w3-bar-item w3-button">기타</a>
+								<a href="${contextPath }/search_result?keyword=밥요리" class="w3-bar-item w3-button">밥요리</a> 
+								<a href="${contextPath }/search_result?keyword=면요리" class="w3-bar-item w3-button">면요리</a> 
+								<a href="${contextPath }/search_result?keyword=음료 및 디저트" class="w3-bar-item w3-button">음료및디저트</a> 
+								<a href="${contextPath }/search_result?keyword=구이" class="w3-bar-item w3-button">구이</a> 
+								<a href="${contextPath }/search_result?keyword=국물요리" class="w3-bar-item w3-button">국물요리</a> 
+								<a href="${contextPath }/search_result?keyword=찜요리" class="w3-bar-item w3-button">찜요리</a>
+								<a href="${contextPath }/search_result?keyword=기타" class="w3-bar-item w3-button">기타</a>
 							</div>
 						</div>
 					</div>

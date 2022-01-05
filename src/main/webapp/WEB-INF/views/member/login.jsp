@@ -154,36 +154,53 @@ a:hover {
             style="font-family: 'Outfit', sans-serif;">Sign Up</a>
 
          <form action="loginChk" method="post">
-
-            <table>
-
-               <tr>
-                  <td><input type="text" name="id" placeholder="id"></td>
-               </tr>
-               <tr>
+		<table>
+			<c:choose>
+				<c:when test="${idVal ne null}">
+				<tr>
+                  <td><input type="text" name="id" value="${idVal}"></td>
+                <tr>
                   <td><input type="password" name="pwd" placeholder="password"><br></td>
                </tr>
                <tr>
-                  <td><input type="checkbox" name="saveId"
-                     style="font-family: 'Gothic A1', sans-serif;"> 아이디 저장 <input
-                     type="checkbox" name="autoLogin"
-                     style="font-family: 'Gothic A1', sans-serif;"> 로그인 유지</td>
+                  <td>
+                  	<input type="checkbox" name="saveId" style="font-family: 'Gothic A1', sans-serif;" checked > 아이디 저장 
+                  	<input type="checkbox" name="autoLogin" style="font-family: 'Gothic A1', sans-serif;"> 로그인 유지
+                  </td>
+               </tr>
+				</c:when>
+				<c:otherwise>
+					<tr>
+                  		<td><input type="text" name="id" placeholder="id"></td>
+                	</tr>
+                	<tr>
+                  		<td><input type="password" name="pwd" placeholder="password"><br></td>
+              		 </tr>
+               		<tr>
+                  		<td>
+                  			<input type="checkbox" name="saveId" style="font-family: 'Gothic A1', sans-serif;"> 아이디 저장 
+                 	 		<input type="checkbox" name="autoLogin" style="font-family: 'Gothic A1', sans-serif;"> 로그인 유지
+                  		</td>
+               		</tr>
+				</c:otherwise>
+			</c:choose>
+               <tr>
+                  <td>
+                  	<div id="test2">
+                        <input type="submit" style="font-family: 'Gothic A1', sans-serif; width: 240px;" value="로그인">
+                   </div>
+                   </td>
                </tr>
                <tr>
-                  <td><div id="test2">
-                        <input type="submit"
-                           style="font-family: 'Gothic A1', sans-serif; width: 240px;"
-                           value="로그인">
-                     </div></td>
+                  <td>
+                  	<label id="check" style="font-family: 'Gothic A1', sans-serif;">아이디 또는 비밀번호가 틀렸습니다.</label>
+                  </td>
                </tr>
                <tr>
-                  <td><label id="check"
-                     style="font-family: 'Gothic A1', sans-serif;">아이디 또는
-                        비밀번호가 틀렸습니다.</label></td>
-               </tr>
-               <tr>
-                  <td><a href="javascript:findIdView()"  style="text-decoration: none">아이디찾기</a>
-                     / <a href="javascript:findPwdView()" style="text-decoration: none">비밀번호찾기</a></td>
+                  <td>
+						<a href="javascript:findIdView()"  style="text-decoration: none">아이디찾기</a>
+                     /  <a href="javascript:findPwdView()" style="text-decoration: none">비밀번호찾기</a>
+                  </td>
                </tr>
                <tr>
                   <td><div id="or">
@@ -192,12 +209,12 @@ a:hover {
                </tr>
 
                <tr>
-                  <td><a href="javascript:kakaoLogin()"><img
-                        src="${contextPath}/resources/img/imgMain/kakao_login_medium_narrow.png"></a>
+                  <td>
+                 	<a href="javascript:kakaoLogin()">
+                  		<img src="${contextPath}/resources/img/imgMain/kakao_login_medium_narrow.png">
+                 	 </a>
                   </td>
                </tr>
-
-
                <tr>
                   <td>
                      <div id="naver_id_login" style="text-align: center">
@@ -210,7 +227,7 @@ a:hover {
             </table>
          </form>
 
-         <form name="kakaoForm" id="kakaoForm" method="post" action="/setKakaoInfo">
+         <form name="kakaoForm" id="kakaoForm" method="post" action="${contextPath}/setKakaoInfo">
             <input type="hidden" name="email" id="kakaoEmail" /> 
             <input type="hidden" name="id" id="kakaoId" />
             <input type="hidden" name="name" id="kakaoNickname" />
